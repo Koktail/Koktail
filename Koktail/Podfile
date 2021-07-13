@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Koktail' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'SwiftLint'
+  pod 'Carte'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Then'  
+  pod 'SnapKit'
+
+  # Pods for Koktail
+end
+
+post_install do |installer|
+  pods_dir = File.dirname(installer.pods_project.path)
+  at_exit { `ruby #{pods_dir}/Carte/Sources/Carte/carte.rb configure` }
+end

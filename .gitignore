@@ -1,0 +1,25 @@
+## User settings
+xcuserdata/
+
+ ## App packaging
+ *.ipa
+ *.dSYM.zip
+ *.dSYM
+
+.build/
+
+# CocoaPods
+Pods/
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+iOSInjectionProject/
+.DS_Store

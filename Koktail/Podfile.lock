@@ -1,0 +1,42 @@
+PODS:
+  - Carte (2.2.1)
+  - RxCocoa (6.1.0):
+    - RxRelay (= 6.1.0)
+    - RxSwift (= 6.1.0)
+  - RxRelay (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxSwift (6.1.0)
+  - SnapKit (5.0.1)
+  - SwiftLint (0.43.1)
+  - Then (2.7.0)
+
+DEPENDENCIES:
+  - Carte
+  - RxCocoa
+  - RxSwift
+  - SnapKit
+  - SwiftLint
+  - Then
+
+SPEC REPOS:
+  trunk:
+    - Carte
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - SwiftLint
+    - Then
+
+SPEC CHECKSUMS:
+  Carte: 6bcff4eaa894ff5b979d646de833fec96e04a38c
+  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  Then: acfe0be7e98221c6204e12f8161459606d5d822d
+
+PODFILE CHECKSUM: d42f0d5d586d074041b031177b99f623a4c2f6d7
+
+COCOAPODS: 1.10.0
