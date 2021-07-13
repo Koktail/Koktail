@@ -13,6 +13,15 @@ target 'Koktail' do
   pod 'SnapKit'
 
   # Pods for Koktail
+  pod 'TextFieldEffects'
+ 
+  # Pods Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/RemoteConfig'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+
 end
 
 post_install do |installer|
