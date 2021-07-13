@@ -75,6 +75,17 @@
             <point key="canvasLocation" x="140.57971014492756" y="112.5"/>
         </view>
     </objects>
+    <designables>
+        <designable name="16x-B4-teY">
+            <size key="intrinsicContentSize" width="48.5" height="23.5"/>
+        </designable>
+        <designable name="3Gm-Hf-BDX">
+            <size key="intrinsicContentSize" width="121" height="23.5"/>
+        </designable>
+        <designable name="rar-wU-7bf">
+            <size key="intrinsicContentSize" width="76.5" height="23.5"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

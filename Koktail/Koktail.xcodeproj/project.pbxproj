@@ -40,10 +40,10 @@
 		9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5919269D87780077CD59 /* Extension+UIColor.swift */; };
 		9FAB591C269D87DD0077CD59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB591B269D87DD0077CD59 /* GoogleService-Info.plist */; };
 		9FAB591E269D87E80077CD59 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB591D269D87E80077CD59 /* RemoteConfigDefaults.plist */; };
-		9FAB5921269D88310077CD59 /* LoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB591F269D88310077CD59 /* LoginPageViewController.xib */; };
-		9FAB5922269D88310077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB5920269D88310077CD59 /* SignUpViewController.xib */; };
 		9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5923269D88570077CD59 /* LoginPageViewController.swift */; };
 		9FAB5926269D88610077CD59 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5925269D88610077CD59 /* SignUpViewController.swift */; };
+		9FAB592D269DC11D0077CD59 /* LoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */; };
+		9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,10 +82,10 @@
 		9FAB5919269D87780077CD59 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		9FAB591B269D87DD0077CD59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9FAB591D269D87E80077CD59 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
-		9FAB591F269D88310077CD59 /* LoginPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginPageViewController.xib; path = ../../../../../../../Desktop/Project/Koktail/Koktail/Koktail/View/Login/LoginPageViewController.xib; sourceTree = "<group>"; };
-		9FAB5920269D88310077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = ../../../../../../../Desktop/Project/Koktail/Koktail/Koktail/View/Login/SignUpViewController.xib; sourceTree = "<group>"; };
 		9FAB5923269D88570077CD59 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		9FAB5925269D88610077CD59 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginPageViewController.xib; sourceTree = "<group>"; };
+		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		AB15AF38B808714D18519FD8 /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
 		DB04BA141D250C10F1D4A200 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,8 +242,8 @@
 		02E43C172687022E009B15CD /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9FAB591F269D88310077CD59 /* LoginPageViewController.xib */,
-				9FAB5920269D88310077CD59 /* SignUpViewController.xib */,
+				9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */,
+				9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */,
 				02454FF626860DA300558D3C /* Main.storyboard */,
 			);
 			path = Login;
@@ -428,12 +428,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0250C58A269062E30076A273 /* FavoriteCocktailViewController.xib in Resources */,
-				9FAB5921269D88310077CD59 /* LoginPageViewController.xib in Resources */,
+				9FAB592D269DC11D0077CD59 /* LoginPageViewController.xib in Resources */,
 				02454FFA26860DA400558D3C /* Assets.xcassets in Resources */,
 				02454FF826860DA300558D3C /* Main.storyboard in Resources */,
 				0250C4C62690501F0076A273 /* OpenSourceTableViewCell.xib in Resources */,
 				02E43C2826870305009B15CD /* FavoriteViewController.xib in Resources */,
-				9FAB5922269D88310077CD59 /* SignUpViewController.xib in Resources */,
+				9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */,
 				023BEBF4268B731A00D352A8 /* .swiftlint.yml in Resources */,
 				9FAB591E269D87E80077CD59 /* RemoteConfigDefaults.plist in Resources */,
 				02E43C1C26870270009B15CD /* HomeViewController.xib in Resources */,
