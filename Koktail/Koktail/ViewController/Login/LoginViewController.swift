@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        try? Auth.auth().signOut()
+        
         initRemoteConfig()
         displayLogoImage()
         

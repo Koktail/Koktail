@@ -220,9 +220,9 @@
 		02E43C13268701CC009B15CD /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				02E43C3126870574009B15CD /* LoginViewController.swift */,
 				9FAB5925269D88610077CD59 /* SignUpViewController.swift */,
 				9FAB5923269D88570077CD59 /* LoginPageViewController.swift */,
-				02E43C3126870574009B15CD /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
