@@ -28,13 +28,13 @@
                     <rect key="frame" x="107" y="164" width="200" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HXW-fK-bbj" customClass="HoshiTextField" customModule="TextFieldEffects">
+                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HXW-fK-bbj" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                     <rect key="frame" x="20" y="390" width="374" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZF-4v-mp1" customClass="HoshiTextField" customModule="TextFieldEffects">
+                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZF-4v-mp1" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                     <rect key="frame" x="20" y="440" width="374" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -102,10 +102,10 @@
     </objects>
     <designables>
         <designable name="0ZF-4v-mp1">
-            <size key="intrinsicContentSize" width="76.5" height="22"/>
+            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
         </designable>
         <designable name="HXW-fK-bbj">
-            <size key="intrinsicContentSize" width="48.5" height="23.5"/>
+            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
         </designable>
     </designables>
     <resources>

@@ -6,15 +6,15 @@
 //
 
 import UIKit
-import TextFieldEffects
+import SkyFloatingLabelTextField
 import Firebase
 
 class LoginPageViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var emailTextField: HoshiTextField!
-    @IBOutlet weak var passwordTextField: HoshiTextField!
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var kakaoLoginImageView: UIImageView!
@@ -30,35 +30,8 @@ class LoginPageViewController: UIViewController {
     @IBAction func touchUpSignUpButton(_ sender: UIButton) {
         self.present(SignUpViewController(), animated: true, completion: nil)
     }
-
-    // MARK: - Override Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        initProperties()
-        
-        loginButton.addTarget(self, action: #selector(loginEvent), for: .touchUpInside)
-    }
     
-    // MARK: - Custom Methods
-    func initProperties() {
-        color = remoteConfig["splash_background"].stringValue
-        
-        // 오토레이아웃, 모양 및 이미지, 색 지정
-        logoImageView.contentMode = .scaleAspectFit
-        logoImageView.image = #imageLiteral(resourceName: "cocktail")
-
-        emailTextField.borderInactiveColor = UIColor(hex: color)
-        passwordTextField.borderInactiveColor = UIColor(hex: color)
-        
-        loginButton.layer.cornerRadius = 5
-        loginButton.backgroundColor = UIColor(hex: color)
-        loginButton.tintColor = .white
-        
-        kakaoLoginImageView.image = #imageLiteral(resourceName: "loginLogo_kakao")
-        appleLoginImageView.image = #imageLiteral(resourceName: "loginLogo_apple")
-    }
-
+    // MARK: - Actions
     @objc func loginEvent() {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             return
@@ -81,6 +54,46 @@ class LoginPageViewController: UIViewController {
                 self.view.window?.switchRootViewController(self.tabBarViewController)
             }
         }
+    }
+
+    // MARK: - Override Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        initProperties()
+        
+        loginButton.addTarget(self, action: #selector(loginEvent), for: .touchUpInside)
+    }
+    
+    // MARK: - Custom Methods
+    func initProperties() {
+        color = remoteConfig["splash_background"].stringValue
+        
+        // 오토레이아웃, 모양 및 이미지, 색 지정
+        logoImageView.contentMode = .scaleAspectFit
+        logoImageView.image = #imageLiteral(resourceName: "cocktail")
+        
+        setTextFieldLayout(textField: emailTextField, title: "Email")
+        setTextFieldLayout(textField: passwordTextField, title: "Password")
+        
+        loginButton.layer.cornerRadius = 5
+        loginButton.backgroundColor = UIColor(hex: color)
+        loginButton.tintColor = .white
+        
+        kakaoLoginImageView.image = #imageLiteral(resourceName: "loginLogo_kakao")
+        appleLoginImageView.image = #imageLiteral(resourceName: "loginLogo_apple")
+    }
+    
+    func setTextFieldLayout(textField: SkyFloatingLabelTextField, title: String) {
+        textField.title = title
+        
+        textField.lineColor = .lightGray
+        textField.tintColor = .systemBlue
+        textField.selectedTitleColor = .systemBlue
+        textField.selectedLineColor = .systemBlue
+        
+        textField.lineHeight = 1.0
+        textField.selectedLineHeight = 2.0
     }
     
 }
