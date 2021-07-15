@@ -20,6 +20,8 @@ class LoginPageViewController: UIViewController {
     @IBOutlet weak var kakaoLoginImageView: UIImageView!
     @IBOutlet weak var appleLoginImageView: UIImageView!
     
+    @IBOutlet weak var forgotPassword: UIButton!
+    
     // firebase
     let remoteConfig = RemoteConfig.remoteConfig()
     var color: String!

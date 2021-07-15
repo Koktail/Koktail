@@ -92,11 +92,20 @@ class LoginViewController: UIViewController {
     }
     
     func decideNextView() {
-        if Auth.auth().currentUser != nil {
+        if isUserLoggedIn() {
             self.view.window?.switchRootViewController(self.tabBarViewController)
         } else {
             print("no user")
             self.view.window?.switchRootViewController(self.loginPageViewController)
+        }
+    }
+    
+    func isUserLoggedIn() -> Bool {
+        if Auth.auth().currentUser != nil {
+            return true
+        }
+        else {
+            return false
         }
     }
 }

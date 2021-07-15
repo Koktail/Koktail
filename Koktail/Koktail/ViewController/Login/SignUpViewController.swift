@@ -43,11 +43,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 guard let user = authResult?.user, error == nil else {
                     print("cannot create user")
-                    print(error!.localizedDescription)
                     
                     let alert = UIAlertController(title: "실패",
                                                   message: "회원가입을 할 수 없습니다.",
                                                   preferredStyle: .alert)
+                    
+                    if let err = error as NSError? {
+                        if AuthErrorCode(rawValue: err.code) == .emailAlreadyInUse {
+                            alert.message = "이미 존재하는 이메일입니다."
+                        }
+                    }
+                    
                     alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
@@ -70,6 +76,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
                 
                 // 데이터베이스 설게 후 Database로 정보 저장
+                // 데이터베이스 설계 후 이미 존재하는 아이디인지 확인
         }
     }
 }
