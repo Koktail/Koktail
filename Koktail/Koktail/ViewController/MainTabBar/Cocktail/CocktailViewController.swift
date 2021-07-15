@@ -79,5 +79,4 @@ extension CocktailViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
 }
