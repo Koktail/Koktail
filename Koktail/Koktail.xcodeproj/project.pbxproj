@@ -37,6 +37,10 @@
 		02E43C3226870574009B15CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C3126870574009B15CD /* LoginViewController.swift */; };
 		02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C352687066E009B15CD /* Extension+UIWindow.swift */; };
 		71D65DE96213D937B58B8F17 /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1201EC11E9D29496FF9E12 /* Pods_Koktail.framework */; };
+		C498A614269FC3F400AE65E0 /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C498A612269FC3F400AE65E0 /* PreviewCollectionViewCell.swift */; };
+		C498A615269FC3F400AE65E0 /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C498A613269FC3F400AE65E0 /* PreviewCollectionViewCell.xib */; };
+		C4BCCE31269D87E1003A9993 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BCCE2F269D87E1003A9993 /* CategoryTableViewCell.swift */; };
+		C4BCCE32269D87E1003A9993 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BCCE30269D87E1003A9993 /* CategoryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +77,10 @@
 		02E43C352687066E009B15CD /* Extension+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIWindow.swift"; sourceTree = "<group>"; };
 		2B1201EC11E9D29496FF9E12 /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB15AF38B808714D18519FD8 /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
+		C498A612269FC3F400AE65E0 /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		C498A613269FC3F400AE65E0 /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
+		C4BCCE2F269D87E1003A9993 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		C4BCCE30269D87E1003A9993 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		DB04BA141D250C10F1D4A200 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,6 +279,8 @@
 			isa = PBXGroup;
 			children = (
 				02E43C21268702A1009B15CD /* CocktailViewController.swift */,
+				C4BCCE2F269D87E1003A9993 /* CategoryTableViewCell.swift */,
+				C498A612269FC3F400AE65E0 /* PreviewCollectionViewCell.swift */,
 			);
 			path = Cocktail;
 			sourceTree = "<group>";
@@ -297,6 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				02E43C22268702A1009B15CD /* CocktailViewController.xib */,
+				C4BCCE30269D87E1003A9993 /* CategoryTableViewCell.xib */,
+				C498A613269FC3F400AE65E0 /* PreviewCollectionViewCell.xib */,
 			);
 			path = Cocktail;
 			sourceTree = "<group>";
@@ -407,10 +419,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0250C58A269062E30076A273 /* FavoriteCocktailViewController.xib in Resources */,
+				C4BCCE32269D87E1003A9993 /* CategoryTableViewCell.xib in Resources */,
 				02454FFA26860DA400558D3C /* Assets.xcassets in Resources */,
 				02454FF826860DA300558D3C /* Main.storyboard in Resources */,
 				0250C4C62690501F0076A273 /* OpenSourceTableViewCell.xib in Resources */,
 				02E43C2826870305009B15CD /* FavoriteViewController.xib in Resources */,
+				C498A615269FC3F400AE65E0 /* PreviewCollectionViewCell.xib in Resources */,
 				023BEBF4268B731A00D352A8 /* .swiftlint.yml in Resources */,
 				02E43C1C26870270009B15CD /* HomeViewController.xib in Resources */,
 				0250C4CA269053D60076A273 /* VersionTableViewCell.xib in Resources */,
@@ -529,6 +543,7 @@
 				02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */,
 				026397292693277100D57975 /* UtilFunction.swift in Sources */,
 				02E43C3226870574009B15CD /* LoginViewController.swift in Sources */,
+				C498A614269FC3F400AE65E0 /* PreviewCollectionViewCell.swift in Sources */,
 				02E43C1B26870270009B15CD /* HomeViewController.swift in Sources */,
 				0250C4C52690501F0076A273 /* OpenSourceTableViewCell.swift in Sources */,
 				02E43C1F2687028D009B15CD /* MapViewController.swift in Sources */,
@@ -542,6 +557,7 @@
 				0250C589269062E30076A273 /* FavoriteCocktailViewController.swift in Sources */,
 				0250C5BB2690666F0076A273 /* FavoriteStoreViewController.swift in Sources */,
 				02454FF326860DA300558D3C /* SceneDelegate.swift in Sources */,
+				C4BCCE31269D87E1003A9993 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +700,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFAFLC3XW8;
 				INFOPLIST_FILE = Koktail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -704,6 +721,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFAFLC3XW8;
 				INFOPLIST_FILE = Koktail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
