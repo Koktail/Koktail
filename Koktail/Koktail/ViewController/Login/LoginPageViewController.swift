@@ -39,17 +39,9 @@ class LoginPageViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) { _, error in
             if error != nil {
-                let alert = UIAlertController(title: "Error",
-                                              message: "아이디/비밀번호를 확인해주세요.",
-                                              preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-                
-                self.present(alert, animated: true, completion: nil)
+                self.displayLoginOrSignUpFormatAlert()
                 
                 self.emailTextField.text = nil
-                self.passwordTextField.text = nil
-                // 커서 없애는 방법?
             } else {
                 self.view.window?.switchRootViewController(self.tabBarViewController)
             }
@@ -84,16 +76,27 @@ class LoginPageViewController: UIViewController {
         appleLoginImageView.image = #imageLiteral(resourceName: "loginLogo_apple")
     }
     
-    func setTextFieldLayout(textField: SkyFloatingLabelTextField, title: String) {
+    func setTextFieldLayout(textField: SkyFloatingLabelTextField, title: String, color: String = "system") {
         textField.title = title
         
         textField.lineColor = .lightGray
-        textField.tintColor = .systemBlue
-        textField.selectedTitleColor = .systemBlue
-        textField.selectedLineColor = .systemBlue
         
+        if color != "system" {
+            textField.tintColor = UIColor(hex: color)
+            textField.selectedTitleColor = UIColor(hex: color)
+            textField.selectedLineColor = UIColor(hex: color)
+        }
+        
+        textField.errorColor = .red
+
         textField.lineHeight = 1.0
         textField.selectedLineHeight = 2.0
     }
     
+    func displayLoginOrSignUpFormatAlert() {
+        let alert = UIAlertController(title: "실패", message: "이메일/비밀번호를 확인해주세요", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
