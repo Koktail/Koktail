@@ -37,6 +37,7 @@
 		02E43C3226870574009B15CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C3126870574009B15CD /* LoginViewController.swift */; };
 		02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C352687066E009B15CD /* Extension+UIWindow.swift */; };
 		71D65DE96213D937B58B8F17 /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1201EC11E9D29496FF9E12 /* Pods_Koktail.framework */; };
+<<<<<<< Updated upstream
 		9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5919269D87780077CD59 /* Extension+UIColor.swift */; };
 		9FAB591C269D87DD0077CD59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB591B269D87DD0077CD59 /* GoogleService-Info.plist */; };
 		9FAB591E269D87E80077CD59 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB591D269D87E80077CD59 /* RemoteConfigDefaults.plist */; };
@@ -44,6 +45,15 @@
 		9FAB5922269D88310077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB5920269D88310077CD59 /* SignUpViewController.xib */; };
 		9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5923269D88570077CD59 /* LoginPageViewController.swift */; };
 		9FAB5926269D88610077CD59 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5925269D88610077CD59 /* SignUpViewController.swift */; };
+=======
+		D6A5A60E269D87CB007F19DC /* CocktailCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A5A60A269D87CB007F19DC /* CocktailCollectionViewController.xib */; };
+		D6A5A610269D87CB007F19DC /* CocktailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A5A60C269D87CB007F19DC /* CocktailCollectionViewCell.xib */; };
+		D6A5A611269D87CB007F19DC /* AlcoholVolumeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A5A60D269D87CB007F19DC /* AlcoholVolumeViewController.xib */; };
+		D6A5A616269D88D4007F19DC /* AlcoholVolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5A612269D88D4007F19DC /* AlcoholVolumeViewController.swift */; };
+		D6A5A617269D88D4007F19DC /* CocktailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5A613269D88D4007F19DC /* CocktailCollectionView.swift */; };
+		D6A5A618269D88D4007F19DC /* CocktailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5A614269D88D4007F19DC /* CocktailCollectionViewController.swift */; };
+		D6A5A619269D88D4007F19DC /* CocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5A615269D88D4007F19DC /* CocktailCollectionViewCell.swift */; };
+>>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +97,13 @@
 		9FAB5923269D88570077CD59 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		9FAB5925269D88610077CD59 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AB15AF38B808714D18519FD8 /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
+		D6A5A60A269D87CB007F19DC /* CocktailCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CocktailCollectionViewController.xib; sourceTree = "<group>"; };
+		D6A5A60C269D87CB007F19DC /* CocktailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CocktailCollectionViewCell.xib; sourceTree = "<group>"; };
+		D6A5A60D269D87CB007F19DC /* AlcoholVolumeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlcoholVolumeViewController.xib; sourceTree = "<group>"; };
+		D6A5A612269D88D4007F19DC /* AlcoholVolumeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlcoholVolumeViewController.swift; sourceTree = "<group>"; };
+		D6A5A613269D88D4007F19DC /* CocktailCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCollectionView.swift; sourceTree = "<group>"; };
+		D6A5A614269D88D4007F19DC /* CocktailCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCollectionViewController.swift; sourceTree = "<group>"; };
+		D6A5A615269D88D4007F19DC /* CocktailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB04BA141D250C10F1D4A200 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +281,10 @@
 			isa = PBXGroup;
 			children = (
 				02E43C1926870270009B15CD /* HomeViewController.swift */,
+				D6A5A612269D88D4007F19DC /* AlcoholVolumeViewController.swift */,
+				D6A5A613269D88D4007F19DC /* CocktailCollectionView.swift */,
+				D6A5A615269D88D4007F19DC /* CocktailCollectionViewCell.swift */,
+				D6A5A614269D88D4007F19DC /* CocktailCollectionViewController.swift */,
 				0250C48F26904C5F0076A273 /* Setting */,
 			);
 			path = Home;
@@ -325,6 +346,9 @@
 			isa = PBXGroup;
 			children = (
 				02E43C1A26870270009B15CD /* HomeViewController.xib */,
+				D6A5A60D269D87CB007F19DC /* AlcoholVolumeViewController.xib */,
+				D6A5A60C269D87CB007F19DC /* CocktailCollectionViewCell.xib */,
+				D6A5A60A269D87CB007F19DC /* CocktailCollectionViewController.xib */,
 				0250C49026904C670076A273 /* Setting */,
 			);
 			path = Home;
@@ -427,6 +451,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A5A611269D87CB007F19DC /* AlcoholVolumeViewController.xib in Resources */,
+				D6A5A610269D87CB007F19DC /* CocktailCollectionViewCell.xib in Resources */,
 				0250C58A269062E30076A273 /* FavoriteCocktailViewController.xib in Resources */,
 				9FAB5921269D88310077CD59 /* LoginPageViewController.xib in Resources */,
 				02454FFA26860DA400558D3C /* Assets.xcassets in Resources */,
@@ -438,6 +464,7 @@
 				9FAB591E269D87E80077CD59 /* RemoteConfigDefaults.plist in Resources */,
 				02E43C1C26870270009B15CD /* HomeViewController.xib in Resources */,
 				0250C4CA269053D60076A273 /* VersionTableViewCell.xib in Resources */,
+				D6A5A60E269D87CB007F19DC /* CocktailCollectionViewController.xib in Resources */,
 				02E43C24268702A1009B15CD /* CocktailViewController.xib in Resources */,
 				0250C4FC269056B40076A273 /* LogOutTableViewCell.xib in Resources */,
 				02E43C202687028D009B15CD /* MapViewController.xib in Resources */,
@@ -551,10 +578,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A5A617269D88D4007F19DC /* CocktailCollectionView.swift in Sources */,
 				02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */,
 				026397292693277100D57975 /* UtilFunction.swift in Sources */,
 				02E43C3226870574009B15CD /* LoginViewController.swift in Sources */,
+<<<<<<< Updated upstream
 				9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */,
+=======
+				D6A5A618269D88D4007F19DC /* CocktailCollectionViewController.swift in Sources */,
+>>>>>>> Stashed changes
 				02E43C1B26870270009B15CD /* HomeViewController.swift in Sources */,
 				0250C4C52690501F0076A273 /* OpenSourceTableViewCell.swift in Sources */,
 				02E43C1F2687028D009B15CD /* MapViewController.swift in Sources */,
@@ -563,6 +595,8 @@
 				02454FF126860DA300558D3C /* AppDelegate.swift in Sources */,
 				0250C49326904C800076A273 /* SettingViewController.swift in Sources */,
 				02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */,
+				D6A5A619269D88D4007F19DC /* CocktailCollectionViewCell.swift in Sources */,
+				D6A5A616269D88D4007F19DC /* AlcoholVolumeViewController.swift in Sources */,
 				02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */,
 				9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */,
 				02E43C2726870305009B15CD /* FavoriteViewController.swift in Sources */,

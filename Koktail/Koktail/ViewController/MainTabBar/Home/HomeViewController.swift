@@ -8,12 +8,34 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    var imageArray = [UIImage(named: "1"), UIImage(named: "1"),
+                      UIImage(named: "1"), UIImage(named: "1"),
+                      UIImage(named: "1"), UIImage(named: "1"),
+                      UIImage(named: "1")]
+    
+    @IBOutlet weak var recommendBtn: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
     // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setRightNavigationButton()
+        self.navigationItem.title = "홈화면"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.barTintColor =
+            UIColor(red: 199.0/255.0, green: 116.0/255.0, blue: 104.0/255.0, alpha: 0.0)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        let nibName = UINib(nibName: "CocktailCollectionViewCell", bundle: nil)
+        collectionView.register(nibName, forCellWithReuseIdentifier: "cocktailCell")
+
+        
+        recommendBtn.backgroundColor = UIColor.white
+        recommendBtn.layer.cornerRadius = 20
+        recommendBtn.layer.shadowColor = UIColor.gray.cgColor
+        recommendBtn.layer.shadowOpacity = 1.0
+        recommendBtn.layer.shadowOffset = CGSize(width: 1, height: 1)
+        recommendBtn.layer.shadowRadius = 1.5
     }
     
     // MARK: - Set Navigation
@@ -35,5 +57,33 @@ class HomeViewController: UIViewController {
         
         guard let navigation = self.navigationController else { return }
         navigation.pushViewController(settingTableViewController, animated: true)
+    }
+    
+    @IBAction func RecommendAction(_ sender: UIButton){
+        self.navigationController?.pushViewController(AlcoholVolumeViewController(nibName: "AlcoholVolumeViewController", bundle: nil), animated: true)
+    }
+}
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
+    -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cocktailCell", for: indexPath)
+            as! CocktailCollectionViewCell
+        print("HI")
+        cell.cocktailImg.image = imageArray[indexPath.row]
+        cell.cocktailImg.layer.cornerRadius = 20
+        cell.view.layer.borderColor = UIColor.gray.cgColor
+        cell.view.layer.borderWidth = 0.1
+        cell.view.layer.cornerRadius = 20
+        cell.view.layer.shadowColor = UIColor.gray.cgColor
+        cell.view.layer.shadowOpacity = 1.0
+        cell.view.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        cell.view.layer.shadowRadius = 2
+        cell.cocktailName.text = "모히또"
+        cell.cocktailDegree.text = "Alc 12.6"
+        return cell
     }
 }
