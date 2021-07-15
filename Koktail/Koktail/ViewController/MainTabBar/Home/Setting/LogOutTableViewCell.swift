@@ -12,8 +12,8 @@ import Firebase
 
 class LogOutTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var socialInfo: UIView!
-    @IBOutlet weak var userId: UIView!
+    @IBOutlet weak var socialInfo: UILabel!
+    @IBOutlet weak var userId: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
     
     public static let identifier = "LogOutTableViewCell"
@@ -33,8 +33,9 @@ class LogOutTableViewCell: UITableViewCell {
         }.disposed(by: disposeBag)
     }
     
-    private func setUI(){
-        
+    private func setUI() {
+        socialInfo.text = UserDefaultsManager.social
+        userId.text = UserDefaultsManager.userId
     }
     
     private func logoutAlert() {

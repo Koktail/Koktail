@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		023BEBF4268B731A00D352A8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 023BEBF3268B731A00D352A8 /* .swiftlint.yml */; };
+		024327CD269FC6DB00DC301C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024327CC269FC6DB00DC301C /* UserDefaultsManager.swift */; };
 		02454FF126860DA300558D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02454FF026860DA300558D3C /* AppDelegate.swift */; };
 		02454FF326860DA300558D3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02454FF226860DA300558D3C /* SceneDelegate.swift */; };
 		02454FF826860DA300558D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02454FF626860DA300558D3C /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		023BEBF3268B731A00D352A8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		024327CC269FC6DB00DC301C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		02454FED26860DA300558D3C /* Koktail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koktail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02454FF026860DA300558D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02454FF226860DA300558D3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0243279D269FC69A00DC301C /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				024327CC269FC6DB00DC301C /* UserDefaultsManager.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		02454FE426860DA300558D3C = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +343,7 @@
 		02E43C3326870650009B15CD /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				0243279D269FC69A00DC301C /* DataBase */,
 				026397272693276300D57975 /* Util */,
 				02E43C342687065A009B15CD /* Extension */,
 			);
@@ -557,6 +568,7 @@
 				9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */,
 				02E43C1B26870270009B15CD /* HomeViewController.swift in Sources */,
 				0250C4C52690501F0076A273 /* OpenSourceTableViewCell.swift in Sources */,
+				024327CD269FC6DB00DC301C /* UserDefaultsManager.swift in Sources */,
 				02E43C1F2687028D009B15CD /* MapViewController.swift in Sources */,
 				9FAB5926269D88610077CD59 /* SignUpViewController.swift in Sources */,
 				0250C4FB269056B40076A273 /* LogOutTableViewCell.swift in Sources */,
