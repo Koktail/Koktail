@@ -85,7 +85,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if let text = textfield.text {
             if let floatingLabelTextField = textfield as? SkyFloatingLabelTextField {
                 if text.count < 3 || !text.contains("@") {
-                    floatingLabelTextField.errorMessage = "Invalid Email"
+                    floatingLabelTextField.errorMessage = "잘못된 이메일 형식입니다."
                 } else {
                     floatingLabelTextField.errorMessage = ""
                 }

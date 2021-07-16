@@ -43,11 +43,18 @@ class LoginPageViewController: UIViewController {
             if error != nil {
                 self.displayLoginOrSignUpFormatAlert()
                 
-                self.emailTextField.text = nil
+                self.passwordTextField.text = nil
             } else {
                 self.view.window?.switchRootViewController(self.tabBarViewController)
             }
         }
+    }
+    
+    @objc func findAndUpdatePasswordEvent() {
+        let forgotAndUpdatePasswordVC = ForgotAndUpdatePasswordViewController()
+        forgotAndUpdatePasswordVC.color = self.color
+        
+        self.present(forgotAndUpdatePasswordVC, animated: true, completion: nil)
     }
 
     // MARK: - Override Methods
@@ -57,6 +64,7 @@ class LoginPageViewController: UIViewController {
         initProperties()
         
         loginButton.addTarget(self, action: #selector(loginEvent), for: .touchUpInside)
+        forgotPassword.addTarget(self, action: #selector(findAndUpdatePasswordEvent), for: .touchUpInside)
     }
     
     // MARK: - Custom Methods
