@@ -103,8 +103,7 @@ class LoginViewController: UIViewController {
     func isUserLoggedIn() -> Bool {
         if Auth.auth().currentUser != nil {
             return true
-        }
-        else {
+        } else {
             return false
         }
     }

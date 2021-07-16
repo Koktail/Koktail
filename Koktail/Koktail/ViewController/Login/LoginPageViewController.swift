@@ -9,7 +9,7 @@ import UIKit
 import SkyFloatingLabelTextField
 import Firebase
 
-class LoginPageViewController: UIViewController {
+class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
     @IBOutlet weak var logoImageView: UIImageView!
@@ -63,8 +63,17 @@ class LoginPageViewController: UIViewController {
         
         initProperties()
         
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.delegate = self
+        self.view.addGestureRecognizer(tapGesture)
+        
         loginButton.addTarget(self, action: #selector(loginEvent), for: .touchUpInside)
         forgotPassword.addTarget(self, action: #selector(findAndUpdatePasswordEvent), for: .touchUpInside)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     // MARK: - Custom Methods

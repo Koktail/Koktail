@@ -9,7 +9,7 @@ import UIKit
 import SkyFloatingLabelTextField
 import Firebase
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - Properties
     @IBOutlet weak var signUpButton: UIButton!
@@ -125,12 +125,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         initProperties()
         
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.delegate = self
+        self.view.addGestureRecognizer(tapGesture)
+        
         cancelButton.addTarget(self, action: #selector(cancelEvent), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpEvent), for: .touchUpInside)
         
         emailTextField.addTarget(self, action: #selector(emailTextFieldDidChange(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordDidChange(_:)), for: .editingChanged)
         checkPasswordTextField.addTarget(self, action: #selector(checkPasswordDidChange), for: .editingChanged)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     // MARK: - Custom Methods
