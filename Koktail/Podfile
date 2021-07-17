@@ -11,6 +11,8 @@ target 'Koktail' do
   pod 'RxCocoa'
   pod 'Then'  
   pod 'SnapKit'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
   # Pods for Koktail
   pod 'TextFieldEffects'

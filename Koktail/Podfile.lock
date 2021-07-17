@@ -85,6 +85,12 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (~> 1.2)
+  - GoogleMaps (5.1.0):
+    - GoogleMaps/Maps (= 5.1.0)
+  - GoogleMaps/Base (5.1.0)
+  - GoogleMaps/Maps (5.1.0):
+    - GoogleMaps/Base
+  - GooglePlaces (5.0.0)
   - GoogleUtilities/AppDelegateSwizzler (7.4.3):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -130,6 +136,8 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/RemoteConfig
   - Firebase/Storage
+  - GoogleMaps
+  - GooglePlaces
   - RxCocoa
   - RxSwift
   - SnapKit
@@ -152,6 +160,8 @@ SPEC REPOS:
     - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleMaps
+    - GooglePlaces
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
@@ -179,6 +189,8 @@ SPEC CHECKSUMS:
   FirebaseStorage: 001a1f6b1ec45ed60ff9689390d23988e4b95a61
   GoogleAppMeasurement: b52eafc9dff542d580700e708216568bd2fbf168
   GoogleDataTransport: 04c3e9a480bbcaa2ec3f5d27f1cdeb6a92f20c8d
+  GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
+  GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
   GoogleUtilities: 45dbb24a7f351d69d0a601482b39ad6c32e30dab
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
@@ -192,6 +204,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 5014ea7037b3c47ba72f97022e2d003aae9b77cb
+PODFILE CHECKSUM: 8ada7158bb64257cb2e769507146eadc59dc7a88
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.0
