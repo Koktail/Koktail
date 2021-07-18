@@ -9,6 +9,9 @@ import UIKit
 import SkyFloatingLabelTextField
 import Firebase
 
+import KakaoSDKAuth
+import KakaoSDKUser
+
 class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
@@ -17,8 +20,8 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var kakaoLoginImageView: UIImageView!
-    @IBOutlet weak var appleLoginImageView: UIImageView!
+    @IBOutlet weak var kakaoLoginButton: UIButton!
+    @IBOutlet weak var appleLoginButton: UIButton!
     
     @IBOutlet weak var forgotPassword: UIButton!
     
@@ -50,6 +53,80 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    @objc func kakaoLoginEvent() {
+        print("KAKAO login button clicked")
+        
+        if AuthApi.hasToken() {
+            UserApi.shared.accessTokenInfo { _, error in
+                if let error = error {
+                    print("________ login error ________")
+                    print(error.localizedDescription)
+                    
+                    self.kakaoLoginSupport()
+                    
+                } else {
+                    print("accessTokenInfo ok")
+                    self.view.window?.switchRootViewController(self.tabBarViewController)
+                }
+            }
+        } else {
+            self.kakaoLoginSupport()
+        }
+    }
+    
+    func kakaoLoginSupport() {
+        if UserApi.isKakaoTalkLoginAvailable() {
+            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("NEW KAKAO LOGIN")
+                    
+                    _ = oauthToken
+                    
+                    // sucess kakao login
+                    UserApi.shared.me { kakaoUser, error in
+                        if let error = error {
+                            print("< KAKAO: user loading failed >")
+                            print(error.localizedDescription)
+                        } else {
+                            guard let email = kakaoUser?.kakaoAccount?.email else {
+                                return
+                            }
+                            guard let password = kakaoUser?.id else {
+                                return
+                            }
+                            
+                            Auth.auth().createUser(withEmail: email,
+                                                   password: String(describing: password)) { _, error in
+                                if let error = error {
+                                    print("< FIREBASE: signUp failed >")
+                                    print(error.localizedDescription)
+                                    
+                                    Auth.auth().signIn(withEmail: email,
+                                                       password: String(describing: password),
+                                                       completion: nil)
+                                } else {
+                                    print("< FIREBASE: signup success >")
+                                }
+                            }
+                        }
+                    }
+                    
+                    self.view.window?.switchRootViewController(self.tabBarViewController)
+                }
+            }
+        } else {
+            let alert = UIAlertController(title: "카카오톡 연동 실패", message: "카카오톡을 실행할 수 없습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func appleLoginEvent() {
+        
+    }
+    
     @objc func findAndUpdatePasswordEvent() {
         let forgotAndUpdatePasswordVC = ForgotAndUpdatePasswordViewController()
         forgotAndUpdatePasswordVC.color = self.color
@@ -69,6 +146,9 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         
         loginButton.addTarget(self, action: #selector(loginEvent), for: .touchUpInside)
         forgotPassword.addTarget(self, action: #selector(findAndUpdatePasswordEvent), for: .touchUpInside)
+        
+        kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginEvent), for: .touchUpInside)
+        appleLoginButton.addTarget(self, action: #selector(appleLoginEvent), for: .touchUpInside)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -91,8 +171,8 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         loginButton.backgroundColor = UIColor(hex: color)
         loginButton.tintColor = .white
         
-        kakaoLoginImageView.image = #imageLiteral(resourceName: "loginLogo_kakao")
-        appleLoginImageView.image = #imageLiteral(resourceName: "loginLogo_apple")
+        appleLoginButton.setBackgroundImage(#imageLiteral(resourceName: "loginLogo_apple"), for: .normal)
+        kakaoLoginButton.setBackgroundImage(#imageLiteral(resourceName: "loginLogo_kakao"), for: .normal)
     }
     
     func setTextFieldLayout(textField: SkyFloatingLabelTextField, title: String, color: String = "system") {

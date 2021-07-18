@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>667900465781-64d0gt0ae8e51j4ebaok4alanmdhh71a.apps.googleusercontent.com</string>
+	<string>667900465781-0875ln02rtb12dn34r9ibegeb06t7uat.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.667900465781-64d0gt0ae8e51j4ebaok4alanmdhh71a</string>
+	<string>com.googleusercontent.apps.667900465781-0875ln02rtb12dn34r9ibegeb06t7uat</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDKWBdBNuxxd7DaDty7KlxSs_S-jXsGMjc</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.kokstudy.koktail</string>
+	<string>com.iosstudy.koktail</string>
 	<key>PROJECT_ID</key>
 	<string>koktail-2427a</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:667900465781:ios:4991563767401e5a2a5e3c</string>
+	<string>1:667900465781:ios:206eef3d68129db22a5e3c</string>
+	<key>DATABASE_URL</key>
+	<string>https://koktail-2427a-default-rtdb.asia-southeast1.firebasedatabase.app</string>
 </dict>
 </plist>

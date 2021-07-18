@@ -13,7 +13,6 @@ target 'Koktail' do
   pod 'SnapKit'
 
   # Pods for Koktail
-  pod 'TextFieldEffects'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
  
   # Pods Firebase
@@ -22,6 +21,11 @@ target 'Koktail' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+
+  # Pods for KakaoLogin
+  pod 'KakaoSDKAuth'
+  pod 'KakaoSDKCommon'
+  pod 'KakaoSDKUser'
 
 end
 
