@@ -20,18 +20,18 @@ class MapViewController: UIViewController {
     private var preciseLocationZoomLevel: Float = 15.0
     private var approximateLocationZoomLevel: Float = 10.0
     
-    // An array to hold the list of likely places.
-    private var likelyPlaces: [GMSPlace] = []
-    
     // The currently selected place.
     private var selectedPlace: GMSPlace?
+    
+    // auto complete button
+    private let autoCompleteButton: UIButton = UIButton()
     
     // MARK: - Overrid Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        makeButton()
         setLocationInfo()
+        makeButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,10 +85,8 @@ class MapViewController: UIViewController {
     
     // Populate the array with the list of likely places.
     private func listLikelyPlaces() {
-        // Clean up from previous sessions.
-        likelyPlaces.removeAll()
         
-        let placeFields: GMSPlaceField = [.name, .coordinate]
+        let placeFields: GMSPlaceField = [.name, .coordinate, .formattedAddress]
         placesClient.findPlaceLikelihoodsFromCurrentLocation(
             withPlaceFields: placeFields
         ) { (placeLikelihoods, error) in
@@ -102,35 +100,29 @@ class MapViewController: UIViewController {
                 return
             }
             
-            // Get likely places and add to the list.
-            for likelihood in placeLikelihoods {
-                let place = likelihood.place
-                self.likelyPlaces.append(place)
-            }
+            let address = self.getAddress(place: placeLikelihoods.first?.place)
+            self.autoCompleteButton.setTitle(address, for: .normal)
         }
     }
     
     // MARK: - Set Auto Complete Button
     func makeButton() {
-        let btnLaunchAc = UIButton().then {
-            $0.backgroundColor = .white
-            $0.setTitleColor(.black, for: .normal)
-            $0.setTitle("Launch autocomplete", for: .normal)
-            $0.addTarget(
-                self,
-                action: #selector(autocompleteClicked),
-                for: .touchUpInside
-            )
-        }
+        autoCompleteButton.backgroundColor = .white
+        autoCompleteButton.setTitleColor(.black, for: .normal)
+        autoCompleteButton.addTarget(
+            self,
+            action: #selector(autocompleteClicked),
+            for: .touchUpInside
+        )
         
-        self.view.addSubview(btnLaunchAc)
+        self.view.addSubview(autoCompleteButton)
         
-        btnLaunchAc.snp.makeConstraints {
+        autoCompleteButton.snp.makeConstraints {
             $0.height.equalTo(45)
             $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(50)
-            $0.leading.equalToSuperview().offset(40)
-            $0.trailing.equalToSuperview().offset(-40)
+            $0.top.equalToSuperview().offset(60)
+            $0.leading.equalToSuperview().offset(35)
+            $0.trailing.equalToSuperview().offset(-35)
         }
     }
     
@@ -140,7 +132,10 @@ class MapViewController: UIViewController {
 
         // Specify the place data types to return.
         let fields: GMSPlaceField = GMSPlaceField(
-            rawValue: UInt(GMSPlaceField.name.rawValue) | UInt(GMSPlaceField.placeID.rawValue)
+            rawValue: UInt(GMSPlaceField.name.rawValue)
+                | UInt(GMSPlaceField.placeID.rawValue)
+                | UInt(GMSPlaceField.coordinate.rawValue)
+                | UInt(GMSPlaceField.formattedAddress.rawValue)
         )
         autocompleteController.placeFields = fields
 
@@ -150,8 +145,16 @@ class MapViewController: UIViewController {
         autocompleteController.autocompleteFilter = filter
 
         // Display the autocomplete view controller.
-        present(autocompleteController, animated: true)
+        self.present(autocompleteController, animated: true)
       }
+    
+    private func getAddress(place: GMSPlace?) -> String {
+        guard let formattedAddress = place?.formattedAddress else { return "" }
+        let address = formattedAddress.components(separatedBy: " ")
+        let result = address[address.count - 3] + " " + address[address.count - 2] + " " + address[address.count - 1]
+        
+        return result
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -190,9 +193,19 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(String(describing: place.name))")
-        print("Place ID: \(String(describing: place.placeID))")
-        print("Place attributions: \(String(describing: place.attributions))")
+        let zoomLevel = locationManager.accuracyAuthorization == .fullAccuracy ?
+            preciseLocationZoomLevel : approximateLocationZoomLevel
+        let camera = GMSCameraPosition.camera(
+            withLatitude: place.coordinate.latitude,
+            longitude: place.coordinate.longitude,
+            zoom: zoomLevel
+        )
+        
+        map.animate(to: camera)
+        
+        let address = getAddress(place: place)
+        autoCompleteButton.setTitle(address, for: .normal)
+        
         self.dismiss(animated: true)
     }
     
@@ -204,14 +217,4 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         self.dismiss(animated: true)
     }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-    
 }

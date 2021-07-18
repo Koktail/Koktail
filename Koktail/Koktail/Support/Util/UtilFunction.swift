@@ -8,6 +8,8 @@
 import UIKit
 
 class UtilFunction {
+    
+    // MARK: - Gradient
     static func setGradient(baseView: UIView, _ firstColor: String, _ secondColor: String) {
         let gradient = CAGradientLayer()
         gradient.frame = baseView.bounds
