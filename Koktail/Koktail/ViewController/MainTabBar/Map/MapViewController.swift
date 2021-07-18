@@ -10,27 +10,45 @@ import GoogleMaps
 import GooglePlaces
 
 class MapViewController: UIViewController {
-    
+
+    // MARK: - Properties
     @IBOutlet weak var map: GMSMapView!
-    var locationManager: CLLocationManager!
-    var currentLocation: CLLocation?
     
-    var placesClient: GMSPlacesClient!
-    var preciseLocationZoomLevel: Float = 15.0
-    var approximateLocationZoomLevel: Float = 10.0
+    private var locationManager: CLLocationManager!
+    private var currentLocation: CLLocation?
+    private var placesClient: GMSPlacesClient!
+    private var preciseLocationZoomLevel: Float = 15.0
+    private var approximateLocationZoomLevel: Float = 10.0
     
     // An array to hold the list of likely places.
-    var likelyPlaces: [GMSPlace] = []
+    private var likelyPlaces: [GMSPlace] = []
     
     // The currently selected place.
-    var selectedPlace: GMSPlace?
+    private var selectedPlace: GMSPlace?
     
+    // MARK: - Overrid Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        makeButton()
         setLocationInfo()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let navigation = self.navigationController else { return }
+        navigation.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        guard let navigation = self.navigationController else { return }
+        navigation.setNavigationBarHidden(false, animated: false)
+    }
+    
+    // MARK: - Set Location
     private func setLocationInfo() {
         // Initialize the location manager.
         locationManager = CLLocationManager()
@@ -43,7 +61,7 @@ class MapViewController: UIViewController {
         placesClient = GMSPlacesClient.shared()
         
         // A default location to use when location permission is not granted.
-        let defaultLocation = CLLocation(latitude: 33, longitude: 128)
+        let defaultLocation = CLLocation(latitude: 37.4980, longitude: 127.0271)
         
         // Create a map.
         let zoomLevel = locationManager.accuracyAuthorization == .fullAccuracy ?
@@ -71,7 +89,9 @@ class MapViewController: UIViewController {
         likelyPlaces.removeAll()
         
         let placeFields: GMSPlaceField = [.name, .coordinate]
-        placesClient.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: placeFields) { (placeLikelihoods, error) in
+        placesClient.findPlaceLikelihoodsFromCurrentLocation(
+            withPlaceFields: placeFields
+        ) { (placeLikelihoods, error) in
             guard error == nil else {
                 print("Current Place error: \(error!.localizedDescription)")
                 return
@@ -89,15 +109,57 @@ class MapViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Set Auto Complete Button
+    func makeButton() {
+        let btnLaunchAc = UIButton().then {
+            $0.backgroundColor = .white
+            $0.setTitleColor(.black, for: .normal)
+            $0.setTitle("Launch autocomplete", for: .normal)
+            $0.addTarget(
+                self,
+                action: #selector(autocompleteClicked),
+                for: .touchUpInside
+            )
+        }
+        
+        self.view.addSubview(btnLaunchAc)
+        
+        btnLaunchAc.snp.makeConstraints {
+            $0.height.equalTo(45)
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(50)
+            $0.leading.equalToSuperview().offset(40)
+            $0.trailing.equalToSuperview().offset(-40)
+        }
+    }
+    
+      @objc func autocompleteClicked(_ sender: UIButton) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+
+        // Specify the place data types to return.
+        let fields: GMSPlaceField = GMSPlaceField(
+            rawValue: UInt(GMSPlaceField.name.rawValue) | UInt(GMSPlaceField.placeID.rawValue)
+        )
+        autocompleteController.placeFields = fields
+
+        // Specify a filter.
+        let filter = GMSAutocompleteFilter()
+        filter.type = .address
+        autocompleteController.autocompleteFilter = filter
+
+        // Display the autocomplete view controller.
+        present(autocompleteController, animated: true)
+      }
 }
 
+// MARK: - CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
     
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
-        print("Location: \(location)")
-        
         let zoomLevel = locationManager.accuracyAuthorization == .fullAccuracy ?
             preciseLocationZoomLevel : approximateLocationZoomLevel
         let camera = GMSCameraPosition.camera(
@@ -116,40 +178,40 @@ extension MapViewController: CLLocationManagerDelegate {
         listLikelyPlaces()
     }
     
-    // Handle authorization for the location manager.
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        // Check accuracy authorization
-        let accuracy = manager.accuracyAuthorization
-        switch accuracy {
-        case .fullAccuracy:
-            print("Location accuracy is precise.")
-        case .reducedAccuracy:
-            print("Location accuracy is not precise.")
-        @unknown default:
-            fatalError()
-        }
-        
-        // Handle authorization status
-        switch status {
-        case .restricted:
-            print("Location access was restricted.")
-        case .denied:
-            print("User denied access to location.")
-            // Display the map using the default location.
-            map.isHidden = false
-        case .notDetermined:
-            print("Location status not determined.")
-        case .authorizedAlways: fallthrough
-        case .authorizedWhenInUse:
-            print("Location status is OK.")
-        @unknown default:
-            fatalError()
-        }
-    }
-    
     // Handle location manager errors.
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
         print("Error: \(error)")
     }
+}
+
+// MARK: - GMSAutocompleteViewControllerDelegate
+extension MapViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(String(describing: place.name))")
+        print("Place ID: \(String(describing: place.placeID))")
+        print("Place attributions: \(String(describing: place.attributions))")
+        self.dismiss(animated: true)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
 }
