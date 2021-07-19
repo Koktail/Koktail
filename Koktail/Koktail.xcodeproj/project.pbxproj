@@ -26,6 +26,9 @@
 		0250C5BB2690666F0076A273 /* FavoriteStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250C5B92690666F0076A273 /* FavoriteStoreViewController.swift */; };
 		0250C5BC2690666F0076A273 /* FavoriteStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0250C5BA2690666F0076A273 /* FavoriteStoreViewController.xib */; };
 		026397292693277100D57975 /* UtilFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026397282693277100D57975 /* UtilFunction.swift */; };
+		02A9371A26A510A900ADA4CF /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9371926A510A900ADA4CF /* NetworkingManager.swift */; };
+		02A9371C26A5134700ADA4CF /* SearchPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9371B26A5134700ADA4CF /* SearchPlace.swift */; };
+		02A9374D26A51CD500ADA4CF /* SearchPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9374C26A51CD500ADA4CF /* SearchPlaceViewModel.swift */; };
 		02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C1526870204009B15CD /* MainTabBarController.swift */; };
 		02E43C1B26870270009B15CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C1926870270009B15CD /* HomeViewController.swift */; };
 		02E43C1C26870270009B15CD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E43C1A26870270009B15CD /* HomeViewController.xib */; };
@@ -69,6 +72,9 @@
 		0250C5B92690666F0076A273 /* FavoriteStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStoreViewController.swift; sourceTree = "<group>"; };
 		0250C5BA2690666F0076A273 /* FavoriteStoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteStoreViewController.xib; sourceTree = "<group>"; };
 		026397282693277100D57975 /* UtilFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunction.swift; sourceTree = "<group>"; };
+		02A9371926A510A900ADA4CF /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		02A9371B26A5134700ADA4CF /* SearchPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchPlace.swift; path = Koktail/Support/Networking/SearchPlace.swift; sourceTree = SOURCE_ROOT; };
+		02A9374C26A51CD500ADA4CF /* SearchPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewModel.swift; sourceTree = "<group>"; };
 		02E43C1526870204009B15CD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		02E43C1926870270009B15CD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		02E43C1A26870270009B15CD /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 				02E43C0A2686FEFA009B15CD /* Application */,
 				02E43C0B2686FF25009B15CD /* Resource */,
 				02E43C3326870650009B15CD /* Support */,
+				02A9374B26A51CB600ADA4CF /* ViewModel */,
 				02E43C0C2686FFB7009B15CD /* DataModel */,
 				02E43C0E2686FFF1009B15CD /* ViewController */,
 				02E43C0D2686FFC0009B15CD /* View */,
@@ -185,6 +192,22 @@
 			name = PropertyList;
 			sourceTree = "<group>";
 		};
+		02A9371826A5108E00ADA4CF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				02A9371926A510A900ADA4CF /* NetworkingManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		02A9374B26A51CB600ADA4CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				02A9374C26A51CD500ADA4CF /* SearchPlaceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		02E43C0A2686FEFA009B15CD /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +228,7 @@
 		02E43C0C2686FFB7009B15CD /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				02A9371B26A5134700ADA4CF /* SearchPlace.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -343,6 +367,7 @@
 		02E43C3326870650009B15CD /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				02A9371826A5108E00ADA4CF /* Networking */,
 				0243279D269FC69A00DC301C /* DataBase */,
 				026397272693276300D57975 /* Util */,
 				02E43C342687065A009B15CD /* Extension */,
@@ -586,14 +611,17 @@
 				9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */,
 				02E43C1B26870270009B15CD /* HomeViewController.swift in Sources */,
 				0250C4C52690501F0076A273 /* OpenSourceTableViewCell.swift in Sources */,
+				02A9371A26A510A900ADA4CF /* NetworkingManager.swift in Sources */,
 				024327CD269FC6DB00DC301C /* UserDefaultsManager.swift in Sources */,
 				02E43C1F2687028D009B15CD /* MapViewController.swift in Sources */,
 				9FAB5926269D88610077CD59 /* SignUpViewController.swift in Sources */,
+				02A9374D26A51CD500ADA4CF /* SearchPlaceViewModel.swift in Sources */,
 				0250C4FB269056B40076A273 /* LogOutTableViewCell.swift in Sources */,
 				02454FF126860DA300558D3C /* AppDelegate.swift in Sources */,
 				0250C49326904C800076A273 /* SettingViewController.swift in Sources */,
 				02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */,
 				02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */,
+				02A9371C26A5134700ADA4CF /* SearchPlace.swift in Sources */,
 				9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */,
 				02E43C2726870305009B15CD /* FavoriteViewController.swift in Sources */,
 				0250C4C9269053D60076A273 /* VersionTableViewCell.swift in Sources */,

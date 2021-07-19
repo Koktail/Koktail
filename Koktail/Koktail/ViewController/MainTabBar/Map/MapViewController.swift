@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 import GoogleMaps
 import GooglePlaces
 
@@ -26,12 +28,20 @@ class MapViewController: UIViewController {
     // auto complete button
     private let autoCompleteButton: UIButton = UIButton()
     
+    // view model
+    private let searchPlaceViewMdeol = SearchPlaceViewModel()
+    
+    // RxSwift
+    private let disposeBag = DisposeBag()
+    
     // MARK: - Overrid Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setLocationInfo()
         makeButton()
+        
+        bindNetworkingState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +94,7 @@ class MapViewController: UIViewController {
     }
     
     // Populate the array with the list of likely places.
-    private func listLikelyPlaces() {
+    private func listLikelyPlaces(completionHandler: @escaping (_ place: GMSPlace?) -> Void = { _ in }) {
         
         let placeFields: GMSPlaceField = [.name, .coordinate, .formattedAddress]
         placesClient.findPlaceLikelihoodsFromCurrentLocation(
@@ -102,6 +112,9 @@ class MapViewController: UIViewController {
             
             let address = self.getAddress(place: placeLikelihoods.first?.place)
             self.autoCompleteButton.setTitle(address, for: .normal)
+            
+            self.selectedPlace = placeLikelihoods.first?.place
+            completionHandler(self.selectedPlace)
         }
     }
     
@@ -155,6 +168,52 @@ class MapViewController: UIViewController {
         
         return result
     }
+    
+    // MARK: - Networking
+    private func requestPlace(place: GMSPlace?) {
+        guard let lat = place?.coordinate.latitude,
+              let lng = place?.coordinate.longitude
+        else {
+            return
+        }
+        
+        let parameters: [String: String] = [
+            "key": "AIzaSyCcXxMzsdL1m2uPjZ6d9wGTiVDYm4srnHU",
+            "location": "\(lat),\(lng)",
+            "radius": "1000",
+            "language": "ko",
+            "type": "bar"
+        ]
+        
+        searchPlaceViewMdeol.request(parameters: parameters)
+    }
+    
+    private func bindNetworkingState() {
+        searchPlaceViewMdeol.state.success
+            .asDriver(onErrorDriveWith: Driver.empty())
+            .drive { placeData in
+                self.setMarker(placeData: placeData)
+            }.disposed(by: disposeBag)
+        
+        searchPlaceViewMdeol.state.fail
+            .filter {$0 == true}
+            .asDriver(onErrorDriveWith: Driver.empty())
+            .drive { _ in
+                
+            }.disposed(by: disposeBag)
+    }
+    
+    private func setMarker(placeData: SearchPlace) {
+        for place in placeData.results {
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(
+                latitude: place.geometry.location.lat,
+                longitude: place.geometry.location.lng
+            )
+            marker.title = place.name
+            marker.map = map
+        }
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -178,7 +237,9 @@ extension MapViewController: CLLocationManagerDelegate {
             map.animate(to: camera)
         }
         
-        listLikelyPlaces()
+        listLikelyPlaces { place in
+            self.requestPlace(place: place)
+        }
     }
     
     // Handle location manager errors.
@@ -205,6 +266,8 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
         
         let address = getAddress(place: place)
         autoCompleteButton.setTitle(address, for: .normal)
+        
+        requestPlace(place: place)
         
         self.dismiss(animated: true)
     }

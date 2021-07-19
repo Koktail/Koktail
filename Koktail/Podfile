@@ -13,6 +13,8 @@ target 'Koktail' do
   pod 'SnapKit'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Moya'
+  pod 'SwiftyJSON'
 
   # Pods for Koktail
   pod 'TextFieldEffects'

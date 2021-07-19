@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.3)
   - Carte (2.2.1)
   - Firebase/Auth (8.2.0):
     - Firebase/CoreOnly
@@ -112,6 +113,10 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.6.1)
   - leveldb-library (1.22.1)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -126,6 +131,7 @@ PODS:
   - RxSwift (6.1.0)
   - SnapKit (5.0.1)
   - SwiftLint (0.43.1)
+  - SwiftyJSON (5.0.1)
   - TextFieldEffects (1.6.0)
   - Then (2.7.0)
 
@@ -138,15 +144,18 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleMaps
   - GooglePlaces
+  - Moya
   - RxCocoa
   - RxSwift
   - SnapKit
   - SwiftLint
+  - SwiftyJSON
   - TextFieldEffects
   - Then
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Carte
     - Firebase
     - FirebaseABTesting
@@ -165,6 +174,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
+    - Moya
     - nanopb
     - PromisesObjC
     - RxCocoa
@@ -172,10 +182,12 @@ SPEC REPOS:
     - RxSwift
     - SnapKit
     - SwiftLint
+    - SwiftyJSON
     - TextFieldEffects
     - Then
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Carte: 6bcff4eaa894ff5b979d646de833fec96e04a38c
   Firebase: 12c568897b807321964e89d2b263ef4c6cff3db6
   FirebaseABTesting: 5f37131c5eceea579c471c915f7a0f8cad484d1f
@@ -194,6 +206,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 45dbb24a7f351d69d0a601482b39ad6c32e30dab
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
@@ -201,9 +214,10 @@ SPEC CHECKSUMS:
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 8ada7158bb64257cb2e769507146eadc59dc7a88
+PODFILE CHECKSUM: 91c89a52533639b634ca64ccba22e79606d7e89d
 
 COCOAPODS: 1.10.0
