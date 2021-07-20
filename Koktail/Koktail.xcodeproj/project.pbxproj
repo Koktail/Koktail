@@ -45,6 +45,8 @@
 		C498A628269FD34500AE65E0 /* MoreCocktailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C498A626269FD34500AE65E0 /* MoreCocktailTableViewCell.xib */; };
 		C4BCCE31269D87E1003A9993 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BCCE2F269D87E1003A9993 /* CategoryTableViewCell.swift */; };
 		C4BCCE32269D87E1003A9993 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BCCE30269D87E1003A9993 /* CategoryTableViewCell.xib */; };
+		C4FE0B6026A64C05001F3D0D /* CocktailDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE0B5E26A64C05001F3D0D /* CocktailDetailViewController.swift */; };
+		C4FE0B6126A64C05001F3D0D /* CocktailDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FE0B5F26A64C05001F3D0D /* CocktailDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		C498A626269FD34500AE65E0 /* MoreCocktailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreCocktailTableViewCell.xib; sourceTree = "<group>"; };
 		C4BCCE2F269D87E1003A9993 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C4BCCE30269D87E1003A9993 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		C4FE0B5E26A64C05001F3D0D /* CocktailDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailViewController.swift; sourceTree = "<group>"; };
+		C4FE0B5F26A64C05001F3D0D /* CocktailDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CocktailDetailViewController.xib; sourceTree = "<group>"; };
 		DB04BA141D250C10F1D4A200 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -291,6 +295,7 @@
 				C498A612269FC3F400AE65E0 /* PreviewCollectionViewCell.swift */,
 				C498A61F269FD20500AE65E0 /* MoreCocktailViewController.swift */,
 				C498A625269FD34500AE65E0 /* MoreCocktailTableViewCell.swift */,
+				C4FE0B5E26A64C05001F3D0D /* CocktailDetailViewController.swift */,
 			);
 			path = Cocktail;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				C498A613269FC3F400AE65E0 /* PreviewCollectionViewCell.xib */,
 				C498A620269FD20500AE65E0 /* MoreCocktailViewController.xib */,
 				C498A626269FD34500AE65E0 /* MoreCocktailTableViewCell.xib */,
+				C4FE0B5F26A64C05001F3D0D /* CocktailDetailViewController.xib */,
 			);
 			path = Cocktail;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				023BEBF4268B731A00D352A8 /* .swiftlint.yml in Resources */,
 				02E43C1C26870270009B15CD /* HomeViewController.xib in Resources */,
 				0250C4CA269053D60076A273 /* VersionTableViewCell.xib in Resources */,
+				C4FE0B6126A64C05001F3D0D /* CocktailDetailViewController.xib in Resources */,
 				02E43C24268702A1009B15CD /* CocktailViewController.xib in Resources */,
 				C498A628269FD34500AE65E0 /* MoreCocktailTableViewCell.xib in Resources */,
 				C498A622269FD20500AE65E0 /* MoreCocktailViewController.xib in Resources */,
@@ -568,6 +575,7 @@
 				02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */,
 				02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */,
 				C498A621269FD20500AE65E0 /* MoreCocktailViewController.swift in Sources */,
+				C4FE0B6026A64C05001F3D0D /* CocktailDetailViewController.swift in Sources */,
 				02E43C2726870305009B15CD /* FavoriteViewController.swift in Sources */,
 				0250C4C9269053D60076A273 /* VersionTableViewCell.swift in Sources */,
 				0250C589269062E30076A273 /* FavoriteCocktailViewController.swift in Sources */,

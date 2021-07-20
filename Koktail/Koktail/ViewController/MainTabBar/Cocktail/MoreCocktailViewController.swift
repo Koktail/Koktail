@@ -69,10 +69,10 @@ extension MoreCocktailViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let detailVC = DetailViewController()
-//
-//        detailVC.cocktailName = "코스모폴리탄"
-//
-//        navigation?.pushViewController(detailVC, animated: true)
+        let detailVC = CocktailDetailViewController()
+
+        detailVC.cocktailName = previews[categoryName!]![indexPath.row]
+
+        navigation?.pushViewController(detailVC, animated: true)
     }
 }

@@ -104,10 +104,10 @@ extension CategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let detailVC = DetailViewController()
-//
-//        detailVC.cocktailName = previews[categoryLabel.text!]![indexPath.row]
-//
-//        navigation?.pushViewController(detailVC, animated: true)
+        let detailVC = CocktailDetailViewController()
+
+        detailVC.cocktailName = previews[categoryLabel.text!]![indexPath.row]
+
+        navigation?.pushViewController(detailVC, animated: true)
     }
 }
