@@ -8,17 +8,19 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    var imageArray = [UIImage(named: "1"), UIImage(named: "1"),
-                      UIImage(named: "1"), UIImage(named: "1"),
-                      UIImage(named: "1"), UIImage(named: "1"),
-                      UIImage(named: "1")]
+    var imageArray = [UIImage(named: "cocktail"), UIImage(named: "cocktail"),
+                      UIImage(named: "cocktail"), UIImage(named: "cocktail"),
+                      UIImage(named: "cocktail"), UIImage(named: "cocktail"),
+                      UIImage(named: "cocktail")]
     
     @IBOutlet weak var recommendBtn: UIButton!
+    @IBOutlet weak var todayCocktail: UIImageView!
+    
     @IBOutlet weak var collectionView: UICollectionView!
+//    @IBOutlet weak var scrollView: UIScrollView!
     // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setRightNavigationButton()
         self.navigationItem.title = "홈화면"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -29,13 +31,19 @@ class HomeViewController: UIViewController {
         let nibName = UINib(nibName: "CocktailCollectionViewCell", bundle: nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: "cocktailCell")
 
-        
         recommendBtn.backgroundColor = UIColor.white
         recommendBtn.layer.cornerRadius = 20
         recommendBtn.layer.shadowColor = UIColor.gray.cgColor
         recommendBtn.layer.shadowOpacity = 1.0
         recommendBtn.layer.shadowOffset = CGSize(width: 1, height: 1)
         recommendBtn.layer.shadowRadius = 1.5
+        
+        let heightConstraint = NSLayoutConstraint(item: todayCocktail, attribute: .height,
+                                                  relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: self.view.frame.height * 0.5)
+        let widthConstraint = NSLayoutConstraint(item: todayCocktail, attribute: .width,
+                                                 relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: self.view.frame.height * 0.5)
+        self.todayCocktail.addConstraints([heightConstraint, widthConstraint])
+
     }
     
     // MARK: - Set Navigation
@@ -60,7 +68,10 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func RecommendAction(_ sender: UIButton){
-        self.navigationController?.pushViewController(AlcoholVolumeViewController(nibName: "AlcoholVolumeViewController", bundle: nil), animated: true)
+        let vc = SelectPageViewController(transitionStyle: UIPageViewController.TransitionStyle.scroll,
+                                          navigationOrientation: UIPageViewController.NavigationOrientation.horizontal,
+                                          options: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -72,7 +83,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cocktailCell", for: indexPath)
             as! CocktailCollectionViewCell
-        print("HI")
+//        print("HI")
         cell.cocktailImg.image = imageArray[indexPath.row]
         cell.cocktailImg.layer.cornerRadius = 20
         cell.view.layer.borderColor = UIColor.gray.cgColor
