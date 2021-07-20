@@ -49,8 +49,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="logoutButton" destination="rrA-CV-wgM" id="q9h-v1-nlb"/>
-                <outlet property="socialInfo" destination="H2p-sc-9uM" id="7tB-d3-OU1"/>
-                <outlet property="userId" destination="H2p-sc-9uM" id="E3A-fy-zpq"/>
+                <outlet property="socialInfo" destination="xri-G7-rH6" id="Qhx-9I-JZi"/>
+                <outlet property="userId" destination="qOn-3x-J0Q" id="AG3-P9-xuW"/>
             </connections>
             <point key="canvasLocation" x="5.7971014492753632" y="135.26785714285714"/>
         </tableViewCell>

@@ -78,6 +78,7 @@ class LoginPageViewController: UIViewController {
                 self.passwordTextField.text = nil
                 // 커서 없애는 방법?
             } else {
+                UserDefaultsManager.userId = email
                 self.view.window?.switchRootViewController(self.tabBarViewController)
             }
         }
