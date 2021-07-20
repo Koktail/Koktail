@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell1" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell1" rowHeight="208" id="KGk-i7-Jjw" customClass="HeaderTableViewCell" customModule="xib_result" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="208"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="208"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" restorationIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="bZD-nC-Zwm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zt8-Jf-HeC">
+                                <rect key="frame" x="0.0" y="210" width="320" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Sj5-h3-gsR"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oZt-zG-vb6">
+                                <rect key="frame" x="70" y="40" width="180" height="104.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선호하는 칵테일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KC0-2y-3Vo">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="럼, 달달한, 새콤한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zto-qg-CH2">
+                                        <rect key="frame" x="0.0" y="41.5" width="180" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="드라이, 쓰지 않은" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nT4-8P-qM7">
+                                        <rect key="frame" x="0.0" y="77" width="180" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="xhD-cz-8DK"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87238222359999995" green="0.45681768659999999" blue="0.40763771529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zt8-Jf-HeC" secondAttribute="trailing" id="HwC-fg-zop"/>
+                            <constraint firstAttribute="bottom" secondItem="zt8-Jf-HeC" secondAttribute="bottom" id="d7I-ZU-qPW"/>
+                            <constraint firstItem="zt8-Jf-HeC" firstAttribute="leading" secondItem="bZD-nC-Zwm" secondAttribute="leading" id="sXr-8E-4HT"/>
+                            <constraint firstItem="oZt-zG-vb6" firstAttribute="centerX" secondItem="bZD-nC-Zwm" secondAttribute="centerX" id="wkH-QU-bbF"/>
+                            <constraint firstAttribute="height" constant="250" id="wqI-gS-ZQy"/>
+                            <constraint firstItem="oZt-zG-vb6" firstAttribute="top" secondItem="bZD-nC-Zwm" secondAttribute="top" constant="40" id="xy6-jj-aIU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="bZD-nC-Zwm" secondAttribute="bottom" id="0Ka-mR-Dfd"/>
+                    <constraint firstItem="bZD-nC-Zwm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gNI-pE-dmi"/>
+                    <constraint firstAttribute="trailing" secondItem="bZD-nC-Zwm" secondAttribute="trailing" id="moe-ce-Eic"/>
+                    <constraint firstItem="bZD-nC-Zwm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wyJ-y4-Crr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="headerBar" destination="zt8-Jf-HeC" id="T6h-SC-Bk5"/>
+            </connections>
+            <point key="canvasLocation" x="24.637681159420293" y="168.75"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

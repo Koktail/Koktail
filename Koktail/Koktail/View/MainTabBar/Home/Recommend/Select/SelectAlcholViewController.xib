@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectAlcholViewController" customModule="Koktail" customModuleProvider="target">
+            <connections>
+                <outlet property="HighAlcholButton" destination="rYI-dG-UWV" id="JiG-8t-4Bv"/>
+                <outlet property="MiddleAlcholButton" destination="nVT-zX-pm2" id="PS5-93-byg"/>
+                <outlet property="NonAlcholBaseButton" destination="Jv1-rg-VUE" id="dwI-Ph-qkB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="QlS-fZ-0Fe">
+                    <rect key="frame" x="37" y="403" width="340" height="90"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jv1-rg-VUE" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="PO6-9X-Cjn"/>
+                                <constraint firstAttribute="height" constant="90" id="Tap-dm-tGk"/>
+                            </constraints>
+                            <state key="normal" title="논-알콜"/>
+                            <connections>
+                                <action selector="LowBtnPress:" destination="-1" eventType="touchUpInside" id="rX0-RC-7vG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVT-zX-pm2" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                            <rect key="frame" x="125" y="0.0" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="OdC-uU-iLB"/>
+                                <constraint firstAttribute="width" constant="90" id="gBR-xS-IOG"/>
+                            </constraints>
+                            <state key="normal" title="중간"/>
+                            <connections>
+                                <action selector="MiddleBtnPress:" destination="-1" eventType="touchUpInside" id="RCx-lL-W0M"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYI-dG-UWV" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                            <rect key="frame" x="250" y="0.0" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="fvg-Lc-PY1"/>
+                                <constraint firstAttribute="height" constant="90" id="mLN-2A-8hZ"/>
+                            </constraints>
+                            <state key="normal" title="높은"/>
+                            <connections>
+                                <action selector="HighBtnPress:" destination="-1" eventType="touchUpInside" id="d9i-bC-357"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어떤 도수의 칵테일을 원하십니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cis-Rd-rpJ" customClass="SelectLabel" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="30" y="352.5" width="227.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-ul-ed3" customClass="PgControll" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="119" y="804.5" width="176" height="27.5"/>
+                </pageControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqG-mV-Kze" customClass="PreviousButton" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="30" y="802" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="prevButton:" destination="-1" eventType="touchUpInside" id="wMP-DS-CLt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IqG-mV-Kze" secondAttribute="bottom" constant="30" id="70v-W1-dVX"/>
+                <constraint firstItem="lw0-ul-ed3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8em-7R-AvA"/>
+                <constraint firstItem="QlS-fZ-0Fe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XxS-t1-EUN"/>
+                <constraint firstItem="QlS-fZ-0Fe" firstAttribute="top" secondItem="Cis-Rd-rpJ" secondAttribute="bottom" constant="30" id="idI-f6-Zld"/>
+                <constraint firstItem="IqG-mV-Kze" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="k5O-D6-6EV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lw0-ul-ed3" secondAttribute="bottom" constant="30" id="qaH-am-4Nl"/>
+                <constraint firstItem="QlS-fZ-0Fe" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uH6-gq-hSm"/>
+                <constraint firstItem="Cis-Rd-rpJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="v8x-M2-qye"/>
+            </constraints>
+            <point key="canvasLocation" x="-62" y="95"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

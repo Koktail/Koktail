@@ -27,7 +27,6 @@
 		026397292693277100D57975 /* UtilFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026397282693277100D57975 /* UtilFunction.swift */; };
 		02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C1526870204009B15CD /* MainTabBarController.swift */; };
 		02E43C1B26870270009B15CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C1926870270009B15CD /* HomeViewController.swift */; };
-		02E43C1C26870270009B15CD /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E43C1A26870270009B15CD /* HomeViewController.xib */; };
 		02E43C1F2687028D009B15CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C1D2687028D009B15CD /* MapViewController.swift */; };
 		02E43C202687028D009B15CD /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E43C1E2687028D009B15CD /* MapViewController.xib */; };
 		02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C21268702A1009B15CD /* CocktailViewController.swift */; };
@@ -37,16 +36,36 @@
 		02E43C3226870574009B15CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C3126870574009B15CD /* LoginViewController.swift */; };
 		02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C352687066E009B15CD /* Extension+UIWindow.swift */; };
 		71D65DE96213D937B58B8F17 /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1201EC11E9D29496FF9E12 /* Pods_Koktail.framework */; };
-		C498A614269FC3F400AE65E0 /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C498A612269FC3F400AE65E0 /* PreviewCollectionViewCell.swift */; };
-		C498A615269FC3F400AE65E0 /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C498A613269FC3F400AE65E0 /* PreviewCollectionViewCell.xib */; };
-		C498A621269FD20500AE65E0 /* MoreCocktailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C498A61F269FD20500AE65E0 /* MoreCocktailViewController.swift */; };
-		C498A622269FD20500AE65E0 /* MoreCocktailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C498A620269FD20500AE65E0 /* MoreCocktailViewController.xib */; };
-		C498A627269FD34500AE65E0 /* MoreCocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C498A625269FD34500AE65E0 /* MoreCocktailTableViewCell.swift */; };
-		C498A628269FD34500AE65E0 /* MoreCocktailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C498A626269FD34500AE65E0 /* MoreCocktailTableViewCell.xib */; };
-		C4BCCE31269D87E1003A9993 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BCCE2F269D87E1003A9993 /* CategoryTableViewCell.swift */; };
-		C4BCCE32269D87E1003A9993 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BCCE30269D87E1003A9993 /* CategoryTableViewCell.xib */; };
-		C4FE0B6026A64C05001F3D0D /* CocktailDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE0B5E26A64C05001F3D0D /* CocktailDetailViewController.swift */; };
-		C4FE0B6126A64C05001F3D0D /* CocktailDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FE0B5F26A64C05001F3D0D /* CocktailDetailViewController.xib */; };
+		9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5919269D87780077CD59 /* Extension+UIColor.swift */; };
+		9FAB591C269D87DD0077CD59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB591B269D87DD0077CD59 /* GoogleService-Info.plist */; };
+		9FAB591E269D87E80077CD59 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB591D269D87E80077CD59 /* RemoteConfigDefaults.plist */; };
+		9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5923269D88570077CD59 /* LoginPageViewController.swift */; };
+		9FAB5926269D88610077CD59 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5925269D88610077CD59 /* SignUpViewController.swift */; };
+		9FAB592D269DC11D0077CD59 /* LoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */; };
+		9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */; };
+		D6908F4026A2E343004240AC /* CocktailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F3F26A2E343004240AC /* CocktailCollectionViewCell.xib */; };
+		D6908F4226A2E35F004240AC /* CocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F4126A2E35F004240AC /* CocktailCollectionViewCell.swift */; };
+		D6908F4426A2E804004240AC /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F4326A2E804004240AC /* HomeViewController.xib */; };
+		D6908F5126A30C51004240AC /* SelectPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F4F26A30C51004240AC /* SelectPageViewController.swift */; };
+		D6908F5226A30C51004240AC /* SelectPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F5026A30C51004240AC /* SelectPageViewController.xib */; };
+		D6908F5726A30CC4004240AC /* SelectBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */; };
+		D6908F5826A30CC4004240AC /* SelectBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F5626A30CC4004240AC /* SelectBaseViewController.xib */; };
+		D6908F5B26A31109004240AC /* SelectAlcholViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F5926A31108004240AC /* SelectAlcholViewController.swift */; };
+		D6908F5C26A31109004240AC /* SelectAlcholViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F5A26A31108004240AC /* SelectAlcholViewController.xib */; };
+		D6908F5F26A32D6E004240AC /* SelectSweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F5D26A32D6E004240AC /* SelectSweetViewController.swift */; };
+		D6908F6026A32D6E004240AC /* SelectSweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F5E26A32D6E004240AC /* SelectSweetViewController.xib */; };
+		D6908F6326A32ECF004240AC /* SelectSourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F6126A32ECF004240AC /* SelectSourViewController.swift */; };
+		D6908F6426A32ECF004240AC /* SelectSourViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F6226A32ECF004240AC /* SelectSourViewController.xib */; };
+		D6908F6726A32FA0004240AC /* SelectBitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F6526A32FA0004240AC /* SelectBitterViewController.swift */; };
+		D6908F6826A32FA0004240AC /* SelectBitterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F6626A32FA0004240AC /* SelectBitterViewController.xib */; };
+		D6908F6B26A33022004240AC /* SelectDryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F6926A33022004240AC /* SelectDryViewController.swift */; };
+		D6908F6C26A33022004240AC /* SelectDryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F6A26A33022004240AC /* SelectDryViewController.xib */; };
+		D6908F6F26A332F6004240AC /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F6E26A332F6004240AC /* ResultViewController.swift */; };
+		D6908F7226A3330E004240AC /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F7126A3330E004240AC /* ResultViewController.xib */; };
+		D6908F7426A33318004240AC /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F7326A33318004240AC /* HeaderTableViewCell.swift */; };
+		D6908F7626A3331E004240AC /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F7526A3331E004240AC /* HeaderTableViewCell.xib */; };
+		D6908F7826A3332A004240AC /* CocktailResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F7726A3332A004240AC /* CocktailResultTableViewCell.swift */; };
+		D6908F7A26A3333B004240AC /* CocktailResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F7926A3333B004240AC /* CocktailResultTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +91,6 @@
 		026397282693277100D57975 /* UtilFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunction.swift; sourceTree = "<group>"; };
 		02E43C1526870204009B15CD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		02E43C1926870270009B15CD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		02E43C1A26870270009B15CD /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		02E43C1D2687028D009B15CD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		02E43C1E2687028D009B15CD /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		02E43C21268702A1009B15CD /* CocktailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailViewController.swift; sourceTree = "<group>"; };
@@ -82,17 +100,37 @@
 		02E43C3126870574009B15CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		02E43C352687066E009B15CD /* Extension+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIWindow.swift"; sourceTree = "<group>"; };
 		2B1201EC11E9D29496FF9E12 /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FAB5919269D87780077CD59 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		9FAB591B269D87DD0077CD59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9FAB591D269D87E80077CD59 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		9FAB5923269D88570077CD59 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		9FAB5925269D88610077CD59 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginPageViewController.xib; sourceTree = "<group>"; };
+		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		AB15AF38B808714D18519FD8 /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
-		C498A612269FC3F400AE65E0 /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
-		C498A613269FC3F400AE65E0 /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
-		C498A61F269FD20500AE65E0 /* MoreCocktailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCocktailViewController.swift; sourceTree = "<group>"; };
-		C498A620269FD20500AE65E0 /* MoreCocktailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreCocktailViewController.xib; sourceTree = "<group>"; };
-		C498A625269FD34500AE65E0 /* MoreCocktailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCocktailTableViewCell.swift; sourceTree = "<group>"; };
-		C498A626269FD34500AE65E0 /* MoreCocktailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreCocktailTableViewCell.xib; sourceTree = "<group>"; };
-		C4BCCE2F269D87E1003A9993 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		C4BCCE30269D87E1003A9993 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
-		C4FE0B5E26A64C05001F3D0D /* CocktailDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailViewController.swift; sourceTree = "<group>"; };
-		C4FE0B5F26A64C05001F3D0D /* CocktailDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CocktailDetailViewController.xib; sourceTree = "<group>"; };
+		D6908F3F26A2E343004240AC /* CocktailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CocktailCollectionViewCell.xib; path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/스위프트/prac_collectionView/prac_collectionView/CocktailCollectionViewCell.xib"; sourceTree = "<group>"; };
+		D6908F4126A2E35F004240AC /* CocktailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CocktailCollectionViewCell.swift; path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/스위프트/prac_collectionView/prac_collectionView/CocktailCollectionViewCell.swift"; sourceTree = "<group>"; };
+		D6908F4326A2E804004240AC /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/스위프트/prac_collectionView/prac_collectionView/HomeViewController.xib"; sourceTree = "<group>"; };
+		D6908F4F26A30C51004240AC /* SelectPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPageViewController.swift; sourceTree = "<group>"; };
+		D6908F5026A30C51004240AC /* SelectPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPageViewController.xib; sourceTree = "<group>"; };
+		D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBaseViewController.swift; sourceTree = "<group>"; };
+		D6908F5626A30CC4004240AC /* SelectBaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectBaseViewController.xib; sourceTree = "<group>"; };
+		D6908F5926A31108004240AC /* SelectAlcholViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAlcholViewController.swift; sourceTree = "<group>"; };
+		D6908F5A26A31108004240AC /* SelectAlcholViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectAlcholViewController.xib; sourceTree = "<group>"; };
+		D6908F5D26A32D6E004240AC /* SelectSweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSweetViewController.swift; sourceTree = "<group>"; };
+		D6908F5E26A32D6E004240AC /* SelectSweetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectSweetViewController.xib; sourceTree = "<group>"; };
+		D6908F6126A32ECF004240AC /* SelectSourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSourViewController.swift; sourceTree = "<group>"; };
+		D6908F6226A32ECF004240AC /* SelectSourViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectSourViewController.xib; sourceTree = "<group>"; };
+		D6908F6526A32FA0004240AC /* SelectBitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBitterViewController.swift; sourceTree = "<group>"; };
+		D6908F6626A32FA0004240AC /* SelectBitterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectBitterViewController.xib; sourceTree = "<group>"; };
+		D6908F6926A33022004240AC /* SelectDryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDryViewController.swift; sourceTree = "<group>"; };
+		D6908F6A26A33022004240AC /* SelectDryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDryViewController.xib; sourceTree = "<group>"; };
+		D6908F6E26A332F6004240AC /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		D6908F7126A3330E004240AC /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
+		D6908F7326A33318004240AC /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		D6908F7526A3331E004240AC /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		D6908F7726A3332A004240AC /* CocktailResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailResultTableViewCell.swift; sourceTree = "<group>"; };
+		D6908F7926A3333B004240AC /* CocktailResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CocktailResultTableViewCell.xib; sourceTree = "<group>"; };
 		DB04BA141D250C10F1D4A200 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +212,8 @@
 		02816A91268B32A300E3FEA8 /* PropertyList */ = {
 			isa = PBXGroup;
 			children = (
+				9FAB591D269D87E80077CD59 /* RemoteConfigDefaults.plist */,
+				9FAB591B269D87DD0077CD59 /* GoogleService-Info.plist */,
 				02454FFE26860DA400558D3C /* Info.plist */,
 			);
 			name = PropertyList;
@@ -224,6 +264,8 @@
 		02E43C13268701CC009B15CD /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				9FAB5925269D88610077CD59 /* SignUpViewController.swift */,
+				9FAB5923269D88570077CD59 /* LoginPageViewController.swift */,
 				02E43C3126870574009B15CD /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -244,6 +286,8 @@
 		02E43C172687022E009B15CD /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */,
+				9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */,
 				02454FF626860DA300558D3C /* Main.storyboard */,
 			);
 			path = Login;
@@ -263,7 +307,9 @@
 		02E43C2926870346009B15CD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D6908F4D26A30C2B004240AC /* Recommend */,
 				02E43C1926870270009B15CD /* HomeViewController.swift */,
+				D6908F4126A2E35F004240AC /* CocktailCollectionViewCell.swift */,
 				0250C48F26904C5F0076A273 /* Setting */,
 			);
 			path = Home;
@@ -291,11 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				02E43C21268702A1009B15CD /* CocktailViewController.swift */,
-				C4BCCE2F269D87E1003A9993 /* CategoryTableViewCell.swift */,
-				C498A612269FC3F400AE65E0 /* PreviewCollectionViewCell.swift */,
-				C498A61F269FD20500AE65E0 /* MoreCocktailViewController.swift */,
-				C498A625269FD34500AE65E0 /* MoreCocktailTableViewCell.swift */,
-				C4FE0B5E26A64C05001F3D0D /* CocktailDetailViewController.swift */,
 			);
 			path = Cocktail;
 			sourceTree = "<group>";
@@ -322,11 +363,6 @@
 			isa = PBXGroup;
 			children = (
 				02E43C22268702A1009B15CD /* CocktailViewController.xib */,
-				C4BCCE30269D87E1003A9993 /* CategoryTableViewCell.xib */,
-				C498A613269FC3F400AE65E0 /* PreviewCollectionViewCell.xib */,
-				C498A620269FD20500AE65E0 /* MoreCocktailViewController.xib */,
-				C498A626269FD34500AE65E0 /* MoreCocktailTableViewCell.xib */,
-				C4FE0B5F26A64C05001F3D0D /* CocktailDetailViewController.xib */,
 			);
 			path = Cocktail;
 			sourceTree = "<group>";
@@ -334,7 +370,9 @@
 		02E43C302687038B009B15CD /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				02E43C1A26870270009B15CD /* HomeViewController.xib */,
+				D6908F4E26A30C3B004240AC /* Recommend */,
+				D6908F4326A2E804004240AC /* HomeViewController.xib */,
+				D6908F3F26A2E343004240AC /* CocktailCollectionViewCell.xib */,
 				0250C49026904C670076A273 /* Setting */,
 			);
 			path = Home;
@@ -353,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				02E43C352687066E009B15CD /* Extension+UIWindow.swift */,
+				9FAB5919269D87780077CD59 /* Extension+UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -372,6 +411,72 @@
 				DB04BA141D250C10F1D4A200 /* Pods-Koktail.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D6908F4D26A30C2B004240AC /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				D6908F4F26A30C51004240AC /* SelectPageViewController.swift */,
+				D6908F5326A30C81004240AC /* Select */,
+				D6908F6D26A332CC004240AC /* Result */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		D6908F4E26A30C3B004240AC /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				D6908F5026A30C51004240AC /* SelectPageViewController.xib */,
+				D6908F5426A30CA0004240AC /* Select */,
+				D6908F7026A332FC004240AC /* Result */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		D6908F5326A30C81004240AC /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */,
+				D6908F5926A31108004240AC /* SelectAlcholViewController.swift */,
+				D6908F5D26A32D6E004240AC /* SelectSweetViewController.swift */,
+				D6908F6126A32ECF004240AC /* SelectSourViewController.swift */,
+				D6908F6526A32FA0004240AC /* SelectBitterViewController.swift */,
+				D6908F6926A33022004240AC /* SelectDryViewController.swift */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
+		D6908F5426A30CA0004240AC /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				D6908F5626A30CC4004240AC /* SelectBaseViewController.xib */,
+				D6908F5A26A31108004240AC /* SelectAlcholViewController.xib */,
+				D6908F5E26A32D6E004240AC /* SelectSweetViewController.xib */,
+				D6908F6226A32ECF004240AC /* SelectSourViewController.xib */,
+				D6908F6626A32FA0004240AC /* SelectBitterViewController.xib */,
+				D6908F6A26A33022004240AC /* SelectDryViewController.xib */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
+		D6908F6D26A332CC004240AC /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				D6908F6E26A332F6004240AC /* ResultViewController.swift */,
+				D6908F7726A3332A004240AC /* CocktailResultTableViewCell.swift */,
+				D6908F7326A33318004240AC /* HeaderTableViewCell.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		D6908F7026A332FC004240AC /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				D6908F7126A3330E004240AC /* ResultViewController.xib */,
+				D6908F7526A3331E004240AC /* HeaderTableViewCell.xib */,
+				D6908F7926A3333B004240AC /* CocktailResultTableViewCell.xib */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,24 +541,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6908F4026A2E343004240AC /* CocktailCollectionViewCell.xib in Resources */,
 				0250C58A269062E30076A273 /* FavoriteCocktailViewController.xib in Resources */,
-				C4BCCE32269D87E1003A9993 /* CategoryTableViewCell.xib in Resources */,
+				9FAB592D269DC11D0077CD59 /* LoginPageViewController.xib in Resources */,
+				D6908F6426A32ECF004240AC /* SelectSourViewController.xib in Resources */,
 				02454FFA26860DA400558D3C /* Assets.xcassets in Resources */,
 				02454FF826860DA300558D3C /* Main.storyboard in Resources */,
 				0250C4C62690501F0076A273 /* OpenSourceTableViewCell.xib in Resources */,
+				D6908F5226A30C51004240AC /* SelectPageViewController.xib in Resources */,
+				D6908F6026A32D6E004240AC /* SelectSweetViewController.xib in Resources */,
+				D6908F5826A30CC4004240AC /* SelectBaseViewController.xib in Resources */,
 				02E43C2826870305009B15CD /* FavoriteViewController.xib in Resources */,
-				C498A615269FC3F400AE65E0 /* PreviewCollectionViewCell.xib in Resources */,
+				D6908F5C26A31109004240AC /* SelectAlcholViewController.xib in Resources */,
+				9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */,
 				023BEBF4268B731A00D352A8 /* .swiftlint.yml in Resources */,
-				02E43C1C26870270009B15CD /* HomeViewController.xib in Resources */,
+				9FAB591E269D87E80077CD59 /* RemoteConfigDefaults.plist in Resources */,
 				0250C4CA269053D60076A273 /* VersionTableViewCell.xib in Resources */,
-				C4FE0B6126A64C05001F3D0D /* CocktailDetailViewController.xib in Resources */,
+				D6908F6C26A33022004240AC /* SelectDryViewController.xib in Resources */,
+				D6908F6826A32FA0004240AC /* SelectBitterViewController.xib in Resources */,
+				D6908F4426A2E804004240AC /* HomeViewController.xib in Resources */,
+				D6908F7626A3331E004240AC /* HeaderTableViewCell.xib in Resources */,
 				02E43C24268702A1009B15CD /* CocktailViewController.xib in Resources */,
-				C498A628269FD34500AE65E0 /* MoreCocktailTableViewCell.xib in Resources */,
-				C498A622269FD20500AE65E0 /* MoreCocktailViewController.xib in Resources */,
 				0250C4FC269056B40076A273 /* LogOutTableViewCell.xib in Resources */,
+				D6908F7226A3330E004240AC /* ResultViewController.xib in Resources */,
 				02E43C202687028D009B15CD /* MapViewController.xib in Resources */,
+				D6908F7A26A3333B004240AC /* CocktailResultTableViewCell.xib in Resources */,
 				0250C49426904C800076A273 /* SettingViewController.xib in Resources */,
 				0250C5BC2690666F0076A273 /* FavoriteStoreViewController.xib in Resources */,
+				9FAB591C269D87DD0077CD59 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,26 +677,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */,
+				D6908F5F26A32D6E004240AC /* SelectSweetViewController.swift in Sources */,
 				026397292693277100D57975 /* UtilFunction.swift in Sources */,
 				02E43C3226870574009B15CD /* LoginViewController.swift in Sources */,
-				C498A614269FC3F400AE65E0 /* PreviewCollectionViewCell.swift in Sources */,
+				9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */,
 				02E43C1B26870270009B15CD /* HomeViewController.swift in Sources */,
+				D6908F6726A32FA0004240AC /* SelectBitterViewController.swift in Sources */,
 				0250C4C52690501F0076A273 /* OpenSourceTableViewCell.swift in Sources */,
-				C498A627269FD34500AE65E0 /* MoreCocktailTableViewCell.swift in Sources */,
 				02E43C1F2687028D009B15CD /* MapViewController.swift in Sources */,
+				9FAB5926269D88610077CD59 /* SignUpViewController.swift in Sources */,
 				0250C4FB269056B40076A273 /* LogOutTableViewCell.swift in Sources */,
 				02454FF126860DA300558D3C /* AppDelegate.swift in Sources */,
 				0250C49326904C800076A273 /* SettingViewController.swift in Sources */,
 				02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */,
+				D6908F5B26A31109004240AC /* SelectAlcholViewController.swift in Sources */,
+				D6908F4226A2E35F004240AC /* CocktailCollectionViewCell.swift in Sources */,
 				02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */,
-				C498A621269FD20500AE65E0 /* MoreCocktailViewController.swift in Sources */,
-				C4FE0B6026A64C05001F3D0D /* CocktailDetailViewController.swift in Sources */,
+				9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */,
+				D6908F5726A30CC4004240AC /* SelectBaseViewController.swift in Sources */,
 				02E43C2726870305009B15CD /* FavoriteViewController.swift in Sources */,
+				D6908F7826A3332A004240AC /* CocktailResultTableViewCell.swift in Sources */,
 				0250C4C9269053D60076A273 /* VersionTableViewCell.swift in Sources */,
+				D6908F6B26A33022004240AC /* SelectDryViewController.swift in Sources */,
+				D6908F7426A33318004240AC /* HeaderTableViewCell.swift in Sources */,
 				0250C589269062E30076A273 /* FavoriteCocktailViewController.swift in Sources */,
+				D6908F6F26A332F6004240AC /* ResultViewController.swift in Sources */,
+				D6908F5126A30C51004240AC /* SelectPageViewController.swift in Sources */,
 				0250C5BB2690666F0076A273 /* FavoriteStoreViewController.swift in Sources */,
+				D6908F6326A32ECF004240AC /* SelectSourViewController.swift in Sources */,
 				02454FF326860DA300558D3C /* SceneDelegate.swift in Sources */,
-				C4BCCE31269D87E1003A9993 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,9 +846,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KFAFLC3XW8;
+				DEVELOPMENT_TEAM = YKB76M9XZ9;
 				INFOPLIST_FILE = Koktail/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -743,9 +866,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KFAFLC3XW8;
+				DEVELOPMENT_TEAM = YKB76M9XZ9;
 				INFOPLIST_FILE = Koktail/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
