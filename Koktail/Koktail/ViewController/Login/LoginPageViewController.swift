@@ -9,6 +9,7 @@ import UIKit
 import SkyFloatingLabelTextField
 import Firebase
 
+import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
@@ -60,71 +61,93 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
             UserApi.shared.accessTokenInfo { _, error in
                 if let error = error {
                     print("________ login error ________")
-                    print(error.localizedDescription)
                     
-                    self.kakaoLoginSupport()
-                    
+                    if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true {
+                        self.checkKaKaoTalkAppIsAvailable()
+                    } else {
+                        print(error.localizedDescription)
+                    }
                 } else {
                     print("accessTokenInfo ok")
                     self.view.window?.switchRootViewController(self.tabBarViewController)
                 }
             }
         } else {
-            self.kakaoLoginSupport()
+            self.checkKaKaoTalkAppIsAvailable()
         }
     }
     
-    func kakaoLoginSupport() {
-        if UserApi.isKakaoTalkLoginAvailable() {
+    /// 카카오톡 설치 여부를 확인 후 계정에 로그인
+    func checkKaKaoTalkAppIsAvailable() {
+        if UserApi.isKakaoTalkLoginAvailable() { // 카카오톡 간편 로그인
             UserApi.shared.loginWithKakaoTalk { oauthToken, error in
                 if let error = error {
                     print(error.localizedDescription)
                 } else {
-                    print("NEW KAKAO LOGIN")
+                    print("APP KAKAO LOGIN")
                     
                     _ = oauthToken
                     
-                    // sucess kakao login
-                    UserApi.shared.me { kakaoUser, error in
-                        if let error = error {
-                            print("< KAKAO: user loading failed >")
-                            print(error.localizedDescription)
-                        } else {
-                            guard let email = kakaoUser?.kakaoAccount?.email else {
-                                return
-                            }
-                            guard let password = kakaoUser?.id else {
-                                return
-                            }
-                            
-                            Auth.auth().createUser(withEmail: email,
-                                                   password: String(describing: password)) { _, error in
-                                if let error = error {
-                                    print("< FIREBASE: signUp failed >")
-                                    print(error.localizedDescription)
-                                    
-                                    Auth.auth().signIn(withEmail: email,
-                                                       password: String(describing: password),
-                                                       completion: nil)
-                                } else {
-                                    print("< FIREBASE: signup success >")
-                                }
-                            }
-                        }
-                    }
+                    self.kakaoLoginToFireBaseLogin()
                     
                     self.view.window?.switchRootViewController(self.tabBarViewController)
                 }
             }
-        } else {
-            let alert = UIAlertController(title: "카카오톡 연동 실패", message: "카카오톡을 실행할 수 없습니다.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        } else { // 카카오톡 웹 로그인
+            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("WEB KAKAO LOGIN")
+                    
+                    _ = oauthToken
+                    
+                    self.kakaoLoginToFireBaseLogin()
+                    
+                    self.view.window?.switchRootViewController(self.tabBarViewController)
+                }
+            }
         }
     }
     
-    @objc func appleLoginEvent() {
+    /// 카카오톡으로 로그인한 정보를 파이어베이스에 등록
+    func kakaoLoginToFireBaseLogin() {
+        UserApi.shared.me { kakaoUser, error in
+            if let error = error {
+                print("< KAKAO: user loading failed >")
+                print(error.localizedDescription)
+            } else {
+                guard let nickName = kakaoUser?.kakaoAccount?.profile?.nickname else {
+                    return
+                }
+                guard let password = kakaoUser?.id else {
+                    return
+                }
+                
+                Auth.auth().createUser(withEmail: nickName,
+                                       password: String(describing: password)) { _, error in
+                    if let error = error {
+                        print("< FIREBASE: signUp failed >")
+                        print(error.localizedDescription)
+                        
+                        Auth.auth().signIn(withEmail: nickName,
+                                           password: String(describing: password),
+                                           completion: nil)
+                    } else {
+                        print("< FIREBASE: signup success >")
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func jwtkakaoLogin() {
         
+        
+    }
+    
+    @objc func appleLoginEvent() {
+        print("____ clicked apple login button ____")
     }
     
     @objc func findAndUpdatePasswordEvent() {

@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Firebase
+import KakaoSDKUser
 
 class LoginViewController: UIViewController {
 
@@ -24,16 +25,20 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 파이어베이스 로그아웃
         try? Auth.auth().signOut()
+        
+        // 카카오톡 로그인 토큰 삭제
+        UserApi.shared.unlink { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("unlink success")
+            }
+        }
         
         initRemoteConfig()
         displayLogoImage()
-        
-        // 이부분은 잘모르기 때문에 넘기는 거 어떻게..?
-        /*DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            guard let window = self.view.window else { return }
-            window.switchRootViewController(self.nextViewController)
-        } */
     }
     
     // MARK: - Custom Method
