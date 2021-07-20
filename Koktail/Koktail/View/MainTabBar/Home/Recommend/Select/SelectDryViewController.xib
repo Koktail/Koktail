@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectDryViewController" customModule="Koktail" customModuleProvider="target">
+            <connections>
+                <outlet property="DryHighButton" destination="GxY-1i-BHq" id="ucE-AT-19n"/>
+                <outlet property="DryLowButton" destination="pkR-66-fsg" id="3lp-QB-n4k"/>
+                <outlet property="DryMiddleButton" destination="s93-HA-BrP" id="ewt-UV-aoW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="PFi-2o-iID">
+                    <rect key="frame" x="37" y="403" width="340" height="90"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkR-66-fsg" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="61C-V2-R3c"/>
+                                <constraint firstAttribute="width" constant="90" id="eBa-Nd-5Q3"/>
+                            </constraints>
+                            <state key="normal" title="조금"/>
+                            <connections>
+                                <action selector="LowBtnPress:" destination="-1" eventType="touchUpInside" id="Ecn-nL-Tcm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s93-HA-BrP" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                            <rect key="frame" x="125" y="0.0" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="MC1-11-aVW"/>
+                                <constraint firstAttribute="width" constant="90" id="pgo-lT-LQw"/>
+                            </constraints>
+                            <state key="normal" title="중간"/>
+                            <connections>
+                                <action selector="MiddleBtnPress:" destination="-1" eventType="touchUpInside" id="jeO-nZ-74n"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxY-1i-BHq" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                            <rect key="frame" x="250" y="0.0" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="2Mv-Ug-29I"/>
+                                <constraint firstAttribute="width" constant="90" id="nOq-r3-SSO"/>
+                            </constraints>
+                            <state key="normal" title="많이"/>
+                            <connections>
+                                <action selector="HighBtnPress:" destination="-1" eventType="touchUpInside" id="Mau-1w-vSR"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="5" translatesAutoresizingMaskIntoConstraints="NO" id="CrD-ZY-G4H" customClass="PgControll" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="119" y="804.5" width="176" height="27.5"/>
+                </pageControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="얼마나 드라이하길 원하십니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwR-d3-CAR" customClass="SelectLabel" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="30" y="352.5" width="208.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgN-gW-CKL" customClass="PreviousButton" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="30" y="802" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="prevButton:" destination="-1" eventType="touchUpInside" id="vFQ-ao-IHZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="PFi-2o-iID" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="5Cn-Gc-jh6"/>
+                <constraint firstItem="rgN-gW-CKL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="LmA-Wf-6lj"/>
+                <constraint firstItem="CrD-ZY-G4H" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NXt-db-B9q"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rgN-gW-CKL" secondAttribute="bottom" constant="30" id="R1B-Zk-E39"/>
+                <constraint firstItem="PFi-2o-iID" firstAttribute="top" secondItem="JwR-d3-CAR" secondAttribute="bottom" constant="30" id="RXj-oZ-X9u"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CrD-ZY-G4H" secondAttribute="bottom" constant="30" id="aap-4R-g4W"/>
+                <constraint firstItem="JwR-d3-CAR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="hww-xJ-WWb"/>
+                <constraint firstItem="PFi-2o-iID" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kkj-8P-F9t"/>
+            </constraints>
+            <point key="canvasLocation" x="49" y="94"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
