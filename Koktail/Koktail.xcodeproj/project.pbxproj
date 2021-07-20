@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		023BEBF4268B731A00D352A8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 023BEBF3268B731A00D352A8 /* .swiftlint.yml */; };
+		023F864E26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023F864D26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift */; };
+		023F865026A6F8FD0086EC4F /* CocktailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023F864F26A6F8FD0086EC4F /* CocktailCollectionViewCell.xib */; };
+		023F865626A6F9C00086EC4F /* MoreCocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023F865126A6F9C00086EC4F /* MoreCocktailTableViewCell.swift */; };
+		023F865726A6F9C00086EC4F /* CocktailDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023F865226A6F9C00086EC4F /* CocktailDetailViewController.swift */; };
+		023F865826A6F9C00086EC4F /* MoreCocktailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023F865326A6F9C00086EC4F /* MoreCocktailViewController.swift */; };
+		023F865926A6F9C00086EC4F /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023F865426A6F9C00086EC4F /* CategoryTableViewCell.swift */; };
+		023F865A26A6F9C00086EC4F /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023F865526A6F9C00086EC4F /* PreviewCollectionViewCell.swift */; };
+		023F866026A6F9DA0086EC4F /* CocktailDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023F865B26A6F9DA0086EC4F /* CocktailDetailViewController.xib */; };
+		023F866126A6F9DA0086EC4F /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023F865C26A6F9DA0086EC4F /* CategoryTableViewCell.xib */; };
+		023F866226A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023F865D26A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib */; };
+		023F866326A6F9DA0086EC4F /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023F865E26A6F9DA0086EC4F /* PreviewCollectionViewCell.xib */; };
+		023F866426A6F9DA0086EC4F /* MoreCocktailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023F865F26A6F9DA0086EC4F /* MoreCocktailViewController.xib */; };
+		023F866626A6FADB0086EC4F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023F866526A6FADB0086EC4F /* HomeViewController.xib */; };
 		024327CD269FC6DB00DC301C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024327CC269FC6DB00DC301C /* UserDefaultsManager.swift */; };
 		02454FF126860DA300558D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02454FF026860DA300558D3C /* AppDelegate.swift */; };
 		02454FF326860DA300558D3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02454FF226860DA300558D3C /* SceneDelegate.swift */; };
@@ -47,9 +60,6 @@
 		9FAB5926269D88610077CD59 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5925269D88610077CD59 /* SignUpViewController.swift */; };
 		9FAB592D269DC11D0077CD59 /* LoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */; };
 		9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */; };
-		D6908F4026A2E343004240AC /* CocktailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F3F26A2E343004240AC /* CocktailCollectionViewCell.xib */; };
-		D6908F4226A2E35F004240AC /* CocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F4126A2E35F004240AC /* CocktailCollectionViewCell.swift */; };
-		D6908F4426A2E804004240AC /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F4326A2E804004240AC /* HomeViewController.xib */; };
 		D6908F5126A30C51004240AC /* SelectPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F4F26A30C51004240AC /* SelectPageViewController.swift */; };
 		D6908F5226A30C51004240AC /* SelectPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F5026A30C51004240AC /* SelectPageViewController.xib */; };
 		D6908F5726A30CC4004240AC /* SelectBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */; };
@@ -74,6 +84,19 @@
 
 /* Begin PBXFileReference section */
 		023BEBF3268B731A00D352A8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		023F864D26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCollectionViewCell.swift; sourceTree = "<group>"; };
+		023F864F26A6F8FD0086EC4F /* CocktailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CocktailCollectionViewCell.xib; sourceTree = "<group>"; };
+		023F865126A6F9C00086EC4F /* MoreCocktailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreCocktailTableViewCell.swift; sourceTree = "<group>"; };
+		023F865226A6F9C00086EC4F /* CocktailDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailDetailViewController.swift; sourceTree = "<group>"; };
+		023F865326A6F9C00086EC4F /* MoreCocktailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreCocktailViewController.swift; sourceTree = "<group>"; };
+		023F865426A6F9C00086EC4F /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		023F865526A6F9C00086EC4F /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		023F865B26A6F9DA0086EC4F /* CocktailDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CocktailDetailViewController.xib; sourceTree = "<group>"; };
+		023F865C26A6F9DA0086EC4F /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		023F865D26A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreCocktailTableViewCell.xib; sourceTree = "<group>"; };
+		023F865E26A6F9DA0086EC4F /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
+		023F865F26A6F9DA0086EC4F /* MoreCocktailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreCocktailViewController.xib; sourceTree = "<group>"; };
+		023F866526A6FADB0086EC4F /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		024327CC269FC6DB00DC301C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		02454FED26860DA300558D3C /* Koktail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koktail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02454FF026860DA300558D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,9 +139,6 @@
 		9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginPageViewController.xib; sourceTree = "<group>"; };
 		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		AB15AF38B808714D18519FD8 /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
-		D6908F3F26A2E343004240AC /* CocktailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CocktailCollectionViewCell.xib; path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/스위프트/prac_collectionView/prac_collectionView/CocktailCollectionViewCell.xib"; sourceTree = "<group>"; };
-		D6908F4126A2E35F004240AC /* CocktailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CocktailCollectionViewCell.swift; path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/스위프트/prac_collectionView/prac_collectionView/CocktailCollectionViewCell.swift"; sourceTree = "<group>"; };
-		D6908F4326A2E804004240AC /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/스위프트/prac_collectionView/prac_collectionView/HomeViewController.xib"; sourceTree = "<group>"; };
 		D6908F4F26A30C51004240AC /* SelectPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPageViewController.swift; sourceTree = "<group>"; };
 		D6908F5026A30C51004240AC /* SelectPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPageViewController.xib; sourceTree = "<group>"; };
 		D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBaseViewController.swift; sourceTree = "<group>"; };
@@ -343,7 +363,7 @@
 			children = (
 				D6908F4D26A30C2B004240AC /* Recommend */,
 				02E43C1926870270009B15CD /* HomeViewController.swift */,
-				D6908F4126A2E35F004240AC /* CocktailCollectionViewCell.swift */,
+				023F864D26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift */,
 				0250C48F26904C5F0076A273 /* Setting */,
 			);
 			path = Home;
@@ -370,6 +390,11 @@
 		02E43C2C26870361009B15CD /* Cocktail */ = {
 			isa = PBXGroup;
 			children = (
+				023F865426A6F9C00086EC4F /* CategoryTableViewCell.swift */,
+				023F865226A6F9C00086EC4F /* CocktailDetailViewController.swift */,
+				023F865126A6F9C00086EC4F /* MoreCocktailTableViewCell.swift */,
+				023F865326A6F9C00086EC4F /* MoreCocktailViewController.swift */,
+				023F865526A6F9C00086EC4F /* PreviewCollectionViewCell.swift */,
 				02E43C21268702A1009B15CD /* CocktailViewController.swift */,
 			);
 			path = Cocktail;
@@ -396,6 +421,11 @@
 		02E43C2F26870383009B15CD /* Cocktail */ = {
 			isa = PBXGroup;
 			children = (
+				023F865C26A6F9DA0086EC4F /* CategoryTableViewCell.xib */,
+				023F865B26A6F9DA0086EC4F /* CocktailDetailViewController.xib */,
+				023F865D26A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib */,
+				023F865F26A6F9DA0086EC4F /* MoreCocktailViewController.xib */,
+				023F865E26A6F9DA0086EC4F /* PreviewCollectionViewCell.xib */,
 				02E43C22268702A1009B15CD /* CocktailViewController.xib */,
 			);
 			path = Cocktail;
@@ -405,8 +435,8 @@
 			isa = PBXGroup;
 			children = (
 				D6908F4E26A30C3B004240AC /* Recommend */,
-				D6908F4326A2E804004240AC /* HomeViewController.xib */,
-				D6908F3F26A2E343004240AC /* CocktailCollectionViewCell.xib */,
+				023F866526A6FADB0086EC4F /* HomeViewController.xib */,
+				023F864F26A6F8FD0086EC4F /* CocktailCollectionViewCell.xib */,
 				0250C49026904C670076A273 /* Setting */,
 			);
 			path = Home;
@@ -578,30 +608,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6908F4026A2E343004240AC /* CocktailCollectionViewCell.xib in Resources */,
 				0250C58A269062E30076A273 /* FavoriteCocktailViewController.xib in Resources */,
 				9FAB592D269DC11D0077CD59 /* LoginPageViewController.xib in Resources */,
 				D6908F6426A32ECF004240AC /* SelectSourViewController.xib in Resources */,
 				02454FFA26860DA400558D3C /* Assets.xcassets in Resources */,
+				023F866026A6F9DA0086EC4F /* CocktailDetailViewController.xib in Resources */,
 				02454FF826860DA300558D3C /* Main.storyboard in Resources */,
 				0250C4C62690501F0076A273 /* OpenSourceTableViewCell.xib in Resources */,
 				D6908F5226A30C51004240AC /* SelectPageViewController.xib in Resources */,
+				023F866226A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib in Resources */,
 				D6908F6026A32D6E004240AC /* SelectSweetViewController.xib in Resources */,
 				D6908F5826A30CC4004240AC /* SelectBaseViewController.xib in Resources */,
 				02E43C2826870305009B15CD /* FavoriteViewController.xib in Resources */,
 				D6908F5C26A31109004240AC /* SelectAlcholViewController.xib in Resources */,
+				023F866626A6FADB0086EC4F /* HomeViewController.xib in Resources */,
 				9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */,
 				023BEBF4268B731A00D352A8 /* .swiftlint.yml in Resources */,
 				9FAB591E269D87E80077CD59 /* RemoteConfigDefaults.plist in Resources */,
 				0250C4CA269053D60076A273 /* VersionTableViewCell.xib in Resources */,
 				D6908F6C26A33022004240AC /* SelectDryViewController.xib in Resources */,
 				D6908F6826A32FA0004240AC /* SelectBitterViewController.xib in Resources */,
-				D6908F4426A2E804004240AC /* HomeViewController.xib in Resources */,
 				D6908F7626A3331E004240AC /* HeaderTableViewCell.xib in Resources */,
+				023F865026A6F8FD0086EC4F /* CocktailCollectionViewCell.xib in Resources */,
+				023F866126A6F9DA0086EC4F /* CategoryTableViewCell.xib in Resources */,
+				023F866326A6F9DA0086EC4F /* PreviewCollectionViewCell.xib in Resources */,
 				02E43C24268702A1009B15CD /* CocktailViewController.xib in Resources */,
 				0250C4FC269056B40076A273 /* LogOutTableViewCell.xib in Resources */,
 				D6908F7226A3330E004240AC /* ResultViewController.xib in Resources */,
 				02E43C202687028D009B15CD /* MapViewController.xib in Resources */,
+				023F866426A6F9DA0086EC4F /* MoreCocktailViewController.xib in Resources */,
 				D6908F7A26A3333B004240AC /* CocktailResultTableViewCell.xib in Resources */,
 				0250C49426904C800076A273 /* SettingViewController.xib in Resources */,
 				0250C5BC2690666F0076A273 /* FavoriteStoreViewController.xib in Resources */,
@@ -731,6 +766,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */,
+				023F865626A6F9C00086EC4F /* MoreCocktailTableViewCell.swift in Sources */,
 				D6908F5F26A32D6E004240AC /* SelectSweetViewController.swift in Sources */,
 				026397292693277100D57975 /* UtilFunction.swift in Sources */,
 				02E43C3226870574009B15CD /* LoginViewController.swift in Sources */,
@@ -746,9 +782,9 @@
 				0250C4FB269056B40076A273 /* LogOutTableViewCell.swift in Sources */,
 				02454FF126860DA300558D3C /* AppDelegate.swift in Sources */,
 				0250C49326904C800076A273 /* SettingViewController.swift in Sources */,
+				023F865726A6F9C00086EC4F /* CocktailDetailViewController.swift in Sources */,
 				02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */,
 				D6908F5B26A31109004240AC /* SelectAlcholViewController.swift in Sources */,
-				D6908F4226A2E35F004240AC /* CocktailCollectionViewCell.swift in Sources */,
 				02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */,
 				02A9371C26A5134700ADA4CF /* SearchPlace.swift in Sources */,
 				9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */,
@@ -762,6 +798,10 @@
 				D6908F6F26A332F6004240AC /* ResultViewController.swift in Sources */,
 				D6908F5126A30C51004240AC /* SelectPageViewController.swift in Sources */,
 				0250C5BB2690666F0076A273 /* FavoriteStoreViewController.swift in Sources */,
+				023F865926A6F9C00086EC4F /* CategoryTableViewCell.swift in Sources */,
+				023F864E26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift in Sources */,
+				023F865826A6F9C00086EC4F /* MoreCocktailViewController.swift in Sources */,
+				023F865A26A6F9C00086EC4F /* PreviewCollectionViewCell.swift in Sources */,
 				D6908F6326A32ECF004240AC /* SelectSourViewController.swift in Sources */,
 				02454FF326860DA300558D3C /* SceneDelegate.swift in Sources */,
 			);

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Koktail" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="AT5-8o-QWe" id="aoe-Yy-B7b"/>
+                <outlet property="recommendBtn" destination="9nS-bt-ylz" id="pzo-K2-7MT"/>
+                <outlet property="todayCocktail" destination="2Tt-4p-HvT" id="T9U-UN-BTQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 칵테일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Njt-yG-zle">
+                    <rect key="frame" x="10" y="54" width="93" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AT5-8o-QWe" customClass="CocktailCollectionView" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="10" y="672" width="414" height="170"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="KQE-qU-Cac"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s3P-gl-WUv">
+                        <size key="itemSize" width="128" height="150"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nS-bt-ylz">
+                    <rect key="frame" x="30" y="325" width="354" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="hqe-7f-Jeh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <state key="normal" title="칵테일 추천 받기                  &gt;">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="RecommendAction:" destination="-1" eventType="touchUpInside" id="WiW-Cb-ccP"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기 칵테일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaU-ke-Ahe">
+                    <rect key="frame" x="10" y="641.5" width="394" height="20.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktail" translatesAutoresizingMaskIntoConstraints="NO" id="2Tt-4p-HvT">
+                    <rect key="frame" x="122" y="125" width="170" height="170"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="170" id="VFa-jO-vv4"/>
+                        <constraint firstAttribute="height" constant="170" id="yrI-e0-bJx"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="gaU-ke-Ahe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="8fq-gF-YjY"/>
+                <constraint firstItem="Njt-yG-zle" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="DZs-7E-Iwr"/>
+                <constraint firstItem="gaU-ke-Ahe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9nS-bt-ylz" secondAttribute="bottom" constant="5" id="Gen-0s-OQj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gaU-ke-Ahe" secondAttribute="trailing" constant="10" id="HGc-zH-OJ5"/>
+                <constraint firstItem="9nS-bt-ylz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="OHL-L5-Y4Y"/>
+                <constraint firstItem="Njt-yG-zle" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="Vz8-bg-dao"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9nS-bt-ylz" secondAttribute="trailing" constant="30" id="aqL-6B-zjt"/>
+                <constraint firstItem="2Tt-4p-HvT" firstAttribute="top" secondItem="Njt-yG-zle" secondAttribute="bottom" constant="50" id="cnE-oT-OEU"/>
+                <constraint firstItem="AT5-8o-QWe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="jic-no-57W"/>
+                <constraint firstItem="9nS-bt-ylz" firstAttribute="top" secondItem="2Tt-4p-HvT" secondAttribute="bottom" constant="30" id="ok8-Ql-Lkk"/>
+                <constraint firstItem="2Tt-4p-HvT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sk8-bX-coX"/>
+                <constraint firstItem="9nS-bt-ylz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="u9v-Bs-JN7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AT5-8o-QWe" secondAttribute="bottom" constant="20" id="ubk-5I-bFm"/>
+                <constraint firstItem="AT5-8o-QWe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="10" id="zTf-aI-KEj"/>
+                <constraint firstItem="AT5-8o-QWe" firstAttribute="top" secondItem="gaU-ke-Ahe" secondAttribute="bottom" constant="10" id="zk7-yG-FyJ"/>
+            </constraints>
+            <point key="canvasLocation" x="136.92307692307691" y="103.7914691943128"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cocktail" width="4096" height="4096"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
