@@ -8,31 +8,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="Koktail" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectPageViewController" customModule="Koktail" customModuleProvider="target">
             <connections>
-                <outlet property="map" destination="ACF-96-szb" id="kvX-Gf-1Fh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACF-96-szb" customClass="GMSMapView">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
-            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <constraints>
-                <constraint firstItem="ACF-96-szb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6TS-ny-3nM"/>
-                <constraint firstAttribute="trailing" secondItem="ACF-96-szb" secondAttribute="trailing" id="Yp5-2v-yGw"/>
-                <constraint firstItem="ACF-96-szb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lic-Ow-KS3"/>
-                <constraint firstAttribute="bottom" secondItem="ACF-96-szb" secondAttribute="bottom" id="wgG-ML-Q9w"/>
-            </constraints>
-            <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
+            <point key="canvasLocation" x="-9" y="95"/>
         </view>
     </objects>
     <resources>

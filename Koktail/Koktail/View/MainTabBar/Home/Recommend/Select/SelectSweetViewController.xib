@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectSweetViewController" customModule="Koktail" customModuleProvider="target">
+            <connections>
+                <outlet property="SweetHighButton" destination="9fw-lX-3Af" id="yEc-0g-GJp"/>
+                <outlet property="SweetLowButton" destination="I6Z-9e-ILi" id="5bV-nr-n4X"/>
+                <outlet property="SweetMiddleButton" destination="AHX-tp-3d4" id="Kb3-33-KxP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="bFR-gi-aEz">
+                    <rect key="frame" x="37" y="403" width="340" height="90"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6Z-9e-ILi" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="CHh-w0-LdG"/>
+                                <constraint firstAttribute="width" constant="90" id="k4C-4e-Dc9"/>
+                            </constraints>
+                            <state key="normal" title="낮은"/>
+                            <connections>
+                                <action selector="LowBtnPress:" destination="-1" eventType="touchUpInside" id="Aza-6p-oOY"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHX-tp-3d4" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                            <rect key="frame" x="125" y="0.0" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="NqJ-E0-Zea"/>
+                                <constraint firstAttribute="width" constant="90" id="lIS-Yb-ucg"/>
+                            </constraints>
+                            <state key="normal" title="중간"/>
+                            <connections>
+                                <action selector="MiddleBtnPress:" destination="-1" eventType="touchUpInside" id="Snf-Zt-0yM"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fw-lX-3Af" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                            <rect key="frame" x="250" y="0.0" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="aUo-ze-Xkw"/>
+                                <constraint firstAttribute="width" constant="90" id="ey1-V3-ynO"/>
+                            </constraints>
+                            <state key="normal" title="높은"/>
+                            <connections>
+                                <action selector="HighBtnPress:" destination="-1" eventType="touchUpInside" id="6B4-9z-6Wx"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="qrc-II-m7v" customClass="PgControll" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="119" y="804.5" width="176" height="27.5"/>
+                </pageControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어느정도 달기를 원하십니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujg-1U-2Rq" customClass="SelectLabel" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="30" y="352.5" width="193.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ys-sT-dBA" customClass="PreviousButton" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="30" y="802" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="prevButton:" destination="-1" eventType="touchUpInside" id="PgG-lW-0di"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="bFR-gi-aEz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0QB-MR-kZy"/>
+                <constraint firstItem="bFR-gi-aEz" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="1es-pR-tLX"/>
+                <constraint firstItem="ujg-1U-2Rq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="5xx-YX-ymV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6Ys-sT-dBA" secondAttribute="bottom" constant="30" id="ALS-Bx-qag"/>
+                <constraint firstItem="bFR-gi-aEz" firstAttribute="top" secondItem="ujg-1U-2Rq" secondAttribute="bottom" constant="30" id="FAL-D7-ehD"/>
+                <constraint firstItem="qrc-II-m7v" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Sew-7z-SFd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qrc-II-m7v" secondAttribute="bottom" constant="30" id="TdI-6R-aCr"/>
+                <constraint firstItem="6Ys-sT-dBA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="cCL-in-ocZ"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="94"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

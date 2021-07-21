@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectBaseViewController" customModule="Koktail" customModuleProvider="target">
+            <connections>
+                <outlet property="GinBaseButton" destination="TJa-Fn-gxX" id="b3T-yl-vHz"/>
+                <outlet property="RumBaseButton" destination="hGd-7d-bvj" id="YiI-We-4T2"/>
+                <outlet property="TequilaBaseButton" destination="nFa-oa-hTg" id="DiZ-hK-G7j"/>
+                <outlet property="VodkaBaseButton" destination="nIj-es-9Ah" id="xJc-ga-a3K"/>
+                <outlet property="WiskyBaseButton" destination="RbD-uo-XP7" id="qIx-Xs-Xmh"/>
+                <outlet property="nullBaseButton" destination="V9T-PA-PEg" id="hTq-qy-qXO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="iNn-YC-6Ps">
+                    <rect key="frame" x="37" y="303" width="340" height="290"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="JdJ-sq-aRH">
+                            <rect key="frame" x="0.0" y="0.0" width="340" height="90"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9T-PA-PEg" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="90" id="q53-UL-pkx"/>
+                                        <constraint firstAttribute="height" constant="90" id="yRK-B4-dUf"/>
+                                    </constraints>
+                                    <state key="normal" title="없음"/>
+                                    <connections>
+                                        <action selector="nonBtnPress:" destination="-1" eventType="touchUpInside" id="y5V-DZ-Hv1"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIj-es-9Ah" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                                    <rect key="frame" x="125" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="90" id="C3u-Kv-gEn"/>
+                                        <constraint firstAttribute="width" constant="90" id="cuh-p1-P6T"/>
+                                    </constraints>
+                                    <state key="normal" title="보드카"/>
+                                    <connections>
+                                        <action selector="VodkaBtnPress:" destination="-1" eventType="touchUpInside" id="Bdu-rJ-NcN"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJa-Fn-gxX" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                                    <rect key="frame" x="250" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="90" id="neU-hG-rJ7"/>
+                                        <constraint firstAttribute="width" constant="90" id="riB-By-tv4"/>
+                                    </constraints>
+                                    <state key="normal" title="진"/>
+                                    <connections>
+                                        <action selector="GinBtnPress:" destination="-1" eventType="touchUpInside" id="9Hi-ee-R5z"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="CMi-My-3em">
+                            <rect key="frame" x="0.0" y="200" width="340" height="90"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGd-7d-bvj" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="90" id="91O-Y7-a8p"/>
+                                        <constraint firstAttribute="height" constant="90" id="s1C-UC-USr"/>
+                                    </constraints>
+                                    <state key="normal" title="럼"/>
+                                    <connections>
+                                        <action selector="RumBtnPress:" destination="-1" eventType="touchUpInside" id="0q6-vK-Xfc"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbD-uo-XP7" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                                    <rect key="frame" x="125" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="90" id="BVK-Jv-mgn"/>
+                                        <constraint firstAttribute="width" constant="90" id="zsx-Ta-Z3k"/>
+                                    </constraints>
+                                    <state key="normal" title="위스키"/>
+                                    <connections>
+                                        <action selector="WiskyBtnPress:" destination="-1" eventType="touchUpInside" id="gwR-jZ-bcg"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFa-oa-hTg" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
+                                    <rect key="frame" x="250" y="0.0" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="90" id="AI9-e1-q5a"/>
+                                        <constraint firstAttribute="width" constant="90" id="e2G-dK-zGs"/>
+                                    </constraints>
+                                    <state key="normal" title="데낄라"/>
+                                    <connections>
+                                        <action selector="TequilaBtnPress:" destination="-1" eventType="touchUpInside" id="2IV-27-Oal"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원하는 베이스는 무엇입니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zm5-DE-p1B">
+                    <rect key="frame" x="30" y="251.5" width="205" height="21.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="lHx-yy-qT6">
+                    <rect key="frame" x="119" y="804.5" width="176" height="27.5"/>
+                    <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="currentPageIndicatorTintColor" red="0.87238222359999995" green="0.45681768659999999" blue="0.40763771529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </pageControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWk-xM-NhR" customClass="PreviousButton" customModule="Koktail" customModuleProvider="target">
+                    <rect key="frame" x="30" y="802" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="prevButton:" destination="-1" eventType="touchUpInside" id="Y4c-aB-gJm"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lHx-yy-qT6" secondAttribute="bottom" constant="30" id="9fd-tA-ZrS"/>
+                <constraint firstItem="iNn-YC-6Ps" firstAttribute="top" secondItem="zm5-DE-p1B" secondAttribute="bottom" constant="30" id="Fxa-R5-nF7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="sWk-xM-NhR" secondAttribute="bottom" constant="30" id="G2c-ps-2Pt"/>
+                <constraint firstItem="iNn-YC-6Ps" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HWy-Ss-wge"/>
+                <constraint firstItem="lHx-yy-qT6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cdT-B0-WJD"/>
+                <constraint firstItem="iNn-YC-6Ps" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fVm-1r-QXE"/>
+                <constraint firstItem="zm5-DE-p1B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="laO-0D-UhM"/>
+                <constraint firstItem="sWk-xM-NhR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="r7B-z2-1fm"/>
+            </constraints>
+            <point key="canvasLocation" x="-22" y="95"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
