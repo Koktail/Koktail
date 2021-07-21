@@ -52,7 +52,6 @@
 		02E43C2826870305009B15CD /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E43C2626870305009B15CD /* FavoriteViewController.xib */; };
 		02E43C3226870574009B15CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C3126870574009B15CD /* LoginViewController.swift */; };
 		02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C352687066E009B15CD /* Extension+UIWindow.swift */; };
-		71D65DE96213D937B58B8F17 /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1201EC11E9D29496FF9E12 /* Pods_Koktail.framework */; };
 		9F1D616D26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */; };
 		9F1D616E26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */; };
 		9F87DA9C26A1EAD3004ED32B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F87DA9B26A1EAD3004ED32B /* GoogleService-Info.plist */; };
@@ -82,6 +81,7 @@
 		D6908F7626A3331E004240AC /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F7526A3331E004240AC /* HeaderTableViewCell.xib */; };
 		D6908F7826A3332A004240AC /* CocktailResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F7726A3332A004240AC /* CocktailResultTableViewCell.swift */; };
 		D6908F7A26A3333B004240AC /* CocktailResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F7926A3333B004240AC /* CocktailResultTableViewCell.xib */; };
+		DA3DCFF8A1C0F811EAD38329 /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7E2CD649730C21DBC9EC87 /* Pods_Koktail.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,7 +132,8 @@
 		02E43C2626870305009B15CD /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
 		02E43C3126870574009B15CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		02E43C352687066E009B15CD /* Extension+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIWindow.swift"; sourceTree = "<group>"; };
-		2B1201EC11E9D29496FF9E12 /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A7E2CD649730C21DBC9EC87 /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		768DFB086F06A8D8F10711AA /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotAndUpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotAndUpdatePasswordViewController.xib; sourceTree = "<group>"; };
 		9F87DA9B26A1EAD3004ED32B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -142,7 +143,7 @@
 		9FAB5925269D88610077CD59 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginPageViewController.xib; sourceTree = "<group>"; };
 		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
-		AB15AF38B808714D18519FD8 /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
+		B4AF5B43C5191BB458113094 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 		D6908F4F26A30C51004240AC /* SelectPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPageViewController.swift; sourceTree = "<group>"; };
 		D6908F5026A30C51004240AC /* SelectPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPageViewController.xib; sourceTree = "<group>"; };
 		D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBaseViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +164,6 @@
 		D6908F7526A3331E004240AC /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		D6908F7726A3332A004240AC /* CocktailResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailResultTableViewCell.swift; sourceTree = "<group>"; };
 		D6908F7926A3333B004240AC /* CocktailResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CocktailResultTableViewCell.xib; sourceTree = "<group>"; };
-		DB04BA141D250C10F1D4A200 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71D65DE96213D937B58B8F17 /* Pods_Koktail.framework in Frameworks */,
+				DA3DCFF8A1C0F811EAD38329 /* Pods_Koktail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +193,7 @@
 				02454FEF26860DA300558D3C /* Koktail */,
 				02454FEE26860DA300558D3C /* Products */,
 				A7FCF72FB1010F62504F03B6 /* Pods */,
-				333A6B1E9B93E8C128208E9C /* Frameworks */,
+				8BE9B103BB2B2B19A151F7C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -468,10 +468,10 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		333A6B1E9B93E8C128208E9C /* Frameworks */ = {
+		8BE9B103BB2B2B19A151F7C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2B1201EC11E9D29496FF9E12 /* Pods_Koktail.framework */,
+				4A7E2CD649730C21DBC9EC87 /* Pods_Koktail.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -479,8 +479,8 @@
 		A7FCF72FB1010F62504F03B6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AB15AF38B808714D18519FD8 /* Pods-Koktail.debug.xcconfig */,
-				DB04BA141D250C10F1D4A200 /* Pods-Koktail.release.xcconfig */,
+				768DFB086F06A8D8F10711AA /* Pods-Koktail.debug.xcconfig */,
+				B4AF5B43C5191BB458113094 /* Pods-Koktail.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -558,15 +558,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0245500126860DA400558D3C /* Build configuration list for PBXNativeTarget "Koktail" */;
 			buildPhases = (
-				34E7762A0A9D359071B3DCEC /* [CP] Check Pods Manifest.lock */,
+				21B4F4212659735CC8F96A83 /* [CP] Check Pods Manifest.lock */,
 				02454FE926860DA300558D3C /* Sources */,
 				02454FEA26860DA300558D3C /* Frameworks */,
 				E62EED9B3D667B480F11A2F0 /* [Carte] Pre Script */,
 				02454FEB26860DA300558D3C /* Resources */,
 				6F09AC68488332B30709BADD /* [Carte] Post Script */,
 				023BEC51268B738A00D352A8 /* ShellScript */,
-				9952C5B7B29B79776F7E8C56 /* [CP] Embed Pods Frameworks */,
-				803367DBC2A8AEA7CCDF8E25 /* [CP] Copy Pods Resources */,
+				739F0DB11C7FAD5E86A58271 /* [CP] Embed Pods Frameworks */,
+				938B386FEFC4AAF3FA89E646 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -632,7 +632,6 @@
 				9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */,
 				023BEBF4268B731A00D352A8 /* .swiftlint.yml in Resources */,
 				9FAB591E269D87E80077CD59 /* RemoteConfigDefaults.plist in Resources */,
-				02E43C1C26870270009B15CD /* HomeViewController.xib in Resources */,
 				9F87DA9C26A1EAD3004ED32B /* GoogleService-Info.plist in Resources */,
 				0250C4CA269053D60076A273 /* VersionTableViewCell.xib in Resources */,
 				D6908F6C26A33022004240AC /* SelectDryViewController.xib in Resources */,
@@ -672,7 +671,7 @@
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		34E7762A0A9D359071B3DCEC /* [CP] Check Pods Manifest.lock */ = {
+		21B4F4212659735CC8F96A83 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -713,24 +712,7 @@
 			shellScript = "ruby ${PODS_ROOT}/Carte/Sources/Carte/carte.rb post";
 			showEnvVarsInLog = 0;
 		};
-		803367DBC2A8AEA7CCDF8E25 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Koktail/Pods-Koktail-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Koktail/Pods-Koktail-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Koktail/Pods-Koktail-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9952C5B7B29B79776F7E8C56 /* [CP] Embed Pods Frameworks */ = {
+		739F0DB11C7FAD5E86A58271 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -745,6 +727,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Koktail/Pods-Koktail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		938B386FEFC4AAF3FA89E646 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Koktail/Pods-Koktail-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Koktail/Pods-Koktail-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Koktail/Pods-Koktail-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E62EED9B3D667B480F11A2F0 /* [Carte] Pre Script */ = {
@@ -948,14 +947,11 @@
 		};
 		0245500226860DA400558D3C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB15AF38B808714D18519FD8 /* Pods-Koktail.debug.xcconfig */;
+			baseConfigurationReference = 768DFB086F06A8D8F10711AA /* Pods-Koktail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Koktail/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				DEVELOPMENT_TEAM = YKB76M9XZ9;
 				INFOPLIST_FILE = Koktail/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -972,14 +968,11 @@
 		};
 		0245500326860DA400558D3C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB04BA141D250C10F1D4A200 /* Pods-Koktail.release.xcconfig */;
+			baseConfigurationReference = B4AF5B43C5191BB458113094 /* Pods-Koktail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Koktail/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				DEVELOPMENT_TEAM = YKB76M9XZ9;
 				INFOPLIST_FILE = Koktail/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;

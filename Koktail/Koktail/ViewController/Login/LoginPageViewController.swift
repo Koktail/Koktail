@@ -49,6 +49,7 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
                 
                 self.passwordTextField.text = nil
             } else {
+                UserDefaultsManager.userId = email
                 self.view.window?.switchRootViewController(self.tabBarViewController)
             }
         }
@@ -141,11 +142,6 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    @objc func jwtkakaoLogin() {
-        
-        
-    }
-    
     @objc func appleLoginEvent() {
         print("____ clicked apple login button ____")
     }
@@ -216,7 +212,9 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func displayLoginOrSignUpFormatAlert() {
-        let alert = UIAlertController(title: "실패", message: "이메일/비밀번호를 확인해주세요", preferredStyle: .alert)
+        let alert = UIAlertController(title: "실패",
+                                      message: "이메일/비밀번호를 확인해주세요",
+                                      preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
