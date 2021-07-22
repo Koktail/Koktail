@@ -97,4 +97,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.cocktailDegree.text = "Alc 12.6"
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = CocktailDetailViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
 }

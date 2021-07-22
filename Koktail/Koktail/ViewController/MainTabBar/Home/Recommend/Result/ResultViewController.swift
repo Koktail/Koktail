@@ -59,6 +59,10 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = CocktailDetailViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
     @IBAction func againButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.popViewController(animated: false)
