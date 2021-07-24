@@ -69,6 +69,7 @@ PODS:
   - FirebaseStorage (8.4.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
+  - FloatRatingView (4.0)
   - GoogleAppMeasurement (8.4.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.4.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -153,6 +154,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/RemoteConfig
   - Firebase/Storage
+  - FloatRatingView
   - GoogleMaps
   - GooglePlaces
   - KakaoSDKAuth
@@ -181,6 +183,7 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseRemoteConfig
     - FirebaseStorage
+    - FloatRatingView
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleMaps
@@ -216,6 +219,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 1585729afc787877763208c2088ed84221161f77
   FirebaseRemoteConfig: 0b813f093033c56fe74a91996044a239ab5acb02
   FirebaseStorage: e6065bcbf70e2a06a8c3ddc66cbe03a395bbddc4
+  FloatRatingView: bb6bdddfbeec51b1d387b4bd50abc27b4dfccd48
   GoogleAppMeasurement: 6b6a08fd9c71f4dbc89e0e812acca81d797aa342
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
@@ -238,6 +242,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 1c638d7010d2f66d074b56c0708dd2d9dd902301
+PODFILE CHECKSUM: 544eb3834d794ebdbf6d83fb442509992d56a3e8
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.0

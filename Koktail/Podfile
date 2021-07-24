@@ -15,6 +15,7 @@ target 'Koktail' do
   pod 'GooglePlaces'
   pod 'Moya'
   pod 'SwiftyJSON'
+  pod 'FloatRatingView'
 
   # Pods for Koktail
   pod 'SkyFloatingLabelTextField', '~> 3.0'

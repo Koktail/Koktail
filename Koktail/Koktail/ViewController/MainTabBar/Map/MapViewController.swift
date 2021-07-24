@@ -68,6 +68,8 @@ class MapViewController: UIViewController {
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         
+        map.delegate = self
+        
         placesClient = GMSPlacesClient.shared()
         
         // A default location to use when location permission is not granted.
@@ -279,5 +281,14 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
     // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         self.dismiss(animated: true)
+    }
+}
+
+extension MapViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        let place = PlaceDetailViewController()
+        self.present(place, animated: true)
+        
+        return true
     }
 }
