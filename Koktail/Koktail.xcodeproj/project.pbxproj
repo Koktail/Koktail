@@ -39,6 +39,14 @@
 		0250C5BB2690666F0076A273 /* FavoriteStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250C5B92690666F0076A273 /* FavoriteStoreViewController.swift */; };
 		0250C5BC2690666F0076A273 /* FavoriteStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0250C5BA2690666F0076A273 /* FavoriteStoreViewController.xib */; };
 		026397292693277100D57975 /* UtilFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026397282693277100D57975 /* UtilFunction.swift */; };
+		02791B8326AC37CB000CC06F /* PlaceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791B8126AC37CB000CC06F /* PlaceInfoTableViewCell.swift */; };
+		02791B8426AC37CB000CC06F /* PlaceInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02791B8226AC37CB000CC06F /* PlaceInfoTableViewCell.xib */; };
+		02791B8726AC37DE000CC06F /* PlaceReviewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791B8526AC37DE000CC06F /* PlaceReviewsTableViewCell.swift */; };
+		02791B8826AC37DE000CC06F /* PlaceReviewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02791B8626AC37DE000CC06F /* PlaceReviewsTableViewCell.xib */; };
+		02791B8B26AC37F5000CC06F /* PlacePicturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791B8926AC37F5000CC06F /* PlacePicturesTableViewCell.swift */; };
+		02791B8C26AC37F5000CC06F /* PlacePicturesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02791B8A26AC37F5000CC06F /* PlacePicturesTableViewCell.xib */; };
+		02791B9126AC46C9000CC06F /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791B8F26AC46C9000CC06F /* PictureCollectionViewCell.swift */; };
+		02791B9226AC46C9000CC06F /* PictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02791B9026AC46C9000CC06F /* PictureCollectionViewCell.xib */; };
 		02A9371A26A510A900ADA4CF /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9371926A510A900ADA4CF /* NetworkingManager.swift */; };
 		02A9371C26A5134700ADA4CF /* SearchPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9371B26A5134700ADA4CF /* SearchPlace.swift */; };
 		02A9374D26A51CD500ADA4CF /* SearchPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9374C26A51CD500ADA4CF /* SearchPlaceViewModel.swift */; };
@@ -123,6 +131,14 @@
 		0250C5B92690666F0076A273 /* FavoriteStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStoreViewController.swift; sourceTree = "<group>"; };
 		0250C5BA2690666F0076A273 /* FavoriteStoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteStoreViewController.xib; sourceTree = "<group>"; };
 		026397282693277100D57975 /* UtilFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunction.swift; sourceTree = "<group>"; };
+		02791B8126AC37CB000CC06F /* PlaceInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfoTableViewCell.swift; sourceTree = "<group>"; };
+		02791B8226AC37CB000CC06F /* PlaceInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceInfoTableViewCell.xib; sourceTree = "<group>"; };
+		02791B8526AC37DE000CC06F /* PlaceReviewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceReviewsTableViewCell.swift; sourceTree = "<group>"; };
+		02791B8626AC37DE000CC06F /* PlaceReviewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceReviewsTableViewCell.xib; sourceTree = "<group>"; };
+		02791B8926AC37F5000CC06F /* PlacePicturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePicturesTableViewCell.swift; sourceTree = "<group>"; };
+		02791B8A26AC37F5000CC06F /* PlacePicturesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlacePicturesTableViewCell.xib; sourceTree = "<group>"; };
+		02791B8F26AC46C9000CC06F /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		02791B9026AC46C9000CC06F /* PictureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureCollectionViewCell.xib; sourceTree = "<group>"; };
 		02A9371926A510A900ADA4CF /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		02A9371B26A5134700ADA4CF /* SearchPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchPlace.swift; path = Koktail/Support/Networking/SearchPlace.swift; sourceTree = SOURCE_ROOT; };
 		02A9374C26A51CD500ADA4CF /* SearchPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewModel.swift; sourceTree = "<group>"; };
@@ -256,6 +272,32 @@
 				026397282693277100D57975 /* UtilFunction.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		02791B8D26AC45DB000CC06F /* PlaceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				02C2747F26AC052C003E7F1B /* PlaceDetailViewController.swift */,
+				02C2748326AC072F003E7F1B /* PlaceTitleTableViewCell.swift */,
+				02791B8126AC37CB000CC06F /* PlaceInfoTableViewCell.swift */,
+				02791B8526AC37DE000CC06F /* PlaceReviewsTableViewCell.swift */,
+				02791B8926AC37F5000CC06F /* PlacePicturesTableViewCell.swift */,
+				02791B8F26AC46C9000CC06F /* PictureCollectionViewCell.swift */,
+			);
+			path = PlaceDetail;
+			sourceTree = "<group>";
+		};
+		02791B8E26AC45EB000CC06F /* PlaceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				02C2748026AC052C003E7F1B /* PlaceDetailViewController.xib */,
+				02C2748426AC072F003E7F1B /* PlaceTitleTableViewCell.xib */,
+				02791B8226AC37CB000CC06F /* PlaceInfoTableViewCell.xib */,
+				02791B8626AC37DE000CC06F /* PlaceReviewsTableViewCell.xib */,
+				02791B8A26AC37F5000CC06F /* PlacePicturesTableViewCell.xib */,
+				02791B9026AC46C9000CC06F /* PictureCollectionViewCell.xib */,
+			);
+			path = PlaceDetail;
 			sourceTree = "<group>";
 		};
 		02816A91268B32A300E3FEA8 /* PropertyList */ = {
@@ -397,8 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				02E43C1D2687028D009B15CD /* MapViewController.swift */,
-				02C2747F26AC052C003E7F1B /* PlaceDetailViewController.swift */,
-				02C2748326AC072F003E7F1B /* PlaceTitleTableViewCell.swift */,
+				02791B8D26AC45DB000CC06F /* PlaceDetail */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -430,8 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				02E43C1E2687028D009B15CD /* MapViewController.xib */,
-				02C2748026AC052C003E7F1B /* PlaceDetailViewController.xib */,
-				02C2748426AC072F003E7F1B /* PlaceTitleTableViewCell.xib */,
+				02791B8E26AC45EB000CC06F /* PlaceDetail */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -639,6 +679,8 @@
 				023F866226A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib in Resources */,
 				D6908F6026A32D6E004240AC /* SelectSweetViewController.xib in Resources */,
 				D6908F5826A30CC4004240AC /* SelectBaseViewController.xib in Resources */,
+				02791B8426AC37CB000CC06F /* PlaceInfoTableViewCell.xib in Resources */,
+				02791B8C26AC37F5000CC06F /* PlacePicturesTableViewCell.xib in Resources */,
 				02E43C2826870305009B15CD /* FavoriteViewController.xib in Resources */,
 				D6908F5C26A31109004240AC /* SelectAlcholViewController.xib in Resources */,
 				023F866626A6FADB0086EC4F /* HomeViewController.xib in Resources */,
@@ -652,10 +694,12 @@
 				D6908F6826A32FA0004240AC /* SelectBitterViewController.xib in Resources */,
 				D6908F7626A3331E004240AC /* HeaderTableViewCell.xib in Resources */,
 				023F865026A6F8FD0086EC4F /* CocktailCollectionViewCell.xib in Resources */,
+				02791B8826AC37DE000CC06F /* PlaceReviewsTableViewCell.xib in Resources */,
 				023F866126A6F9DA0086EC4F /* CategoryTableViewCell.xib in Resources */,
 				023F866326A6F9DA0086EC4F /* PreviewCollectionViewCell.xib in Resources */,
 				02E43C24268702A1009B15CD /* CocktailViewController.xib in Resources */,
 				0250C4FC269056B40076A273 /* LogOutTableViewCell.xib in Resources */,
+				02791B9226AC46C9000CC06F /* PictureCollectionViewCell.xib in Resources */,
 				D6908F7226A3330E004240AC /* ResultViewController.xib in Resources */,
 				02E43C202687028D009B15CD /* MapViewController.xib in Resources */,
 				023F866426A6F9DA0086EC4F /* MoreCocktailViewController.xib in Resources */,
@@ -789,6 +833,7 @@
 				02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */,
 				023F865626A6F9C00086EC4F /* MoreCocktailTableViewCell.swift in Sources */,
 				D6908F5F26A32D6E004240AC /* SelectSweetViewController.swift in Sources */,
+				02791B9126AC46C9000CC06F /* PictureCollectionViewCell.swift in Sources */,
 				026397292693277100D57975 /* UtilFunction.swift in Sources */,
 				02E43C3226870574009B15CD /* LoginViewController.swift in Sources */,
 				9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */,
@@ -796,6 +841,7 @@
 				D6908F6726A32FA0004240AC /* SelectBitterViewController.swift in Sources */,
 				0250C4C52690501F0076A273 /* OpenSourceTableViewCell.swift in Sources */,
 				02A9371A26A510A900ADA4CF /* NetworkingManager.swift in Sources */,
+				02791B8326AC37CB000CC06F /* PlaceInfoTableViewCell.swift in Sources */,
 				024327CD269FC6DB00DC301C /* UserDefaultsManager.swift in Sources */,
 				02E43C1F2687028D009B15CD /* MapViewController.swift in Sources */,
 				9FAB5926269D88610077CD59 /* SignUpViewController.swift in Sources */,
@@ -804,6 +850,7 @@
 				02454FF126860DA300558D3C /* AppDelegate.swift in Sources */,
 				0250C49326904C800076A273 /* SettingViewController.swift in Sources */,
 				023F865726A6F9C00086EC4F /* CocktailDetailViewController.swift in Sources */,
+				02791B8726AC37DE000CC06F /* PlaceReviewsTableViewCell.swift in Sources */,
 				02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */,
 				D6908F5B26A31109004240AC /* SelectAlcholViewController.swift in Sources */,
 				02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */,
@@ -811,6 +858,7 @@
 				9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */,
 				D6908F5726A30CC4004240AC /* SelectBaseViewController.swift in Sources */,
 				02C2748526AC072F003E7F1B /* PlaceTitleTableViewCell.swift in Sources */,
+				02791B8B26AC37F5000CC06F /* PlacePicturesTableViewCell.swift in Sources */,
 				02E43C2726870305009B15CD /* FavoriteViewController.swift in Sources */,
 				D6908F7826A3332A004240AC /* CocktailResultTableViewCell.swift in Sources */,
 				0250C4C9269053D60076A273 /* VersionTableViewCell.swift in Sources */,

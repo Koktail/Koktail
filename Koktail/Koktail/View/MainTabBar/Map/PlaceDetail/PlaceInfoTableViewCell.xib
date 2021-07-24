@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="140" id="KGk-i7-Jjw" customClass="PlaceInfoTableViewCell" customModule="Koktail" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가게 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uo8-Yg-mYA">
+                        <rect key="frame" x="15" y="15" width="64" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="BHL-hi-hlO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사이트 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu3-yp-5CO">
+                        <rect key="frame" x="15" y="55" width="78" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="jn3-fh-0oL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBB-y6-5Z3">
+                        <rect key="frame" x="15" y="95" width="59" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="YuE-3y-tY0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uo8-Yg-mYA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="75p-RW-ubF"/>
+                    <constraint firstItem="OBB-y6-5Z3" firstAttribute="leading" secondItem="bu3-yp-5CO" secondAttribute="leading" id="NIc-21-cJB"/>
+                    <constraint firstAttribute="bottom" secondItem="OBB-y6-5Z3" secondAttribute="bottom" constant="15" id="Ogm-X8-P3Y"/>
+                    <constraint firstItem="bu3-yp-5CO" firstAttribute="leading" secondItem="uo8-Yg-mYA" secondAttribute="leading" id="Q4V-5Y-juB"/>
+                    <constraint firstItem="OBB-y6-5Z3" firstAttribute="top" secondItem="bu3-yp-5CO" secondAttribute="bottom" constant="20" id="QOd-pX-qPM"/>
+                    <constraint firstItem="uo8-Yg-mYA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="h6s-Qo-Plc"/>
+                    <constraint firstItem="bu3-yp-5CO" firstAttribute="top" secondItem="uo8-Yg-mYA" secondAttribute="bottom" constant="20" id="vOC-24-mVp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="placeAddress" destination="uo8-Yg-mYA" id="W4o-6D-N64"/>
+                <outlet property="placePhoneNumber" destination="OBB-y6-5Z3" id="FnT-qB-GLG"/>
+                <outlet property="placeSiteURL" destination="bu3-yp-5CO" id="x2e-Ic-SD9"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="141.96428571428569"/>
+        </tableViewCell>
+    </objects>
+</document>

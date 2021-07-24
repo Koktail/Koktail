@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="229" id="KGk-i7-Jjw" customClass="PlaceReviewsTableViewCell" customModule="Koktail" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="229"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="229"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGM-Ea-xdv">
+                        <rect key="frame" x="65" y="24.5" width="30" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdx-Nn-bvI" customClass="FloatRatingView" customModule="FloatRatingView">
+                        <rect key="frame" x="15" y="65" width="130" height="20"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="DqN-oI-oJU"/>
+                            <constraint firstAttribute="width" constant="130" id="sVe-zh-fQX"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyQ-QA-QZT">
+                        <rect key="frame" x="150" y="64.5" width="64" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ATM-6B-uuW">
+                        <rect key="frame" x="15" y="95" width="290" height="124"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z90-4i-GuY">
+                        <rect key="frame" x="15" y="15" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="A9E-FO-uLI"/>
+                            <constraint firstAttribute="height" constant="40" id="ZS1-p6-4Gh"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="IyQ-QA-QZT" firstAttribute="leading" secondItem="rdx-Nn-bvI" secondAttribute="trailing" constant="5" id="3hD-Bd-gT0"/>
+                    <constraint firstItem="ATM-6B-uuW" firstAttribute="top" secondItem="rdx-Nn-bvI" secondAttribute="bottom" constant="10" id="3ke-4U-5Ul"/>
+                    <constraint firstAttribute="bottom" secondItem="ATM-6B-uuW" secondAttribute="bottom" constant="10" id="4T3-ZL-pwp"/>
+                    <constraint firstItem="rdx-Nn-bvI" firstAttribute="leading" secondItem="z90-4i-GuY" secondAttribute="leading" id="Ii4-Sn-lGi"/>
+                    <constraint firstItem="ATM-6B-uuW" firstAttribute="leading" secondItem="rdx-Nn-bvI" secondAttribute="leading" id="Kc0-zc-OWQ"/>
+                    <constraint firstItem="pGM-Ea-xdv" firstAttribute="leading" secondItem="z90-4i-GuY" secondAttribute="trailing" constant="10" id="Mf1-Dy-gWT"/>
+                    <constraint firstAttribute="trailing" secondItem="ATM-6B-uuW" secondAttribute="trailing" constant="15" id="R4w-QO-RF8"/>
+                    <constraint firstItem="IyQ-QA-QZT" firstAttribute="centerY" secondItem="rdx-Nn-bvI" secondAttribute="centerY" id="WfJ-ag-6Lh"/>
+                    <constraint firstItem="z90-4i-GuY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="gyQ-Zr-xgu"/>
+                    <constraint firstItem="rdx-Nn-bvI" firstAttribute="top" secondItem="z90-4i-GuY" secondAttribute="bottom" constant="10" id="qXl-Iq-dKR"/>
+                    <constraint firstItem="z90-4i-GuY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="slf-8v-o2J"/>
+                    <constraint firstItem="pGM-Ea-xdv" firstAttribute="centerY" secondItem="z90-4i-GuY" secondAttribute="centerY" id="y0U-Lk-rhy"/>
+                    <constraint firstItem="ATM-6B-uuW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="zpN-5b-A4J"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="authorName" destination="pGM-Ea-xdv" id="HTs-fO-gIc"/>
+                <outlet property="authorPhoto" destination="z90-4i-GuY" id="idb-fF-5Z0"/>
+                <outlet property="ratingView" destination="rdx-Nn-bvI" id="hWL-NB-Ymi"/>
+                <outlet property="relativeTime" destination="IyQ-QA-QZT" id="HCw-wz-7jg"/>
+                <outlet property="reviewText" destination="ATM-6B-uuW" id="Pmj-pg-XVw"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="171.76339285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
