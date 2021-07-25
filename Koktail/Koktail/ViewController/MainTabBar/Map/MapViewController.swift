@@ -22,8 +22,9 @@ class MapViewController: UIViewController {
     private var preciseLocationZoomLevel: Float = 15.0
     private var approximateLocationZoomLevel: Float = 10.0
     
-    // The currently selected place.
+    // data
     private var selectedPlace: GMSPlace?
+    private var placeList: [Place]?
     
     // auto complete button
     private let autoCompleteButton: UIButton = UIButton()
@@ -194,6 +195,7 @@ class MapViewController: UIViewController {
         searchPlaceViewMdeol.state.success
             .asDriver(onErrorDriveWith: Driver.empty())
             .drive { placeData in
+                self.placeList = placeData.results
                 self.setMarker(placeData: placeData)
             }.disposed(by: disposeBag)
         
@@ -201,7 +203,7 @@ class MapViewController: UIViewController {
             .filter {$0 == true}
             .asDriver(onErrorDriveWith: Driver.empty())
             .drive { _ in
-                
+                print("placeData load fail")
             }.disposed(by: disposeBag)
     }
     
@@ -286,7 +288,12 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
 
 extension MapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        
+        guard let placeList  = self.placeList else { return false }
+        let placeName = placeList.filter { $0.name == marker.title }.map {$0.place_id}
         let place = PlaceDetailViewController()
+        place.placeName = placeName.first!
+        
         self.present(place, animated: true)
         
         return true
