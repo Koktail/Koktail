@@ -19,23 +19,33 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IXo-JE-Sua">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IXo-JE-Sua">
+                    <rect key="frame" x="0.0" y="89" width="414" height="807"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scrolling" translatesAutoresizingMaskIntoConstraints="NO" id="XkK-Xo-wzR">
+                    <rect key="frame" x="182" y="49" width="50" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Chu-7A-pqg"/>
+                        <constraint firstAttribute="width" constant="50" id="PUk-04-0g7"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="IXo-JE-Sua" secondAttribute="bottom" id="3Ds-x7-ksc"/>
                 <constraint firstItem="IXo-JE-Sua" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BHb-iG-lgQ"/>
-                <constraint firstItem="IXo-JE-Sua" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="WLm-Va-Dis"/>
+                <constraint firstItem="IXo-JE-Sua" firstAttribute="top" secondItem="XkK-Xo-wzR" secondAttribute="bottom" constant="20" id="RDf-2q-3fm"/>
                 <constraint firstAttribute="trailing" secondItem="IXo-JE-Sua" secondAttribute="trailing" id="YD7-8V-9R5"/>
+                <constraint firstItem="XkK-Xo-wzR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mdA-4Y-Fbg"/>
+                <constraint firstItem="XkK-Xo-wzR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="xa7-gM-7NE"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </view>
     </objects>
     <resources>
+        <image name="scrolling" width="34" height="4"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

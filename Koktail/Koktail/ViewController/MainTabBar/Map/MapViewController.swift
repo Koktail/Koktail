@@ -183,7 +183,7 @@ class MapViewController: UIViewController {
         let parameters: [String: String] = [
             "key": "AIzaSyCcXxMzsdL1m2uPjZ6d9wGTiVDYm4srnHU",
             "location": "\(lat),\(lng)",
-            "radius": "1000",
+            "radius": "750",
             "language": "ko",
             "type": "bar"
         ]

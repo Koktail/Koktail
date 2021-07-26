@@ -39,8 +39,17 @@ class PlaceReviewsTableViewCell: UITableViewCell {
         
         authorName.text = author.author_name
         relativeTime.text = author.relative_time_description
-        reviewText.text = author.text
+        
         setRatingView(rating: author.rating)
+            
+        reviewText.text = author.text
+        setTextView()
+    }
+    
+    private func setTextView() {
+        reviewText.translatesAutoresizingMaskIntoConstraints = true
+        reviewText.sizeToFit()
+        reviewText.isScrollEnabled = false
     }
     
     private func setRatingView(rating: Double) {
