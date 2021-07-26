@@ -124,6 +124,7 @@ PODS:
     - KakaoSDKCommon/Common (= 2.5.5)
   - KakaoSDKUser (2.5.5):
     - KakaoSDKAuth (= 2.5.5)
+  - Kingfisher (6.3.0)
   - leveldb-library (1.22.1)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
@@ -160,6 +161,7 @@ DEPENDENCIES:
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKUser
+  - Kingfisher
   - Moya
   - RxCocoa
   - RxSwift
@@ -193,6 +195,7 @@ SPEC REPOS:
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKUser
+    - Kingfisher
     - leveldb-library
     - Moya
     - nanopb
@@ -229,6 +232,7 @@ SPEC CHECKSUMS:
   KakaoSDKAuth: 7474cf67d199a9c2ec6a46e4ed8398cf34c1262d
   KakaoSDKCommon: fb2c9223a86d6f65a8ba73bbaad7cec6a2b09630
   KakaoSDKUser: 7bb1c38bbd4608bd4e7eebbd4eda130338364fb3
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -242,6 +246,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 544eb3834d794ebdbf6d83fb442509992d56a3e8
+PODFILE CHECKSUM: 875ba915ae9ceea739ee46de4d87d4efb03f8b5c
 
 COCOAPODS: 1.10.0

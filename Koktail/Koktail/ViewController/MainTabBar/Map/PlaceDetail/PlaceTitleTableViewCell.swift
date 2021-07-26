@@ -24,6 +24,14 @@ class PlaceTitleTableViewCell: UITableViewCell {
         setRatingView(rating: 4.0)
     }
     
+    public func makeCell(place: Detail) {
+        placeTitle.text = place.name
+        placeRating.text = "\(place.rating)"
+        reviews.text = "\(place.reviews.count)개"
+        placeType.text = place.types.first
+        setRatingView(rating: place.rating)
+    }
+    
     private func setRatingView(rating: Double) {
         ratingView.type = .halfRatings
         ratingView.maxRating = 5

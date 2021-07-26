@@ -85,12 +85,44 @@ class PlaceDetailViewController: UIViewController {
 
 // MARK: - Table View
 extension PlaceDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section != 0 {
+            let sectionView = UIView().then {
+                $0.backgroundColor = .systemGray4
+                $0.tag = section
+            }
+            return sectionView
+        } else {
+            return UIView()
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 1
+        case 2:
+            return self.placeDetail?.result.reviews.count ?? 0
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
+        guard let placeDetail = self.placeDetail else { return UITableViewCell() }
+        
+        switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: PlaceTitleTableViewCell.identifier,
@@ -98,6 +130,7 @@ extension PlaceDetailViewController: UITableViewDelegate, UITableViewDataSource 
             ) as? PlaceTitleTableViewCell else {
                 return UITableViewCell()
             }
+            cell.makeCell(place: placeDetail.result)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(
@@ -106,6 +139,7 @@ extension PlaceDetailViewController: UITableViewDelegate, UITableViewDataSource 
             ) as? PlaceInfoTableViewCell else {
                 return UITableViewCell()
             }
+            cell.makeCell(place: placeDetail.result)
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(
@@ -114,6 +148,7 @@ extension PlaceDetailViewController: UITableViewDelegate, UITableViewDataSource 
             ) as? PlaceReviewsTableViewCell else {
                 return UITableViewCell()
             }
+            cell.makeCell(author: placeDetail.result.reviews[indexPath.row])
             return cell
         default:
             return UITableViewCell()

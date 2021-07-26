@@ -7,6 +7,7 @@
 
 import UIKit
 import FloatRatingView
+import Kingfisher
 
 class PlaceReviewsTableViewCell: UITableViewCell {
 
@@ -20,8 +21,26 @@ class PlaceReviewsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    public func makeCell(author: Review) {
+        guard let url = URL(string: author.profile_photo_url) else { return }
+        let resource = ImageResource(downloadURL: url, cacheKey: author.profile_photo_url)
+        let processor = DownsamplingImageProcessor(size: authorPhoto.bounds.size)
+        authorPhoto.kf.setImage(
+            with: resource,
+            options: [
+                .transition(.fade(0.3)),
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .cacheOriginalImage
+            ]
+        )
         
-        setRatingView(rating: 4.0)
+        authorName.text = author.author_name
+        relativeTime.text = author.relative_time_description
+        reviewText.text = author.text
+        setRatingView(rating: author.rating)
     }
     
     private func setRatingView(rating: Double) {

@@ -21,6 +21,7 @@ struct Detail {
     var geometry: Geometry
     var icon = ""
     var name = ""
+    var rating = 0.0
     var place_id = ""
     var reference = ""
     var website = ""
@@ -34,6 +35,7 @@ struct Detail {
         geometry = Geometry(json["geometry"])
         icon = json["icon"].stringValue
         name = json["name"].stringValue
+        rating = json["rating"].doubleValue
         place_id = json["place_id"].stringValue
         reference = json["reference"].stringValue
         website = json["website"].stringValue

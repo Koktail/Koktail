@@ -18,4 +18,10 @@ class PlaceInfoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    public func makeCell(place: Detail) {
+        placeAddress.text = place.formatted_address
+        placeSiteURL.text = place.website
+        placePhoneNumber.text = place.formatted_phone_number
+    }
 }
