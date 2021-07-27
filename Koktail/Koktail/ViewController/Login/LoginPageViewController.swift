@@ -70,7 +70,15 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
                     }
                 } else {
                     print("accessTokenInfo ok")
-                    self.view.window?.switchRootViewController(self.tabBarViewController)
+                    // token close and sign up
+                    UserApi.shared.unlink { error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            print("success to kakao unlink")
+                            self.checkKaKaoTalkAppIsAvailable()
+                        }
+                    }
                 }
             }
         } else {
@@ -88,10 +96,8 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
                     print("APP KAKAO LOGIN")
                     
                     _ = oauthToken
+                    self.kakaoLoginToFireBase()
                     
-                    self.kakaoLoginToFireBaseLogin()
-                    
-                    self.view.window?.switchRootViewController(self.tabBarViewController)
                 }
             }
         } else { // 카카오톡 웹 로그인
@@ -102,44 +108,20 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
                     print("WEB KAKAO LOGIN")
                     
                     _ = oauthToken
-                    
-                    self.kakaoLoginToFireBaseLogin()
-                    
-                    self.view.window?.switchRootViewController(self.tabBarViewController)
+                    self.kakaoLoginToFireBase()
                 }
             }
         }
     }
     
-    /// 카카오톡으로 로그인한 정보를 파이어베이스에 등록
-    func kakaoLoginToFireBaseLogin() {
-        UserApi.shared.me { kakaoUser, error in
-            if let error = error {
-                print("< KAKAO: user loading failed >")
-                print(error.localizedDescription)
-            } else {
-                guard let nickName = kakaoUser?.kakaoAccount?.profile?.nickname else {
-                    return
-                }
-                guard let password = kakaoUser?.id else {
-                    return
-                }
-                
-                Auth.auth().createUser(withEmail: nickName,
-                                       password: String(describing: password)) { _, error in
-                    if let error = error {
-                        print("< FIREBASE: signUp failed >")
-                        print(error.localizedDescription)
-                        
-                        Auth.auth().signIn(withEmail: nickName,
-                                           password: String(describing: password),
-                                           completion: nil)
-                    } else {
-                        print("< FIREBASE: signup success >")
-                    }
-                }
-            }
-        }
+    /// 카카오톡으로 로그인 시, 이메일 입력 받고 파이어 베이스에 연동
+    func kakaoLoginToFireBase() {
+        print("GET ADDITIONAL INFORMATION")
+        
+        let getEmailViewController = GetEmailViewController()
+        getEmailViewController.color = color
+        
+        self.present(getEmailViewController, animated: true, completion: nil)
     }
     
     @objc func appleLoginEvent() {
@@ -179,7 +161,6 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
     func initProperties() {
         color = remoteConfig["splash_background"].stringValue
         
-        // 오토레이아웃, 모양 및 이미지, 색 지정
         logoImageView.contentMode = .scaleAspectFit
         logoImageView.image = #imageLiteral(resourceName: "cocktail")
         

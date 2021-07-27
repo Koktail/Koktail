@@ -25,9 +25,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 파이어베이스 로그아웃
-        try? Auth.auth().signOut()
-        
         // 카카오톡 로그인 토큰 삭제
         UserApi.shared.unlink { error in
             if let error = error {

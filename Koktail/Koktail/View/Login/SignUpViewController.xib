@@ -23,67 +23,100 @@
             <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sD7-s7-G3H">
-                    <rect key="frame" x="20" y="428" width="374" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sD7-s7-G3H">
+                    <rect key="frame" x="20" y="379" width="388" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="pLn-YG-Pr4"/>
+                    </constraints>
                     <state key="normal" title="회원가입">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="칵테일 추천을 받아볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kj0-KF-b3T">
-                    <rect key="frame" x="20" y="152" width="210" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사용자별 칵테일 취향을 저장하기 위해서 로그인이 필요해요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dL2-cj-gmr">
-                    <rect key="frame" x="20" y="184" width="353" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtE-Pg-kNL">
-                    <rect key="frame" x="20" y="486" width="374" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtE-Pg-kNL">
+                    <rect key="frame" x="20" y="429" width="388" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="YWP-9k-avZ"/>
+                    </constraints>
                     <state key="normal" title="취소">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16x-B4-teY" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                    <rect key="frame" x="20" y="247" width="374" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16x-B4-teY" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                    <rect key="frame" x="20" y="194" width="388" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="OLr-ov-qfG"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rar-wU-7bf" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                    <rect key="frame" x="20" y="304" width="374" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rar-wU-7bf" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                    <rect key="frame" x="20" y="244" width="388" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="2Fj-Jr-zbN"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Gm-Hf-BDX" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                    <rect key="frame" x="20" y="363" width="374" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Gm-Hf-BDX" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                    <rect key="frame" x="20" y="294" width="388" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="qTB-Xg-7UX"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eJB-lQ-phD">
+                    <rect key="frame" x="20" y="104" width="388" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="칵테일 추천을 받아볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Kj0-KF-b3T">
+                            <rect key="frame" x="0.0" y="0.0" width="209.66666666666666" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용자별 칵테일 취향을 저장하기 위해서 로그인이 필요해요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dL2-cj-gmr">
+                            <rect key="frame" x="0.0" y="32" width="352.66666666666669" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="140.57971014492756" y="112.5"/>
+            <constraints>
+                <constraint firstItem="sD7-s7-G3H" firstAttribute="top" secondItem="3Gm-Hf-BDX" secondAttribute="bottom" constant="50" id="095-YV-A5v"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3Gm-Hf-BDX" secondAttribute="trailing" constant="20" id="0OK-tS-MaQ"/>
+                <constraint firstItem="3Gm-Hf-BDX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="1Rq-Ua-Ujb"/>
+                <constraint firstItem="3Gm-Hf-BDX" firstAttribute="top" secondItem="rar-wU-7bf" secondAttribute="bottom" constant="15" id="4eb-OR-KYJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eJB-lQ-phD" secondAttribute="trailing" constant="20" id="Clm-fK-MJe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CtE-Pg-kNL" secondAttribute="trailing" constant="20" id="Wd1-wi-Dhn"/>
+                <constraint firstItem="sD7-s7-G3H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ZZD-ae-GeN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sD7-s7-G3H" secondAttribute="trailing" constant="20" id="ZhP-Pn-YwQ"/>
+                <constraint firstItem="eJB-lQ-phD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ZiM-48-CjA"/>
+                <constraint firstItem="eJB-lQ-phD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="fb6-VN-Aj7"/>
+                <constraint firstItem="rar-wU-7bf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="gnH-ww-85X"/>
+                <constraint firstItem="rar-wU-7bf" firstAttribute="top" secondItem="16x-B4-teY" secondAttribute="bottom" constant="15" id="jgJ-M0-W1U"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="16x-B4-teY" secondAttribute="trailing" constant="20" id="kBr-A4-Ikv"/>
+                <constraint firstItem="16x-B4-teY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="msY-Gj-ua8"/>
+                <constraint firstItem="16x-B4-teY" firstAttribute="top" secondItem="eJB-lQ-phD" secondAttribute="bottom" constant="40" id="rlS-rz-lft"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rar-wU-7bf" secondAttribute="trailing" constant="20" id="se9-Yv-beN"/>
+                <constraint firstItem="CtE-Pg-kNL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="spI-Jx-dCK"/>
+                <constraint firstItem="CtE-Pg-kNL" firstAttribute="top" secondItem="sD7-s7-G3H" secondAttribute="bottom" constant="10" id="tmA-PI-QVD"/>
+            </constraints>
+            <point key="canvasLocation" x="135" y="-115"/>
         </view>
     </objects>
     <designables>
         <designable name="16x-B4-teY">
-            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="388" height="39.220703125"/>
         </designable>
         <designable name="3Gm-Hf-BDX">
-            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="388" height="39.220703125"/>
         </designable>
         <designable name="rar-wU-7bf">
-            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="388" height="39.220703125"/>
         </designable>
     </designables>
     <resources>

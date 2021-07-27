@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GetEmailViewController" customModule="Koktail" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="ctx-ox-uge" id="LRT-QH-xif"/>
+                <outlet property="emailTextField" destination="EsM-4Z-p8b" id="7Ns-AC-ECY"/>
+                <outlet property="okButton" destination="jDk-Pb-pjz" id="k9K-6d-o3m"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDk-Pb-pjz">
+                    <rect key="frame" x="20" y="252" width="374" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="gSu-qp-WrW"/>
+                    </constraints>
+                    <state key="normal" title="회원가입">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctx-ox-uge">
+                    <rect key="frame" x="20" y="297" width="374" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="CCa-1l-Sfv"/>
+                    </constraints>
+                    <state key="normal" title="취소">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EsM-4Z-p8b" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                    <rect key="frame" x="20" y="162" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="O65-uL-oKj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="칵테일 추천을 위해서 이메일 주소가 필요해요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rdw-Pu-eZH">
+                    <rect key="frame" x="20" y="104" width="374" height="18"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ctx-ox-uge" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="38m-HU-6uT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jDk-Pb-pjz" secondAttribute="trailing" constant="20" id="6sx-ws-Fwn"/>
+                <constraint firstAttribute="trailing" secondItem="EsM-4Z-p8b" secondAttribute="trailing" constant="20" id="741-Nn-xa9"/>
+                <constraint firstItem="jDk-Pb-pjz" firstAttribute="top" secondItem="EsM-4Z-p8b" secondAttribute="bottom" constant="50" id="8Pw-gV-jEN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rdw-Pu-eZH" secondAttribute="trailing" constant="20" id="ALM-lU-6AM"/>
+                <constraint firstItem="EsM-4Z-p8b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="LOb-19-AhQ"/>
+                <constraint firstItem="Rdw-Pu-eZH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="UNQ-vJ-DBF"/>
+                <constraint firstItem="ctx-ox-uge" firstAttribute="top" secondItem="jDk-Pb-pjz" secondAttribute="bottom" constant="10" id="eE8-in-trC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ctx-ox-uge" secondAttribute="trailing" constant="20" id="gc2-VQ-0Sc"/>
+                <constraint firstItem="Rdw-Pu-eZH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="ikE-9A-Txd"/>
+                <constraint firstItem="jDk-Pb-pjz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="wWz-Pf-Pcz"/>
+                <constraint firstItem="EsM-4Z-p8b" firstAttribute="top" secondItem="Rdw-Pu-eZH" secondAttribute="bottom" constant="40" id="xdk-ZX-aH9"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="EsM-4Z-p8b">
+            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
