@@ -76,6 +76,8 @@
 		9FAB592D269DC11D0077CD59 /* LoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */; };
 		9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */; };
 		CFA81173E5835877E1FA917B /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3819349F6A6E76000022837 /* Pods_Koktail.framework */; };
+		9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */; };
+		9FB2455126A9A19900F6EA07 /* GetEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */; };
 		D6908F5126A30C51004240AC /* SelectPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F4F26A30C51004240AC /* SelectPageViewController.swift */; };
 		D6908F5226A30C51004240AC /* SelectPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F5026A30C51004240AC /* SelectPageViewController.xib */; };
 		D6908F5726A30CC4004240AC /* SelectBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */; };
@@ -172,6 +174,9 @@
 		9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginPageViewController.xib; sourceTree = "<group>"; };
 		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		B3819349F6A6E76000022837 /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmailViewController.swift; sourceTree = "<group>"; };
+		9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetEmailViewController.xib; sourceTree = "<group>"; };
+		B4AF5B43C5191BB458113094 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 		D6908F4F26A30C51004240AC /* SelectPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPageViewController.swift; sourceTree = "<group>"; };
 		D6908F5026A30C51004240AC /* SelectPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPageViewController.xib; sourceTree = "<group>"; };
 		D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBaseViewController.swift; sourceTree = "<group>"; };
@@ -382,6 +387,7 @@
 				9FAB5925269D88610077CD59 /* SignUpViewController.swift */,
 				9FAB5923269D88570077CD59 /* LoginPageViewController.swift */,
 				9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */,
+				9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				9FAB592B269DC11D0077CD59 /* LoginPageViewController.xib */,
 				9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */,
 				9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */,
+				9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */,
 				02454FF626860DA300558D3C /* Main.storyboard */,
 			);
 			path = Login;
@@ -682,6 +689,7 @@
 				0250C4C62690501F0076A273 /* OpenSourceTableViewCell.xib in Resources */,
 				9F1D616E26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib in Resources */,
 				D6908F5226A30C51004240AC /* SelectPageViewController.xib in Resources */,
+				9FB2455126A9A19900F6EA07 /* GetEmailViewController.xib in Resources */,
 				023F866226A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib in Resources */,
 				D6908F6026A32D6E004240AC /* SelectSweetViewController.xib in Resources */,
 				D6908F5826A30CC4004240AC /* SelectBaseViewController.xib in Resources */,
@@ -860,6 +868,7 @@
 				02791B8726AC37DE000CC06F /* PlaceReviewsTableViewCell.swift in Sources */,
 				02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */,
 				D6908F5B26A31109004240AC /* SelectAlcholViewController.swift in Sources */,
+				9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */,
 				02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */,
 				9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */,
 				D6908F5726A30CC4004240AC /* SelectBaseViewController.swift in Sources */,
@@ -1025,6 +1034,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFAFLC3XW8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Koktail/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1050,6 +1060,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFAFLC3XW8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Koktail/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
