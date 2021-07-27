@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var recommendBtn: UIButton!
     @IBOutlet weak var todayCocktail: UIImageView!
-    
     @IBOutlet weak var collectionView: UICollectionView!
 //    @IBOutlet weak var scrollView: UIScrollView!
     // MARK: - Override Method
@@ -38,10 +37,12 @@ class HomeViewController: UIViewController {
         recommendBtn.layer.shadowOffset = CGSize(width: 1, height: 1)
         recommendBtn.layer.shadowRadius = 1.5
         
-        let heightConstraint = NSLayoutConstraint(item: todayCocktail, attribute: .height,
-                                                  relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: self.view.frame.height * 0.5)
-        let widthConstraint = NSLayoutConstraint(item: todayCocktail, attribute: .width,
-                                                 relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: self.view.frame.height * 0.5)
+        let heightConstraint = NSLayoutConstraint(item: todayCocktail!, attribute: .height,
+                                                  relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+                                                  multiplier: 1.0, constant: self.view.frame.height * 0.5)
+        let widthConstraint = NSLayoutConstraint(item: todayCocktail!, attribute: .width,
+                                                 relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+                                                 multiplier: 1.0, constant: self.view.frame.height * 0.5)
         self.todayCocktail.addConstraints([heightConstraint, widthConstraint])
 
     }
@@ -74,6 +75,7 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4

@@ -101,13 +101,10 @@ class PgControll: UIPageControl {
 class PreviousButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
-//        self.frame.size.width = UIScreen.main.bounds.width * 0.2
-//        self.frame.size.height = UIScreen.main.bounds.width * 0.2
         self.backgroundColor = UIColor(red: 199/255, green: 116/255, blue: 104/255, alpha: 1)
         self.setTitleColor(UIColor.white, for: .normal)
         self.layer.cornerRadius = 15
         self.setTitle(" < prev ", for: UIControl.State.normal)
-//        self.layer.frame.size.height =
         self.layer.frame.size.width = 200
         }
 }

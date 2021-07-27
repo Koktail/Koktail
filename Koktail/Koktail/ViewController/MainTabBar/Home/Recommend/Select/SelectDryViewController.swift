@@ -18,20 +18,16 @@ class SelectDryViewController: UIViewController {
     }
 
     @IBAction func LowBtnPress(_ sender: Any) {
-//        pv!.goToNextPage()
-        print("h")
         let vc = ResultViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func MiddleBtnPress(_ sender: Any) {
-//        pv!.goToNextPage()
         let vc = ResultViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func HighBtnPress(_ sender: Any) {
-//        pv!.goToNextPage()
         let vc = ResultViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

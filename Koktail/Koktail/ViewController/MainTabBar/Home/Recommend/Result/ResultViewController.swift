@@ -19,19 +19,14 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: "CocktailResultTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.register(UINib(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell1")
         againButton.layer.cornerRadius = againButton.frame.height / 2
         self.navigationController?.isNavigationBarHidden = true
-
-    
     }
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -40,14 +35,16 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
-            let cell: HeaderTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell1") as! HeaderTableViewCell
+            let cell: HeaderTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell1")
+                as! HeaderTableViewCell
             cell.layer.frame.size.height = 300
             cell.headerBar.roundCorners(corners: [.topLeft, .topRight], radius: 20)
             cell.headerBar.addShadow(offset: CGSize(width: 0, height: -4))
             return cell
         }
-        else{
-            let cell: CocktailResultTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell") as! CocktailResultTableViewCell
+        else {
+            let cell: CocktailResultTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell")
+                as! CocktailResultTableViewCell
             cell.CocktailImage?.image = UIImage(named: "cocktail")
             cell.CocktailName?.text = "모히또"
             cell.CocktailInfo?.text = "단맛, 과일, 높은 도수"
@@ -70,7 +67,6 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                           navigationOrientation: UIPageViewController.NavigationOrientation.horizontal,
                                           options: nil)
         self.navigationController?.pushViewController(vc, animated: false)
-//        pv!.setViewControllers([SelectBaseViewController()], direction: .forward, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

@@ -31,7 +31,6 @@ class SelectBitterViewController: UIViewController {
         pv!.goToPreviousPage()
     }
     
-
     /*
     // MARK: - Navigation
 

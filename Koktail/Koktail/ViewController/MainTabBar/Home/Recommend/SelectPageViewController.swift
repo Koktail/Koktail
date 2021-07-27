@@ -24,27 +24,10 @@ class SelectPageViewController: UIPageViewController, UIPageViewControllerDataSo
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-
         return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-//        guard let viewControllerIndex = VCArray.index(of: viewController) else {
-//            return nil
-//        }
-//
-//        let nextIndex = viewControllerIndex + 1
-//
-//        guard nextIndex < VCArray.count else {
-//
-//            return VCArray.first
-//        }
-//
-//        guard VCArray.count > nextIndex else {
-//            return nil
-//        }
-//
-//        return VCArray[nextIndex]
         return nil
     }
     
@@ -101,7 +84,7 @@ class SelectPageViewController: UIPageViewController, UIPageViewControllerDataSo
         for recognizer in self.gestureRecognizers {
             recognizer.isEnabled = false
         }
-        self.isPagingEnabled = false
+
         pv = self
         self.dataSource = self
         self.navigationController?.isNavigationBarHidden = true
@@ -142,7 +125,6 @@ extension SelectPageViewController {
     
     func goToNextPage() {
        guard let currentViewController = self.viewControllers?.first else { return }
-//       guard let nextViewController = dataSource?.pageViewController( self, viewControllerAfter: currentViewController ) else { return }
         guard let nextViewController = self.MyAfter(self, viewControllerAfter: currentViewController) else {return}
        setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
     }
@@ -150,32 +132,8 @@ extension SelectPageViewController {
     func goToPreviousPage() {
        guard let currentViewController = self.viewControllers?.first else { return }
         print(currentViewController)
-//       guard let previousViewController = dataSource?.pageViewController( self, viewControllerBefore: currentViewController ) else { return }
         guard let previousViewController = self.MyBefor(self, viewControllerAfter: currentViewController) else {return}
        setViewControllers([previousViewController], direction: .reverse, animated: true, completion: nil)
     }
-   
-   
-}
-extension UIPageViewController {
-     var isPagingEnabled: Bool {
-        get {
-           var isEnabled: Bool = true
-           for view in view.subviews {
-               if let subView = view as? UIScrollView {
-                   isEnabled = subView.isScrollEnabled
-               }
-           }
-           return isEnabled
-       }
-       set {
-           for view in view.subviews {
-               if let subView = view as? UIScrollView {
-                   subView.isScrollEnabled = false
-               }
-           }
-       }
-   }
-    
    
 }
