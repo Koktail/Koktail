@@ -27,13 +27,4 @@ struct UserDefaultsManager {
             USERDEFAULTS.set(newSocial, forKey: "social")
         }
     }
-    
-    static var token: String {
-        get {
-            return USERDEFAULTS.string(forKey: "token") ?? ""
-        }
-        set(newToken) {
-            USERDEFAULTS.set(newToken, forKey: "token")
-        }
-    }
 }

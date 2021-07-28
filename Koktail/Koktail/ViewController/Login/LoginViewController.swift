@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
             let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
                 exit(0)
-            })
+            } )
             
             self.present(alert, animated: true)
         } else {

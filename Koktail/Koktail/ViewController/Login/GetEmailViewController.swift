@@ -49,39 +49,26 @@ class GetEmailViewController: UIViewController {
                         }
                         
                         Auth.auth().createUser(withEmail: email,
-                                               password: String(describing: password)) {user, error in
+                                               password: String(describing: password)) { _, error in
                             if let error = error {
                                 print("< FIREBASE: signUp failed >")
                                 print(error.localizedDescription)
                                 
                                 Auth.auth().signIn(withEmail: email,
-                                                   password: String(describing: password)) { signInUser, signInError in
+                                                   password: String(describing: password)) { _, signInError in
                                     if let signInError = signInError {
                                         print("< FIREBASE: signIn failed >")
                                         print(signInError.localizedDescription)
                                     } else {
                                         print(" < FIREBASE: signIn success >")
-                                        
-                                        guard let token = signInUser?.user.uid else {
-                                            print("no firebase uid")
-                                            return
-                                        }
-                                        UserDefaultsManager.token = token
                                     }
                                 }
                             } else {
                                 print("< FIREBASE: signup success >")
-                                
-                                guard let token = user?.user.uid else {
-                                    print("no firebase uid")
-                                    return
-                                }
-                                UserDefaultsManager.token = token
                             }
                         }
                         
                         UserDefaultsManager.userId = email
-                        UserDefaultsManager.social = "kakao"
                         self.view.window?.switchRootViewController(self.tabBarViewController)
                     }
                 }
@@ -120,6 +107,13 @@ class GetEmailViewController: UIViewController {
         emailTextField.title = "Email"
         
         emailTextField.lineColor = .lightGray
+        
+        if color != "system" {
+            emailTextField.tintColor = UIColor(hex: color)
+            emailTextField.selectedTitleColor = UIColor(hex: color)
+            emailTextField.selectedLineColor = UIColor(hex: color)
+        }
+        
         emailTextField.errorColor = .red
 
         emailTextField.lineHeight = 1.0
