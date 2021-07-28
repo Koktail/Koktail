@@ -25,15 +25,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 카카오톡 로그인 토큰 삭제
-        UserApi.shared.unlink { error in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                print("unlink success")
-            }
-        }
-        
         initRemoteConfig()
         displayLogoImage()
     }
@@ -81,11 +72,11 @@ class LoginViewController: UIViewController {
         
         if caps {
             let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
                 exit(0)
-            }))
+            } )
             
-            self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true)
         } else {
             decideNextView()
         }

@@ -54,8 +54,8 @@ class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
                         }
                     }
                     
-                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    alert.addAction(UIAlertAction(title: "확인", style: .default))
+                    self.present(alert, animated: true)
                     
                     self.emailTextField.text = nil
                     self.passwordTextField.text = nil
@@ -73,10 +73,7 @@ class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
                     self.cancelEvent()
                 }))
                 
-                self.present(alert, animated: true, completion: nil)
-                
-                // 데이터베이스 설게 후 Database로 정보 저장
-                // 데이터베이스 설계 후 이미 존재하는 아이디인지 확인
+                self.present(alert, animated: true)
         }
     }
 }
@@ -191,8 +188,8 @@ class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func displayLoginOrSignUpFormatAlert() {
         let alert = UIAlertController(title: "실패", message: "이메일/비밀번호를 확인해주세요", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
         
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true)
     }
 }

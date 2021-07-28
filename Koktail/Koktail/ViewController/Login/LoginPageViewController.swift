@@ -34,7 +34,7 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - IBAction
     @IBAction func touchUpSignUpButton(_ sender: UIButton) {
-        self.present(SignUpViewController(), animated: true, completion: nil)
+        self.present(SignUpViewController(), animated: true)
     }
     
     // MARK: - Actions
@@ -121,7 +121,7 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         let getEmailViewController = GetEmailViewController()
         getEmailViewController.color = color
         
-        self.present(getEmailViewController, animated: true, completion: nil)
+        self.present(getEmailViewController, animated: true)
     }
     
     @objc func appleLoginEvent() {
@@ -132,7 +132,7 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         let forgotAndUpdatePasswordVC = ForgotAndUpdatePasswordViewController()
         forgotAndUpdatePasswordVC.color = self.color
         
-        self.present(forgotAndUpdatePasswordVC, animated: true, completion: nil)
+        self.present(forgotAndUpdatePasswordVC, animated: true)
     }
 
     // MARK: - Override Methods
@@ -196,8 +196,8 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         let alert = UIAlertController(title: "실패",
                                       message: "이메일/비밀번호를 확인해주세요",
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
         
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true)
     }
 }
