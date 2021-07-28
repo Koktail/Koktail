@@ -20,8 +20,6 @@ class PlaceTitleTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        setRatingView(rating: 4.0)
     }
     
     public func makeCell(place: Detail) {
@@ -43,6 +41,6 @@ class PlaceTitleTableViewCell: UITableViewCell {
         ratingView.emptyImage = UIImage(named: "ic_star_empty")!
         ratingView.fullImage = UIImage(named: "ic_star_full")!
         
-        ratingView.rating = 4
+        ratingView.rating = rating
     }
 }

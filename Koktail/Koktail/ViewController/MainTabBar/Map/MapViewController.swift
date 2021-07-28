@@ -286,6 +286,7 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
     }
 }
 
+// MARK: - GMSMapViewDelegate
 extension MapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         

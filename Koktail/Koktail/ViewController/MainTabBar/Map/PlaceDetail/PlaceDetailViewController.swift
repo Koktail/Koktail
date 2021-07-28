@@ -2,7 +2,7 @@
 //  PlaceDetailViewController.swift
 //  Koktail
 //
-//  Created by 최승명 on 2021/07/24.
+//  Created by 최승명 on 2021/07/27.
 //
 
 import UIKit

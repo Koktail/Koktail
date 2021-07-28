@@ -37,8 +37,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ATM-6B-uuW">
-                        <rect key="frame" x="15" y="95" width="290" height="124"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ATM-6B-uuW">
+                        <rect key="frame" x="15" y="95" width="300" height="124"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <color key="textColor" systemColor="labelColor"/>
@@ -60,7 +60,7 @@
                     <constraint firstItem="rdx-Nn-bvI" firstAttribute="leading" secondItem="z90-4i-GuY" secondAttribute="leading" id="Ii4-Sn-lGi"/>
                     <constraint firstItem="ATM-6B-uuW" firstAttribute="leading" secondItem="rdx-Nn-bvI" secondAttribute="leading" id="Kc0-zc-OWQ"/>
                     <constraint firstItem="pGM-Ea-xdv" firstAttribute="leading" secondItem="z90-4i-GuY" secondAttribute="trailing" constant="10" id="Mf1-Dy-gWT"/>
-                    <constraint firstAttribute="trailing" secondItem="ATM-6B-uuW" secondAttribute="trailing" constant="15" id="R4w-QO-RF8"/>
+                    <constraint firstAttribute="trailing" secondItem="ATM-6B-uuW" secondAttribute="trailing" constant="5" id="R4w-QO-RF8"/>
                     <constraint firstItem="IyQ-QA-QZT" firstAttribute="centerY" secondItem="rdx-Nn-bvI" secondAttribute="centerY" id="WfJ-ag-6Lh"/>
                     <constraint firstItem="z90-4i-GuY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="gyQ-Zr-xgu"/>
                     <constraint firstItem="rdx-Nn-bvI" firstAttribute="top" secondItem="z90-4i-GuY" secondAttribute="bottom" constant="10" id="qXl-Iq-dKR"/>
