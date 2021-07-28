@@ -63,15 +63,18 @@ class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
                     
                     return
                 }
-                print(user.uid)
+                
+                UserDefaultsManager.userId = email
+                UserDefaultsManager.token = user.uid
+                UserDefaultsManager.social = ""
                 
                 let alert = UIAlertController(title: "회원가입 성공",
                                               message: "환영합니다!",
                                               preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+                alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
                     self.cancelEvent()
-                }))
+                })
                 
                 self.present(alert, animated: true)
         }

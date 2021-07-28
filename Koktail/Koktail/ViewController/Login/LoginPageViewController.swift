@@ -43,13 +43,21 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
             return
         }
         
-        Auth.auth().signIn(withEmail: email, password: password) { _, error in
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
             if error != nil {
                 self.displayLoginOrSignUpFormatAlert()
                 
                 self.passwordTextField.text = nil
             } else {
                 UserDefaultsManager.userId = email
+                
+                guard let token = user?.user.uid else {
+                    print("no firebase uid")
+                    return
+                }
+                UserDefaultsManager.token = token
+                UserDefaultsManager.social = ""
+                
                 self.view.window?.switchRootViewController(self.tabBarViewController)
             }
         }
@@ -96,6 +104,7 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
                     print("APP KAKAO LOGIN")
                     
                     _ = oauthToken
+                    
                     self.kakaoLoginToFireBase()
                     
                 }
