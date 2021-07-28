@@ -21,6 +21,10 @@ class HomeViewController: UIViewController {
     // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("================================")
+        print(UserDefaultsManager.userId)
+        print(UserDefaultsManager.social)
+        print(UserDefaultsManager.token)
         setRightNavigationButton()
         self.navigationItem.title = "홈화면"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
