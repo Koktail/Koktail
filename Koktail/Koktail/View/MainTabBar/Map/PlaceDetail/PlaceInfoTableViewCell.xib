@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -52,28 +53,33 @@
                             <constraint firstAttribute="height" constant="30" id="oDv-Mb-kbR"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사이트 주소" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu3-yp-5CO">
-                        <rect key="frame" x="53" y="65" width="251" height="20.5"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="사이트" translatesAutoresizingMaskIntoConstraints="NO" id="8SJ-S4-bzJ">
+                        <rect key="frame" x="53" y="54.5" width="251" height="41"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="41" id="m2J-eN-PWa"/>
+                        </constraints>
+                        <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="bu3-yp-5CO" firstAttribute="leading" secondItem="uo8-Yg-mYA" secondAttribute="leading" id="5cZ-5q-s6Y"/>
+                    <constraint firstItem="8SJ-S4-bzJ" firstAttribute="trailing" secondItem="uo8-Yg-mYA" secondAttribute="trailing" id="A6m-UR-aAn"/>
                     <constraint firstItem="OBB-y6-5Z3" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Hfi-in-eNM"/>
+                    <constraint firstItem="8SJ-S4-bzJ" firstAttribute="centerY" secondItem="wBm-c8-hse" secondAttribute="centerY" id="ICF-Q4-xw8"/>
                     <constraint firstItem="OBB-y6-5Z3" firstAttribute="centerY" secondItem="BBj-eQ-73Q" secondAttribute="centerY" id="Ij9-WM-qox"/>
+                    <constraint firstItem="OBB-y6-5Z3" firstAttribute="leading" secondItem="8SJ-S4-bzJ" secondAttribute="leading" id="LUT-nU-mbp"/>
                     <constraint firstItem="wBm-c8-hse" firstAttribute="top" secondItem="PLh-KS-OPh" secondAttribute="bottom" constant="15" id="Mx2-Ui-4cZ"/>
                     <constraint firstItem="PLh-KS-OPh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="NP4-9x-p3p"/>
                     <constraint firstItem="PLh-KS-OPh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="XhE-sd-igB"/>
-                    <constraint firstItem="OBB-y6-5Z3" firstAttribute="leading" secondItem="bu3-yp-5CO" secondAttribute="leading" id="b3r-aT-NkZ"/>
                     <constraint firstItem="BBj-eQ-73Q" firstAttribute="top" secondItem="wBm-c8-hse" secondAttribute="bottom" constant="15" id="bO3-f2-cnG"/>
+                    <constraint firstItem="8SJ-S4-bzJ" firstAttribute="leading" secondItem="uo8-Yg-mYA" secondAttribute="leading" id="baI-1h-IbY"/>
                     <constraint firstItem="uo8-Yg-mYA" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="dgG-p9-pnq"/>
-                    <constraint firstItem="bu3-yp-5CO" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="e6E-Hm-67v"/>
                     <constraint firstAttribute="bottom" secondItem="BBj-eQ-73Q" secondAttribute="bottom" constant="15" id="gGn-od-zn8"/>
                     <constraint firstItem="BBj-eQ-73Q" firstAttribute="leading" secondItem="wBm-c8-hse" secondAttribute="leading" id="mQi-IU-EL0"/>
                     <constraint firstItem="uo8-Yg-mYA" firstAttribute="leading" secondItem="PLh-KS-OPh" secondAttribute="trailing" constant="8" symbolic="YES" id="pni-ih-IO6"/>
-                    <constraint firstItem="bu3-yp-5CO" firstAttribute="centerY" secondItem="wBm-c8-hse" secondAttribute="centerY" id="qSA-uD-VOV"/>
                     <constraint firstItem="uo8-Yg-mYA" firstAttribute="centerY" secondItem="PLh-KS-OPh" secondAttribute="centerY" id="tdr-ef-3sH"/>
                     <constraint firstItem="wBm-c8-hse" firstAttribute="leading" secondItem="PLh-KS-OPh" secondAttribute="leading" id="thi-tg-8c7"/>
                 </constraints>
@@ -82,7 +88,7 @@
             <connections>
                 <outlet property="placeAddress" destination="uo8-Yg-mYA" id="W4o-6D-N64"/>
                 <outlet property="placePhoneNumber" destination="OBB-y6-5Z3" id="FnT-qB-GLG"/>
-                <outlet property="placeSiteURL" destination="bu3-yp-5CO" id="x2e-Ic-SD9"/>
+                <outlet property="placeSiteURL" destination="8SJ-S4-bzJ" id="xtG-1A-hh2"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="144.64285714285714"/>
         </tableViewCell>
@@ -91,5 +97,11 @@
         <image name="address" width="24" height="24"/>
         <image name="phone" width="24" height="24"/>
         <image name="website" width="24" height="24"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

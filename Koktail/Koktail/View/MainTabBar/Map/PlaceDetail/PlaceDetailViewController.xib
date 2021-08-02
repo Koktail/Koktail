@@ -19,29 +19,37 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scrolling" translatesAutoresizingMaskIntoConstraints="NO" id="tRu-ft-bdq">
-                    <rect key="frame" x="190" y="49" width="34" height="4"/>
-                </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ro0-Jl-Bbq">
-                    <rect key="frame" x="0.0" y="73" width="414" height="823"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ro0-Jl-Bbq">
+                    <rect key="frame" x="0.0" y="84" width="414" height="812"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJK-nE-rEk">
+                    <rect key="frame" x="5" y="54" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Cq8-rU-EYO"/>
+                        <constraint firstAttribute="width" constant="25" id="WCf-k2-gJ6"/>
+                    </constraints>
+                    <state key="normal" image="cancel"/>
+                    <connections>
+                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="AiO-lT-Or3"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Ro0-Jl-Bbq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2MU-eg-x5c"/>
-                <constraint firstItem="Ro0-Jl-Bbq" firstAttribute="top" secondItem="tRu-ft-bdq" secondAttribute="bottom" constant="20" id="6rg-30-8dW"/>
+                <constraint firstItem="rJK-nE-rEk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="Y7P-HP-qEK"/>
+                <constraint firstItem="Ro0-Jl-Bbq" firstAttribute="top" secondItem="rJK-nE-rEk" secondAttribute="bottom" constant="5" id="aCe-OL-qjX"/>
                 <constraint firstAttribute="bottom" secondItem="Ro0-Jl-Bbq" secondAttribute="bottom" id="drg-qd-T6t"/>
-                <constraint firstItem="tRu-ft-bdq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jCF-lt-q0g"/>
-                <constraint firstItem="tRu-ft-bdq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="obg-CN-4Is"/>
                 <constraint firstAttribute="trailing" secondItem="Ro0-Jl-Bbq" secondAttribute="trailing" id="uLO-An-H36"/>
+                <constraint firstItem="rJK-nE-rEk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="yni-wF-XUH"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="92.410714285714278"/>
         </view>
     </objects>
     <resources>
-        <image name="scrolling" width="34" height="4"/>
+        <image name="cancel" width="15" height="14.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

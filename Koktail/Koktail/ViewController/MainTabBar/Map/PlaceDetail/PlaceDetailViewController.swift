@@ -24,6 +24,11 @@ class PlaceDetailViewController: UIViewController {
     // RxSwift
     private let disposeBag = DisposeBag()
     
+    // MARK: - Action
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,8 @@ class PlaceDetailViewController: UIViewController {
     private func setTableView() {
         placeDetailTable.delegate = self
         placeDetailTable.dataSource = self
+        placeDetailTable.separatorColor = UIColor.clear
+        placeDetailTable.separatorStyle = .none
         
         placeDetailTable.register(
             UINib(nibName: PlaceTitleTableViewCell.identifier, bundle: nil),
