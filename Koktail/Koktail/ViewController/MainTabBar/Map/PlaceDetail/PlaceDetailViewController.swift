@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 class PlaceDetailViewController: UIViewController {
 
@@ -24,6 +25,10 @@ class PlaceDetailViewController: UIViewController {
     // RxSwift
     private let disposeBag = DisposeBag()
     
+    // realm
+    private var realm: Realm?
+    private var storeList: Results<StoreData>?
+    
     // MARK: - Action
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true)
@@ -37,6 +42,24 @@ class PlaceDetailViewController: UIViewController {
         
         bindNetworkingState()
         requestPlaceDetail(place_id: self.placeName!)
+    }
+    
+    // MARK: - Save Store Data
+    private func saveData() {
+        realm = try? Realm()
+
+        print("realm file: \(Realm.Configuration.defaultConfiguration.fileURL!)")
+        let store = StoreData().then {
+            $0.store_title = ""
+            $0.store_website = ""
+            $0.store_phone = ""
+            $0.store_address = ""
+            $0.store_rating = ""
+        }
+        
+        try? realm?.write {
+            realm?.add(store)
+        }
     }
     
     // MARK: - Set Table View
@@ -62,6 +85,7 @@ class PlaceDetailViewController: UIViewController {
         )
     }
     
+    // MARK: - Networking
     private func requestPlaceDetail(place_id: String) {
         let parameters: [String: String] = [
             "key": "AIzaSyCcXxMzsdL1m2uPjZ6d9wGTiVDYm4srnHU",
