@@ -68,6 +68,9 @@ class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
                 UserDefaultsManager.token = user.uid
                 UserDefaultsManager.social = ""
                 
+                // 서버로 email(email), firebase uid(token) 전송
+                self.postSignUpInformation()
+                
                 let alert = UIAlertController(title: "회원가입 성공",
                                               message: "환영합니다!",
                                               preferredStyle: .alert)
@@ -194,5 +197,55 @@ class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
         alert.addAction(UIAlertAction(title: "확인", style: .default))
         
         self.present(alert, animated: true)
+    }
+    
+    func postSignUpInformation() {
+        let email = UserDefaultsManager.userId
+        let token = UserDefaultsManager.token
+        let param = ["email": email, "token": token]
+        let paramData = try? JSONSerialization.data(withJSONObject: param, options: [])
+        
+        guard let url = URL(string: "http://3.35.50.183:55097/api/user/signup") else {
+            print("CANNOT CREATE URL")
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = paramData
+        
+        // HTTP message header
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue(String(paramData!.count), forHTTPHeaderField: "Content-Length")
+        
+        // URLSession 객체를 통해 전송, 응답값 처리
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            // 응답 처리
+            DispatchQueue.main.async {
+                do {
+                    let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                    guard let jsonObject = object else {
+                        return
+                    }
+                    
+                    // JSON 결과값 확인
+                    let code = jsonObject["code"] as? Int
+                    let message = jsonObject["message"] as? String
+                    
+                    print("CODE: \(code!), MESSAGE: \(message!)")
+                    
+                } catch let error as NSError {
+                    print("ERROR WHILE PARSING JSONObject : \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        task.resume() // post 전송
     }
 }

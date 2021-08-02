@@ -59,6 +59,11 @@ class GetEmailViewController: UIViewController {
                                     if let signInError = signInError {
                                         print("< FIREBASE: signIn failed >")
                                         print(signInError.localizedDescription)
+                                        
+                                        displayLoginOrSignUpFormatAlert()
+                                        self.emailTextField.text = ""
+                                        
+                                        return
                                     } else {
                                         print(" < FIREBASE: signIn success >")
                                         
@@ -77,16 +82,26 @@ class GetEmailViewController: UIViewController {
                                     return
                                 }
                                 UserDefaultsManager.token = token
+                                UserDefaultsManager.userId = email
+                                
+                                postSignUpInformation()
                             }
                         }
                         
                         UserDefaultsManager.userId = email
                         UserDefaultsManager.social = "kakao"
+                        
                         self.view.window?.switchRootViewController(self.tabBarViewController)
                     }
                 }
+            } else {
+                displayLoginOrSignUpFormatAlert()
             }
         }
+    }
+    
+    @objc func cancelEvent() {
+        self.dismiss(animated: true)
     }
     
     // MARK: - Override Method
@@ -97,6 +112,7 @@ class GetEmailViewController: UIViewController {
         
         emailTextField.addTarget(self, action: #selector(emailTextFieldDidChange(_:)), for: .editingChanged)
         okButton.addTarget(self, action: #selector(okEvent), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(cancelEvent), for: .touchUpInside)
     }
     
     // MARK: - Custom Method
@@ -124,5 +140,65 @@ class GetEmailViewController: UIViewController {
 
         emailTextField.lineHeight = 1.0
         emailTextField.selectedLineHeight = 2.0
+    }
+    
+    func displayLoginOrSignUpFormatAlert() {
+        let alert = UIAlertController(title: "실패",
+                                      message: "이메일을 확인해주세요",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func postSignUpInformation() {
+        let email = UserDefaultsManager.userId
+        let token = UserDefaultsManager.token
+        
+        let param = ["email": email, "token": token]
+        let paramData = try? JSONSerialization.data(withJSONObject: param, options: [])
+        
+        guard let url = URL(string: "http://3.35.50.183:55097/api/user/signup") else {
+            print("CANNOT CREATE URL")
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = paramData
+        
+        // HTTP message header
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue(String(paramData!.count), forHTTPHeaderField: "Content-Length")
+        
+        // URLSession 객체를 통해 전송, 응답값 처리
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            // 응답 처리
+            DispatchQueue.main.async {
+                do {
+                    let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                    guard let jsonObject = object else {
+                        return
+                    }
+                    
+                    // JSON 결과값 확인
+                    let code = jsonObject["code"] as? Int
+                    let message = jsonObject["message"] as? String
+                    
+                    print("CODE: \(code!), MESSAGE: \(message!)")
+                    
+                } catch let error as NSError {
+                    print("ERROR WHILE PARSING JSONObject : \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        task.resume() // post 전송
     }
 }
