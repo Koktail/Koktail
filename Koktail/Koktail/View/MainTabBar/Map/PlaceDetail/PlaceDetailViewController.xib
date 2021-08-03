@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceDetailViewController" customModule="Koktail" customModuleProvider="target">
             <connections>
+                <outlet property="favorite" destination="nmK-Qp-v18" id="3Hc-5a-uEQ"/>
                 <outlet property="placeDetailTable" destination="Ro0-Jl-Bbq" id="Er3-n9-COq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,6 +35,17 @@
                         <action selector="cancel:" destination="-1" eventType="touchUpInside" id="AiO-lT-Or3"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmK-Qp-v18">
+                    <rect key="frame" x="384" y="54" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="5e3-ur-w9I"/>
+                        <constraint firstAttribute="height" constant="25" id="udv-Bx-mrC"/>
+                    </constraints>
+                    <state key="normal" image="favorite_border"/>
+                    <connections>
+                        <action selector="favorite:" destination="-1" eventType="touchUpInside" id="uz0-Gb-UsN"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -42,7 +54,10 @@
                 <constraint firstItem="rJK-nE-rEk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="Y7P-HP-qEK"/>
                 <constraint firstItem="Ro0-Jl-Bbq" firstAttribute="top" secondItem="rJK-nE-rEk" secondAttribute="bottom" constant="5" id="aCe-OL-qjX"/>
                 <constraint firstAttribute="bottom" secondItem="Ro0-Jl-Bbq" secondAttribute="bottom" id="drg-qd-T6t"/>
+                <constraint firstItem="Ro0-Jl-Bbq" firstAttribute="top" secondItem="nmK-Qp-v18" secondAttribute="bottom" constant="5" id="txh-lg-26h"/>
                 <constraint firstAttribute="trailing" secondItem="Ro0-Jl-Bbq" secondAttribute="trailing" id="uLO-An-H36"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nmK-Qp-v18" secondAttribute="trailing" constant="5" id="xIj-wr-Tne"/>
+                <constraint firstItem="nmK-Qp-v18" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="yG9-jZ-ges"/>
                 <constraint firstItem="rJK-nE-rEk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="yni-wF-XUH"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="92.410714285714278"/>
@@ -50,6 +65,7 @@
     </objects>
     <resources>
         <image name="cancel" width="15" height="14.5"/>
+        <image name="favorite_border" width="36" height="36"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

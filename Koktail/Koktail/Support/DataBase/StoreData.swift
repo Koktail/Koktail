@@ -13,4 +13,5 @@ class StoreData: Object {
     @objc dynamic var store_phone = ""
     @objc dynamic var store_address = ""
     @objc dynamic var store_rating = ""
+    @objc dynamic var store_flag = false
 }

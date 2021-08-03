@@ -14,7 +14,8 @@ class PlaceDetailViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var placeDetailTable: UITableView!
-
+    @IBOutlet weak var favorite: UIButton!
+    
     // data
     public var placeName: String?
     private var placeDetail: PlaceDetail?
@@ -28,10 +29,15 @@ class PlaceDetailViewController: UIViewController {
     // realm
     private var realm: Realm?
     private var storeList: Results<StoreData>?
+    private var storeData: StoreData?
     
     // MARK: - Action
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    @IBAction func favorite(_ sender: Any) {
+        saveData()
     }
     
     // MARK: - Override Method
@@ -44,21 +50,48 @@ class PlaceDetailViewController: UIViewController {
         requestPlaceDetail(place_id: self.placeName!)
     }
     
-    // MARK: - Save Store Data
-    private func saveData() {
-        realm = try? Realm()
-
-        print("realm file: \(Realm.Configuration.defaultConfiguration.fileURL!)")
-        let store = StoreData().then {
-            $0.store_title = ""
-            $0.store_website = ""
-            $0.store_phone = ""
-            $0.store_address = ""
-            $0.store_rating = ""
-        }
+    // MARK: - Set Realm
+    private func loadRealm() {
+        guard let placeDetail = self.placeDetail else { return }
         
-        try? realm?.write {
-            realm?.add(store)
+        realm = try? Realm()
+        print("realm file: \(Realm.Configuration.defaultConfiguration.fileURL!)")
+        
+        if let store = realm!.objects(StoreData.self).filter(
+            NSPredicate(
+                format: "store_title = %@",
+                placeDetail.result.name
+            )
+        ).first {
+            favorite.setImage(UIImage(named: "favorite"), for: .normal)
+            self.storeData = store
+        } else {
+            favorite.setImage(UIImage(named: "favorite_border"), for: .normal)
+        }
+    }
+        
+    private func saveData() {
+        guard let placeDetail = self.placeDetail else { return }
+        
+        if let store = self.storeData {
+            try? realm?.write {
+                realm?.delete(store)
+            }
+            favorite.setImage(UIImage(named: "favorite_border"), for: .normal)
+        } else {
+            let store = StoreData().then {
+                $0.store_title = placeDetail.result.name
+                $0.store_website = placeDetail.result.website
+                $0.store_phone = placeDetail.result.formatted_phone_number
+                $0.store_address = placeDetail.result.formatted_address
+                $0.store_rating = "\(placeDetail.result.rating)"
+            }
+            
+            try? realm?.write {
+                realm?.add(store)
+            }
+            
+            favorite.setImage(UIImage(named: "favorite"), for: .normal)
         }
     }
     
@@ -102,6 +135,7 @@ class PlaceDetailViewController: UIViewController {
             .drive { placeDetail in
                 self.placeDetail = placeDetail
                 self.placeDetailTable.reloadData()
+                self.loadRealm()
             }.disposed(by: disposeBag)
         
         placeDetailViewModel.state.fail
