@@ -205,7 +205,7 @@ class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
         let param = ["email": email, "token": token]
         let paramData = try? JSONSerialization.data(withJSONObject: param, options: [])
         
-        guard let url = URL(string: "http://3.35.50.183:55097/api/user/signup") else {
+        guard let url = URL(string: "http://3.36.149.10:55670/api/user/signup") else {
             print("CANNOT CREATE URL")
             return
         }
