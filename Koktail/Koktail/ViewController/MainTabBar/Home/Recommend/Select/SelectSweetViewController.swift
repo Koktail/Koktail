@@ -20,18 +20,29 @@ class SelectSweetViewController: UIViewController {
     }
     
     @IBAction func LowBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        sweet = "LOW"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func MiddleBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        sweet = "MID"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func HighBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        sweet = "HIGH"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     @IBAction func prevButton(_ sender: Any) {
-        pv!.goToPreviousPage()
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToPreviousPage()
+        }
     }
     
     /*

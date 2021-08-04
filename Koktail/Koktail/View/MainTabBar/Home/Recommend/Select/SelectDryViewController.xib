@@ -32,7 +32,7 @@
                             </constraints>
                             <state key="normal" title="조금"/>
                             <connections>
-                                <action selector="LowBtnPress:" destination="-1" eventType="touchUpInside" id="Ecn-nL-Tcm"/>
+                                <action selector="LowBtnPress:" destination="-1" eventType="touchUpInside" id="kJf-oH-zvs"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s93-HA-BrP" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
@@ -43,7 +43,7 @@
                             </constraints>
                             <state key="normal" title="중간"/>
                             <connections>
-                                <action selector="MiddleBtnPress:" destination="-1" eventType="touchUpInside" id="jeO-nZ-74n"/>
+                                <action selector="MiddleBtnPress:" destination="-1" eventType="touchUpInside" id="XeD-kc-qf0"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxY-1i-BHq" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
@@ -54,7 +54,7 @@
                             </constraints>
                             <state key="normal" title="많이"/>
                             <connections>
-                                <action selector="HighBtnPress:" destination="-1" eventType="touchUpInside" id="Mau-1w-vSR"/>
+                                <action selector="HighBtnPress:" destination="-1" eventType="touchUpInside" id="FYl-Kw-gfj"/>
                             </connections>
                         </button>
                     </subviews>

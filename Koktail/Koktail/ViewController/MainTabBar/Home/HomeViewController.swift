@@ -6,45 +6,45 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class HomeViewController: UIViewController {
     var imageArray = [UIImage(named: "cocktail"), UIImage(named: "cocktail"),
                       UIImage(named: "cocktail"), UIImage(named: "cocktail"),
                       UIImage(named: "cocktail"), UIImage(named: "cocktail"),
-                      UIImage(named: "cocktail")]
+                      UIImage(named: "cocktail"), UIImage(named: "cocktail"),
+                      UIImage(named: "cocktail"), UIImage(named: "cocktail")]
+    
+    var apiResponseName: [String]?
+    var apiResponseAlchol: [String]?
+    let semaphore = DispatchSemaphore(value: 0)
     
     @IBOutlet weak var recommendBtn: UIButton!
     @IBOutlet weak var todayCocktail: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
-//    @IBOutlet weak var scrollView: UIScrollView!
+    
     // MARK: - Override Method
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        homeAPI()
         setRightNavigationButton()
-        self.navigationItem.title = "홈화면"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.barTintColor =
-            UIColor(red: 199.0/255.0, green: 116.0/255.0, blue: 104.0/255.0, alpha: 0.0)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        let nibName = UINib(nibName: "CocktailCollectionViewCell", bundle: nil)
-        collectionView.register(nibName, forCellWithReuseIdentifier: "cocktailCell")
-
-        recommendBtn.backgroundColor = UIColor.white
-        recommendBtn.layer.cornerRadius = 20
-        recommendBtn.layer.shadowColor = UIColor.gray.cgColor
-        recommendBtn.layer.shadowOpacity = 1.0
-        recommendBtn.layer.shadowOffset = CGSize(width: 1, height: 1)
-        recommendBtn.layer.shadowRadius = 1.5
+        setNavigationBar()
+        setRecommendButton()
+        setTodayCocktail()
+        setCollectionView()
         
-        let heightConstraint = NSLayoutConstraint(item: todayCocktail!, attribute: .height,
-                                                  relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
-                                                  multiplier: 1.0, constant: self.view.frame.height * 0.5)
-        let widthConstraint = NSLayoutConstraint(item: todayCocktail!, attribute: .width,
-                                                 relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
-                                                 multiplier: 1.0, constant: self.view.frame.height * 0.5)
-        self.todayCocktail.addConstraints([heightConstraint, widthConstraint])
-
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     // MARK: - Set Navigation
@@ -68,40 +68,96 @@ class HomeViewController: UIViewController {
         navigation.pushViewController(settingTableViewController, animated: true)
     }
     
-    @IBAction func RecommendAction(_ sender: UIButton){
+    @IBAction func RecommendAction(_ sender: UIButton) {
         let vc = SelectPageViewController(transitionStyle: UIPageViewController.TransitionStyle.scroll,
                                           navigationOrientation: UIPageViewController.NavigationOrientation.horizontal,
                                           options: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func homeAPI() {
+        AF.request("http://3.36.149.10:55670/api/cocktail/home",
+                   method: .get).responseJSON(completionHandler: { response in
+                    switch response.result {
+                    case .success(let value):
+                        let json = JSON(value)
+                        if let cocktailArray = json["data"]["cocktail"].array {
+                            self.apiResponseName = []
+                            self.apiResponseAlchol = []
+                            for i in 0..<cocktailArray.count {
+                                
+                                if let name = cocktailArray[i]["name"].string {
+                                    self.apiResponseName?.append(name)
+                                }
+                                
+                                if let alcohol = cocktailArray[i]["alcohol"].string {
+                                    self.apiResponseAlchol?.append(alcohol)
+                                }
+                                
+                            }
+                            self.collectionView.reloadData()
+                        }
+                    case .failure(_):
+                        return
+                    }
+                  
+                })
+        self.collectionView.reloadData()
+    }
+    
+    func setNavigationBar() {
+        self.navigationItem.title = "홈화면"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.barTintColor =
+            UIColor(red: 199.0/255.0, green: 116.0/255.0, blue: 104.0/255.0, alpha: 0.0)
+    }
+    
+    func setCollectionView() {
+        let nibName = UINib(nibName: "CocktailCollectionViewCell", bundle: nil)
+        self.collectionView.register(nibName, forCellWithReuseIdentifier: "cocktailCell")
+    }
+    
+    func setRecommendButton() {
+        self.recommendBtn.backgroundColor = UIColor.white
+        self.recommendBtn.layer.cornerRadius = 20
+        self.recommendBtn.layer.shadowColor = UIColor.gray.cgColor
+        self.recommendBtn.layer.shadowOpacity = 1.0
+        self.recommendBtn.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.recommendBtn.layer.shadowRadius = 1.5
+    }
+    
+    func setTodayCocktail() {
+        let heightConstraint = NSLayoutConstraint(item: todayCocktail!, attribute: .height,
+                                                  relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+                                                  multiplier: 1.0, constant: self.view.frame.height * 0.5)
+        let widthConstraint = NSLayoutConstraint(item: todayCocktail!, attribute: .width,
+                                                 relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+                                                 multiplier: 1.0, constant: self.view.frame.height * 0.5)
+        self.todayCocktail.addConstraints([heightConstraint, widthConstraint])
+    }
+    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
     -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cocktailCell", for: indexPath)
             as! CocktailCollectionViewCell
-//        print("HI")
+        if self.apiResponseName?.count != 0 {
+            cell.cocktailName.text = self.apiResponseName?[indexPath.row]
+            cell.cocktailDegree.text = self.apiResponseAlchol?[indexPath.row]
+        }
         cell.cocktailImg.image = imageArray[indexPath.row]
-        cell.cocktailImg.layer.cornerRadius = 20
-        cell.view.layer.borderColor = UIColor.gray.cgColor
-        cell.view.layer.borderWidth = 0.1
-        cell.view.layer.cornerRadius = 20
-        cell.view.layer.shadowColor = UIColor.gray.cgColor
-        cell.view.layer.shadowOpacity = 1.0
-        cell.view.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
-        cell.view.layer.shadowRadius = 2
-        cell.cocktailName.text = "모히또"
-        cell.cocktailDegree.text = "Alc 12.6"
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = CocktailDetailViewController()
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

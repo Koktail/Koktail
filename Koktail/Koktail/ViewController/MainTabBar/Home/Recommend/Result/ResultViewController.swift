@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
-class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     var imageArray = [UIImage(named: "cocktail"), UIImage(named: "cocktail"),
                       UIImage(named: "cocktail"), UIImage(named: "cocktail"),
                       UIImage(named: "cocktail"), UIImage(named: "cocktail"),
                       UIImage(named: "cocktail")]
-
+    var resultURL = "http://3.36.149.10:55670/api/cocktail/favorite?" +
+        "base=\(base)&alcohol=\(alcohol)&sour=\(sour)&sweet=\(sweet)&bitter=\(bitter)&dry=\(dry)"
+    
+    var resultName: [String]?
+    var resultDescription: [String]?
+    var resultAlcohol: [String]?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var againButton: UIButton!
     
@@ -24,12 +31,22 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CocktailResultTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.register(UINib(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell1")
-        againButton.layer.cornerRadius = againButton.frame.height / 2
-        self.navigationController?.isNavigationBarHidden = true
+        tableView.bounces = tableView.contentOffset.y > 100
+        
+        setAgainButton()
+        setNavigationBar()
+        ResultAPI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+        self.view.backgroundColor = UIColor(red: 209.0/255.0, green: 122.0/255.0, blue: 108.0/255.0, alpha: 1.0)
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        guard let idx = self.resultName?.count else {return 0}
+        return idx + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,14 +58,15 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.headerBar.roundCorners(corners: [.topLeft, .topRight], radius: 20)
             cell.headerBar.addShadow(offset: CGSize(width: 0, height: -4))
             return cell
-        }
-        else {
+        } else {
             let cell: CocktailResultTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell")
                 as! CocktailResultTableViewCell
             cell.CocktailImage?.image = UIImage(named: "cocktail")
-            cell.CocktailName?.text = "모히또"
             cell.CocktailInfo?.text = "단맛, 과일, 높은 도수"
-            cell.CocktailAlc?.text = "Alc 16.2"
+            if self.resultName?.count != 0 {
+                cell.CocktailName.text = self.resultName?[indexPath.row - 1]
+                cell.CocktailAlc.text = self.resultAlcohol?[indexPath.row - 1]
+            }
             cell.CocktailImage.applyshadowWithCorner(containerView: cell.Imageview, cornerRadious: 30)
             
             return cell
@@ -60,6 +78,47 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let vc = CocktailDetailViewController()
         self.navigationController?.pushViewController(vc, animated: false)
     }
+    
+    func ResultAPI() {
+        print(resultURL)
+        AF.request(resultURL,
+                   method: .get).responseJSON(completionHandler: { response in
+                    switch response.result {
+                    case .success(let value):
+                        let json = JSON(value)
+                        print(json)
+                        self.resultName = []
+                        self.resultDescription = []
+                        self.resultAlcohol = []
+                        if let cocktailArray = json["data"].array {
+                            for i in 0..<cocktailArray.count {
+
+                                if let name = cocktailArray[i]["name"].string {
+                                    self.resultName?.append(name)
+                                }
+
+                                if let alcohol = cocktailArray[i]["alcohol"].string {
+                                    self.resultAlcohol?.append(alcohol)
+                                }
+                            }
+                            self.tableView.reloadData()
+                        }
+                    case .failure(_):
+                        return
+                    }
+                  
+                })
+                
+    }
+    
+    func setNavigationBar() {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    func setAgainButton() {
+        againButton.layer.cornerRadius = againButton.frame.height / 2
+    }
+    
     @IBAction func againButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.popViewController(animated: false)
@@ -68,18 +127,11 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                           options: nil)
         self.navigationController?.pushViewController(vc, animated: false)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
 extension UIView {
+    
     func addShadow(offset: CGSize, color: UIColor = .black, opacity: Float = 0.5, radius: CGFloat = 3.0) {
             self.layer.masksToBounds = false
             self.layer.shadowColor = color.cgColor
@@ -103,24 +155,27 @@ extension UIView {
             if corners.contains(.bottomRight) { masked.insert(.layerMaxXMaxYCorner) }
            
             self.layer.maskedCorners = masked
-        }
-        else {
-            let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        } else {
+            let path = UIBezierPath(roundedRect: bounds,
+                                    byRoundingCorners: corners,
+                                    cornerRadii: CGSize(width: radius, height: radius))
             let mask = CAShapeLayer()
             mask.path = path.cgPath
             layer.mask = mask
         }
     }
 }
+
 extension UIImageView {
-    func applyshadowWithCorner(containerView : UIView, cornerRadious : CGFloat){
+    func applyshadowWithCorner(containerView: UIView, cornerRadious: CGFloat) {
         containerView.clipsToBounds = false
         containerView.layer.shadowColor = UIColor.gray.cgColor
         containerView.layer.shadowOpacity = 1
         containerView.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
         containerView.layer.shadowRadius = 2
         containerView.layer.cornerRadius = cornerRadious
-        containerView.layer.shadowPath = UIBezierPath(roundedRect: containerView.bounds, cornerRadius: cornerRadious).cgPath
+        containerView.layer.shadowPath = UIBezierPath(roundedRect: containerView.bounds,
+                                                      cornerRadius: cornerRadious).cgPath
         self.clipsToBounds = true
         self.layer.cornerRadius = cornerRadious
     }

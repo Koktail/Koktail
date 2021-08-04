@@ -6,10 +6,17 @@
 //
 
 import UIKit
-var pv : SelectPageViewController? = nil
-class SelectPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate{
 
-    lazy var VCArray:[UIViewController] = {
+var base = "vodka"
+var alcohol = "LOW"
+var sour = "LOW"
+var sweet = "LOW"
+var bitter = "LOW"
+var dry = "LOW"
+
+class SelectPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+
+    lazy var VCArray: [UIViewController] = {
         return [SelectBaseViewController(nibName: "SelectBaseViewController",
                                          bundle: nil),
                 SelectAlcholViewController(nibName: "SelectAlcholViewController", bundle: nil),
@@ -19,20 +26,23 @@ class SelectPageViewController: UIPageViewController, UIPageViewControllerDataSo
                 SelectDryViewController(nibName: "SelectDryViewController", bundle: nil)]
     }()
     
-    private func VCInstance(name: String)-> UIViewController{
+    private func VCInstance(name: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
         return nil
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return nil
     }
     
-    func MyAfter(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
-        guard let viewControllerIndex = VCArray.index(of: viewController) else {
+    func MyAfter(_ pageViewController: UIPageViewController,
+                 viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let viewControllerIndex = VCArray.firstIndex(of: viewController) else {
             return nil
         }
 
@@ -54,8 +64,9 @@ class SelectPageViewController: UIPageViewController, UIPageViewControllerDataSo
         return .scroll
     }
     
-    func MyBefor(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = VCArray.index(of: viewController) else {
+    func MyBefor(_ pageViewController: UIPageViewController,
+                 viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let viewControllerIndex = VCArray.firstIndex(of: viewController) else {
             return nil
         }
 
@@ -84,8 +95,6 @@ class SelectPageViewController: UIPageViewController, UIPageViewControllerDataSo
         for recognizer in self.gestureRecognizers {
             recognizer.isEnabled = false
         }
-
-        pv = self
         self.dataSource = self
         self.navigationController?.isNavigationBarHidden = true
         if let firstVC = VCArray.first {
@@ -99,26 +108,6 @@ class SelectPageViewController: UIPageViewController, UIPageViewControllerDataSo
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension SelectPageViewController {

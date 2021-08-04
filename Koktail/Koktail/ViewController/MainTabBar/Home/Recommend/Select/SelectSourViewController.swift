@@ -18,28 +18,28 @@ class SelectSourViewController: UIViewController {
     }
 
     @IBAction func LowBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        sour = "LOW"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func MiddleBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        sour = "MID"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func HighBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        sour = "HIGH"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     @IBAction func prevButton(_ sender: Any) {
-        pv!.goToPreviousPage()
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToPreviousPage()
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

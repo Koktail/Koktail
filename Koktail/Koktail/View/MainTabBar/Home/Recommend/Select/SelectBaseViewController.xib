@@ -36,7 +36,7 @@
                                         <constraint firstAttribute="width" constant="90" id="q53-UL-pkx"/>
                                         <constraint firstAttribute="height" constant="90" id="yRK-B4-dUf"/>
                                     </constraints>
-                                    <state key="normal" title="없음"/>
+                                    <state key="normal" title="리큐르"/>
                                     <connections>
                                         <action selector="nonBtnPress:" destination="-1" eventType="touchUpInside" id="y5V-DZ-Hv1"/>
                                     </connections>
@@ -49,7 +49,7 @@
                                     </constraints>
                                     <state key="normal" title="보드카"/>
                                     <connections>
-                                        <action selector="VodkaBtnPress:" destination="-1" eventType="touchUpInside" id="Bdu-rJ-NcN"/>
+                                        <action selector="VodkaBtnPress:" destination="-1" eventType="touchUpInside" id="uVy-eQ-NaU"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJa-Fn-gxX" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
@@ -60,7 +60,7 @@
                                     </constraints>
                                     <state key="normal" title="진"/>
                                     <connections>
-                                        <action selector="GinBtnPress:" destination="-1" eventType="touchUpInside" id="9Hi-ee-R5z"/>
+                                        <action selector="GinBtnPress:" destination="-1" eventType="touchUpInside" id="vx8-D0-BZE"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -76,7 +76,7 @@
                                     </constraints>
                                     <state key="normal" title="럼"/>
                                     <connections>
-                                        <action selector="RumBtnPress:" destination="-1" eventType="touchUpInside" id="0q6-vK-Xfc"/>
+                                        <action selector="RumBtnPress:" destination="-1" eventType="touchUpInside" id="uS2-hy-Y07"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbD-uo-XP7" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
@@ -87,7 +87,7 @@
                                     </constraints>
                                     <state key="normal" title="위스키"/>
                                     <connections>
-                                        <action selector="WiskyBtnPress:" destination="-1" eventType="touchUpInside" id="gwR-jZ-bcg"/>
+                                        <action selector="WiskyBtnPress:" destination="-1" eventType="touchUpInside" id="2hx-2o-MVv"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFa-oa-hTg" customClass="SelectButton" customModule="Koktail" customModuleProvider="target">
@@ -98,7 +98,7 @@
                                     </constraints>
                                     <state key="normal" title="데낄라"/>
                                     <connections>
-                                        <action selector="TequilaBtnPress:" destination="-1" eventType="touchUpInside" id="2IV-27-Oal"/>
+                                        <action selector="TequilaBtnPress:" destination="-1" eventType="touchUpInside" id="ndt-ho-UHk"/>
                                     </connections>
                                 </button>
                             </subviews>
