@@ -24,18 +24,18 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9M-E9-urp">
-                        <rect key="frame" x="5" y="105" width="90" height="25"/>
+                        <rect key="frame" x="5" y="105" width="90" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="Wwv-sZ-MoB"/>
+                            <constraint firstAttribute="height" constant="20" id="KJc-XB-bUS"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFx-09-PaO">
-                        <rect key="frame" x="5" y="135" width="90" height="10"/>
+                        <rect key="frame" x="5" y="130" width="90" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="10" id="Jk6-rz-VmS"/>
+                            <constraint firstAttribute="height" constant="15" id="lNe-aY-XXS"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
