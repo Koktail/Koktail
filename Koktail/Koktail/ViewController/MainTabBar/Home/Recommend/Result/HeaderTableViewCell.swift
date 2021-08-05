@@ -11,7 +11,6 @@ class HeaderTableViewCell: UITableViewCell {
     
     @IBOutlet weak var headerBar: UIView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

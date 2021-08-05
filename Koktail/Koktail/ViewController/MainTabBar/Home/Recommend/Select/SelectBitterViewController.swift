@@ -17,21 +17,32 @@ class SelectBitterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func LowBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        bitter = "LOW"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func MiddleBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        bitter = "MID"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func HighBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
-    }
-    @IBAction func prevButton(_ sender: Any) {
-        pv!.goToPreviousPage()
+        bitter = "HIGH"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
-
+    @IBAction func prevButton(_ sender: Any) {
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToPreviousPage()
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
