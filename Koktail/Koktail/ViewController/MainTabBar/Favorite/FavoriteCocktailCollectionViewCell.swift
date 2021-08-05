@@ -24,5 +24,20 @@ class FavoriteCocktailCollectionViewCell: UICollectionViewCell {
     public func makeCell(cocktail: Cocktail) {
         cocktailNameLabel.text = cocktail.name
         alchol.text = cocktail.fullAlcohol
+        
+        if let imageString = cocktail.image {
+            guard let imageURL = URL(string: imageString) else {
+                cocktailImageView.image = UIImage(named: "cocktail")
+                return
+            }
+            do {
+                guard let data = try? Data(contentsOf: imageURL) else {
+                    cocktailImageView.image = UIImage(named: "cocktail")
+                    return
+                }
+                
+                cocktailImageView.image = UIImage(data: data)
+            }
+        }
     }
 }

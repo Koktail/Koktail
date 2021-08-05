@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import SnapKit
 
 class FavoriteCocktailViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var cocktailCollectionView: UICollectionView!
+    private lazy var notExistFavoriteCocktail =
+        NotExistFavoriteCocktail(frame: self.view.frame)
     
     var cocktails: [Cocktail] = []
     
@@ -20,8 +23,10 @@ class FavoriteCocktailViewController: UIViewController {
         
         setCollectionView()
         
-        // getFavoriteCocktail()
-        initCocktail()
+        getFavoriteCocktail()
+        // initCocktail()
+        
+        // checkFavoriteCocktailExist()
     }
     
     // MARK: - Set Collection View
@@ -90,6 +95,18 @@ class FavoriteCocktailViewController: UIViewController {
             self.cocktails.append(cocktail)
         }
     }
+    
+    // MARK: Custom Method
+    func checkFavoriteCocktailExist() {
+        if cocktails.count == 0 {
+            self.cocktailCollectionView.addSubview(notExistFavoriteCocktail)
+            
+            notExistFavoriteCocktail.snp.makeConstraints { make in
+                make.height.equalTo(self.view).offset(-20)
+                make.width.equalTo(self.view).offset(-20)
+            }
+        }
+    }
 }
 
 // MARK: - Collection View
@@ -117,5 +134,31 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate, UICollection
         cell.makeCell(cocktail: cocktails[indexPath.row])
         
         return cell
+    }
+}
+
+// MARK: - support UIView
+class NotExistFavoriteCocktail: UIView {
+    // MARK: SubView
+    let makeFavoriteCocktailLabel: UILabel = {
+        let label = UILabel()
+        label.text = "마음에 드는 칵테일을 찜해보세요 💓"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 18)
+        
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = .white
+        
+        makeFavoriteCocktailLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
