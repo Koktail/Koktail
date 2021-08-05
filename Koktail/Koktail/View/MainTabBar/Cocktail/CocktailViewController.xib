@@ -27,8 +27,8 @@
                     </constraints>
                     <segments>
                         <segment title="Base"/>
-                        <segment title="Alcohol Degree"/>
-                        <segment title="Taste"/>
+                        <segment title="Tag"/>
+                        <segment title="Level"/>
                     </segments>
                     <connections>
                         <action selector="changeSegmentAction:" destination="-1" eventType="valueChanged" id="xw2-38-JVb"/>
