@@ -9,8 +9,8 @@ import UIKit
 
 class CocktailResultTableViewCell: UITableViewCell {
     @IBOutlet weak var CocktailImage: UIImageView!
-    @IBOutlet weak var Imageview:UIView!
-    @IBOutlet weak var view:UIView!
+    @IBOutlet weak var Imageview: UIView!
+    @IBOutlet weak var view: UIView!
     
     @IBOutlet weak var CocktailName: UILabel!
     @IBOutlet weak var CocktailInfo: UILabel!

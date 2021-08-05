@@ -15,7 +15,6 @@ class SelectBaseViewController: UIViewController {
     @IBOutlet weak var WiskyBaseButton: SelectButton!
     @IBOutlet weak var TequilaBaseButton: SelectButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,44 +27,50 @@ class SelectBaseViewController: UIViewController {
     }
    
     @IBAction func nonBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        base = "liqueur"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func VodkaBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        base = "vodka"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func GinBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        base = "gin"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func RumBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        base = "rum"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func WiskyBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        base = "wisky"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func TequilaBtnPress(_ sender: Any) {
-        pv!.goToNextPage()
+        base = "tequila"
+        if let parentVC = self.parent as? SelectPageViewController {
+            parentVC.goToNextPage()
+        }
     }
     
     @IBAction func prevButton(_ sender: Any) {
-//        pv!.goToPreviousPage()
         self.navigationController?.popViewController(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 // MARK: - 버튼 클래스
 class SelectButton: UIButton {
@@ -93,7 +98,8 @@ class PgControll: UIPageControl {
     required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
         
-        self.currentPageIndicatorTintColor = UIColor(red: 199.0/255.0, green: 116.0/255.0, blue: 104.0/255.0, alpha: 1.0)
+        self.currentPageIndicatorTintColor =
+            UIColor(red: 199.0/255.0, green: 116.0/255.0, blue: 104.0/255.0, alpha: 1.0)
         self.pageIndicatorTintColor = .systemGray
         }
 }
@@ -101,13 +107,10 @@ class PgControll: UIPageControl {
 class PreviousButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
-//        self.frame.size.width = UIScreen.main.bounds.width * 0.2
-//        self.frame.size.height = UIScreen.main.bounds.width * 0.2
         self.backgroundColor = UIColor(red: 199/255, green: 116/255, blue: 104/255, alpha: 1)
         self.setTitleColor(UIColor.white, for: .normal)
         self.layer.cornerRadius = 15
         self.setTitle(" < prev ", for: UIControl.State.normal)
-//        self.layer.frame.size.height =
         self.layer.frame.size.width = 200
         }
 }
