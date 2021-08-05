@@ -45,6 +45,8 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        setRightNavigationButton()
+        setNavigationBar()
     }
     
     // MARK: - Set Navigation
@@ -85,7 +87,6 @@ class HomeViewController: UIViewController {
                             self.apiResponseName = []
                             self.apiResponseAlchol = []
                             for i in 0..<cocktailArray.count {
-                                
                                 if let name = cocktailArray[i]["name"].string {
                                     self.apiResponseName?.append(name)
                                 }
@@ -93,7 +94,6 @@ class HomeViewController: UIViewController {
                                 if let alcohol = cocktailArray[i]["alcohol"].string {
                                     self.apiResponseAlchol?.append(alcohol)
                                 }
-                                
                             }
                             self.collectionView.reloadData()
                         }

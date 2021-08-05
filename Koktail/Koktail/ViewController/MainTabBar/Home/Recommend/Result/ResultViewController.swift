@@ -44,6 +44,10 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let idx = self.resultName?.count else {return 0}
         return idx + 1

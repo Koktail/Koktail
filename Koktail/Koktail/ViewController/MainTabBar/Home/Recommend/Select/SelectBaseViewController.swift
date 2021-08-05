@@ -15,7 +15,6 @@ class SelectBaseViewController: UIViewController {
     @IBOutlet weak var WiskyBaseButton: SelectButton!
     @IBOutlet weak var TequilaBaseButton: SelectButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +31,6 @@ class SelectBaseViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
-        
     }
     
     @IBAction func VodkaBtnPress(_ sender: Any) {
