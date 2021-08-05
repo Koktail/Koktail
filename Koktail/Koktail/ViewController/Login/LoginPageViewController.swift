@@ -34,7 +34,7 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - IBAction
     @IBAction func touchUpSignUpButton(_ sender: UIButton) {
-        self.present(SignUpViewController(), animated: true, completion: nil)
+        self.present(SignUpViewController(), animated: true)
     }
     
     // MARK: - Actions
@@ -43,13 +43,21 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
             return
         }
         
-        Auth.auth().signIn(withEmail: email, password: password) { _, error in
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
             if error != nil {
                 self.displayLoginOrSignUpFormatAlert()
                 
                 self.passwordTextField.text = nil
             } else {
                 UserDefaultsManager.userId = email
+                
+                guard let token = user?.user.uid else {
+                    print("no firebase uid")
+                    return
+                }
+                UserDefaultsManager.token = token
+                UserDefaultsManager.social = ""
+                
                 self.view.window?.switchRootViewController(self.tabBarViewController)
             }
         }
@@ -96,6 +104,7 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
                     print("APP KAKAO LOGIN")
                     
                     _ = oauthToken
+                    
                     self.kakaoLoginToFireBase()
                     
                 }
@@ -121,7 +130,7 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         let getEmailViewController = GetEmailViewController()
         getEmailViewController.color = color
         
-        self.present(getEmailViewController, animated: true, completion: nil)
+        self.present(getEmailViewController, animated: true)
     }
     
     @objc func appleLoginEvent() {
@@ -132,7 +141,7 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         let forgotAndUpdatePasswordVC = ForgotAndUpdatePasswordViewController()
         forgotAndUpdatePasswordVC.color = self.color
         
-        self.present(forgotAndUpdatePasswordVC, animated: true, completion: nil)
+        self.present(forgotAndUpdatePasswordVC, animated: true)
     }
 
     // MARK: - Override Methods
@@ -196,8 +205,8 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         let alert = UIAlertController(title: "실패",
                                       message: "이메일/비밀번호를 확인해주세요",
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
         
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true)
     }
 }

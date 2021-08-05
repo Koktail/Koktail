@@ -31,18 +31,18 @@ class ForgotAndUpdatePasswordViewController: UIViewController {
                     let alert = UIAlertController(title: "전송 완료",
                                                   message: "메일을 전송했습니다. 비밀번호 변경해주세요.",
                                                   preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+                    alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
                         self.cancelEvent()
-                    }))
+                    })
                     
-                    self.present(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true)
                 } else {
                     print(error!.localizedDescription)
                     
                     let alert = UIAlertController(title: "전송 실패", message: "이메일을 확인해주세요.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "확인", style: .default))
                     
-                    self.present(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true)
                 }
             }
         }
