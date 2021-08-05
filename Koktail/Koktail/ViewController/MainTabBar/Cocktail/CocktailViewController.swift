@@ -7,13 +7,28 @@
 
 import UIKit
 
+struct CocktailListJson: Codable {
+    var code: Int
+    var message: String
+    var data: [CocktailData]
+}
+
+struct CocktailData: Codable {
+    var value: String
+    var cocktailList: [CocktailInfo]
+}
+
+struct CocktailInfo: Codable {
+    var cocktailId: UInt64
+    var image: String?
+    var name: String
+    var alcohol: String
+}
+
 class CocktailViewController: UIViewController {
     
     // MARK: - Properties
-    private let categories:[String:[String]] = [
-        "Base" : ["보드카", "리큐르", "럼", "데킬라", "위스키", "진"],
-        "Alcohol Degree" :["무알콜", "😋", "🤤", "🤪"],
-        "Taste" : ["sweet", "sour", "bitter", "dry"]]
+    private var cocktailList:[String:[CocktailInfo]] = [:]
     
     // MARK: - Outlets
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -21,7 +36,17 @@ class CocktailViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func changeSegmentAction(_ sender: UISegmentedControl) {
-        tableView.reloadData()
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            getCocktailList(type: "base")
+        case 1:
+            getCocktailList(type: "tag")
+        case 2:
+            getCocktailList(type: "level")
+        default:
+            break
+        }
         
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
     }
@@ -36,24 +61,59 @@ class CocktailViewController: UIViewController {
         let nibName = UINib(nibName: "CategoryTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "categoryTableViewCell")
         
-        tableView.reloadData()
+        getCocktailList(type: "base")
+    }
+    
+    // MARK: - Custom Methods
+    func getCocktailList(type: String) {
+        guard let url = URL(string: "http://3.36.149.10:55670/api/cocktail/list?type=" + type) else {
+            print("url 변환 오류")
+            return
+        }
+        
+        var request = URLRequest.init(url: url)
+        request.httpMethod = "GET"
+
+        URLSession.shared.dataTask(with: request) { [self]
+            (data, response, error) in
+            
+            if error != nil {
+                print("http error")
+                return
+            }
+            
+            guard let data = data else {
+                print("data is nil")
+                return
+            }
+
+            let decoder = JSONDecoder()
+            do{
+                let json = try decoder.decode(CocktailListJson.self, from: data)
+                
+                var cocktailListTemp: [String:[CocktailInfo]] = [:]
+                for category in json.data{
+                    cocktailListTemp[category.value] = category.cocktailList
+                }
+                
+                self.cocktailList = cocktailListTemp
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+            }catch{
+                print("json 파싱 오류")
+            }
+
+        }.resume()
     }
 }
 
 extension CocktailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            return categories["Base"]!.count
-        case 1:
-            return categories["Alcohol Degree"]!.count
-        case 2:
-            return categories["Taste"]!.count
-        default:
-            break
-        }
         
-        return 0
+        return self.cocktailList.count
         
     }
     
@@ -63,20 +123,12 @@ extension CocktailViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.navigation = self.navigationController
         
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            cell.categoryLabel!.text = categories["Base"]![indexPath.row]
-        case 1:
-            cell.categoryLabel!.text = categories["Alcohol Degree"]![indexPath.row]
-        case 2:
-            cell.categoryLabel!.text = categories["Taste"]![indexPath.row]
-        default:
-            break
-        }
+        cell.categoryLabel!.text = cocktailList.keys.sorted()[indexPath.row]
+        
+        cell.previews = cocktailList[cocktailList.keys.sorted()[indexPath.row]]!
         
         cell.previewCollectionView.reloadData()
         
         return cell
     }
-    
 }

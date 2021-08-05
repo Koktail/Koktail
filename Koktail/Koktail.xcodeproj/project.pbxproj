@@ -410,12 +410,12 @@
 		02E43C2C26870361009B15CD /* Cocktail */ = {
 			isa = PBXGroup;
 			children = (
-				023F865426A6F9C00086EC4F /* CategoryTableViewCell.swift */,
-				023F865226A6F9C00086EC4F /* CocktailDetailViewController.swift */,
-				023F865126A6F9C00086EC4F /* MoreCocktailTableViewCell.swift */,
-				023F865326A6F9C00086EC4F /* MoreCocktailViewController.swift */,
-				023F865526A6F9C00086EC4F /* PreviewCollectionViewCell.swift */,
 				02E43C21268702A1009B15CD /* CocktailViewController.swift */,
+				023F865426A6F9C00086EC4F /* CategoryTableViewCell.swift */,
+				023F865526A6F9C00086EC4F /* PreviewCollectionViewCell.swift */,
+				023F865326A6F9C00086EC4F /* MoreCocktailViewController.swift */,
+				023F865126A6F9C00086EC4F /* MoreCocktailTableViewCell.swift */,
+				023F865226A6F9C00086EC4F /* CocktailDetailViewController.swift */,
 			);
 			path = Cocktail;
 			sourceTree = "<group>";
@@ -442,12 +442,12 @@
 		02E43C2F26870383009B15CD /* Cocktail */ = {
 			isa = PBXGroup;
 			children = (
-				023F865C26A6F9DA0086EC4F /* CategoryTableViewCell.xib */,
-				023F865B26A6F9DA0086EC4F /* CocktailDetailViewController.xib */,
-				023F865D26A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib */,
-				023F865F26A6F9DA0086EC4F /* MoreCocktailViewController.xib */,
-				023F865E26A6F9DA0086EC4F /* PreviewCollectionViewCell.xib */,
 				02E43C22268702A1009B15CD /* CocktailViewController.xib */,
+				023F865C26A6F9DA0086EC4F /* CategoryTableViewCell.xib */,
+				023F865E26A6F9DA0086EC4F /* PreviewCollectionViewCell.xib */,
+				023F865F26A6F9DA0086EC4F /* MoreCocktailViewController.xib */,
+				023F865D26A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib */,
+				023F865B26A6F9DA0086EC4F /* CocktailDetailViewController.xib */,
 			);
 			path = Cocktail;
 			sourceTree = "<group>";
