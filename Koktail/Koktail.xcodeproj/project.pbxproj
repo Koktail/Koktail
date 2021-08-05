@@ -67,7 +67,7 @@
 		02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C352687066E009B15CD /* Extension+UIWindow.swift */; };
 		02FEF4ED26AFDDFD0013F78D /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEF4EB26AFDDFD0013F78D /* PlaceDetailViewController.swift */; };
 		02FEF4EE26AFDDFD0013F78D /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FEF4EC26AFDDFD0013F78D /* PlaceDetailViewController.xib */; };
-		40F4E9B268494D16A6DD59E9 /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6790CB15D5767C4BDA4182 /* Pods_Koktail.framework */; };
+		30B8812AF211D9123FCF03CB /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853A0E832F5373E0EEB75D2C /* Pods_Koktail.framework */; };
 		9F1D616D26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */; };
 		9F1D616E26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */; };
 		9F4EEB8926B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4EEB8726B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift */; };
@@ -167,8 +167,9 @@
 		02E43C352687066E009B15CD /* Extension+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIWindow.swift"; sourceTree = "<group>"; };
 		02FEF4EB26AFDDFD0013F78D /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		02FEF4EC26AFDDFD0013F78D /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailViewController.xib; sourceTree = "<group>"; };
-		0D6790CB15D5767C4BDA4182 /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2194F7F349C019D9CC62DC38 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
+		11D359DA77A3C9E9C9E4EA9D /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
+		6396EC416DF1E7AE8D7FF660 /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
+		853A0E832F5373E0EEB75D2C /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotAndUpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotAndUpdatePasswordViewController.xib; sourceTree = "<group>"; };
 		9F4EEB8726B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCocktailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -182,9 +183,7 @@
 		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmailViewController.swift; sourceTree = "<group>"; };
 		9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetEmailViewController.xib; sourceTree = "<group>"; };
-		CBFDAA5C3E6A3097EB1A800A /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
 		9FF70D4126B95F5B00F1EC38 /* FavoriteCocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
-		B4AF5B43C5191BB458113094 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 		D6908F4F26A30C51004240AC /* SelectPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPageViewController.swift; sourceTree = "<group>"; };
 		D6908F5026A30C51004240AC /* SelectPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPageViewController.xib; sourceTree = "<group>"; };
 		D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBaseViewController.swift; sourceTree = "<group>"; };
@@ -212,7 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40F4E9B268494D16A6DD59E9 /* Pods_Koktail.framework in Frameworks */,
+				30B8812AF211D9123FCF03CB /* Pods_Koktail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +234,7 @@
 				02454FEF26860DA300558D3C /* Koktail */,
 				02454FEE26860DA300558D3C /* Products */,
 				A7FCF72FB1010F62504F03B6 /* Pods */,
-				469CCD762F511656654947C9 /* Frameworks */,
+				480D67EAE9648A501FD6BA0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -369,15 +368,6 @@
 				02454FF926860DA400558D3C /* Assets.xcassets */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		02E43C0C2686FFB7009B15CD /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				9FF70D4126B95F5B00F1EC38 /* FavoriteCocktail.swift */,
-				02A9371B26A5134700ADA4CF /* SearchPlace.swift */,
-			);
-			path = DataModel;
 			sourceTree = "<group>";
 		};
 		02E43C0D2686FFC0009B15CD /* View */ = {
@@ -553,10 +543,10 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		469CCD762F511656654947C9 /* Frameworks */ = {
+		480D67EAE9648A501FD6BA0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0D6790CB15D5767C4BDA4182 /* Pods_Koktail.framework */,
+				853A0E832F5373E0EEB75D2C /* Pods_Koktail.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -564,8 +554,8 @@
 		A7FCF72FB1010F62504F03B6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CBFDAA5C3E6A3097EB1A800A /* Pods-Koktail.debug.xcconfig */,
-				2194F7F349C019D9CC62DC38 /* Pods-Koktail.release.xcconfig */,
+				6396EC416DF1E7AE8D7FF660 /* Pods-Koktail.debug.xcconfig */,
+				11D359DA77A3C9E9C9E4EA9D /* Pods-Koktail.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -643,15 +633,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0245500126860DA400558D3C /* Build configuration list for PBXNativeTarget "Koktail" */;
 			buildPhases = (
-				6D255608BB61888DDC79D3DA /* [CP] Check Pods Manifest.lock */,
+				69555213418B81DC0B5E617D /* [CP] Check Pods Manifest.lock */,
 				02454FE926860DA300558D3C /* Sources */,
 				02454FEA26860DA300558D3C /* Frameworks */,
 				E62EED9B3D667B480F11A2F0 /* [Carte] Pre Script */,
 				02454FEB26860DA300558D3C /* Resources */,
 				6F09AC68488332B30709BADD /* [Carte] Post Script */,
 				023BEC51268B738A00D352A8 /* ShellScript */,
-				CE802888B28BB88B4496CB42 /* [CP] Embed Pods Frameworks */,
-				27B28D9B7DDF4E250E901EFC /* [CP] Copy Pods Resources */,
+				9BD6FEF4FBDA2FA4A352A401 /* [CP] Embed Pods Frameworks */,
+				0877E5BECD26B6FBDE34CB81 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -764,7 +754,7 @@
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		27B28D9B7DDF4E250E901EFC /* [CP] Copy Pods Resources */ = {
+		0877E5BECD26B6FBDE34CB81 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -781,7 +771,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Koktail/Pods-Koktail-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6D255608BB61888DDC79D3DA /* [CP] Check Pods Manifest.lock */ = {
+		69555213418B81DC0B5E617D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -822,7 +812,7 @@
 			shellScript = "ruby ${PODS_ROOT}/Carte/Sources/Carte/carte.rb post";
 			showEnvVarsInLog = 0;
 		};
-		CE802888B28BB88B4496CB42 /* [CP] Embed Pods Frameworks */ = {
+		9BD6FEF4FBDA2FA4A352A401 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1052,7 +1042,7 @@
 		};
 		0245500226860DA400558D3C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBFDAA5C3E6A3097EB1A800A /* Pods-Koktail.debug.xcconfig */;
+			baseConfigurationReference = 6396EC416DF1E7AE8D7FF660 /* Pods-Koktail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1079,7 +1069,7 @@
 		};
 		0245500326860DA400558D3C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2194F7F349C019D9CC62DC38 /* Pods-Koktail.release.xcconfig */;
+			baseConfigurationReference = 11D359DA77A3C9E9C9E4EA9D /* Pods-Koktail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
