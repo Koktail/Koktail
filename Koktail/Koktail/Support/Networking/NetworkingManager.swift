@@ -9,7 +9,8 @@ import Moya
 import Alamofire
 
 public enum NetworkingManager {
-    case place
+    case searchPlace
+    case placeDetail
 }
 
 extension NetworkingManager: TargetType {
@@ -22,8 +23,10 @@ extension NetworkingManager: TargetType {
 
     public var path: String {
         switch self {
-        case .place:
+        case .searchPlace:
             return "/nearbysearch/json"
+        case .placeDetail:
+            return "/details/json"
         }
     }
     

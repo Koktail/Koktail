@@ -69,6 +69,7 @@ PODS:
   - FirebaseStorage (8.4.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
+  - FloatRatingView (4.0)
   - GoogleAppMeasurement (8.4.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.4.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -112,17 +113,18 @@ PODS:
   - GoogleUtilities/UserDefaults (7.5.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.6.1)
-  - KakaoSDKAuth (2.5.5):
-    - KakaoSDKCommon (= 2.5.5)
-  - KakaoSDKCommon (2.5.5):
-    - KakaoSDKCommon/Common (= 2.5.5)
-    - KakaoSDKCommon/Network (= 2.5.5)
-  - KakaoSDKCommon/Common (2.5.5)
-  - KakaoSDKCommon/Network (2.5.5):
+  - KakaoSDKAuth (2.5.6):
+    - KakaoSDKCommon (= 2.5.6)
+  - KakaoSDKCommon (2.5.6):
+    - KakaoSDKCommon/Common (= 2.5.6)
+    - KakaoSDKCommon/Network (= 2.5.6)
+  - KakaoSDKCommon/Common (2.5.6)
+  - KakaoSDKCommon/Network (2.5.6):
     - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.5.5)
-  - KakaoSDKUser (2.5.5):
-    - KakaoSDKAuth (= 2.5.5)
+    - KakaoSDKCommon/Common (= 2.5.6)
+  - KakaoSDKUser (2.5.6):
+    - KakaoSDKAuth (= 2.5.6)
+  - Kingfisher (6.3.0)
   - leveldb-library (1.22.1)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
@@ -134,6 +136,11 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - Realm (10.11.0):
+    - Realm/Headers (= 10.11.0)
+  - Realm/Headers (10.11.0)
+  - RealmSwift (10.11.0):
+    - Realm (= 10.11.0)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -153,12 +160,15 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/RemoteConfig
   - Firebase/Storage
+  - FloatRatingView
   - GoogleMaps
   - GooglePlaces
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKUser
+  - Kingfisher
   - Moya
+  - RealmSwift
   - RxCocoa
   - RxSwift
   - SkyFloatingLabelTextField (~> 3.0)
@@ -181,6 +191,7 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseRemoteConfig
     - FirebaseStorage
+    - FloatRatingView
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleMaps
@@ -190,10 +201,13 @@ SPEC REPOS:
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKUser
+    - Kingfisher
     - leveldb-library
     - Moya
     - nanopb
     - PromisesObjC
+    - Realm
+    - RealmSwift
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -216,19 +230,23 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 1585729afc787877763208c2088ed84221161f77
   FirebaseRemoteConfig: 0b813f093033c56fe74a91996044a239ab5acb02
   FirebaseStorage: e6065bcbf70e2a06a8c3ddc66cbe03a395bbddc4
+  FloatRatingView: bb6bdddfbeec51b1d387b4bd50abc27b4dfccd48
   GoogleAppMeasurement: 6b6a08fd9c71f4dbc89e0e812acca81d797aa342
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
   GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
   GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
-  KakaoSDKAuth: 7474cf67d199a9c2ec6a46e4ed8398cf34c1262d
-  KakaoSDKCommon: fb2c9223a86d6f65a8ba73bbaad7cec6a2b09630
-  KakaoSDKUser: 7bb1c38bbd4608bd4e7eebbd4eda130338364fb3
+  KakaoSDKAuth: 1e1fa737e78eed3f301ab5c164526781a37a42f9
+  KakaoSDKCommon: cdf340a8f671eef75f4ca012003cb350af3c4b6d
+  KakaoSDKUser: f488aa4699b3fd3a836ab5c7e25e2cb4cea190c1
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  Realm: 39ff23f0f709cd4ed93eb47ee6593c2158945b38
+  RealmSwift: 42713e09a8631070d6c12c3c5fb22b8edc1daa41
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
@@ -238,6 +256,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 1c638d7010d2f66d074b56c0708dd2d9dd902301
+PODFILE CHECKSUM: 163a175d4c769838fcf70f399b6dc30e8dbec6a3
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.0

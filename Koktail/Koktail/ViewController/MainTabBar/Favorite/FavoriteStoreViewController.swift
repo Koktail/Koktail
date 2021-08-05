@@ -17,7 +17,6 @@ class FavoriteStoreViewController: UIViewController {
         super.viewDidLoad()
         
         setCollectionView()
-        UtilFunction.setGradient(baseView: storeCollectionView, "#ff9a9e", "#fecfef")
     }
     
     // MARK: - Set Collection View

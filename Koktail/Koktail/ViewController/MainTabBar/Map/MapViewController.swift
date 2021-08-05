@@ -22,8 +22,9 @@ class MapViewController: UIViewController {
     private var preciseLocationZoomLevel: Float = 15.0
     private var approximateLocationZoomLevel: Float = 10.0
     
-    // The currently selected place.
+    // data
     private var selectedPlace: GMSPlace?
+    private var placeList: [Place]?
     
     // auto complete button
     private let autoCompleteButton: UIButton = UIButton()
@@ -67,6 +68,8 @@ class MapViewController: UIViewController {
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
+        
+        map.delegate = self
         
         placesClient = GMSPlacesClient.shared()
         
@@ -180,7 +183,7 @@ class MapViewController: UIViewController {
         let parameters: [String: String] = [
             "key": "AIzaSyCcXxMzsdL1m2uPjZ6d9wGTiVDYm4srnHU",
             "location": "\(lat),\(lng)",
-            "radius": "1000",
+            "radius": "750",
             "language": "ko",
             "type": "bar"
         ]
@@ -192,6 +195,7 @@ class MapViewController: UIViewController {
         searchPlaceViewMdeol.state.success
             .asDriver(onErrorDriveWith: Driver.empty())
             .drive { placeData in
+                self.placeList = placeData.results
                 self.setMarker(placeData: placeData)
             }.disposed(by: disposeBag)
         
@@ -199,7 +203,7 @@ class MapViewController: UIViewController {
             .filter {$0 == true}
             .asDriver(onErrorDriveWith: Driver.empty())
             .drive { _ in
-                
+                print("placeData load fail")
             }.disposed(by: disposeBag)
     }
     
@@ -210,6 +214,7 @@ class MapViewController: UIViewController {
                 latitude: place.geometry.location.lat,
                 longitude: place.geometry.location.lng
             )
+            marker.icon = UIImage(named: "mapPin")
             marker.title = place.name
             marker.map = map
         }
@@ -279,5 +284,49 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
     // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         self.dismiss(animated: true)
+    }
+}
+
+// MARK: - GMSMapViewDelegate
+extension MapViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        
+        guard let placeList  = self.placeList else { return false }
+        let placeName = placeList.filter { $0.name == marker.title }.map {$0.place_id}
+        let place = PlaceDetailViewController()
+        
+        place.modalPresentationStyle = .custom
+        place.transitioningDelegate = self
+        place.placeName = placeName.first!
+        
+        self.present(place, animated: true)
+        
+        return true
+    }
+}
+
+extension MapViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController?,
+        source: UIViewController
+    ) -> UIPresentationController? {
+        return HalfSizePresentationController(
+            presentedViewController: presented,
+            presenting: presentingViewController
+        )
+    }
+   
+}
+
+class HalfSizePresentationController: UIPresentationController {
+    override var frameOfPresentedViewInContainerView: CGRect {
+        guard let bounds = containerView?.bounds else { return .zero }
+        return CGRect(
+            x: 0,
+            y: bounds.height / 2,
+            width: bounds.width,
+            height: bounds.height / 2
+        )
     }
 }
