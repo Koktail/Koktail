@@ -70,6 +70,8 @@
 		40F4E9B268494D16A6DD59E9 /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6790CB15D5767C4BDA4182 /* Pods_Koktail.framework */; };
 		9F1D616D26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */; };
 		9F1D616E26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */; };
+		9F4EEB8926B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4EEB8726B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift */; };
+		9F4EEB8A26B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4EEB8826B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib */; };
 		9F87DA9C26A1EAD3004ED32B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F87DA9B26A1EAD3004ED32B /* GoogleService-Info.plist */; };
 		9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB5919269D87780077CD59 /* Extension+UIColor.swift */; };
 		9FAB591E269D87E80077CD59 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB591D269D87E80077CD59 /* RemoteConfigDefaults.plist */; };
@@ -79,6 +81,7 @@
 		9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */; };
 		9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */; };
 		9FB2455126A9A19900F6EA07 /* GetEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */; };
+		9FF70D4226B95F5B00F1EC38 /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF70D4126B95F5B00F1EC38 /* FavoriteCocktail.swift */; };
 		D6908F5126A30C51004240AC /* SelectPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F4F26A30C51004240AC /* SelectPageViewController.swift */; };
 		D6908F5226A30C51004240AC /* SelectPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6908F5026A30C51004240AC /* SelectPageViewController.xib */; };
 		D6908F5726A30CC4004240AC /* SelectBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */; };
@@ -168,6 +171,8 @@
 		2194F7F349C019D9CC62DC38 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 		9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotAndUpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotAndUpdatePasswordViewController.xib; sourceTree = "<group>"; };
+		9F4EEB8726B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCocktailCollectionViewCell.swift; sourceTree = "<group>"; };
+		9F4EEB8826B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCocktailCollectionViewCell.xib; sourceTree = "<group>"; };
 		9F87DA9B26A1EAD3004ED32B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9FAB5919269D87780077CD59 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		9FAB591D269D87E80077CD59 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
@@ -178,6 +183,8 @@
 		9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmailViewController.swift; sourceTree = "<group>"; };
 		9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetEmailViewController.xib; sourceTree = "<group>"; };
 		CBFDAA5C3E6A3097EB1A800A /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
+		9FF70D4126B95F5B00F1EC38 /* FavoriteCocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
+		B4AF5B43C5191BB458113094 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 		D6908F4F26A30C51004240AC /* SelectPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPageViewController.swift; sourceTree = "<group>"; };
 		D6908F5026A30C51004240AC /* SelectPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPageViewController.xib; sourceTree = "<group>"; };
 		D6908F5526A30CC4004240AC /* SelectBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBaseViewController.swift; sourceTree = "<group>"; };
@@ -364,6 +371,15 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		02E43C0C2686FFB7009B15CD /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				9FF70D4126B95F5B00F1EC38 /* FavoriteCocktail.swift */,
+				02A9371B26A5134700ADA4CF /* SearchPlace.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		02E43C0D2686FFC0009B15CD /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +461,7 @@
 			children = (
 				02E43C2526870305009B15CD /* FavoriteViewController.swift */,
 				0250C587269062E30076A273 /* FavoriteCocktailViewController.swift */,
+				9F4EEB8726B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift */,
 				0250C5B92690666F0076A273 /* FavoriteStoreViewController.swift */,
 			);
 			path = Favorite;
@@ -477,6 +494,7 @@
 			children = (
 				02E43C2626870305009B15CD /* FavoriteViewController.xib */,
 				0250C588269062E30076A273 /* FavoriteCocktailViewController.xib */,
+				9F4EEB8826B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib */,
 				0250C5BA2690666F0076A273 /* FavoriteStoreViewController.xib */,
 			);
 			path = Favorite;
@@ -694,6 +712,7 @@
 				9FB2455126A9A19900F6EA07 /* GetEmailViewController.xib in Resources */,
 				023F866226A6F9DA0086EC4F /* MoreCocktailTableViewCell.xib in Resources */,
 				D6908F6026A32D6E004240AC /* SelectSweetViewController.xib in Resources */,
+				9F4EEB8A26B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib in Resources */,
 				D6908F5826A30CC4004240AC /* SelectBaseViewController.xib in Resources */,
 				02791B8426AC37CB000CC06F /* PlaceInfoTableViewCell.xib in Resources */,
 				02791B8C26AC37F5000CC06F /* PlacePicturesTableViewCell.xib in Resources */,
@@ -866,9 +885,11 @@
 				02A9374D26A51CD500ADA4CF /* SearchPlaceViewModel.swift in Sources */,
 				0250C4FB269056B40076A273 /* LogOutTableViewCell.swift in Sources */,
 				02454FF126860DA300558D3C /* AppDelegate.swift in Sources */,
+				9F4EEB8926B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift in Sources */,
 				0250C49326904C800076A273 /* SettingViewController.swift in Sources */,
 				023F865726A6F9C00086EC4F /* CocktailDetailViewController.swift in Sources */,
 				02791B8726AC37DE000CC06F /* PlaceReviewsTableViewCell.swift in Sources */,
+				9FF70D4226B95F5B00F1EC38 /* FavoriteCocktail.swift in Sources */,
 				02E43C1626870204009B15CD /* MainTabBarController.swift in Sources */,
 				D6908F5B26A31109004240AC /* SelectAlcholViewController.swift in Sources */,
 				9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */,
@@ -964,7 +985,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1019,7 +1040,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1035,10 +1056,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFAFLC3XW8;
 				INFOPLIST_FILE = Koktail/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1049,6 +1071,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iosstudy.koktail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1060,10 +1083,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFAFLC3XW8;
 				INFOPLIST_FILE = Koktail/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1074,6 +1098,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iosstudy.koktail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
