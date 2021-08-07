@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteStoreViewController" customModule="Koktail" customModuleProvider="target">
             <connections>
-                <outlet property="storeCollectionView" destination="j67-oP-bm4" id="Xgb-0H-yKD"/>
+                <outlet property="storeTableView" destination="4S9-u0-SoG" id="bNu-DZ-DPP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,24 +19,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="j67-oP-bm4">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4S9-u0-SoG">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j3d-bT-X8p">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="j67-oP-bm4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="26c-e6-VLG"/>
-                <constraint firstItem="j67-oP-bm4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Duj-iD-NuQ"/>
-                <constraint firstAttribute="trailing" secondItem="j67-oP-bm4" secondAttribute="trailing" id="lGs-jg-rvR"/>
-                <constraint firstAttribute="bottom" secondItem="j67-oP-bm4" secondAttribute="bottom" id="scd-vH-Pec"/>
+                <constraint firstItem="4S9-u0-SoG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LYA-bK-q5A"/>
+                <constraint firstItem="4S9-u0-SoG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SHr-M1-uwf"/>
+                <constraint firstAttribute="bottom" secondItem="4S9-u0-SoG" secondAttribute="bottom" id="era-qb-rAS"/>
+                <constraint firstItem="4S9-u0-SoG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="so3-uF-Do8"/>
             </constraints>
             <point key="canvasLocation" x="40.579710144927539" y="109.82142857142857"/>
         </view>
