@@ -13,8 +13,12 @@ class MainTabBarController: UITabBarController {
     // MARK: Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.backgroundColor = .white
         setTabBarItem()
+        self.tabBar.barTintColor = .white
+        self.tabBar.isTranslucent = false
+        self.tabBar.unselectedItemTintColor = UIColor.black
+        self.tabBar.tintColor = UIColor(red: 209.0/255.0, green: 122.0/255.0, blue: 108.0/255.0, alpha: 1.0)
+        
     }
     
     // MARK: Set Item
@@ -23,7 +27,7 @@ class MainTabBarController: UITabBarController {
         // 홈화면
         let homeTabItem = UITabBarItem(
             title: "홈화면",
-            image: UIImage(named: " "),
+            image: UIImage(named: "tabbar_home"),
             selectedImage: UIImage(named: " ")
         )
         
@@ -35,7 +39,8 @@ class MainTabBarController: UITabBarController {
         // 칵테일
         let cocktailTabItem = UITabBarItem(
             title: "칵테일",
-            image: UIImage(named: " "),
+//            image: UIImage(named: " "),
+            image: UIImage(named: "tabbar_cocktail"),
             selectedImage: UIImage(named: " ")
         )
         
@@ -47,7 +52,7 @@ class MainTabBarController: UITabBarController {
         // 지도
         let mapTabItem = UITabBarItem(
             title: "지도",
-            image: UIImage(named: " "),
+            image: UIImage(named: "tabbar_map"),
             selectedImage: UIImage(named: " ")
         )
         
@@ -59,7 +64,7 @@ class MainTabBarController: UITabBarController {
         // 찜 목록
         let favoriteTabItem = UITabBarItem(
             title: "찜목록",
-            image: UIImage(named: " "),
+            image: UIImage(named: "tabbar_favorite"),
             selectedImage: UIImage(named: " ")
         )
         
