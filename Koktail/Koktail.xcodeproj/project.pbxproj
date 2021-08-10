@@ -240,7 +240,6 @@
 				02454FEF26860DA300558D3C /* Koktail */,
 				02454FEE26860DA300558D3C /* Products */,
 				A7FCF72FB1010F62504F03B6 /* Pods */,
-				C412038B26BD87CC000B896F /* Recovered References */,
 				CAB263AE4B3FCA4995DEF22B /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -561,13 +560,6 @@
 				61C90A79382188E42669D816 /* Pods-Koktail.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		C412038B26BD87CC000B896F /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		CAB263AE4B3FCA4995DEF22B /* Frameworks */ = {
