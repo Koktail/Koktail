@@ -90,7 +90,7 @@
                 <outlet property="placePhoneNumber" destination="OBB-y6-5Z3" id="FnT-qB-GLG"/>
                 <outlet property="placeSiteURL" destination="8SJ-S4-bzJ" id="xtG-1A-hh2"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="144.64285714285714"/>
+            <point key="canvasLocation" x="91" y="130"/>
         </tableViewCell>
     </objects>
     <resources>
