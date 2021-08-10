@@ -54,7 +54,6 @@
 		02A9374D26A51CD500ADA4CF /* SearchPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9374C26A51CD500ADA4CF /* SearchPlaceViewModel.swift */; };
 		02C2748526AC072F003E7F1B /* PlaceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2748326AC072F003E7F1B /* PlaceTitleTableViewCell.swift */; };
 		02C2748626AC072F003E7F1B /* PlaceTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C2748426AC072F003E7F1B /* PlaceTitleTableViewCell.xib */; };
-		02CBB8DF26BE780E00208CDC /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CBB8DE26BE780E00208CDC /* FavoriteCocktail.swift */; };
 		02CBB8E226BE7B7100208CDC /* FavoriteStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CBB8E026BE7B7100208CDC /* FavoriteStoreTableViewCell.swift */; };
 		02CBB8E326BE7B7100208CDC /* FavoriteStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02CBB8E126BE7B7100208CDC /* FavoriteStoreTableViewCell.xib */; };
 		02DD859826ADA2E6002A8105 /* PlaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DD859726ADA2E6002A8105 /* PlaceDetailViewModel.swift */; };
@@ -71,8 +70,6 @@
 		02FEF4ED26AFDDFD0013F78D /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEF4EB26AFDDFD0013F78D /* PlaceDetailViewController.swift */; };
 		02FEF4EE26AFDDFD0013F78D /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FEF4EC26AFDDFD0013F78D /* PlaceDetailViewController.xib */; };
 		7E15927D03723866D8D336C5 /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3AC5A60A2151928C3315BD /* Pods_Koktail.framework */; };
-		30B8812AF211D9123FCF03CB /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853A0E832F5373E0EEB75D2C /* Pods_Koktail.framework */; };
-		9F03BD7A26BD884700713D22 /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F03BD7926BD884700713D22 /* FavoriteCocktail.swift */; };
 		9F1D616D26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */; };
 		9F1D616E26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */; };
 		9F4C1AEB26C0DB6600A20792 /* ReAuthenticateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C1AE926C0DB6600A20792 /* ReAuthenticateUserViewController.swift */; };
@@ -88,15 +85,14 @@
 		9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */; };
 		9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */; };
 		9FB2455126A9A19900F6EA07 /* GetEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */; };
-		C45FB22626BD8C5900DFE4EF /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */; };
-		C489C4F326C2564800E95760 /* CocktailListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489C4F226C2564800E95760 /* CocktailListDataModel.swift */; };
-		C489C4F626C256CE00E95760 /* CocktailDetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489C4F526C256CE00E95760 /* CocktailDetailDataModel.swift */; };
-		C489C4F926C2570000E95760 /* CocktailLikeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489C4F826C2570000E95760 /* CocktailLikeDataModel.swift */; };
 		9FF7293826C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7293626C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift */; };
 		9FF7293926C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7293726C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib */; };
 		9FF7294426C039FE002CFFC8 /* DeleteAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7294226C039FE002CFFC8 /* DeleteAccountTableViewCell.swift */; };
 		9FF7294526C039FE002CFFC8 /* DeleteAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7294326C039FE002CFFC8 /* DeleteAccountTableViewCell.xib */; };
-		D669C28F26BD8C980043E51A /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669C28E26BD8C980043E51A /* FavoriteCocktail.swift */; };
+		C45FB22626BD8C5900DFE4EF /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */; };
+		C489C4F326C2564800E95760 /* CocktailListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489C4F226C2564800E95760 /* CocktailListDataModel.swift */; };
+		C489C4F626C256CE00E95760 /* CocktailDetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489C4F526C256CE00E95760 /* CocktailDetailDataModel.swift */; };
+		C489C4F926C2570000E95760 /* CocktailLikeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489C4F826C2570000E95760 /* CocktailLikeDataModel.swift */; };
 		D669C29226C01BB80043E51A /* NoResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669C29026C01BB80043E51A /* NoResultTableViewCell.swift */; };
 		D669C29326C01BB80043E51A /* NoResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D669C29126C01BB80043E51A /* NoResultTableViewCell.xib */; };
 		D6908F5126A30C51004240AC /* SelectPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6908F4F26A30C51004240AC /* SelectPageViewController.swift */; };
@@ -171,7 +167,6 @@
 		02A9374C26A51CD500ADA4CF /* SearchPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceViewModel.swift; sourceTree = "<group>"; };
 		02C2748326AC072F003E7F1B /* PlaceTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTitleTableViewCell.swift; sourceTree = "<group>"; };
 		02C2748426AC072F003E7F1B /* PlaceTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTitleTableViewCell.xib; sourceTree = "<group>"; };
-		02CBB8DE26BE780E00208CDC /* FavoriteCocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
 		02CBB8E026BE7B7100208CDC /* FavoriteStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStoreTableViewCell.swift; sourceTree = "<group>"; };
 		02CBB8E126BE7B7100208CDC /* FavoriteStoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteStoreTableViewCell.xib; sourceTree = "<group>"; };
 		02DD859726ADA2E6002A8105 /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
@@ -190,10 +185,6 @@
 		060EF9219061CD8695CEAA8D /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
 		3A3AC5A60A2151928C3315BD /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C90A79382188E42669D816 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
-		11D359DA77A3C9E9C9E4EA9D /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
-		6396EC416DF1E7AE8D7FF660 /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
-		853A0E832F5373E0EEB75D2C /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F03BD7926BD884700713D22 /* FavoriteCocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
 		9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotAndUpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotAndUpdatePasswordViewController.xib; sourceTree = "<group>"; };
 		9F4C1AE926C0DB6600A20792 /* ReAuthenticateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAuthenticateUserViewController.swift; sourceTree = "<group>"; };
@@ -209,15 +200,14 @@
 		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmailViewController.swift; sourceTree = "<group>"; };
 		9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetEmailViewController.xib; sourceTree = "<group>"; };
-		C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
-		C489C4F226C2564800E95760 /* CocktailListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListDataModel.swift; sourceTree = "<group>"; };
-		C489C4F526C256CE00E95760 /* CocktailDetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailDataModel.swift; sourceTree = "<group>"; };
-		C489C4F826C2570000E95760 /* CocktailLikeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailLikeDataModel.swift; sourceTree = "<group>"; };
 		9FF7293626C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCocktailEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		9FF7293726C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCocktailEmptyCollectionViewCell.xib; sourceTree = "<group>"; };
 		9FF7294226C039FE002CFFC8 /* DeleteAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountTableViewCell.swift; sourceTree = "<group>"; };
 		9FF7294326C039FE002CFFC8 /* DeleteAccountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteAccountTableViewCell.xib; sourceTree = "<group>"; };
-		D669C28E26BD8C980043E51A /* FavoriteCocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
+		C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
+		C489C4F226C2564800E95760 /* CocktailListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListDataModel.swift; sourceTree = "<group>"; };
+		C489C4F526C256CE00E95760 /* CocktailDetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailDataModel.swift; sourceTree = "<group>"; };
+		C489C4F826C2570000E95760 /* CocktailLikeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailLikeDataModel.swift; sourceTree = "<group>"; };
 		D669C29026C01BB80043E51A /* NoResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultTableViewCell.swift; sourceTree = "<group>"; };
 		D669C29126C01BB80043E51A /* NoResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoResultTableViewCell.xib; sourceTree = "<group>"; };
 		D6908F4F26A30C51004240AC /* SelectPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPageViewController.swift; sourceTree = "<group>"; };
@@ -271,9 +261,6 @@
 				02454FEE26860DA300558D3C /* Products */,
 				A7FCF72FB1010F62504F03B6 /* Pods */,
 				CAB263AE4B3FCA4995DEF22B /* Frameworks */,
-				480D67EAE9648A501FD6BA0B /* Frameworks */,
-				02CBB8DD26BE778C00208CDC /* Recovered References */,
-				D669C28D26BD8C4B0043E51A /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -363,10 +350,7 @@
 		02791B9326AC489E000CC06F /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				02CBB8DE26BE780E00208CDC /* FavoriteCocktail.swift */,
 				C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */,
-				9F03BD7926BD884700713D22 /* FavoriteCocktail.swift */,
-				D669C28E26BD8C980043E51A /* FavoriteCocktail.swift */,
 				02791B9426AC48AD000CC06F /* SearchPlace.swift */,
 				02791B9626AC48F9000CC06F /* PlaceDetail.swift */,
 				C489C4F226C2564800E95760 /* CocktailListDataModel.swift */,
@@ -401,13 +385,6 @@
 				02DD859726ADA2E6002A8105 /* PlaceDetailViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		02CBB8DD26BE778C00208CDC /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		02E43C0A2686FEFA009B15CD /* Application */ = {
@@ -619,13 +596,6 @@
 				3A3AC5A60A2151928C3315BD /* Pods_Koktail.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D669C28D26BD8C4B0043E51A /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		D6908F4D26A30C2B004240AC /* Recommend */ = {
@@ -984,14 +954,11 @@
 				023F864E26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift in Sources */,
 				023F865826A6F9C00086EC4F /* MoreCocktailViewController.swift in Sources */,
 				02791B9726AC48FA000CC06F /* PlaceDetail.swift in Sources */,
-				9F03BD7A26BD884700713D22 /* FavoriteCocktail.swift in Sources */,
 				9F4C1AEB26C0DB6600A20792 /* ReAuthenticateUserViewController.swift in Sources */,
-				D669C28F26BD8C980043E51A /* FavoriteCocktail.swift in Sources */,
 				023F865A26A6F9C00086EC4F /* PreviewCollectionViewCell.swift in Sources */,
 				D6908F6326A32ECF004240AC /* SelectSourViewController.swift in Sources */,
 				02454FF326860DA300558D3C /* SceneDelegate.swift in Sources */,
 				9F1D616D26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift in Sources */,
-				02CBB8DF26BE780E00208CDC /* FavoriteCocktail.swift in Sources */,
 				C45FB22626BD8C5900DFE4EF /* FavoriteCocktail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1134,7 +1101,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = YKB76M9XZ9;
 				INFOPLIST_FILE = Koktail/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -1162,7 +1128,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = YKB76M9XZ9;
 				INFOPLIST_FILE = Koktail/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
