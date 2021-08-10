@@ -94,7 +94,8 @@ class LoginViewController: UIViewController {
     }
     
     func isUserLoggedIn() -> Bool {
-        if Auth.auth().currentUser != nil {
+        if Auth.auth().currentUser != nil
+            && UserDefaultsManager.userId != "" {
             return true
         } else {
             return false

@@ -12,8 +12,6 @@ class FavoriteCocktailViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var cocktailCollectionView: UICollectionView!
-    private lazy var notExistFavoriteCocktail =
-        NotExistFavoriteCocktail(frame: self.view.frame)
     
     var cocktails: [Cocktail] = []
     
@@ -21,33 +19,48 @@ class FavoriteCocktailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setCollectionView()
-        
         getFavoriteCocktail()
         // initCocktail()
         
-        // checkFavoriteCocktailExist()
+        setCollectionView(cocktailsEmpty: cocktails.isEmpty)
     }
     
     // MARK: - Set Collection View
-    private func setCollectionView() {
+    private func setCollectionView(cocktailsEmpty: Bool) {
         cocktailCollectionView.delegate = self
         cocktailCollectionView.dataSource = self
         
         let flowLayout = UICollectionViewFlowLayout()
-        let width = UIScreen.main.bounds.width / 2.5
-        let height = UIScreen.main.bounds.height / 4
         
-        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 60, right: 20)
-        
-        flowLayout.itemSize = CGSize(width: width, height: height)
+        flowLayout.sectionInset = UIEdgeInsets(top: 20,
+                                               left: 20,
+                                               bottom: 60,
+                                               right: 20)
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 10
         
-        cocktailCollectionView.register(
-            UINib(nibName: FavoriteCocktailCollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier:
-                FavoriteCocktailCollectionViewCell.identifier)
+        if !cocktailsEmpty {
+            let width = UIScreen.main.bounds.width / 2.5
+            let height = UIScreen.main.bounds.height / 4
+            
+            flowLayout.itemSize = CGSize(width: width, height: height)
+            
+            self.cocktailCollectionView.register(
+                UINib(nibName: FavoriteCocktailCollectionViewCell.identifier, bundle: nil),
+                forCellWithReuseIdentifier:
+                    FavoriteCocktailCollectionViewCell.identifier)
+            
+        } else {
+            let width = UIScreen.main.bounds.width / 1.5
+            let height = UIScreen.main.bounds.height / 2
+            
+            flowLayout.itemSize = CGSize(width: width, height: height)
+            
+            self.cocktailCollectionView.register(
+                UINib(nibName: FavoriteCocktailEmptyCollectionViewCell.identifier, bundle: nil),
+                forCellWithReuseIdentifier:
+                    FavoriteCocktailEmptyCollectionViewCell.identifier)
+        }
         
         self.cocktailCollectionView.collectionViewLayout = flowLayout
     }
@@ -91,20 +104,11 @@ class FavoriteCocktailViewController: UIViewController {
     // MARK: - Test Method
     func initCocktail() {
         for idx in 1...9 {
-            let cocktail = Cocktail.init(id: UInt64(idx), image: "", name: "test\(idx) name", alcohol: "14.5")
+            let cocktail = Cocktail.init(id: UInt64(idx),
+                                         image: "",
+                                         name: "test\(idx) name",
+                                         alcohol: "14.5")
             self.cocktails.append(cocktail)
-        }
-    }
-    
-    // MARK: Custom Method
-    func checkFavoriteCocktailExist() {
-        if cocktails.count == 0 {
-            self.cocktailCollectionView.addSubview(notExistFavoriteCocktail)
-            
-            notExistFavoriteCocktail.snp.makeConstraints { make in
-                make.height.equalTo(self.view).offset(-20)
-                make.width.equalTo(self.view).offset(-20)
-            }
         }
     }
 }
@@ -116,7 +120,11 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate, UICollection
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return cocktails.count
+        if cocktails.isEmpty {
+            return 1
+        } else {
+            return cocktails.count
+        }
     }
     
     func collectionView(
@@ -124,41 +132,26 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate, UICollection
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: FavoriteCocktailCollectionViewCell.identifier,
-                for: indexPath)
-                as? FavoriteCocktailCollectionViewCell else {
-            return UICollectionViewCell()
+        if cocktails.isEmpty {
+            guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: FavoriteCocktailEmptyCollectionViewCell.identifier,
+                    for: indexPath)
+                    as? FavoriteCocktailEmptyCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: FavoriteCocktailCollectionViewCell.identifier,
+                    for: indexPath)
+                    as? FavoriteCocktailCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            cell.makeCell(cocktail: cocktails[indexPath.row])
+            
+            return cell
         }
-        
-        cell.makeCell(cocktail: cocktails[indexPath.row])
-        
-        return cell
-    }
-}
-
-// MARK: - support UIView
-class NotExistFavoriteCocktail: UIView {
-    // MARK: SubView
-    let makeFavoriteCocktailLabel: UILabel = {
-        let label = UILabel()
-        label.text = "마음에 드는 칵테일을 찜해보세요 💓"
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 18)
-        
-        return label
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = .white
-        
-        makeFavoriteCocktailLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

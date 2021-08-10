@@ -7,11 +7,15 @@
 
 import UIKit
 import Carte
+import Firebase
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class SettingViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var settingTableView: UITableView!
+    private let reauthenticateViewController = ReAuthenticateUserViewController()
     
     // MARK: - OVerride Method
     override func viewDidLoad() {
@@ -46,9 +50,124 @@ class SettingViewController: UIViewController {
             forCellReuseIdentifier: OpenSourceTableViewCell.identifier
         )
         
+        settingTableView.register(
+            UINib(nibName: DeleteAccountTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: DeleteAccountTableViewCell.identifier)
+        
         settingTableView.delegate = self
         settingTableView.dataSource = self
         settingTableView.isScrollEnabled = false
+    }
+    
+    // MARK: - Custom Methods
+    private func deleteAccountEvent() {
+        if UserDefaultsManager.social == "" {
+            self.present(self.reauthenticateViewController, animated: true)
+        } else if UserDefaultsManager.social == "kakao" {
+            let alert = UIAlertController(title: "안내",
+                                          message: "회원 탈퇴를 하시겠습니까?",
+                                          preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "네",
+                                         style: .default) { _ in
+                self.deleteKakaoAccountAtFirebase()
+            }
+            let cancelAction = UIAlertAction(title: "아니요",
+                                             style: .cancel)
+            
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true)
+        }
+    }
+    
+    /// 카카오 계정을 파이어배이스에서 삭제
+    private func deleteKakaoAccountAtFirebase() {
+        // 파이어베이스에서 삭제한 뒤에 카카오계정에서 unlink
+        UserApi.shared.me { kakaoUser, error in
+            if let error = error {
+                print("cannot access kakao user")
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let password = kakaoUser?.id else {
+                return
+            }
+            guard let currentUser = Auth.auth().currentUser else {
+                print("Cannot get current user")
+                return
+            }
+            
+            currentUser.delete { error in
+                if let error = error {
+                    print("Cannot Delete user")
+                    print(error.localizedDescription)
+                    
+                    let credential: AuthCredential = EmailAuthProvider.credential(
+                        withEmail: UserDefaultsManager.userId,
+                        password: String(describing: password))
+                    
+                    currentUser.reauthenticate(with: credential) { authResult, error in
+                        if let error = error {
+                            print("Cannot reauthenticate user")
+                            print(error.localizedDescription)
+                            
+                            self.showErrorAlert()
+                            return
+                        }
+                        
+                        authResult?.user.delete(completion: { error in
+                            if let error = error {
+                                print("Really cannot delete...")
+                                print(error.localizedDescription)
+                                
+                                self.showErrorAlert()
+                                return
+                            }
+                            
+                            print("Finally delete current user!")
+                            self.initUserAndBackLoginPage()
+                        })
+                    }
+                } else {
+                    print("Success delete kakao Account at Firebase")
+                    self.initUserAndBackLoginPage()
+                }
+            }
+        }
+    }
+    
+    private func initUserAndBackLoginPage() {
+        UserApi.shared.unlink { error in
+            if let error = error {
+                print("Cannot unlink kakao")
+                print(error.localizedDescription)
+                return
+            }
+        }
+        
+        UserDefaultsManager.userId = ""
+        UserDefaultsManager.token = ""
+        UserDefaultsManager.social = ""
+        
+        guard let window = self.view.window else {
+            return
+        }
+        
+        window.switchRootViewController(LoginViewController())
+    }
+    
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "안내",
+                                      message: "회원 탈퇴를 할 수 없습니다. 다시 시도해주세요.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인",
+                                      style: .default,
+                                      handler: nil))
+        
+        self.present(alert, animated: true)
     }
 }
 
@@ -60,7 +179,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -69,6 +188,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             return 120
         case 1, 2:
             return 80
+        case 3:
+            return 50
         default:
             return 0
         }
@@ -105,6 +226,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             return cell
+        case 3:
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: DeleteAccountTableViewCell.identifier,
+                    for: indexPath
+            ) as? DeleteAccountTableViewCell else {
+                return UITableViewCell()
+            }
+            return cell
         default:
             return UITableViewCell()
         }
@@ -118,6 +247,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             let carteViewController = CarteViewController()
             guard let navigation = self.navigationController else { return }
             navigation.pushViewController(carteViewController, animated: true)
+        case 3:
+            deleteAccountEvent()
         default:
             break
         }
