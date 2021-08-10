@@ -7,24 +7,6 @@
 
 import UIKit
 
-struct CocktailListJson: Codable {
-    var code: Int
-    var message: String
-    var data: [CocktailData]
-}
-
-struct CocktailData: Codable {
-    var value: String
-    var cocktailList: [CocktailInfo]
-}
-
-struct CocktailInfo: Codable {
-    var cocktailId: UInt64
-    var image: String?
-    var name: String
-    var alcohol: String
-}
-
 class CocktailViewController: UIViewController {
     
     // MARK: - Properties
@@ -62,6 +44,15 @@ class CocktailViewController: UIViewController {
         tableView.register(nibName, forCellReuseIdentifier: "categoryTableViewCell")
         
         getCocktailList(type: "base")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        
+        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)], for: .selected)
+        segmentedControl.roundCorners(corners: UIRectCorner.init(), radius: 20)
+        
     }
     
     // MARK: - Custom Methods
@@ -114,7 +105,6 @@ extension CocktailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.cocktailList.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -70,9 +70,13 @@
 		02E43C362687066E009B15CD /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E43C352687066E009B15CD /* Extension+UIWindow.swift */; };
 		02FEF4ED26AFDDFD0013F78D /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FEF4EB26AFDDFD0013F78D /* PlaceDetailViewController.swift */; };
 		02FEF4EE26AFDDFD0013F78D /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FEF4EC26AFDDFD0013F78D /* PlaceDetailViewController.xib */; };
+		7E15927D03723866D8D336C5 /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3AC5A60A2151928C3315BD /* Pods_Koktail.framework */; };
 		30B8812AF211D9123FCF03CB /* Pods_Koktail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853A0E832F5373E0EEB75D2C /* Pods_Koktail.framework */; };
+		9F03BD7A26BD884700713D22 /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F03BD7926BD884700713D22 /* FavoriteCocktail.swift */; };
 		9F1D616D26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */; };
 		9F1D616E26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */; };
+		9F4C1AEB26C0DB6600A20792 /* ReAuthenticateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4C1AE926C0DB6600A20792 /* ReAuthenticateUserViewController.swift */; };
+		9F4C1AEC26C0DB6600A20792 /* ReAuthenticateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4C1AEA26C0DB6600A20792 /* ReAuthenticateUserViewController.xib */; };
 		9F4EEB8926B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4EEB8726B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift */; };
 		9F4EEB8A26B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4EEB8826B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib */; };
 		9F87DA9C26A1EAD3004ED32B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F87DA9B26A1EAD3004ED32B /* GoogleService-Info.plist */; };
@@ -84,6 +88,14 @@
 		9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */; };
 		9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */; };
 		9FB2455126A9A19900F6EA07 /* GetEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */; };
+		C45FB22626BD8C5900DFE4EF /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */; };
+		C489C4F326C2564800E95760 /* CocktailListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489C4F226C2564800E95760 /* CocktailListDataModel.swift */; };
+		C489C4F626C256CE00E95760 /* CocktailDetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489C4F526C256CE00E95760 /* CocktailDetailDataModel.swift */; };
+		C489C4F926C2570000E95760 /* CocktailLikeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489C4F826C2570000E95760 /* CocktailLikeDataModel.swift */; };
+		9FF7293826C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7293626C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift */; };
+		9FF7293926C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7293726C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib */; };
+		9FF7294426C039FE002CFFC8 /* DeleteAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7294226C039FE002CFFC8 /* DeleteAccountTableViewCell.swift */; };
+		9FF7294526C039FE002CFFC8 /* DeleteAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7294326C039FE002CFFC8 /* DeleteAccountTableViewCell.xib */; };
 		D669C28F26BD8C980043E51A /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669C28E26BD8C980043E51A /* FavoriteCocktail.swift */; };
 		D669C29226C01BB80043E51A /* NoResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669C29026C01BB80043E51A /* NoResultTableViewCell.swift */; };
 		D669C29326C01BB80043E51A /* NoResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D669C29126C01BB80043E51A /* NoResultTableViewCell.xib */; };
@@ -175,11 +187,17 @@
 		02E43C352687066E009B15CD /* Extension+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIWindow.swift"; sourceTree = "<group>"; };
 		02FEF4EB26AFDDFD0013F78D /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		02FEF4EC26AFDDFD0013F78D /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailViewController.xib; sourceTree = "<group>"; };
+		060EF9219061CD8695CEAA8D /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
+		3A3AC5A60A2151928C3315BD /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61C90A79382188E42669D816 /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 		11D359DA77A3C9E9C9E4EA9D /* Pods-Koktail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.release.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.release.xcconfig"; sourceTree = "<group>"; };
 		6396EC416DF1E7AE8D7FF660 /* Pods-Koktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koktail.debug.xcconfig"; path = "Target Support Files/Pods-Koktail/Pods-Koktail.debug.xcconfig"; sourceTree = "<group>"; };
 		853A0E832F5373E0EEB75D2C /* Pods_Koktail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koktail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F03BD7926BD884700713D22 /* FavoriteCocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
 		9F1D616B26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotAndUpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		9F1D616C26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotAndUpdatePasswordViewController.xib; sourceTree = "<group>"; };
+		9F4C1AE926C0DB6600A20792 /* ReAuthenticateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAuthenticateUserViewController.swift; sourceTree = "<group>"; };
+		9F4C1AEA26C0DB6600A20792 /* ReAuthenticateUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReAuthenticateUserViewController.xib; sourceTree = "<group>"; };
 		9F4EEB8726B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCocktailCollectionViewCell.swift; sourceTree = "<group>"; };
 		9F4EEB8826B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCocktailCollectionViewCell.xib; sourceTree = "<group>"; };
 		9F87DA9B26A1EAD3004ED32B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -191,6 +209,14 @@
 		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmailViewController.swift; sourceTree = "<group>"; };
 		9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetEmailViewController.xib; sourceTree = "<group>"; };
+		C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
+		C489C4F226C2564800E95760 /* CocktailListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListDataModel.swift; sourceTree = "<group>"; };
+		C489C4F526C256CE00E95760 /* CocktailDetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailDataModel.swift; sourceTree = "<group>"; };
+		C489C4F826C2570000E95760 /* CocktailLikeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailLikeDataModel.swift; sourceTree = "<group>"; };
+		9FF7293626C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCocktailEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		9FF7293726C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCocktailEmptyCollectionViewCell.xib; sourceTree = "<group>"; };
+		9FF7294226C039FE002CFFC8 /* DeleteAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountTableViewCell.swift; sourceTree = "<group>"; };
+		9FF7294326C039FE002CFFC8 /* DeleteAccountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteAccountTableViewCell.xib; sourceTree = "<group>"; };
 		D669C28E26BD8C980043E51A /* FavoriteCocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
 		D669C29026C01BB80043E51A /* NoResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultTableViewCell.swift; sourceTree = "<group>"; };
 		D669C29126C01BB80043E51A /* NoResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoResultTableViewCell.xib; sourceTree = "<group>"; };
@@ -221,7 +247,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30B8812AF211D9123FCF03CB /* Pods_Koktail.framework in Frameworks */,
+				7E15927D03723866D8D336C5 /* Pods_Koktail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +270,7 @@
 				02454FEF26860DA300558D3C /* Koktail */,
 				02454FEE26860DA300558D3C /* Products */,
 				A7FCF72FB1010F62504F03B6 /* Pods */,
+				CAB263AE4B3FCA4995DEF22B /* Frameworks */,
 				480D67EAE9648A501FD6BA0B /* Frameworks */,
 				02CBB8DD26BE778C00208CDC /* Recovered References */,
 				D669C28D26BD8C4B0043E51A /* Recovered References */,
@@ -280,6 +307,8 @@
 				0250C4F9269056B40076A273 /* LogOutTableViewCell.swift */,
 				0250C4C7269053D60076A273 /* VersionTableViewCell.swift */,
 				0250C4C32690501F0076A273 /* OpenSourceTableViewCell.swift */,
+				9FF7294226C039FE002CFFC8 /* DeleteAccountTableViewCell.swift */,
+				9F4C1AE926C0DB6600A20792 /* ReAuthenticateUserViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -291,6 +320,8 @@
 				0250C4FA269056B40076A273 /* LogOutTableViewCell.xib */,
 				0250C4C8269053D60076A273 /* VersionTableViewCell.xib */,
 				0250C4C42690501F0076A273 /* OpenSourceTableViewCell.xib */,
+				9FF7294326C039FE002CFFC8 /* DeleteAccountTableViewCell.xib */,
+				9F4C1AEA26C0DB6600A20792 /* ReAuthenticateUserViewController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -333,9 +364,14 @@
 			isa = PBXGroup;
 			children = (
 				02CBB8DE26BE780E00208CDC /* FavoriteCocktail.swift */,
+				C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */,
+				9F03BD7926BD884700713D22 /* FavoriteCocktail.swift */,
 				D669C28E26BD8C980043E51A /* FavoriteCocktail.swift */,
 				02791B9426AC48AD000CC06F /* SearchPlace.swift */,
 				02791B9626AC48F9000CC06F /* PlaceDetail.swift */,
+				C489C4F226C2564800E95760 /* CocktailListDataModel.swift */,
+				C489C4F526C256CE00E95760 /* CocktailDetailDataModel.swift */,
+				C489C4F826C2570000E95760 /* CocktailLikeDataModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -473,6 +509,7 @@
 				02E43C2526870305009B15CD /* FavoriteViewController.swift */,
 				0250C587269062E30076A273 /* FavoriteCocktailViewController.swift */,
 				9F4EEB8726B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift */,
+				9FF7293626C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift */,
 				0250C5B92690666F0076A273 /* FavoriteStoreViewController.swift */,
 				02CBB8E026BE7B7100208CDC /* FavoriteStoreTableViewCell.swift */,
 			);
@@ -507,6 +544,7 @@
 				02E43C2626870305009B15CD /* FavoriteViewController.xib */,
 				0250C588269062E30076A273 /* FavoriteCocktailViewController.xib */,
 				9F4EEB8826B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib */,
+				9FF7293726C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib */,
 				0250C5BA2690666F0076A273 /* FavoriteStoreViewController.xib */,
 				02CBB8E126BE7B7100208CDC /* FavoriteStoreTableViewCell.xib */,
 			);
@@ -566,21 +604,21 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		480D67EAE9648A501FD6BA0B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				853A0E832F5373E0EEB75D2C /* Pods_Koktail.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A7FCF72FB1010F62504F03B6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6396EC416DF1E7AE8D7FF660 /* Pods-Koktail.debug.xcconfig */,
-				11D359DA77A3C9E9C9E4EA9D /* Pods-Koktail.release.xcconfig */,
+				060EF9219061CD8695CEAA8D /* Pods-Koktail.debug.xcconfig */,
+				61C90A79382188E42669D816 /* Pods-Koktail.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CAB263AE4B3FCA4995DEF22B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A3AC5A60A2151928C3315BD /* Pods_Koktail.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D669C28D26BD8C4B0043E51A /* Recovered References */ = {
@@ -665,15 +703,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0245500126860DA400558D3C /* Build configuration list for PBXNativeTarget "Koktail" */;
 			buildPhases = (
-				69555213418B81DC0B5E617D /* [CP] Check Pods Manifest.lock */,
+				9BEAA2712C24EFDEF1A81F40 /* [CP] Check Pods Manifest.lock */,
 				02454FE926860DA300558D3C /* Sources */,
 				02454FEA26860DA300558D3C /* Frameworks */,
 				E62EED9B3D667B480F11A2F0 /* [Carte] Pre Script */,
 				02454FEB26860DA300558D3C /* Resources */,
 				6F09AC68488332B30709BADD /* [Carte] Post Script */,
 				023BEC51268B738A00D352A8 /* ShellScript */,
-				9BD6FEF4FBDA2FA4A352A401 /* [CP] Embed Pods Frameworks */,
-				0877E5BECD26B6FBDE34CB81 /* [CP] Copy Pods Resources */,
+				BCB454EBD91EF9474C7F4E1C /* [CP] Embed Pods Frameworks */,
+				8270CAAD681714A6B558AE78 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -723,11 +761,13 @@
 			files = (
 				0250C58A269062E30076A273 /* FavoriteCocktailViewController.xib in Resources */,
 				9FAB592D269DC11D0077CD59 /* LoginPageViewController.xib in Resources */,
+				9FF7294526C039FE002CFFC8 /* DeleteAccountTableViewCell.xib in Resources */,
 				D6908F6426A32ECF004240AC /* SelectSourViewController.xib in Resources */,
 				02454FFA26860DA400558D3C /* Assets.xcassets in Resources */,
 				023F866026A6F9DA0086EC4F /* CocktailDetailViewController.xib in Resources */,
 				02FEF4EE26AFDDFD0013F78D /* PlaceDetailViewController.xib in Resources */,
 				02454FF826860DA300558D3C /* Main.storyboard in Resources */,
+				9FF7293926C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib in Resources */,
 				0250C4C62690501F0076A273 /* OpenSourceTableViewCell.xib in Resources */,
 				9F1D616E26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib in Resources */,
 				D6908F5226A30C51004240AC /* SelectPageViewController.xib in Resources */,
@@ -738,6 +778,7 @@
 				D6908F5826A30CC4004240AC /* SelectBaseViewController.xib in Resources */,
 				02791B8426AC37CB000CC06F /* PlaceInfoTableViewCell.xib in Resources */,
 				02791B8C26AC37F5000CC06F /* PlacePicturesTableViewCell.xib in Resources */,
+				9F4C1AEC26C0DB6600A20792 /* ReAuthenticateUserViewController.xib in Resources */,
 				02E43C2826870305009B15CD /* FavoriteViewController.xib in Resources */,
 				D6908F5C26A31109004240AC /* SelectAlcholViewController.xib in Resources */,
 				023F866626A6FADB0086EC4F /* HomeViewController.xib in Resources */,
@@ -788,7 +829,26 @@
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		0877E5BECD26B6FBDE34CB81 /* [CP] Copy Pods Resources */ = {
+		6F09AC68488332B30709BADD /* [Carte] Post Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Carte] Post Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ruby ${PODS_ROOT}/Carte/Sources/Carte/carte.rb post";
+			showEnvVarsInLog = 0;
+		};
+		8270CAAD681714A6B558AE78 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -805,7 +865,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Koktail/Pods-Koktail-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69555213418B81DC0B5E617D /* [CP] Check Pods Manifest.lock */ = {
+		9BEAA2712C24EFDEF1A81F40 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -827,26 +887,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6F09AC68488332B30709BADD /* [Carte] Post Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Carte] Post Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "ruby ${PODS_ROOT}/Carte/Sources/Carte/carte.rb post";
-			showEnvVarsInLog = 0;
-		};
-		9BD6FEF4FBDA2FA4A352A401 /* [CP] Embed Pods Frameworks */ = {
+		BCB454EBD91EF9474C7F4E1C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -894,8 +935,10 @@
 				D6908F5F26A32D6E004240AC /* SelectSweetViewController.swift in Sources */,
 				02791B9126AC46C9000CC06F /* PictureCollectionViewCell.swift in Sources */,
 				02CBB8E226BE7B7100208CDC /* FavoriteStoreTableViewCell.swift in Sources */,
+				9FF7294426C039FE002CFFC8 /* DeleteAccountTableViewCell.swift in Sources */,
 				026397292693277100D57975 /* UtilFunction.swift in Sources */,
 				02E43C3226870574009B15CD /* LoginViewController.swift in Sources */,
+				C489C4F326C2564800E95760 /* CocktailListDataModel.swift in Sources */,
 				9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */,
 				02E43C1B26870270009B15CD /* HomeViewController.swift in Sources */,
 				D6908F6726A32FA0004240AC /* SelectBitterViewController.swift in Sources */,
@@ -918,6 +961,7 @@
 				D6908F5B26A31109004240AC /* SelectAlcholViewController.swift in Sources */,
 				9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */,
 				02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */,
+				9FF7293826C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift in Sources */,
 				D669C29226C01BB80043E51A /* NoResultTableViewCell.swift in Sources */,
 				9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */,
 				D6908F5726A30CC4004240AC /* SelectBaseViewController.swift in Sources */,
@@ -925,11 +969,13 @@
 				02791B8B26AC37F5000CC06F /* PlacePicturesTableViewCell.swift in Sources */,
 				02E43C2726870305009B15CD /* FavoriteViewController.swift in Sources */,
 				D6908F7826A3332A004240AC /* CocktailResultTableViewCell.swift in Sources */,
+				C489C4F926C2570000E95760 /* CocktailLikeDataModel.swift in Sources */,
 				0250C4C9269053D60076A273 /* VersionTableViewCell.swift in Sources */,
 				D6908F6B26A33022004240AC /* SelectDryViewController.swift in Sources */,
 				02FEF4ED26AFDDFD0013F78D /* PlaceDetailViewController.swift in Sources */,
 				D6908F7426A33318004240AC /* HeaderTableViewCell.swift in Sources */,
 				0250C589269062E30076A273 /* FavoriteCocktailViewController.swift in Sources */,
+				C489C4F626C256CE00E95760 /* CocktailDetailDataModel.swift in Sources */,
 				D6908F6F26A332F6004240AC /* ResultViewController.swift in Sources */,
 				02791B9526AC48AD000CC06F /* SearchPlace.swift in Sources */,
 				D6908F5126A30C51004240AC /* SelectPageViewController.swift in Sources */,
@@ -938,12 +984,15 @@
 				023F864E26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift in Sources */,
 				023F865826A6F9C00086EC4F /* MoreCocktailViewController.swift in Sources */,
 				02791B9726AC48FA000CC06F /* PlaceDetail.swift in Sources */,
+				9F03BD7A26BD884700713D22 /* FavoriteCocktail.swift in Sources */,
+				9F4C1AEB26C0DB6600A20792 /* ReAuthenticateUserViewController.swift in Sources */,
 				D669C28F26BD8C980043E51A /* FavoriteCocktail.swift in Sources */,
 				023F865A26A6F9C00086EC4F /* PreviewCollectionViewCell.swift in Sources */,
 				D6908F6326A32ECF004240AC /* SelectSourViewController.swift in Sources */,
 				02454FF326860DA300558D3C /* SceneDelegate.swift in Sources */,
 				9F1D616D26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.swift in Sources */,
 				02CBB8DF26BE780E00208CDC /* FavoriteCocktail.swift in Sources */,
+				C45FB22626BD8C5900DFE4EF /* FavoriteCocktail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,15 +1128,16 @@
 		};
 		0245500226860DA400558D3C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6396EC416DF1E7AE8D7FF660 /* Pods-Koktail.debug.xcconfig */;
+			baseConfigurationReference = 060EF9219061CD8695CEAA8D /* Pods-Koktail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = YKB76M9XZ9;
 				INFOPLIST_FILE = Koktail/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1106,15 +1156,16 @@
 		};
 		0245500326860DA400558D3C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11D359DA77A3C9E9C9E4EA9D /* Pods-Koktail.release.xcconfig */;
+			baseConfigurationReference = 61C90A79382188E42669D816 /* Pods-Koktail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = YKB76M9XZ9;
 				INFOPLIST_FILE = Koktail/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

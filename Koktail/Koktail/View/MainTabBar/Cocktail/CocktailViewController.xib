@@ -22,19 +22,22 @@
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pva-fH-pGv">
                     <rect key="frame" x="0.0" y="44" width="414" height="41"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.38431372549999998" blue="0.35294117650000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="q5Y-gm-q4K"/>
                     </constraints>
                     <segments>
                         <segment title="Base"/>
                         <segment title="Tag"/>
-                        <segment title="Level"/>
+                        <segment title="Alcohol Degree"/>
                     </segments>
+                    <color key="tintColor" red="0.96078431372549022" green="0.38431372549019605" blue="0.3529411764705882" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <action selector="changeSegmentAction:" destination="-1" eventType="valueChanged" id="xw2-38-JVb"/>
                     </connections>
                 </segmentedControl>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kBE-dy-zQQ">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kBE-dy-zQQ">
                     <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>

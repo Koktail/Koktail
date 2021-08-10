@@ -33,6 +33,7 @@
                             <constraint firstAttribute="height" constant="25" id="cka-iD-6mf"/>
                             <constraint firstAttribute="width" constant="25" id="vqs-P3-QOb"/>
                         </constraints>
+                        <color key="tintColor" red="0.96078431372549022" green="0.38431372549019605" blue="0.3529411764705882" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <state key="normal">
                             <imageReference key="image" image="arrow.right.circle" catalog="system" symbolScale="large"/>
                         </state>

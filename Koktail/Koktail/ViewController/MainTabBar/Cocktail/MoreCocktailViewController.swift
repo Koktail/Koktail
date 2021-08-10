@@ -29,6 +29,14 @@ class MoreCocktailViewController: UIViewController {
         
         title = categoryName
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.barTintColor =
+            UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)
+    }
 }
 
 extension MoreCocktailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -59,6 +67,8 @@ extension MoreCocktailViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
         
         let detailVC = CocktailDetailViewController()
 
