@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     
     var apiResponseName: [String]?
     var apiResponseAlchol: [String]?
+    var apiResponseImage: [String] = []
+    var apiResponseID: [Int] = []
     let semaphore = DispatchSemaphore(value: 0)
     
     @IBOutlet weak var recommendBtn: UIButton!
@@ -83,6 +85,7 @@ class HomeViewController: UIViewController {
                     switch response.result {
                     case .success(let value):
                         let json = JSON(value)
+                        print(json)
                         if let cocktailArray = json["data"]["cocktail"].array {
                             self.apiResponseName = []
                             self.apiResponseAlchol = []
@@ -94,6 +97,10 @@ class HomeViewController: UIViewController {
                                 if let alcohol = cocktailArray[i]["alcohol"].string {
                                     self.apiResponseAlchol?.append(alcohol)
                                 }
+                                if let id = cocktailArray[i]["cocktailId"].int {
+                                    self.apiResponseID.append(id)
+                                }
+                                self.apiResponseImage.append("null")
                             }
                             self.collectionView.reloadData()
                         }
@@ -150,14 +157,32 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             as! CocktailCollectionViewCell
         if self.apiResponseName?.count != 0 {
             cell.cocktailName.text = self.apiResponseName?[indexPath.row]
-            cell.cocktailDegree.text = self.apiResponseAlchol?[indexPath.row]
+            
+            switch self.apiResponseAlchol?[indexPath.row] {
+            case "HIGH":
+                cell.cocktailDegree.text = "도수 : 🤪(상)"
+            case "MID":
+                cell.cocktailDegree.text = "도수 : 🤤(중)"
+            case "LOW":
+                cell.cocktailDegree.text = "도수 : 🙂(하)"
+            default:
+                break
+            }
+
         }
         cell.cocktailImg.image = imageArray[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = CocktailDetailViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let detailVC = CocktailDetailViewController()
+        let cocktail: CocktailInfo = CocktailInfo(cocktailId: UInt64(apiResponseID[indexPath.row]),
+                                                  image: apiResponseImage[indexPath.row],
+                                                  name: apiResponseName?[indexPath.row] ?? "null",
+                                                  alcohol: apiResponseAlchol?[indexPath.row] ?? "null"
+                                                  )
+        detailVC.cocktailInfo = cocktail
+
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
