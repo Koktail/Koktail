@@ -60,11 +60,11 @@ class CategoryTableViewCell: UITableViewCell {
         
         layout.itemSize = CGSize(width: 100, height: 150)
         layout.scrollDirection = .horizontal
-        
-        backgroundView?.layer.borderWidth = 0.2
-        backgroundView?.layer.cornerRadius=8
-        backgroundView?.clipsToBounds=true
-        
+//
+//        backgroundView?.layer.borderWidth = 0.2
+//        backgroundView?.layer.cornerRadius=8
+//        backgroundView?.clipsToBounds=true
+//
         previewCollectionView.collectionViewLayout = layout
     }
     
