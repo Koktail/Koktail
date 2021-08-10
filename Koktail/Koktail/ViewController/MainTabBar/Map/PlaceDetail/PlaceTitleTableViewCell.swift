@@ -31,6 +31,7 @@ class PlaceTitleTableViewCell: UITableViewCell {
     }
     
     private func setRatingView(rating: Double) {
+        ratingView.editable = false
         ratingView.type = .halfRatings
         ratingView.maxRating = 5
         ratingView.minRating = 0

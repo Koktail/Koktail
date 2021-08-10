@@ -17,6 +17,7 @@ class FavoriteStoreViewController: UIViewController {
     private var realm: Realm?
     private var storeList: Results<StoreData>?
     
+    // manage view
     private let indicator: UIRefreshControl = UIRefreshControl()
     
     // MARK: - Action
