@@ -15,12 +15,12 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                       UIImage(named: "cocktail"), UIImage(named: "cocktail"),
                       UIImage(named: "cocktail"), UIImage(named: "cocktail"),
                       UIImage(named: "cocktail")]
-    var resultURL = "http://3.36.149.10:55670/api/cocktail/favorite?" +
-        "base=\(base)&alcohol=\(alcohol)&sour=\(sour)&sweet=\(sweet)&bitter=\(bitter)&dry=\(dry)"
     
     var resultName: [String]?
     var resultDescription: [String]?
     var resultAlcohol: [String]?
+    var resultID: [Int] = []
+    var resultImage: [String] = []
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var againButton: UIButton!
     
@@ -31,8 +31,9 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CocktailResultTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.register(UINib(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell1")
+        tableView.register(UINib(nibName: "NoResultTableViewCell", bundle: nil), forCellReuseIdentifier: "NoCell")
         tableView.bounces = tableView.contentOffset.y > 100
-        
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         setAgainButton()
         setNavigationBar()
         ResultAPI()
@@ -49,42 +50,81 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let idx = self.resultName?.count else {return 0}
+        if resultID.count == 0 {
+            return 2
+        }
+        guard let idx = self.resultName?.count else {return 2}
         return idx + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let cell: HeaderTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell1")
-                as! HeaderTableViewCell
-            cell.layer.frame.size.height = 300
-            cell.headerBar.roundCorners(corners: [.topLeft, .topRight], radius: 20)
-            cell.headerBar.addShadow(offset: CGSize(width: 0, height: -4))
-            return cell
-        } else {
-            let cell: CocktailResultTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell")
-                as! CocktailResultTableViewCell
-            cell.CocktailImage?.image = UIImage(named: "cocktail")
-            cell.CocktailInfo?.text = "단맛, 과일, 높은 도수"
-            if self.resultName?.count != 0 {
-                cell.CocktailName.text = self.resultName?[indexPath.row - 1]
-                cell.CocktailAlc.text = self.resultAlcohol?[indexPath.row - 1]
+        if resultID == [] {
+            print("hi")
+            if indexPath.row == 0 {
+                let cell: HeaderTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell1")
+                    as! HeaderTableViewCell
+                cell.layer.frame.size.height = 300
+                cell.headerBar.roundCorners(corners: [.topLeft, .topRight], radius: 20)
+                cell.headerBar.addShadow(offset: CGSize(width: 0, height: -4))
+                return cell
+            } else {
+                print("UUU")
+                let cell: NoResultTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "NoCell")
+                    as! NoResultTableViewCell
+                cell.layer.frame.size.height = 100
+                return cell
             }
-            cell.CocktailImage.applyshadowWithCorner(containerView: cell.Imageview, cornerRadious: 30)
+        } else {
+            if indexPath.row == 0 {
+                let cell: HeaderTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell1")
+                    as! HeaderTableViewCell
+                cell.layer.frame.size.height = 300
+                cell.headerBar.roundCorners(corners: [.topLeft, .topRight], radius: 20)
+                cell.headerBar.addShadow(offset: CGSize(width: 0, height: -4))
+                return cell
+            } else {
+                let cell: CocktailResultTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell")
+                    as! CocktailResultTableViewCell
+                cell.CocktailImage?.image = UIImage(named: "cocktail")
+                cell.CocktailInfo?.text = "단맛, 과일, 높은 도수"
+                if self.resultName?.count != 0 {
+                    cell.CocktailName.text = self.resultName?[indexPath.row - 1]
+                    
+                    switch self.resultAlcohol?[indexPath.row - 1] {
+                    case "HIGH":
+                        cell.CocktailAlc.text = "도수 : 🤪(상)"
+                    case "MID":
+                        cell.CocktailAlc.text = "도수 : 🤤(중)"
+                    case "LOW":
+                        cell.CocktailAlc.text = "도수 : 🙂(하)"
+                    default:
+                        break
+                    }
+                }
+                cell.CocktailImage.applyshadowWithCorner(containerView: cell.Imageview, cornerRadious: 30)
+                
+                return cell
             
-            return cell
+            }
         }
-        
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if resultID.count == 0 {
+            return
+        }
         let vc = CocktailDetailViewController()
+        let cocktail: CocktailInfo = CocktailInfo(cocktailId: UInt64(resultID[indexPath.row - 1]),
+                                                  image: "null", name: resultName?[indexPath.row - 1] ?? "null",
+                                                  alcohol: resultAlcohol?[indexPath.row - 1] ?? "null"
+                                                  )
+        vc.cocktailInfo = cocktail
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
     func ResultAPI() {
-        print(resultURL)
+        let resultURL = "http://3.36.149.10:55670/api/cocktail/favorite?" +
+            "base=\(base)&alcohol=\(alcohol)&sour=\(sour)&sweet=\(sweet)&bitter=\(bitter)&dry=\(dry)"
         AF.request(resultURL,
                    method: .get).responseJSON(completionHandler: { response in
                     switch response.result {
@@ -103,6 +143,11 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
                                 if let alcohol = cocktailArray[i]["alcohol"].string {
                                     self.resultAlcohol?.append(alcohol)
+                                }
+                                
+                                if let id = cocktailArray[i]["cocktailId"].int {
+                                    print(id)
+                                    self.resultID.append(id)
                                 }
                             }
                             self.tableView.reloadData()

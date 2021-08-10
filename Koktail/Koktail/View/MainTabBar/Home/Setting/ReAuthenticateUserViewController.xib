@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReAuthenticateUserViewController" customModule="Koktail" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="GR6-Eb-jJ0" id="zmo-Wd-vrz"/>
+                <outlet property="checkPasswordTextField" destination="IZd-mT-UUC" id="X2p-We-tWK"/>
+                <outlet property="deleteAccountButton" destination="OOg-6S-Fms" id="clJ-XN-rMR"/>
+                <outlet property="emailTextField" destination="icM-dF-xCS" id="uvk-4d-SH6"/>
+                <outlet property="passwordTextField" destination="cjk-9y-9Qm" id="JXK-xP-uaH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 탈퇴를 위해 사용자 인증이 필요해요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3L-o7-bdh">
+                    <rect key="frame" x="20" y="104" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjk-9y-9Qm" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                    <rect key="frame" x="20" y="215" width="374" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="2rt-xb-uKX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="icM-dF-xCS" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                    <rect key="frame" x="20" y="165" width="374" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="CfT-zT-sLJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IZd-mT-UUC" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                    <rect key="frame" x="20" y="265" width="374" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="8av-ub-TPL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GR6-Eb-jJ0">
+                    <rect key="frame" x="20" y="400" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="B5T-h1-kU5"/>
+                    </constraints>
+                    <state key="normal" title="취소">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOg-6S-Fms">
+                    <rect key="frame" x="20" y="350" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="m7r-2Y-Igl"/>
+                    </constraints>
+                    <state key="normal" title="회원탈퇴">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="cjk-9y-9Qm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="1at-Cl-rLc"/>
+                <constraint firstItem="IZd-mT-UUC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="49D-ky-otc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IZd-mT-UUC" secondAttribute="trailing" constant="20" id="7me-V0-dz4"/>
+                <constraint firstItem="icM-dF-xCS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="AQ1-Ll-FqD"/>
+                <constraint firstItem="OOg-6S-Fms" firstAttribute="top" secondItem="IZd-mT-UUC" secondAttribute="bottom" constant="50" id="IJE-Im-g9q"/>
+                <constraint firstItem="cjk-9y-9Qm" firstAttribute="top" secondItem="icM-dF-xCS" secondAttribute="bottom" constant="15" id="JAE-eK-Edz"/>
+                <constraint firstItem="Y3L-o7-bdh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="L6G-XE-fJZ"/>
+                <constraint firstItem="GR6-Eb-jJ0" firstAttribute="top" secondItem="OOg-6S-Fms" secondAttribute="bottom" constant="10" id="Lmr-PO-IVw"/>
+                <constraint firstItem="Y3L-o7-bdh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="NBp-tA-x3o"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cjk-9y-9Qm" secondAttribute="trailing" constant="20" id="O36-sf-6wF"/>
+                <constraint firstItem="GR6-Eb-jJ0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Uo7-0T-gLj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="icM-dF-xCS" secondAttribute="trailing" constant="20" id="aDo-0V-HiO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GR6-Eb-jJ0" secondAttribute="trailing" constant="20" id="sSI-jq-mGw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OOg-6S-Fms" secondAttribute="trailing" constant="20" id="sV1-ca-rlw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Y3L-o7-bdh" secondAttribute="trailing" constant="20" id="w4e-ha-5cq"/>
+                <constraint firstItem="OOg-6S-Fms" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="wh9-fT-Kmu"/>
+                <constraint firstItem="IZd-mT-UUC" firstAttribute="top" secondItem="cjk-9y-9Qm" secondAttribute="bottom" constant="15" id="y23-Ub-bi7"/>
+                <constraint firstItem="icM-dF-xCS" firstAttribute="top" secondItem="Y3L-o7-bdh" secondAttribute="bottom" constant="40" id="zYw-Gf-6lC"/>
+            </constraints>
+            <point key="canvasLocation" x="381" y="152"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="IZd-mT-UUC">
+            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
+        </designable>
+        <designable name="cjk-9y-9Qm">
+            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
+        </designable>
+        <designable name="icM-dF-xCS">
+            <size key="intrinsicContentSize" width="374" height="39.220703125"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
