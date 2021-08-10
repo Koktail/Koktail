@@ -23,6 +23,7 @@ class FavoriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBar()
         setColletionView()
         setSegamentButtton()
         
@@ -31,6 +32,17 @@ class FavoriteViewController: UIViewController {
         
         items.append(cocktailView)
         items.append(storeView)
+    }
+    
+    // MARK: - Set Navigation
+    private func setNavigationBar() {
+        self.navigationItem.title = "찜목록"
+        self.navigationController?.navigationBar.barTintColor = UIColor(
+            red: 245/255,
+            green: 98/255,
+            blue: 90/255,
+            alpha: 1.0
+        )
     }
     
     // MARK: - Set Colletion View
