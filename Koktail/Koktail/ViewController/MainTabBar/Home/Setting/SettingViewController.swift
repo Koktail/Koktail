@@ -59,7 +59,7 @@ class SettingViewController: UIViewController {
         settingTableView.isScrollEnabled = false
     }
     
-    // MARK: - Custom Methods
+    // MARK: - Networking Methods
     private func deleteAccountEvent() {
         if UserDefaultsManager.social == "" {
             self.present(self.reauthenticateViewController, animated: true)
@@ -147,6 +147,45 @@ class SettingViewController: UIViewController {
                 return
             }
         }
+        
+        deleteAccountAPI()
+    }
+    
+    private func deleteAccountAPI() {
+        let token = UserDefaultsManager.token
+        guard let url = URL(string: "http://3.36.149.10:55670/api/user/delete?token=\(token)") else {
+            print("Cannot create url")
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "DELETE"
+
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            if let error = error {
+                print("cannot send urlRequest")
+                print(error.localizedDescription)
+                return
+            }
+            
+            do {
+                let jsonObject = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                guard let object = jsonObject else {
+                    print("jsonObject is nil")
+                    return
+                }
+                
+                let code = object["code"] as? Int
+                let message = object["message"] as? String
+                
+                print("회원탈퇴: \(code!): \(message!)")
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+        
+        task.resume()
         
         UserDefaultsManager.userId = ""
         UserDefaultsManager.token = ""

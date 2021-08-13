@@ -30,6 +30,6 @@ struct Cocktail: Codable {
     }
     
     var fullAlcohol: String {
-        return "Alc" + alcohol
+        return "Alc." + alcohol
     }
 }
