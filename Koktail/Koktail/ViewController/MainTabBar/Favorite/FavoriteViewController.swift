@@ -37,6 +37,7 @@ class FavoriteViewController: UIViewController {
     // MARK: - Set Navigation
     private func setNavigationBar() {
         self.navigationItem.title = "찜목록"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.barTintColor = UIColor(
             red: 245/255,
             green: 98/255,

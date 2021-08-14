@@ -45,10 +45,17 @@ class FavoriteStoreViewController: UIViewController {
         storeTableView.refreshControl = indicator
         storeTableView.delegate = self
         storeTableView.dataSource = self
+        storeTableView.tableFooterView = UIView()
+        storeTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         
         storeTableView.register(
             UINib(nibName: FavoriteStoreTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: FavoriteStoreTableViewCell.identifier
+        )
+        
+        storeTableView.register(
+            UINib(nibName: FavoriteStoreEmptyTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: FavoriteStoreEmptyTableViewCell.identifier
         )
     }
     
@@ -67,20 +74,42 @@ class FavoriteStoreViewController: UIViewController {
 
 extension FavoriteStoreViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeList?.count ?? 0
+        guard let storeList = self.storeList else { return 0 }
+        
+        if storeList.isEmpty {
+            return 1
+        } else {
+            return storeList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let storeList = self.storeList else { return UITableViewCell() }
         
-        guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: FavoriteStoreTableViewCell.identifier,
-                for: indexPath
-        ) as? FavoriteStoreTableViewCell else {
-            return UITableViewCell()
+        if storeList.isEmpty {
+            tableView.isScrollEnabled = false
+            tableView.separatorStyle = .none
+            
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: FavoriteStoreEmptyTableViewCell.identifier,
+                    for: indexPath
+            ) as? FavoriteStoreEmptyTableViewCell else {
+                return UITableViewCell()
+            }
+            return cell
+        } else {
+            tableView.isScrollEnabled = true
+            tableView.separatorStyle = .singleLine
+            
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: FavoriteStoreTableViewCell.identifier,
+                    for: indexPath
+            ) as? FavoriteStoreTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.makeCell(store: storeList[indexPath.row])
+            return cell
         }
-        cell.makeCell(store: storeList[indexPath.row])
-        return cell
     }
     
     func tableView(
@@ -95,6 +124,26 @@ extension FavoriteStoreViewController: UITableViewDelegate, UITableViewDataSourc
             }
             
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let storeList = self.storeList else { return 0 }
+        
+        if storeList.isEmpty {
+            return 422
+        } else {
+            return 250
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        guard let storeList = self.storeList else { return 0 }
+        
+        if storeList.isEmpty {
+            return 0.1
+        } else {
+            return 1
         }
     }
 }

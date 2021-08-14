@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020C732626C79770009B9440 /* FavoriteStoreEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C732426C79770009B9440 /* FavoriteStoreEmptyTableViewCell.swift */; };
+		020C732726C79770009B9440 /* FavoriteStoreEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020C732526C79770009B9440 /* FavoriteStoreEmptyTableViewCell.xib */; };
 		023BEBF4268B731A00D352A8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 023BEBF3268B731A00D352A8 /* .swiftlint.yml */; };
 		023F864E26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023F864D26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift */; };
 		023F865026A6F8FD0086EC4F /* CocktailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023F864F26A6F8FD0086EC4F /* CocktailCollectionViewCell.xib */; };
@@ -118,6 +120,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		020C732426C79770009B9440 /* FavoriteStoreEmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStoreEmptyTableViewCell.swift; sourceTree = "<group>"; };
+		020C732526C79770009B9440 /* FavoriteStoreEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteStoreEmptyTableViewCell.xib; sourceTree = "<group>"; };
 		023BEBF3268B731A00D352A8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		023F864D26A6F8CC0086EC4F /* CocktailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCollectionViewCell.swift; sourceTree = "<group>"; };
 		023F864F26A6F8FD0086EC4F /* CocktailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CocktailCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -489,6 +493,7 @@
 				9FF7293626C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift */,
 				0250C5B92690666F0076A273 /* FavoriteStoreViewController.swift */,
 				02CBB8E026BE7B7100208CDC /* FavoriteStoreTableViewCell.swift */,
+				020C732426C79770009B9440 /* FavoriteStoreEmptyTableViewCell.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -524,6 +529,7 @@
 				9FF7293726C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib */,
 				0250C5BA2690666F0076A273 /* FavoriteStoreViewController.xib */,
 				02CBB8E126BE7B7100208CDC /* FavoriteStoreTableViewCell.xib */,
+				020C732526C79770009B9440 /* FavoriteStoreEmptyTableViewCell.xib */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -772,6 +778,7 @@
 				D6908F7226A3330E004240AC /* ResultViewController.xib in Resources */,
 				02E43C202687028D009B15CD /* MapViewController.xib in Resources */,
 				023F866426A6F9DA0086EC4F /* MoreCocktailViewController.xib in Resources */,
+				020C732726C79770009B9440 /* FavoriteStoreEmptyTableViewCell.xib in Resources */,
 				D6908F7A26A3333B004240AC /* CocktailResultTableViewCell.xib in Resources */,
 				D669C29326C01BB80043E51A /* NoResultTableViewCell.xib in Resources */,
 				0250C49426904C800076A273 /* SettingViewController.xib in Resources */,
@@ -939,6 +946,7 @@
 				02791B8B26AC37F5000CC06F /* PlacePicturesTableViewCell.swift in Sources */,
 				02E43C2726870305009B15CD /* FavoriteViewController.swift in Sources */,
 				D6908F7826A3332A004240AC /* CocktailResultTableViewCell.swift in Sources */,
+				020C732626C79770009B9440 /* FavoriteStoreEmptyTableViewCell.swift in Sources */,
 				C489C4F926C2570000E95760 /* CocktailLikeDataModel.swift in Sources */,
 				0250C4C9269053D60076A273 /* VersionTableViewCell.swift in Sources */,
 				D6908F6B26A33022004240AC /* SelectDryViewController.swift in Sources */,
