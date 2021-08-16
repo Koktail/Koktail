@@ -25,4 +25,42 @@ class MoreCocktailTableViewCell: UITableViewCell {
 
     }
     
+    // MARK: - Custom Methods
+    public func setTableViewCell(_ cocktailInfo: CocktailInfo) {
+        if let imgURL = cocktailInfo.image {
+            setImgView(imgURL)
+        } else {
+            self.imgView.image = UIImage(named: "cocktail")
+        }
+        
+        self.cocktailNameLabel.text = cocktailInfo.name
+        
+        switch cocktailInfo.alcohol {
+        case "HIGH":
+            self.cocktailInfoLabel.text = "도수 : 🤪(상)"
+        case "MID":
+            self.cocktailInfoLabel.text = "도수 : 🤤(중)"
+        case "LOW":
+            self.cocktailInfoLabel.text = "도수 : 🙂(하)"
+        default:
+            break
+        }
+    }
+    
+    private func setImgView(_ imgURL : String){
+        guard let url = URL(string: imgURL) else {
+            return
+        }
+        
+        do{
+            let data = try Data(contentsOf: url)
+            
+            DispatchQueue.main.async {
+                self.imgView.image = UIImage(data: data)
+            }
+        }catch{
+            return
+        }
+    }
+    
 }

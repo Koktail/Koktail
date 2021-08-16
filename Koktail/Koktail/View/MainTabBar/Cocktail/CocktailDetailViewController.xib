@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CocktailDetailViewController" customModule="Koktail" customModuleProvider="target">
             <connections>
+                <outlet property="TagLabel" destination="a8g-Cd-GHH" id="eOn-jh-DoE"/>
                 <outlet property="alcoholDegreeLabel" destination="nur-h8-jxn" id="Keo-DF-1bU"/>
                 <outlet property="baseLabel" destination="6LM-gn-GDX" id="WEm-Un-9rZ"/>
                 <outlet property="bitterSlider" destination="lpz-Ix-1Rm" id="IBb-0A-tFa"/>
@@ -17,7 +18,6 @@
                 <outlet property="drySlider" destination="H1N-pW-uHe" id="Lib-hg-JEw"/>
                 <outlet property="imageView" destination="zBc-4H-Mnq" id="0dO-Af-SeQ"/>
                 <outlet property="ingredientLabel" destination="krF-zl-Pkz" id="ZHj-9Z-A5I"/>
-                <outlet property="likeLabel" destination="a8g-Cd-GHH" id="eOn-jh-DoE"/>
                 <outlet property="recipeLabel" destination="K8T-nF-aD2" id="2B7-Cl-6rw"/>
                 <outlet property="sourSlider" destination="2Jv-XM-nmU" id="vre-8o-Dci"/>
                 <outlet property="sweetSlider" destination="lFk-cN-aNr" id="OfZ-0u-NlZ"/>
@@ -110,18 +110,22 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="n9r-mb-nMD">
                                             <rect key="frame" x="270" y="11" width="80" height="38.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEn-Vc-y90">
-                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="24"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEn-Vc-y90">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="14.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="14.5" id="ucr-tt-ZZU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 8" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8g-Cd-GHH">
-                                                    <rect key="frame" x="0.0" y="24" width="80" height="14.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8g-Cd-GHH">
+                                                    <rect key="frame" x="0.0" y="14.5" width="80" height="24"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="1TP-xD-lCL"/>
                                                         <constraint firstAttribute="width" constant="80" id="A1U-Jy-tqd"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

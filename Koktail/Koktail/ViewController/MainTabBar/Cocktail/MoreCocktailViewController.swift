@@ -50,18 +50,7 @@ extension MoreCocktailViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "moreCocktailTableViewCell", for: indexPath) as! MoreCocktailTableViewCell
         
-        cell.imgView!.image = UIImage(named: "cosmopolitan.jpeg")
-        cell.cocktailNameLabel!.text = cocktails[indexPath.row].name
-        switch cocktails[indexPath.row].alcohol {
-        case "HIGH":
-            cell.cocktailInfoLabel.text = "도수 : 🤪(상)"
-        case "MID":
-            cell.cocktailInfoLabel.text = "도수 : 🤤(중)"
-        case "LOW":
-            cell.cocktailInfoLabel.text = "도수 : 🙂(하)"
-        default:
-            break
-        }
+        cell.setTableViewCell(cocktails[indexPath.row])
         
         return cell
     }
