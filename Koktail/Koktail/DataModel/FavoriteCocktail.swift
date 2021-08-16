@@ -30,6 +30,19 @@ struct Cocktail: Codable {
     }
     
     var fullAlcohol: String {
-        return "Alc." + alcohol
+        var fullString: String = "도수: "
+        
+        switch alcohol {
+        case "LOW":
+            fullString += "🙂(하)"
+        case "MID":
+            fullString += "🤤(중)"
+        case "HIGH":
+            fullString += "🤪(상)"
+        default:
+            fullString += "NONE"
+        }
+        
+        return fullString
     }
 }

@@ -16,31 +16,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="xOL-zn-TF5">
-                                <rect key="frame" x="42.666666666666657" y="319.66666666666669" width="305" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="xOL-zn-TF5">
+                                <rect key="frame" x="42" y="373.66666666666669" width="306.33333333333331" height="96.666666666666686"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2MS-xx-2Xi">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2MS-xx-2Xi">
+                                        <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="96.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="칵테일 콕! 찾아줄게" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP4-3w-8oA">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="32"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="25.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="콕!  테일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pe-J7-uzy">
-                                                <rect key="frame" x="0.0" y="42" width="150" height="78"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                                <rect key="frame" x="0.0" y="40.333333333333314" width="161.33333333333334" height="56.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="47"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktail_logo" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-h9-ZXQ">
-                                        <rect key="frame" x="185" y="0.0" width="120" height="120"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktail_logo" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-h9-ZXQ">
+                                        <rect key="frame" x="186.33333333333334" y="0.33333333333331439" width="120.00000000000003" height="96"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="dXf-AV-66F"/>
-                                            <constraint firstAttribute="width" secondItem="MPf-h9-ZXQ" secondAttribute="height" multiplier="1:1" id="p6U-ci-Y6Y"/>
+                                            <constraint firstAttribute="width" secondItem="MPf-h9-ZXQ" secondAttribute="height" multiplier="1:0.8" id="p6U-ci-Y6Y"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -50,7 +50,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xOL-zn-TF5" firstAttribute="centerX" secondItem="dcR-hy-DZI" secondAttribute="centerX" id="qYZ-7y-Ucs"/>
-                            <constraint firstItem="xOL-zn-TF5" firstAttribute="centerY" secondItem="dcR-hy-DZI" secondAttribute="centerY" multiplier="0.9" id="vYs-a2-XB8"/>
+                            <constraint firstItem="xOL-zn-TF5" firstAttribute="centerY" secondItem="dcR-hy-DZI" secondAttribute="centerY" id="vYs-a2-XB8"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -60,7 +60,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cocktail_logo" width="48" height="48"/>
+        <image name="cocktail_logo" width="1047" height="1201"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

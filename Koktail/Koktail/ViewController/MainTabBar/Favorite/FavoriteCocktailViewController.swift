@@ -41,25 +41,24 @@ class FavoriteCocktailViewController: UIViewController {
         cocktailCollectionView.refreshControl = indicator
         cocktailCollectionView.delegate = self
         cocktailCollectionView.dataSource = self
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        
-        flowLayout.sectionInset = UIEdgeInsets(top: 20,
-                                               left: 20,
-                                               bottom: 60,
-                                               right: 20)
-        flowLayout.minimumInteritemSpacing = 10
-        flowLayout.minimumLineSpacing = 10
-        
-        let width = UIScreen.main.bounds.width / 2.5
-        let height = UIScreen.main.bounds.height / 4
-        
-        flowLayout.itemSize = CGSize(width: width, height: height)
-        
+
+        self.cocktailCollectionView.register(
+            UINib(nibName: EmptyFavoriteCocktailCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: EmptyFavoriteCocktailCollectionViewCell.identifier)
+
         self.cocktailCollectionView.register(
             UINib(nibName: FavoriteCocktailCollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier:
                 FavoriteCocktailCollectionViewCell.identifier)
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        
+        flowLayout.sectionInset = UIEdgeInsets(top: 30,
+                                               left: 20,
+                                               bottom: 50,
+                                               right: 20)
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumLineSpacing = 10
 
         self.cocktailCollectionView.collectionViewLayout = flowLayout
     }
@@ -107,23 +106,31 @@ class FavoriteCocktailViewController: UIViewController {
 }
 
 // MARK: - Collection View
-extension FavoriteCocktailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FavoriteCocktailViewController: UICollectionViewDelegate,
+                                          UICollectionViewDelegateFlowLayout,
+                                          UICollectionViewDataSource {
     
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        if cocktails.isEmpty {
-            collectionView.setEmptyView(
-                title: "찜한 칵테일이 없습니다.",
-                message: "마음에 드는 칵테일을 찜해보세요.",
-                image: UIImage(named: "empty_folder") ?? UIImage()
-            )
-        } else {
-            collectionView.deleteEmptyView()
-        }
+        if cocktails.isEmpty { return 1 }
         
         return cocktails.count
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        if self.cocktails.isEmpty {
+            return CGSize(width: self.view.bounds.width * 0.8,
+                          height: 350)
+        } else {
+            return CGSize(width: self.view.bounds.width / 2.5, height: self.view.bounds.height / 3)
+        }
+        
     }
     
     func collectionView(
@@ -131,19 +138,32 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate, UICollection
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: FavoriteCocktailCollectionViewCell.identifier,
-                for: indexPath)
-                as? FavoriteCocktailCollectionViewCell else {
-            return UICollectionViewCell()
+        if cocktails.isEmpty {
+            guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: EmptyFavoriteCocktailCollectionViewCell.identifier,
+                    for: indexPath)
+                    as? EmptyFavoriteCocktailCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+
+            cell.makeCell()
+            return cell
+            
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: FavoriteCocktailCollectionViewCell.identifier,
+                    for: indexPath)
+                    as? FavoriteCocktailCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+
+            cell.makeCell(cocktail: cocktails[indexPath.row])
+            return cell
         }
-
-        cell.makeCell(cocktail: cocktails[indexPath.row])
-
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 이때 클릭되는 느낌 주기!
         let cocktailDetailViewController = CocktailDetailViewController()
         let cocktailInformation: CocktailInfo = CocktailInfo(cocktailId: self.cocktails[indexPath.row].id,
                                                              image: self.cocktails[indexPath.row].image,
