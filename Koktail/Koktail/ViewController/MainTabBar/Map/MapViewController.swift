@@ -295,38 +295,11 @@ extension MapViewController: GMSMapViewDelegate {
         let placeName = placeList.filter { $0.name == marker.title }.map {$0.place_id}
         let place = PlaceDetailViewController()
         
-        place.modalPresentationStyle = .custom
-        place.transitioningDelegate = self
+        place.modalPresentationStyle = .overCurrentContext
         place.placeName = placeName.first!
         
         self.present(place, animated: true)
         
         return true
-    }
-}
-
-extension MapViewController: UIViewControllerTransitioningDelegate {
-    func presentationController(
-        forPresented presented: UIViewController,
-        presenting: UIViewController?,
-        source: UIViewController
-    ) -> UIPresentationController? {
-        return HalfSizePresentationController(
-            presentedViewController: presented,
-            presenting: presentingViewController
-        )
-    }
-   
-}
-
-class HalfSizePresentationController: UIPresentationController {
-    override var frameOfPresentedViewInContainerView: CGRect {
-        guard let bounds = containerView?.bounds else { return .zero }
-        return CGRect(
-            x: 0,
-            y: bounds.height / 2,
-            width: bounds.width,
-            height: bounds.height / 2
-        )
     }
 }

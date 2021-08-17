@@ -8,13 +8,35 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RealmSwift
+import SnapKit
 
 class PlaceDetailViewController: UIViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var placeDetailTable: UITableView!
-    @IBOutlet weak var favorite: UIButton!
+    // view
+    private lazy var placeDetailTable = UITableView()
+    
+    private lazy var containerView = UIView().then {
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 16
+        $0.clipsToBounds = true
+    }
+    
+    let maxDimmedAlpha: CGFloat = 0.6
+    lazy var dimmedView = UIView().then {
+        $0.backgroundColor = .black
+        $0.alpha = maxDimmedAlpha
+    }
+    
+    // Constants
+    private let defaultHeight: CGFloat = 300
+    private let dismissibleHeight: CGFloat = 200
+    private let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
+    private var currentContainerHeight: CGFloat = 300
+    
+    // Dynamic container constraint
+    private var containerViewHeightConstraint: NSLayoutConstraint?
+    private var containerViewBottomConstraint: NSLayoutConstraint?
     
     // data
     public var placeName: String?
@@ -26,73 +48,23 @@ class PlaceDetailViewController: UIViewController {
     // RxSwift
     private let disposeBag = DisposeBag()
     
-    // realm
-    private var realm: Realm?
-    private var storeList: Results<StoreData>?
-    private var storeData: StoreData?
-    
-    // MARK: - Action
-    @IBAction func cancel(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
-    @IBAction func favorite(_ sender: Any) {
-        saveData()
-    }
-    
     // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        setupConstraints()
+        setupPanGesture()
         setTableView()
         
         bindNetworkingState()
         requestPlaceDetail(place_id: self.placeName!)
     }
     
-    // MARK: - Set Realm
-    private func loadRealm() {
-        guard let placeDetail = self.placeDetail else { return }
-        
-        realm = try? Realm()
-        print("realm file: \(Realm.Configuration.defaultConfiguration.fileURL!)")
-        
-        if let store = realm!.objects(StoreData.self).filter(
-            NSPredicate(
-                format: "store_title = %@",
-                placeDetail.result.name
-            )
-        ).first {
-            favorite.setImage(UIImage(named: "favorite"), for: .normal)
-            self.storeData = store
-        } else {
-            favorite.setImage(UIImage(named: "favorite_border"), for: .normal)
-        }
-    }
-        
-    private func saveData() {
-        guard let placeDetail = self.placeDetail else { return }
-        
-        if let store = self.storeData {
-            try? realm?.write {
-                realm?.delete(store)
-            }
-            favorite.setImage(UIImage(named: "favorite_border"), for: .normal)
-        } else {
-            let store = StoreData().then {
-                $0.store_title = placeDetail.result.name
-                $0.store_website = placeDetail.result.website
-                $0.store_phone = placeDetail.result.formatted_phone_number
-                $0.store_address = placeDetail.result.formatted_address
-                $0.store_rating = "\(placeDetail.result.rating)"
-            }
-            
-            try? realm?.write {
-                realm?.add(store)
-            }
-            
-            favorite.setImage(UIImage(named: "favorite"), for: .normal)
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateShowDimmedView()
+        animatePresentContainer()
     }
     
     // MARK: - Set Table View
@@ -135,7 +107,6 @@ class PlaceDetailViewController: UIViewController {
             .drive { placeDetail in
                 self.placeDetail = placeDetail
                 self.placeDetailTable.reloadData()
-                self.loadRealm()
             }.disposed(by: disposeBag)
         
         placeDetailViewModel.state.fail
@@ -196,6 +167,7 @@ extension PlaceDetailViewController: UITableViewDelegate, UITableViewDataSource 
                 return UITableViewCell()
             }
             cell.makeCell(place: placeDetail.result)
+            cell.placeDetail = placeDetail
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(
@@ -218,5 +190,126 @@ extension PlaceDetailViewController: UITableViewDelegate, UITableViewDataSource 
         default:
             return UITableViewCell()
         }
+    }
+}
+
+// MARK: - Modal
+extension PlaceDetailViewController {
+    
+    // MARK: - objc Action
+    @objc func handleCloseAction() {
+        animateDismissView()
+    }
+    
+    @objc func handlePanGesture(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+        let isDraggingDown = translation.y > 0
+        let newHeight = currentContainerHeight - translation.y
+        
+        switch gesture.state {
+        case .changed:
+            if newHeight < maximumContainerHeight {
+                containerViewHeightConstraint?.constant = newHeight
+                view.layoutIfNeeded()
+            }
+        case .ended:
+            if newHeight < dismissibleHeight {
+                self.animateDismissView()
+            } else if newHeight < defaultHeight {
+                animateContainerHeight(defaultHeight)
+            } else if newHeight < maximumContainerHeight && isDraggingDown {
+                animateContainerHeight(defaultHeight)
+            } else if newHeight > defaultHeight && !isDraggingDown {
+                animateContainerHeight(maximumContainerHeight)
+            }
+        default:
+            break
+        }
+    }
+    
+    private func setupView() {
+        view.backgroundColor = .clear
+    }
+    
+    private func setupConstraints() {
+        view.addSubview(dimmedView)
+        view.addSubview(containerView)
+        dimmedView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.addSubview(placeDetailTable)
+        placeDetailTable.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            // set dimmedView edges to superview
+            dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
+            dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            // set container static constraint (trailing & leading)
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            // content stackView
+            placeDetailTable.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
+            placeDetailTable.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+            placeDetailTable.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+            placeDetailTable.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20)
+        ])
+
+        containerViewHeightConstraint = containerView.heightAnchor.constraint(
+            equalToConstant: defaultHeight
+        )
+        containerViewBottomConstraint = containerView.bottomAnchor.constraint(
+            equalTo: view.bottomAnchor,
+            constant: defaultHeight
+        )
+        
+        containerViewHeightConstraint?.isActive = true
+        containerViewBottomConstraint?.isActive = true
+    }
+    
+    private func setupPanGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCloseAction))
+        dimmedView.addGestureRecognizer(tapGesture)
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(gesture:)))
+        panGesture.delaysTouchesBegan = false
+        panGesture.delaysTouchesEnded = false
+        view.addGestureRecognizer(panGesture)
+    }
+    
+    // MARK: Present and dismiss animation
+    private func animatePresentContainer() {
+        UIView.animate(withDuration: 0.3) {
+            self.containerViewBottomConstraint?.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func animateShowDimmedView() {
+        dimmedView.alpha = 0
+        self.dimmedView.alpha = self.maxDimmedAlpha
+    }
+    
+    private func animateDismissView() {
+        dimmedView.alpha = maxDimmedAlpha
+        UIView.animate(withDuration: 0.3) {
+            self.dimmedView.alpha = 0
+        } completion: { _ in
+            self.dismiss(animated: false)
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.containerViewBottomConstraint?.constant = self.defaultHeight
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func animateContainerHeight(_ height: CGFloat) {
+        UIView.animate(withDuration: 0.3) {
+            self.containerViewHeightConstraint?.constant = height
+            self.view.layoutIfNeeded()
+        }
+        currentContainerHeight = height
     }
 }

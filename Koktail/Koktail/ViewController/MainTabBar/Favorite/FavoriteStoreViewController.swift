@@ -45,14 +45,21 @@ class FavoriteStoreViewController: UIViewController {
         storeTableView.refreshControl = indicator
         storeTableView.delegate = self
         storeTableView.dataSource = self
+        storeTableView.tableFooterView = UIView()
+        storeTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         
         storeTableView.register(
             UINib(nibName: FavoriteStoreTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: FavoriteStoreTableViewCell.identifier
         )
+        
+        storeTableView.register(
+            UINib(nibName: FavoriteStoreEmptyTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: FavoriteStoreEmptyTableViewCell.identifier
+        )
     }
     
-    // MARK: - Set Realm
+    // MARK: - Load Realm
     private func loadRealm() {
         realm = try? Realm()
         print("realm file: \(Realm.Configuration.defaultConfiguration.fileURL!)")
@@ -67,20 +74,40 @@ class FavoriteStoreViewController: UIViewController {
 
 extension FavoriteStoreViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeList?.count ?? 0
+        guard let storeList = self.storeList else { return 0 }
+        
+        if storeList.isEmpty {
+            return 1
+        } else {
+            return storeList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let storeList = self.storeList else { return UITableViewCell() }
         
-        guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: FavoriteStoreTableViewCell.identifier,
-                for: indexPath
-        ) as? FavoriteStoreTableViewCell else {
-            return UITableViewCell()
+        if storeList.isEmpty {
+            tableView.separatorStyle = .none
+            
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: FavoriteStoreEmptyTableViewCell.identifier,
+                    for: indexPath
+            ) as? FavoriteStoreEmptyTableViewCell else {
+                return UITableViewCell()
+            }
+            return cell
+        } else {
+            tableView.separatorStyle = .singleLine
+            
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: FavoriteStoreTableViewCell.identifier,
+                    for: indexPath
+            ) as? FavoriteStoreTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.makeCell(store: storeList[indexPath.row])
+            return cell
         }
-        cell.makeCell(store: storeList[indexPath.row])
-        return cell
     }
     
     func tableView(
@@ -90,11 +117,41 @@ extension FavoriteStoreViewController: UITableViewDelegate, UITableViewDataSourc
     ) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             guard let storeList = self.storeList else { return }
-            try? realm?.write {
-                realm?.delete(storeList[indexPath.row])
-            }
+            guard let realm = self.realm else { return }
             
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            if storeList.count == 1 {
+                let subject = storeList[indexPath.row]
+                try? realm.write {
+                    realm.delete(subject)
+                }
+                loadRealm()
+                tableView.reloadData()
+            } else {
+                try? realm.write {
+                    realm.delete(storeList[indexPath.row])
+                }
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let storeList = self.storeList else { return 0 }
+        
+        if storeList.isEmpty {
+            return 422
+        } else {
+            return 250
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        guard let storeList = self.storeList else { return 0 }
+        
+        if storeList.isEmpty {
+            return 0.1
+        } else {
+            return 1
         }
     }
 }
