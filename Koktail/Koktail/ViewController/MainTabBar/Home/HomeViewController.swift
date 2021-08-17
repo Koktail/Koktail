@@ -10,17 +10,15 @@ import Alamofire
 import SwiftyJSON
 
 class HomeViewController: UIViewController {
-    var imageArray = [UIImage(named: "cocktail"), UIImage(named: "cocktail"),
-                      UIImage(named: "cocktail"), UIImage(named: "cocktail"),
-                      UIImage(named: "cocktail"), UIImage(named: "cocktail"),
-                      UIImage(named: "cocktail"), UIImage(named: "cocktail"),
-                      UIImage(named: "cocktail"), UIImage(named: "cocktail")]
-    
+    var imageArray: [String] = []
     var apiResponseName: [String]?
     var apiResponseAlchol: [String]?
     var apiResponseImage: [String] = []
     var apiResponseID: [Int] = []
     let semaphore = DispatchSemaphore(value: 0)
+    var todayCocktailName: String?
+    var todayCocktailId: Int?
+    var todayCocktailAlcohol :String?
     
     @IBOutlet weak var recommendBtn: UIButton!
     @IBOutlet weak var todayCocktail: UIImageView!
@@ -39,6 +37,7 @@ class HomeViewController: UIViewController {
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,6 +84,21 @@ class HomeViewController: UIViewController {
                     switch response.result {
                     case .success(let value):
                         let json = JSON(value)
+                        self.todayCocktailId = json["data"]["todayCocktail"]["cocktailId"].int
+                        self.todayCocktailName = json["data"]["todayCocktail"]["name"].string
+                        self.todayCocktailAlcohol = json["data"]["todayCocktail"]["alcohol"].string
+                        if let todayImage = json["data"]["todayCocktail"]["image"].string {
+                            OperationQueue().addOperation {
+                                let url = URL(string: todayImage)
+                                let data = try? Data(contentsOf: url!)
+                                OperationQueue.main.addOperation {
+                                    self.todayCocktail.image = UIImage(data: data!)
+                                    self.todayCocktail.roundCorners(corners: [.topLeft, .topRight,
+                                                                              .bottomLeft, .bottomRight],
+                                                                    radius: 20)
+                                }
+                            }
+                        }
                         print(json)
                         if let cocktailArray = json["data"]["cocktail"].array {
                             self.apiResponseName = []
@@ -100,7 +114,9 @@ class HomeViewController: UIViewController {
                                 if let id = cocktailArray[i]["cocktailId"].int {
                                     self.apiResponseID.append(id)
                                 }
-                                self.apiResponseImage.append("null")
+                                if let img = cocktailArray[i]["image"].string {
+                                    self.imageArray.append(img)
+                                }
                             }
                             self.collectionView.reloadData()
                         }
@@ -116,7 +132,7 @@ class HomeViewController: UIViewController {
         self.navigationItem.title = "홈화면"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.barTintColor =
-            UIColor(red: 199.0/255.0, green: 116.0/255.0, blue: 104.0/255.0, alpha: 0.0)
+            UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)
     }
     
     func setCollectionView() {
@@ -141,6 +157,22 @@ class HomeViewController: UIViewController {
                                                  relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
                                                  multiplier: 1.0, constant: self.view.frame.height * 0.5)
         self.todayCocktail.addConstraints([heightConstraint, widthConstraint])
+        self.todayCocktail.isUserInteractionEnabled = true
+        let event = UITapGestureRecognizer(target: self, action: #selector(self.touchToPickPhoto))
+        self.todayCocktail.addGestureRecognizer(event)
+        
+    }
+    
+    @objc func touchToPickPhoto() {
+        let detailVC = CocktailDetailViewController()
+        let cocktail: CocktailInfo = CocktailInfo(cocktailId: UInt64(todayCocktailId ?? 0),
+                                                  image: "null",
+                                                  name: todayCocktailName ?? "null",
+                                                  alcohol: todayCocktailAlcohol ?? "10"
+                                                  )
+        detailVC.cocktailInfo = cocktail
+
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }
@@ -148,7 +180,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
@@ -170,14 +202,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
 
         }
-        cell.cocktailImg.image = imageArray[indexPath.row]
+        OperationQueue().addOperation {
+            let url = URL(string: self.imageArray[indexPath.row])
+            let data = try? Data(contentsOf: url!)
+            OperationQueue.main.addOperation {
+                cell.cocktailImg.image = UIImage(data: data!)
+            }
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(self.apiResponseImage)
         let detailVC = CocktailDetailViewController()
         let cocktail: CocktailInfo = CocktailInfo(cocktailId: UInt64(apiResponseID[indexPath.row]),
-                                                  image: apiResponseImage[indexPath.row],
+                                                  image: imageArray[indexPath.row],
                                                   name: apiResponseName?[indexPath.row] ?? "null",
                                                   alcohol: apiResponseAlchol?[indexPath.row] ?? "null"
                                                   )

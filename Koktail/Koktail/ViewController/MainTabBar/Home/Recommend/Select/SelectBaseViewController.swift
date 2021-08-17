@@ -19,11 +19,6 @@ class SelectBaseViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        for recognizer in UIViewController.recog{
-//            recognizer.isEnabled = false
-//        }
-        
-//        self.navigationController?.gest
     }
    
     @IBAction func nonBtnPress(_ sender: Any) {
@@ -31,6 +26,8 @@ class SelectBaseViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.nullBaseButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func VodkaBtnPress(_ sender: Any) {
@@ -38,6 +35,8 @@ class SelectBaseViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.VodkaBaseButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func GinBtnPress(_ sender: Any) {
@@ -45,6 +44,8 @@ class SelectBaseViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.GinBaseButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func RumBtnPress(_ sender: Any) {
@@ -52,6 +53,8 @@ class SelectBaseViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.RumBaseButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func WiskyBtnPress(_ sender: Any) {
@@ -59,6 +62,8 @@ class SelectBaseViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.WiskyBaseButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func TequilaBtnPress(_ sender: Any) {
@@ -66,11 +71,23 @@ class SelectBaseViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.TequilaBaseButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func prevButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func setButtonWhite() {
+        self.nullBaseButton.backgroundColor = UIColor.white
+        self.GinBaseButton.backgroundColor = UIColor.white
+        self.RumBaseButton.backgroundColor = UIColor.white
+        self.TequilaBaseButton.backgroundColor = UIColor.white
+        self.WiskyBaseButton.backgroundColor = UIColor.white
+        self.VodkaBaseButton.backgroundColor = UIColor.white
+    }
+    
 }
 // MARK: - 버튼 클래스
 class SelectButton: UIButton {
@@ -99,7 +116,7 @@ class PgControll: UIPageControl {
             super.init(coder: aDecoder)
         
         self.currentPageIndicatorTintColor =
-            UIColor(red: 199.0/255.0, green: 116.0/255.0, blue: 104.0/255.0, alpha: 1.0)
+            UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)
         self.pageIndicatorTintColor = .systemGray
         }
 }
@@ -107,7 +124,7 @@ class PgControll: UIPageControl {
 class PreviousButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
-        self.backgroundColor = UIColor(red: 199/255, green: 116/255, blue: 104/255, alpha: 1)
+        self.backgroundColor = UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)
         self.setTitleColor(UIColor.white, for: .normal)
         self.layer.cornerRadius = 15
         self.setTitle(" < prev ", for: UIControl.State.normal)

@@ -24,6 +24,8 @@ class SelectAlcholViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.NonAlcholBaseButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func MiddleBtnPress(_ sender: Any) {
@@ -31,6 +33,8 @@ class SelectAlcholViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.MiddleAlcholButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func HighBtnPress(_ sender: Any) {
@@ -38,6 +42,8 @@ class SelectAlcholViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.HighAlcholButton.backgroundColor = UIColor.lightGray
     }
     @IBAction func prevButton(_ sender: Any) {
         if let parentVC = self.parent as? SelectPageViewController {
@@ -45,14 +51,10 @@ class SelectAlcholViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setButtonWhite() {
+        self.NonAlcholBaseButton.backgroundColor = UIColor.white
+        self.MiddleAlcholButton.backgroundColor = UIColor.white
+        self.HighAlcholButton.backgroundColor = UIColor.white
     }
-    */
 
 }
