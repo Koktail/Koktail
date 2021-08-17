@@ -7,21 +7,43 @@
 
 import UIKit
 import FloatRatingView
+import RealmSwift
 
 class PlaceTitleTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
     @IBOutlet weak var placeTitle: UILabel!
     @IBOutlet weak var placeRating: UILabel!
     @IBOutlet weak var ratingView: FloatRatingView!
     @IBOutlet weak var reviews: UILabel!
     @IBOutlet weak var placeType: UILabel!
+    @IBOutlet weak var favorite: UIButton!
     
+    // identifier
     public static let identifier = "PlaceTitleTableViewCell"
     
+    // realm
+    private var realm: Realm?
+    private var storeData: StoreData?
+    
+    // data
+    public var placeDetail: PlaceDetail? {
+        didSet {
+            loadRealm()
+        }
+    }
+    
+    // MARK: - Action
+    @IBAction func favorite(_ sender: Any) {
+        saveData()
+    }
+    
+    // MARK: - Override Method
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
+    // MARK: - Set Cell
     public func makeCell(place: Detail) {
         placeTitle.text = place.name
         placeRating.text = "\(place.rating)"
@@ -43,5 +65,55 @@ class PlaceTitleTableViewCell: UITableViewCell {
         ratingView.fullImage = UIImage(named: "ic_star_full")!
         
         ratingView.rating = rating
+    }
+    
+    // MARK: - Set Realm
+    private func loadRealm() {
+        guard let placeDetail = self.placeDetail else { return }
+        
+        realm = try? Realm()
+        print("realm file: \(Realm.Configuration.defaultConfiguration.fileURL!)")
+        
+        if let store = realm!.objects(StoreData.self).filter(
+            NSPredicate(
+                format: "store_title = %@",
+                placeDetail.result.name
+            )
+        ).first {
+            favorite.setImage(UIImage(named: "favorite"), for: .normal)
+            self.storeData = store
+        } else {
+            favorite.setImage(UIImage(named: "favorite_border"), for: .normal)
+        }
+    }
+    
+    private func saveData() {
+        guard let placeDetail = self.placeDetail else { return }
+        
+        if let store = self.storeData {
+            try? realm?.write {
+                realm?.delete(store)
+            }
+            
+            self.storeData = nil
+            
+            favorite.setImage(UIImage(named: "favorite_border"), for: .normal)
+        } else {
+            let store = StoreData().then {
+                $0.store_title = placeDetail.result.name
+                $0.store_website = placeDetail.result.website
+                $0.store_phone = placeDetail.result.formatted_phone_number
+                $0.store_address = placeDetail.result.formatted_address
+                $0.store_rating = "\(placeDetail.result.rating)"
+            }
+            
+            try? realm?.write {
+                realm?.add(store)
+            }
+            
+            self.storeData = store
+            
+            favorite.setImage(UIImage(named: "favorite"), for: .normal)
+        }
     }
 }

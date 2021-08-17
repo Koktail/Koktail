@@ -59,7 +59,7 @@ class FavoriteStoreViewController: UIViewController {
         )
     }
     
-    // MARK: - Set Realm
+    // MARK: - Load Realm
     private func loadRealm() {
         realm = try? Realm()
         print("realm file: \(Realm.Configuration.defaultConfiguration.fileURL!)")
@@ -87,7 +87,6 @@ extension FavoriteStoreViewController: UITableViewDelegate, UITableViewDataSourc
         guard let storeList = self.storeList else { return UITableViewCell() }
         
         if storeList.isEmpty {
-            tableView.isScrollEnabled = false
             tableView.separatorStyle = .none
             
             guard let cell = tableView.dequeueReusableCell(
@@ -98,7 +97,6 @@ extension FavoriteStoreViewController: UITableViewDelegate, UITableViewDataSourc
             }
             return cell
         } else {
-            tableView.isScrollEnabled = true
             tableView.separatorStyle = .singleLine
             
             guard let cell = tableView.dequeueReusableCell(
@@ -119,11 +117,21 @@ extension FavoriteStoreViewController: UITableViewDelegate, UITableViewDataSourc
     ) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             guard let storeList = self.storeList else { return }
-            try? realm?.write {
-                realm?.delete(storeList[indexPath.row])
-            }
+            guard let realm = self.realm else { return }
             
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            if storeList.count == 1 {
+                let subject = storeList[indexPath.row]
+                try? realm.write {
+                    realm.delete(subject)
+                }
+                loadRealm()
+                tableView.reloadData()
+            } else {
+                try? realm.write {
+                    realm.delete(storeList[indexPath.row])
+                }
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            }
         }
     }
     

@@ -49,12 +49,25 @@
                             <constraint firstAttribute="height" constant="30" id="fxM-OF-Noy"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfL-Hp-qVD">
+                        <rect key="frame" x="290" y="10" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="cDs-Zh-sJ5"/>
+                            <constraint firstAttribute="width" constant="25" id="fSP-GI-fgn"/>
+                        </constraints>
+                        <state key="normal" image="favorite_border"/>
+                        <connections>
+                            <action selector="favorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HyF-NY-h78"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zRP-dd-Lvy" firstAttribute="leading" secondItem="qWz-ue-3fP" secondAttribute="trailing" constant="10" id="2rO-bm-jmF"/>
                     <constraint firstItem="lvn-H7-fX9" firstAttribute="leading" secondItem="9cQ-vW-Ghk" secondAttribute="leading" id="3Xe-I3-Ptx"/>
                     <constraint firstItem="9cQ-vW-Ghk" firstAttribute="leading" secondItem="jB1-zd-38i" secondAttribute="leading" id="4sK-kn-T14"/>
                     <constraint firstItem="qWz-ue-3fP" firstAttribute="centerY" secondItem="9cQ-vW-Ghk" secondAttribute="centerY" id="ANG-Oh-shx"/>
+                    <constraint firstItem="hfL-Hp-qVD" firstAttribute="centerY" secondItem="jB1-zd-38i" secondAttribute="centerY" id="Bsn-6D-uFU"/>
+                    <constraint firstAttribute="trailing" secondItem="hfL-Hp-qVD" secondAttribute="trailing" constant="5" id="Fxr-D4-oMe"/>
                     <constraint firstItem="lvn-H7-fX9" firstAttribute="top" secondItem="9cQ-vW-Ghk" secondAttribute="bottom" constant="5" id="O3F-4A-bVd"/>
                     <constraint firstItem="9cQ-vW-Ghk" firstAttribute="top" secondItem="jB1-zd-38i" secondAttribute="bottom" constant="8" symbolic="YES" id="PMz-wy-K77"/>
                     <constraint firstItem="jB1-zd-38i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZQd-xY-4H5"/>
@@ -66,6 +79,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="favorite" destination="hfL-Hp-qVD" id="Hok-gl-nEU"/>
                 <outlet property="placeRating" destination="9cQ-vW-Ghk" id="lNW-De-Lqr"/>
                 <outlet property="placeTitle" destination="jB1-zd-38i" id="h4x-xS-efc"/>
                 <outlet property="placeType" destination="lvn-H7-fX9" id="Whp-em-2lj"/>
@@ -76,6 +90,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="favorite_border" width="36" height="36"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
