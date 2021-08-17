@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="segmentedControl" destination="Pva-fH-pGv" id="xtX-fA-Wrr"/>
                 <outlet property="tableView" destination="kBE-dy-zQQ" id="o4G-MF-BpS"/>
+                <outlet property="topSubView" destination="CNn-Nv-STQ" id="YFW-ap-FaM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,40 +21,52 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pva-fH-pGv">
-                    <rect key="frame" x="0.0" y="44" width="414" height="41"/>
-                    <color key="backgroundColor" red="0.96078431369999995" green="0.38431372549999998" blue="0.35294117650000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="q5Y-gm-q4K"/>
-                    </constraints>
-                    <segments>
-                        <segment title="Base"/>
-                        <segment title="Tag"/>
-                        <segment title="Alcohol Degree"/>
-                    </segments>
-                    <color key="tintColor" red="0.96078431372549022" green="0.38431372549019605" blue="0.3529411764705882" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
-                    <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <action selector="changeSegmentAction:" destination="-1" eventType="valueChanged" id="xw2-38-JVb"/>
-                    </connections>
-                </segmentedControl>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kBE-dy-zQQ">
-                    <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                    <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNn-Nv-STQ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <subviews>
+                        <segmentedControl autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pva-fH-pGv">
+                            <rect key="frame" x="0.0" y="60" width="414" height="41"/>
+                            <color key="backgroundColor" red="0.96470588239999999" green="0.47450980390000003" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="q5Y-gm-q4K"/>
+                            </constraints>
+                            <segments>
+                                <segment title="Base"/>
+                                <segment title="Tag"/>
+                                <segment title="Alcohol Degree"/>
+                            </segments>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="changeSegmentAction:" destination="-1" eventType="valueChanged" id="xw2-38-JVb"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96470588239999999" green="0.47450980390000003" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Pva-fH-pGv" firstAttribute="leading" secondItem="CNn-Nv-STQ" secondAttribute="leading" id="8EM-Tn-7pC"/>
+                        <constraint firstAttribute="height" constant="100" id="Mcq-84-m4w"/>
+                        <constraint firstAttribute="bottom" secondItem="Pva-fH-pGv" secondAttribute="bottom" id="NiE-NV-Kht"/>
+                        <constraint firstAttribute="trailing" secondItem="Pva-fH-pGv" secondAttribute="trailing" id="VLU-dC-ruY"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="kBE-dy-zQQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HfM-EV-OTm"/>
-                <constraint firstItem="Pva-fH-pGv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="LLh-4W-Oqs"/>
-                <constraint firstItem="Pva-fH-pGv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Qcj-Pw-hUR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pva-fH-pGv" secondAttribute="trailing" id="e1X-Fx-stl"/>
+                <constraint firstItem="CNn-Nv-STQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KPa-T8-JKy"/>
+                <constraint firstAttribute="trailing" secondItem="CNn-Nv-STQ" secondAttribute="trailing" id="ajK-T9-cPr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kBE-dy-zQQ" secondAttribute="bottom" id="gNe-ha-cWw"/>
+                <constraint firstItem="kBE-dy-zQQ" firstAttribute="top" secondItem="CNn-Nv-STQ" secondAttribute="bottom" id="gf6-nM-5jZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kBE-dy-zQQ" secondAttribute="trailing" id="jco-Bg-Ree"/>
-                <constraint firstItem="kBE-dy-zQQ" firstAttribute="top" secondItem="Pva-fH-pGv" secondAttribute="bottom" id="peA-8U-ojq"/>
+                <constraint firstItem="CNn-Nv-STQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="l9l-Dh-Eyf"/>
             </constraints>
-            <point key="canvasLocation" x="16" y="109"/>
+            <point key="canvasLocation" x="15.942028985507248" y="108.48214285714285"/>
         </view>
     </objects>
     <resources>
