@@ -11,10 +11,7 @@ import SwiftyJSON
 
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
-    var imageArray = [UIImage(named: "cocktail"), UIImage(named: "cocktail"),
-                      UIImage(named: "cocktail"), UIImage(named: "cocktail"),
-                      UIImage(named: "cocktail"), UIImage(named: "cocktail"),
-                      UIImage(named: "cocktail")]
+    var imageArray: [String] = []
     
     var resultName: [String]?
     var resultDescription: [String]?
@@ -41,7 +38,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        self.view.backgroundColor = UIColor(red: 209.0/255.0, green: 122.0/255.0, blue: 108.0/255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)
 
     }
     
@@ -81,11 +78,14 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 cell.layer.frame.size.height = 300
                 cell.headerBar.roundCorners(corners: [.topLeft, .topRight], radius: 20)
                 cell.headerBar.addShadow(offset: CGSize(width: 0, height: -4))
+                
                 return cell
             } else {
                 let cell: CocktailResultTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell")
                     as! CocktailResultTableViewCell
-                cell.CocktailImage?.image = UIImage(named: "cocktail")
+                let url = URL(string: imageArray[indexPath.row - 1])
+                let data = try? Data(contentsOf: url!)
+                cell.CocktailImage?.image = UIImage(data: data!)
                 cell.CocktailInfo?.text = "단맛, 과일, 높은 도수"
                 if self.resultName?.count != 0 {
                     cell.CocktailName.text = self.resultName?[indexPath.row - 1]
@@ -148,6 +148,9 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                 if let id = cocktailArray[i]["cocktailId"].int {
                                     print(id)
                                     self.resultID.append(id)
+                                }
+                                if let img = cocktailArray[i]["image"].string {
+                                    self.imageArray.append(img)
                                 }
                             }
                             self.tableView.reloadData()

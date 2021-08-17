@@ -23,40 +23,8 @@ class ReAuthenticateUserViewController: UIViewController {
     let remoteConfig = RemoteConfig.remoteConfig()
     
     // MARK: - Actions
-    private func isEveryInformationCorrect() -> Bool {
-        if let email = emailTextField.text,
-           let password = passwordTextField.text,
-           let checkPassword = checkPasswordTextField.text {
-            
-            if email == "" ||
-                password == "" ||
-                checkPassword == "" {
-                return false
-            }
-            
-            if email != UserDefaultsManager.userId {
-                return false
-            }
-            
-            if password != checkPassword {
-                return false
-            }
-            
-            // 유저 이메일에 따른 비밀번호 확인
-            var canSignIn: Bool = true
-            Auth.auth().signIn(withEmail: email,
-                               password: password) { _, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    self.showUserInfoNotCorrectAlert()
-                    canSignIn = false
-                }
-            }
-            
-            return canSignIn
-        }
-        
-        return true
+    @objc private func cancelEvent() {
+        self.dismiss(animated: true)
     }
     
     @objc private func showDeleteAlertEvent() {
@@ -80,6 +48,7 @@ class ReAuthenticateUserViewController: UIViewController {
         }
     }
     
+    // MARK: Networking
     private func requestDeleteAccount() {
         guard let user = Auth.auth().currentUser else {
             print("User Not Exist")
@@ -115,20 +84,63 @@ class ReAuthenticateUserViewController: UIViewController {
                         }
                         
                         print("Finally delete current user!")
-                        self.initUserAndBackLoginPage()
+                        self.deleteAccountAPI()
                     })
                 }
             }
             
             print("Delete current user---> check Firebase Auth")
-            self.initUserAndBackLoginPage()
+            self.deleteAccountAPI()
         })
     }
     
-    @objc private func cancelEvent() {
-        self.dismiss(animated: true)
-    }
+    private func deleteAccountAPI() {
+        let token = UserDefaultsManager.token
+        guard let url = URL(string: "http://3.36.149.10:55670/api/user/delete?token=\(token)") else {
+            print("Cannot create url")
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "DELETE"
 
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            if let error = error {
+                print("cannot send urlRequest")
+                print(error.localizedDescription)
+                return
+            }
+            
+            do {
+                let jsonObject = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                guard let object = jsonObject else {
+                    print("jsonObject is nil")
+                    return
+                }
+                
+                let code = object["code"] as? Int
+                let message = object["message"] as? String
+                
+                print("회원탈퇴: \(code!): \(message!)")
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+        
+        task.resume()
+        
+        UserDefaultsManager.userId = ""
+        UserDefaultsManager.token = ""
+        UserDefaultsManager.social = ""
+        
+        guard let window = self.view.window else {
+            return
+        }
+        
+        window.switchRootViewController(LoginViewController())
+    }
+    
     // MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -175,16 +187,41 @@ class ReAuthenticateUserViewController: UIViewController {
         textField.selectedLineHeight = 2.0
     }
     
-    private func initUserAndBackLoginPage() {
-        UserDefaultsManager.userId = ""
-        UserDefaultsManager.token = ""
-        UserDefaultsManager.social = ""
-        
-        guard let window = self.view.window else {
-            return
+    // MARK: - Custom Methods
+    private func isEveryInformationCorrect() -> Bool {
+        if let email = emailTextField.text,
+           let password = passwordTextField.text,
+           let checkPassword = checkPasswordTextField.text {
+            
+            if email == "" ||
+                password == "" ||
+                checkPassword == "" {
+                return false
+            }
+            
+            if email != UserDefaultsManager.userId {
+                return false
+            }
+            
+            if password != checkPassword {
+                return false
+            }
+            
+            // 유저 이메일에 따른 비밀번호 확인
+            var canSignIn: Bool = true
+            Auth.auth().signIn(withEmail: email,
+                               password: password) { _, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    self.showUserInfoNotCorrectAlert()
+                    canSignIn = false
+                }
+            }
+            
+            return canSignIn
         }
         
-        window.switchRootViewController(LoginViewController())
+        return true
     }
     
     private func showUserInfoNotCorrectAlert() {

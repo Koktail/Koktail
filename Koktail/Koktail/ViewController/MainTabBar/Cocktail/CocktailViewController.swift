@@ -13,6 +13,7 @@ class CocktailViewController: UIViewController {
     private var cocktailList:[String:[CocktailInfo]] = [:]
     
     // MARK: - Outlets
+    @IBOutlet weak var topSubView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
@@ -47,12 +48,11 @@ class CocktailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
         
-        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)], for: .selected)
-        segmentedControl.roundCorners(corners: UIRectCorner.init(), radius: 20)
+        topSubView.backgroundColor = UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)
         
+        setSegmentedControl()
     }
     
     // MARK: - Custom Methods
@@ -98,6 +98,16 @@ class CocktailViewController: UIViewController {
             }
 
         }.resume()
+    }
+    
+    private func setSegmentedControl(){
+        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)], for: .selected)
+        segmentedControl.backgroundColor = UIColor.clear
+        segmentedControl.setBackgroundImage(UIImage.init(), for: .normal, barMetrics: .default)
+        segmentedControl.setBackgroundImage(UIImage(named: "segmentedControlResource"), for: .selected, barMetrics: .default)
+        segmentedControl.setDividerImage(UIImage.init(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        segmentedControl.addShadow(offset: CGSize(width: 0, height: 0), color: .clear, opacity: 0.0, radius: 0)
     }
 }
 

@@ -17,7 +17,7 @@ class MainTabBarController: UITabBarController {
         self.tabBar.barTintColor = .white
         self.tabBar.isTranslucent = false
         self.tabBar.unselectedItemTintColor = UIColor.black
-        self.tabBar.tintColor = UIColor(red: 209.0/255.0, green: 122.0/255.0, blue: 108.0/255.0, alpha: 1.0)
+        self.tabBar.tintColor = UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)
         
     }
     

@@ -60,11 +60,7 @@ class CategoryTableViewCell: UITableViewCell {
         
         layout.itemSize = CGSize(width: 100, height: 150)
         layout.scrollDirection = .horizontal
-//
-//        backgroundView?.layer.borderWidth = 0.2
-//        backgroundView?.layer.cornerRadius=8
-//        backgroundView?.clipsToBounds=true
-//
+    
         previewCollectionView.collectionViewLayout = layout
     }
     
@@ -80,19 +76,7 @@ extension CategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "previewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
         
-        cell.imageView.image = UIImage(named: "cosmopolitan.jpeg")
-        cell.cocktailNameLabel.text = previews[indexPath.row].name
-        
-        switch previews[indexPath.row].alcohol {
-        case "HIGH":
-            cell.cocktailInfoLabel.text = "도수 : 🤪(상)"
-        case "MID":
-            cell.cocktailInfoLabel.text = "도수 : 🤤(중)"
-        case "LOW":
-            cell.cocktailInfoLabel.text = "도수 : 🙂(하)"
-        default:
-            break
-        }
+        cell.setCollectionViewCell(previews[indexPath.row])
         
         return cell
     }

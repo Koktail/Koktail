@@ -18,7 +18,7 @@ class CocktailDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var alcoholDegreeLabel: UILabel!
     @IBOutlet weak var baseLabel: UILabel!
-    @IBOutlet weak var likeLabel: UILabel!
+    @IBOutlet weak var TagLabel: UILabel!
     @IBOutlet weak var sweetSlider: UISlider!
     @IBOutlet weak var sourSlider: UISlider!
     @IBOutlet weak var bitterSlider: UISlider!
@@ -80,10 +80,14 @@ class CocktailDetailViewController: UIViewController {
                     self.isLiked = json.data!.isLiked
                     setNavigationButton()
                     
+                    if let imgURL = json.data?.image{
+                        setImgView(imgURL)
+                    }
+                    
                     self.descriptionLabel.text = json.data?.description
                     self.alcoholDegreeLabel.text = json.data?.alcohol
                     self.baseLabel.text = json.data?.base
-                    self.likeLabel.text = "+ 0"
+                    self.TagLabel.text = "#파티"
                     
                     setSliderValue(slider: sweetSlider, value: json.data!.sweet)
                     setSliderValue(slider: sourSlider, value: json.data!.sour)
@@ -98,6 +102,22 @@ class CocktailDetailViewController: UIViewController {
             }
 
         }.resume()
+    }
+    
+    private func setImgView(_ imgURL : String){
+        guard let url = URL(string: imgURL) else {
+            return
+        }
+        
+        do{
+            let data = try Data(contentsOf: url)
+            
+            DispatchQueue.main.async {
+                self.imageView.image = UIImage(data: data)
+            }
+        }catch{
+            return
+        }
     }
     
     private func setSliderValue(slider: UISlider, value: String) {

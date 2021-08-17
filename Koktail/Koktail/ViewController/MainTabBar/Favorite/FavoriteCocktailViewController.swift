@@ -12,59 +12,59 @@ class FavoriteCocktailViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var cocktailCollectionView: UICollectionView!
+    public var cocktails: [Cocktail] = []
     
-    var cocktails: [Cocktail] = []
+    // manage view
+    private var isFirstViewLoaded: Bool = true
+    private let indicator: UIRefreshControl = UIRefreshControl()
+    public var navigation: UINavigationController?
+    
+    // MARK: - Actions
+    @objc private func loadCocktails() {
+        print("refreshing... ")
+        
+        getFavoriteCocktail()
+    }
     
     // MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getFavoriteCocktail()
-        // initCocktail()
-        
-        setCollectionView(cocktailsEmpty: cocktails.isEmpty)
+        setCollectionView()
     }
     
     // MARK: - Set Collection View
-    private func setCollectionView(cocktailsEmpty: Bool) {
+    private func setCollectionView() {
+        indicator.addTarget(self,
+                            action: #selector(loadCocktails),
+                            for: .valueChanged)
+        
+        cocktailCollectionView.refreshControl = indicator
         cocktailCollectionView.delegate = self
         cocktailCollectionView.dataSource = self
+
+        self.cocktailCollectionView.register(
+            UINib(nibName: EmptyFavoriteCocktailCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: EmptyFavoriteCocktailCollectionViewCell.identifier)
+
+        self.cocktailCollectionView.register(
+            UINib(nibName: FavoriteCocktailCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier:
+                FavoriteCocktailCollectionViewCell.identifier)
         
         let flowLayout = UICollectionViewFlowLayout()
         
-        flowLayout.sectionInset = UIEdgeInsets(top: 20,
+        flowLayout.sectionInset = UIEdgeInsets(top: 30,
                                                left: 20,
-                                               bottom: 60,
+                                               bottom: 50,
                                                right: 20)
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 10
-        
-        if !cocktailsEmpty {
-            let width = UIScreen.main.bounds.width / 2.5
-            let height = UIScreen.main.bounds.height / 4
-            
-            flowLayout.itemSize = CGSize(width: width, height: height)
-            
-            self.cocktailCollectionView.register(
-                UINib(nibName: FavoriteCocktailCollectionViewCell.identifier, bundle: nil),
-                forCellWithReuseIdentifier:
-                    FavoriteCocktailCollectionViewCell.identifier)
-            
-        } else {
-            let width = UIScreen.main.bounds.width / 1.5
-            let height = UIScreen.main.bounds.height / 2
-            
-            flowLayout.itemSize = CGSize(width: width, height: height)
-            
-            self.cocktailCollectionView.register(
-                UINib(nibName: FavoriteCocktailEmptyCollectionViewCell.identifier, bundle: nil),
-                forCellWithReuseIdentifier:
-                    FavoriteCocktailEmptyCollectionViewCell.identifier)
-        }
-        
+
         self.cocktailCollectionView.collectionViewLayout = flowLayout
     }
-    
+        
     // MARK: - Networking
     func getFavoriteCocktail() {
         guard let url = URL(string: "http://3.36.149.10:55670/api/cocktail/like") else {
@@ -96,35 +96,45 @@ class FavoriteCocktailViewController: UIViewController {
                 
                 if json.code == 0 {
                     self.cocktails = json.favoriteCocktailList
+                    
+                    DispatchQueue.main.async {
+                        self.cocktailCollectionView.reloadData()
+                        self.indicator.endRefreshing()
+                        self.isFirstViewLoaded = false
+                    }
                 }
             }
         }.resume()
     }
-    
-    // MARK: - Test Method
-    func initCocktail() {
-        for idx in 1...9 {
-            let cocktail = Cocktail.init(id: UInt64(idx),
-                                         image: "",
-                                         name: "test\(idx) name",
-                                         alcohol: "14.5")
-            self.cocktails.append(cocktail)
-        }
-    }
 }
 
 // MARK: - Collection View
-extension FavoriteCocktailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FavoriteCocktailViewController: UICollectionViewDelegate,
+                                          UICollectionViewDelegateFlowLayout,
+                                          UICollectionViewDataSource {
     
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        if cocktails.isEmpty {
-            return 1
+        if self.isFirstViewLoaded { return 0 }
+        if cocktails.isEmpty { return 1 }
+        
+        return cocktails.count
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        if self.cocktails.isEmpty {
+            return CGSize(width: self.view.bounds.width * 0.8,
+                          height: 350)
         } else {
-            return cocktails.count
+            return CGSize(width: self.view.bounds.width / 2.5, height: self.view.bounds.height / 3)
         }
+        
     }
     
     func collectionView(
@@ -134,13 +144,15 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate, UICollection
         
         if cocktails.isEmpty {
             guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: FavoriteCocktailEmptyCollectionViewCell.identifier,
+                    withReuseIdentifier: EmptyFavoriteCocktailCollectionViewCell.identifier,
                     for: indexPath)
-                    as? FavoriteCocktailEmptyCollectionViewCell else {
+                    as? EmptyFavoriteCocktailCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            
+
+            cell.makeCell()
             return cell
+            
         } else {
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: FavoriteCocktailCollectionViewCell.identifier,
@@ -148,10 +160,20 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate, UICollection
                     as? FavoriteCocktailCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            
+
             cell.makeCell(cocktail: cocktails[indexPath.row])
-            
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cocktailDetailViewController = CocktailDetailViewController()
+        let cocktailInformation: CocktailInfo = CocktailInfo(cocktailId: self.cocktails[indexPath.row].id,
+                                                             image: self.cocktails[indexPath.row].image,
+                                                             name: self.cocktails[indexPath.row].name,
+                                                             alcohol: self.cocktails[indexPath.row].alcohol)
+        
+        cocktailDetailViewController.cocktailInfo = cocktailInformation
+        self.navigation?.pushViewController(cocktailDetailViewController, animated: true)
     }
 }

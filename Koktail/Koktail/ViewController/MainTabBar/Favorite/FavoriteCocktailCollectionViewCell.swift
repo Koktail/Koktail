@@ -11,6 +11,7 @@ class FavoriteCocktailCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Properties
     @IBOutlet weak var cocktailImageView: UIImageView!
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var cocktailNameLabel: UILabel!
     @IBOutlet weak var alchol: UILabel!
     
@@ -22,6 +23,8 @@ class FavoriteCocktailCollectionViewCell: UICollectionViewCell {
     }
     
     public func makeCell(cocktail: Cocktail) {
+        setImageView()
+        
         cocktailNameLabel.text = cocktail.name
         alchol.text = cocktail.fullAlcohol
         
@@ -39,5 +42,20 @@ class FavoriteCocktailCollectionViewCell: UICollectionViewCell {
                 cocktailImageView.image = UIImage(data: data)
             }
         }
+    }
+    
+    private func setImageView() {
+        self.cocktailImageView.contentMode = .scaleAspectFit
+        
+        self.cocktailImageView.layer.cornerRadius = 20
+        
+        self.view.layer.borderColor = UIColor.gray.cgColor
+        self.view.layer.borderWidth = 0.1
+        self.view.layer.cornerRadius = 20
+        
+        self.view.layer.shadowColor = UIColor.gray.cgColor
+        self.view.layer.shadowOpacity = 1.0
+        self.view.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        self.view.layer.shadowRadius = 2
     }
 }

@@ -16,8 +16,6 @@ class LoginViewController: UIViewController {
     private let tabBarViewController = MainTabBarController()
     private let loginPageViewController = LoginPageViewController()
     
-    private var logoImageView = UIImageView()
-    
     // firebase
     var remoteConfig: RemoteConfig!
     
@@ -25,25 +23,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: "#EE6E62")
         initRemoteConfig()
-        displayLogoImage()
     }
     
-    // MARK: - Custom Method
-    func displayLogoImage() {
-        // launch View에 logo 이미지 띄우기
-        self.view.addSubview(logoImageView)
-        logoImageView.snp.makeConstraints { (make) in
-            make.center.equalTo(self.view)
-            make.height.equalTo(200)
-            make.height.equalTo(200)
-        }
-        
-        logoImageView.contentMode = .scaleAspectFit
-        logoImageView.image = #imageLiteral(resourceName: "cocktail")
-    }
-    
-    func initRemoteConfig() {
+    // MARK: - Networking Firebase
+    private func initRemoteConfig() {
         remoteConfig = RemoteConfig.remoteConfig()
         
         let settings = RemoteConfigSettings()
@@ -55,7 +40,7 @@ class LoginViewController: UIViewController {
         
         remoteConfig.fetch(withExpirationDuration: TimeInterval(0)) { (status, error) in
             if status == .success {
-                print("Success")
+                print("Success remoteConfig fetched")
                 self.remoteConfig.activate()
             } else {
                 print("Config not fetched")
@@ -65,13 +50,14 @@ class LoginViewController: UIViewController {
         }
     }
 
-    func checkFirebaseState() {
-        let color = remoteConfig["splash_background"].stringValue
+    private func checkFirebaseState() {
         let caps = remoteConfig["splash_message_caps"].boolValue
         let message = remoteConfig["splash_message"].stringValue
         
         if caps {
-            let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+            let alert = UIAlertController(title: "알림",
+                                          message: message,
+                                          preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
                 exit(0)
             })
@@ -80,20 +66,18 @@ class LoginViewController: UIViewController {
         } else {
             decideNextView()
         }
-        
-        self.view.backgroundColor = UIColor(hex: color!)
     }
     
-    func decideNextView() {
+    // MARK: - Custom Methods
+    private func decideNextView() {
         if isUserLoggedIn() {
             self.view.window?.switchRootViewController(self.tabBarViewController)
         } else {
-            print("no user")
             self.view.window?.switchRootViewController(self.loginPageViewController)
         }
     }
     
-    func isUserLoggedIn() -> Bool {
+    private func isUserLoggedIn() -> Bool {
         if Auth.auth().currentUser != nil
             && UserDefaultsManager.userId != "" {
             return true
