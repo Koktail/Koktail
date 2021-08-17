@@ -22,6 +22,8 @@ class SelectSourViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.SourLowButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func MiddleBtnPress(_ sender: Any) {
@@ -29,6 +31,8 @@ class SelectSourViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.SourMiddleButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func HighBtnPress(_ sender: Any) {
@@ -36,10 +40,19 @@ class SelectSourViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.SourHighButton.backgroundColor = UIColor.lightGray
     }
+    
     @IBAction func prevButton(_ sender: Any) {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToPreviousPage()
         }
+    }
+    
+    func setButtonWhite() {
+        self.SourHighButton.backgroundColor = UIColor.white
+        self.SourMiddleButton.backgroundColor = UIColor.white
+        self.SourLowButton.backgroundColor = UIColor.white
     }
 }

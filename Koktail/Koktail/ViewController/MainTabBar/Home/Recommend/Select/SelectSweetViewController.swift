@@ -24,6 +24,8 @@ class SelectSweetViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.SweetLowButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func MiddleBtnPress(_ sender: Any) {
@@ -31,6 +33,8 @@ class SelectSweetViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.SweetMiddleButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func HighBtnPress(_ sender: Any) {
@@ -38,6 +42,8 @@ class SelectSweetViewController: UIViewController {
         if let parentVC = self.parent as? SelectPageViewController {
             parentVC.goToNextPage()
         }
+        setButtonWhite()
+        self.SweetHighButton.backgroundColor = UIColor.lightGray
     }
     @IBAction func prevButton(_ sender: Any) {
         if let parentVC = self.parent as? SelectPageViewController {
@@ -45,14 +51,9 @@ class SelectSweetViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setButtonWhite() {
+        self.SweetHighButton.backgroundColor = UIColor.white
+        self.SweetLowButton.backgroundColor = UIColor.white
+        self.SweetMiddleButton.backgroundColor = UIColor.white
     }
-    */
-
 }

@@ -20,18 +20,25 @@ class SelectDryViewController: UIViewController {
     @IBAction func LowBtnPress(_ sender: Any) {
         let vc = ResultViewController()
         dry = "LOW"
+        setButtonWhite()
+        self.DryLowButton.backgroundColor = UIColor.lightGray
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func MiddleBtnPress(_ sender: Any) {
         let vc = ResultViewController()
         dry = "MID"
+        setButtonWhite()
+        self.DryMiddleButton.backgroundColor = UIColor.lightGray
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     @IBAction func HighBtnPress(_ sender: Any) {
         let vc = ResultViewController()
         dry = "HIGH"
+        setButtonWhite()
+        self.DryHighButton.backgroundColor = UIColor.lightGray
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func prevButton(_ sender: Any) {
@@ -40,14 +47,10 @@ class SelectDryViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setButtonWhite() {
+        self.DryHighButton.backgroundColor = UIColor.white
+        self.DryMiddleButton.backgroundColor = UIColor.white
+        self.DryLowButton.backgroundColor = UIColor.white
     }
-    */
 
 }
