@@ -12,10 +12,12 @@ class FavoriteCocktailViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var cocktailCollectionView: UICollectionView!
-    var cocktails: [Cocktail] = []
+    public var cocktails: [Cocktail] = []
     
     // manage view
+    private var isFirstViewLoaded: Bool = true
     private let indicator: UIRefreshControl = UIRefreshControl()
+    public var navigation: UINavigationController?
     
     // MARK: - Actions
     @objc private func loadCocktails() {
@@ -62,7 +64,7 @@ class FavoriteCocktailViewController: UIViewController {
 
         self.cocktailCollectionView.collectionViewLayout = flowLayout
     }
-    
+        
     // MARK: - Networking
     func getFavoriteCocktail() {
         guard let url = URL(string: "http://3.36.149.10:55670/api/cocktail/like") else {
@@ -98,6 +100,7 @@ class FavoriteCocktailViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.cocktailCollectionView.reloadData()
                         self.indicator.endRefreshing()
+                        self.isFirstViewLoaded = false
                     }
                 }
             }
@@ -114,6 +117,7 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate,
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
+        if self.isFirstViewLoaded { return 0 }
         if cocktails.isEmpty { return 1 }
         
         return cocktails.count
@@ -163,7 +167,6 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // 이때 클릭되는 느낌 주기!
         let cocktailDetailViewController = CocktailDetailViewController()
         let cocktailInformation: CocktailInfo = CocktailInfo(cocktailId: self.cocktails[indexPath.row].id,
                                                              image: self.cocktails[indexPath.row].image,
@@ -171,8 +174,6 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate,
                                                              alcohol: self.cocktails[indexPath.row].alcohol)
         
         cocktailDetailViewController.cocktailInfo = cocktailInformation
-        self.present(cocktailDetailViewController, animated: true)
-        
-        // self.navigationController?.pushViewController(cocktailDetailViewController, animated: true)
+        self.navigation?.pushViewController(cocktailDetailViewController, animated: true)
     }
 }
