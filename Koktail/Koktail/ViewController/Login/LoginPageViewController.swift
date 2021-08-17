@@ -68,14 +68,10 @@ class LoginPageViewController: UIViewController, UIGestureRecognizerDelegate {
         
         if AuthApi.hasToken() {
             UserApi.shared.accessTokenInfo { _, error in
-                if let error = error {
+                if error != nil {
                     print("________ login error ________")
                     
-                    if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true {
-                        self.checkKaKaoTalkAppIsAvailable()
-                    } else {
-                        print(error.localizedDescription)
-                    }
+                    self.checkKaKaoTalkAppIsAvailable()
                 } else {
                     print("accessTokenInfo ok")
                     // token close and sign up

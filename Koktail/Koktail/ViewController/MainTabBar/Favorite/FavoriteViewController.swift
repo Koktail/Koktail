@@ -29,6 +29,8 @@ class FavoriteViewController: UIViewController {
         let cocktailView = FavoriteCocktailViewController()
         let storeView = FavoriteStoreViewController()
         
+        cocktailView.navigation = self.navigationController
+        
         items.append(cocktailView)
         items.append(storeView)
     }

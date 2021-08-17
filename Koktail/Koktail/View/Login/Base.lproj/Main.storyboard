@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZPQ-gn-MzI">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,18 +13,54 @@
             <objects>
                 <viewController id="ZPQ-gn-MzI" customClass="LoginViewController" customModule="Koktail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcR-hy-DZI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="xOL-zn-TF5">
+                                <rect key="frame" x="42" y="373.66666666666669" width="306.33333333333331" height="96.666666666666686"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2MS-xx-2Xi">
+                                        <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="96.666666666666671"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="칵테일 콕! 찾아줄게" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP4-3w-8oA">
+                                                <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="25.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="콕!  테일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pe-J7-uzy">
+                                                <rect key="frame" x="0.0" y="40.333333333333314" width="161.33333333333334" height="56.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="47"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktail_logo" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-h9-ZXQ">
+                                        <rect key="frame" x="186.33333333333334" y="0.33333333333331439" width="120.00000000000003" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="dXf-AV-66F"/>
+                                            <constraint firstAttribute="width" secondItem="MPf-h9-ZXQ" secondAttribute="height" multiplier="1:0.8" id="p6U-ci-Y6Y"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="BLd-R0-QWT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xOL-zn-TF5" firstAttribute="centerX" secondItem="dcR-hy-DZI" secondAttribute="centerX" id="qYZ-7y-Ucs"/>
+                            <constraint firstItem="xOL-zn-TF5" firstAttribute="centerY" secondItem="dcR-hy-DZI" secondAttribute="centerY" id="vYs-a2-XB8"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKg-IL-kLu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="119"/>
+            <point key="canvasLocation" x="0.0" y="118.00947867298578"/>
         </scene>
     </scenes>
     <resources>
+        <image name="cocktail_logo" width="1047" height="1201"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

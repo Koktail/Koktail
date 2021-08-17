@@ -85,8 +85,8 @@
 		9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */; };
 		9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */; };
 		9FB2455126A9A19900F6EA07 /* GetEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */; };
-		9FF7293826C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7293626C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift */; };
-		9FF7293926C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7293726C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib */; };
+		9FF00DD926C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF00DD726C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.swift */; };
+		9FF00DDA26C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF00DD826C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.xib */; };
 		9FF7294426C039FE002CFFC8 /* DeleteAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7294226C039FE002CFFC8 /* DeleteAccountTableViewCell.swift */; };
 		9FF7294526C039FE002CFFC8 /* DeleteAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF7294326C039FE002CFFC8 /* DeleteAccountTableViewCell.xib */; };
 		C45FB22626BD8C5900DFE4EF /* FavoriteCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */; };
@@ -200,8 +200,8 @@
 		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmailViewController.swift; sourceTree = "<group>"; };
 		9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetEmailViewController.xib; sourceTree = "<group>"; };
-		9FF7293626C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCocktailEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
-		9FF7293726C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCocktailEmptyCollectionViewCell.xib; sourceTree = "<group>"; };
+		9FF00DD726C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavoriteCocktailCollectionViewCell.swift; sourceTree = "<group>"; };
+		9FF00DD826C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyFavoriteCocktailCollectionViewCell.xib; sourceTree = "<group>"; };
 		9FF7294226C039FE002CFFC8 /* DeleteAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountTableViewCell.swift; sourceTree = "<group>"; };
 		9FF7294326C039FE002CFFC8 /* DeleteAccountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteAccountTableViewCell.xib; sourceTree = "<group>"; };
 		C45FB22526BD8C5900DFE4EF /* FavoriteCocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCocktail.swift; sourceTree = "<group>"; };
@@ -486,7 +486,7 @@
 				02E43C2526870305009B15CD /* FavoriteViewController.swift */,
 				0250C587269062E30076A273 /* FavoriteCocktailViewController.swift */,
 				9F4EEB8726B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.swift */,
-				9FF7293626C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift */,
+				9FF00DD726C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.swift */,
 				0250C5B92690666F0076A273 /* FavoriteStoreViewController.swift */,
 				02CBB8E026BE7B7100208CDC /* FavoriteStoreTableViewCell.swift */,
 			);
@@ -521,7 +521,7 @@
 				02E43C2626870305009B15CD /* FavoriteViewController.xib */,
 				0250C588269062E30076A273 /* FavoriteCocktailViewController.xib */,
 				9F4EEB8826B7D6DA0067E475 /* FavoriteCocktailCollectionViewCell.xib */,
-				9FF7293726C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib */,
+				9FF00DD826C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.xib */,
 				0250C5BA2690666F0076A273 /* FavoriteStoreViewController.xib */,
 				02CBB8E126BE7B7100208CDC /* FavoriteStoreTableViewCell.xib */,
 			);
@@ -737,7 +737,6 @@
 				023F866026A6F9DA0086EC4F /* CocktailDetailViewController.xib in Resources */,
 				02FEF4EE26AFDDFD0013F78D /* PlaceDetailViewController.xib in Resources */,
 				02454FF826860DA300558D3C /* Main.storyboard in Resources */,
-				9FF7293926C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.xib in Resources */,
 				0250C4C62690501F0076A273 /* OpenSourceTableViewCell.xib in Resources */,
 				9F1D616E26A16C0D006472A8 /* ForgotAndUpdatePasswordViewController.xib in Resources */,
 				D6908F5226A30C51004240AC /* SelectPageViewController.xib in Resources */,
@@ -748,6 +747,7 @@
 				D6908F5826A30CC4004240AC /* SelectBaseViewController.xib in Resources */,
 				02791B8426AC37CB000CC06F /* PlaceInfoTableViewCell.xib in Resources */,
 				02791B8C26AC37F5000CC06F /* PlacePicturesTableViewCell.xib in Resources */,
+				9FF00DDA26C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.xib in Resources */,
 				9F4C1AEC26C0DB6600A20792 /* ReAuthenticateUserViewController.xib in Resources */,
 				02E43C2826870305009B15CD /* FavoriteViewController.xib in Resources */,
 				D6908F5C26A31109004240AC /* SelectAlcholViewController.xib in Resources */,
@@ -920,6 +920,7 @@
 				024327CD269FC6DB00DC301C /* UserDefaultsManager.swift in Sources */,
 				02E43C1F2687028D009B15CD /* MapViewController.swift in Sources */,
 				9FAB5926269D88610077CD59 /* SignUpViewController.swift in Sources */,
+				9FF00DD926C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.swift in Sources */,
 				02A9374D26A51CD500ADA4CF /* SearchPlaceViewModel.swift in Sources */,
 				0250C4FB269056B40076A273 /* LogOutTableViewCell.swift in Sources */,
 				02454FF126860DA300558D3C /* AppDelegate.swift in Sources */,
@@ -931,7 +932,6 @@
 				D6908F5B26A31109004240AC /* SelectAlcholViewController.swift in Sources */,
 				9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */,
 				02E43C23268702A1009B15CD /* CocktailViewController.swift in Sources */,
-				9FF7293826C001A2002CFFC8 /* FavoriteCocktailEmptyCollectionViewCell.swift in Sources */,
 				D669C29226C01BB80043E51A /* NoResultTableViewCell.swift in Sources */,
 				9FAB591A269D87780077CD59 /* Extension+UIColor.swift in Sources */,
 				D6908F5726A30CC4004240AC /* SelectBaseViewController.swift in Sources */,
