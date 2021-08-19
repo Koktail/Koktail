@@ -194,6 +194,7 @@ class CocktailDetailViewController: UIViewController {
             do {
                 let json = try decoder.decode(CocktailLikeJson.self, from: data)
 //                print(json)
+                NotificationCenter.default.post(name: .updateFavoriteCocktail, object: nil)
                 
             } catch {
                 print("json 파싱 오류")
