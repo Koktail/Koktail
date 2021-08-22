@@ -80,7 +80,13 @@ class PlaceTitleTableViewCell: UITableViewCell {
                 placeDetail.result.name
             )
         ).first {
-            favorite.setImage(UIImage(named: "favorite"), for: .normal)
+            favorite.setImage(UIImage(named: "favorite")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            favorite.tintColor = UIColor(
+                red: 245/255,
+                green: 98/255,
+                blue: 90/255,
+                alpha: 1.0
+            )
             self.storeData = store
         } else {
             favorite.setImage(UIImage(named: "favorite_border"), for: .normal)
@@ -113,7 +119,13 @@ class PlaceTitleTableViewCell: UITableViewCell {
             
             self.storeData = store
             
-            favorite.setImage(UIImage(named: "favorite"), for: .normal)
+            favorite.setImage(UIImage(named: "favorite")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            favorite.tintColor = UIColor(
+                red: 245/255,
+                green: 98/255,
+                blue: 90/255,
+                alpha: 1.0
+            )
         }
     }
 }

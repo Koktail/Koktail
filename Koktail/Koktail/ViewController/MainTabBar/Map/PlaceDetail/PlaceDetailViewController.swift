@@ -73,6 +73,7 @@ class PlaceDetailViewController: UIViewController {
         placeDetailTable.dataSource = self
         placeDetailTable.separatorColor = UIColor.clear
         placeDetailTable.separatorStyle = .none
+        placeDetailTable.allowsSelection = false
         
         placeDetailTable.register(
             UINib(nibName: PlaceTitleTableViewCell.identifier, bundle: nil),
