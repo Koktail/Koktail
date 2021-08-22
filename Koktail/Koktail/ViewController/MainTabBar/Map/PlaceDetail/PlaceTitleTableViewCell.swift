@@ -8,6 +8,7 @@
 import UIKit
 import FloatRatingView
 import RealmSwift
+import SwiftEventBus
 
 class PlaceTitleTableViewCell: UITableViewCell {
     
@@ -127,5 +128,6 @@ class PlaceTitleTableViewCell: UITableViewCell {
                 alpha: 1.0
             )
         }
+        SwiftEventBus.post("changeStoreList")
     }
 }

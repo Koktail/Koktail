@@ -22,7 +22,7 @@ class PlaceDetailViewController: UIViewController {
         $0.clipsToBounds = true
     }
     
-    private let maxDimmedAlpha: CGFloat = 0.6
+    private let maxDimmedAlpha: CGFloat = 0.4
     private lazy var dimmedView = UIView().then {
         $0.backgroundColor = .black
         $0.alpha = maxDimmedAlpha
@@ -307,7 +307,7 @@ extension PlaceDetailViewController {
     }
     
     private func animateContainerHeight(_ height: CGFloat) {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.2) {
             self.containerViewHeightConstraint?.constant = height
             self.view.layoutIfNeeded()
         }

@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftEventBus
 
 class FavoriteStoreViewController: UIViewController {
     
@@ -29,8 +30,20 @@ class FavoriteStoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpEventBus()
         setTableView()
         loadRealm()
+    }
+    
+    // MARK: - set EventBus
+    private func setUpEventBus() {
+        SwiftEventBus.onBackgroundThread(self, name: "changeStoreList") { _ in
+            SwiftEventBus.postToMainThread("update")
+        }
+
+        SwiftEventBus.onMainThread(self, name: "update") { _ in
+            self.pullToRefresh()
+        }
     }
     
     // MARK: - Set Table View
