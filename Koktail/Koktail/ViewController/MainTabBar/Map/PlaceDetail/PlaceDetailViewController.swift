@@ -22,8 +22,8 @@ class PlaceDetailViewController: UIViewController {
         $0.clipsToBounds = true
     }
     
-    let maxDimmedAlpha: CGFloat = 0.6
-    lazy var dimmedView = UIView().then {
+    private let maxDimmedAlpha: CGFloat = 0.6
+    private lazy var dimmedView = UIView().then {
         $0.backgroundColor = .black
         $0.alpha = maxDimmedAlpha
     }
