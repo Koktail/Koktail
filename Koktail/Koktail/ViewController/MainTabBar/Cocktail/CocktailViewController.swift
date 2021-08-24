@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CocktailViewController: UIViewController {
     
@@ -56,53 +57,53 @@ class CocktailViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
-    func getCocktailList(type: String) {
-        guard let url = URL(string: "http://3.36.149.10:55670/api/cocktail/list?type=" + type) else {
-            print("url 변환 오류")
-            return
-        }
+    func getCocktailList(type: String){
         
-        var request = URLRequest.init(url: url)
-        request.httpMethod = "GET"
+        let url = "http://3.36.149.10:55670/api/cocktail/list?type=" + type
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["Content-Type":"application/json", "Accept":"application/json"])
+                .responseJSON {
+                    (response) in
+                    
+                    switch response.result {
+                    case .success:
+                        guard let result = response.data else {
+                            return
+                        }
+                        
+                        do {
+                            let decoder = JSONDecoder()
+                            let json = try decoder.decode(CocktailListJson.self, from: result)
+                            
+                            
+                            var cocktailCategoryList: [String:[CocktailInfo]] = [:]
+                            for category in json.data{
+                                cocktailCategoryList[category.value] = category.cocktailList
+                            }
+                            self.cocktailList = cocktailCategoryList
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                            
+                        } catch {
+                            print("decoding error")
+                        }
 
-        URLSession.shared.dataTask(with: request) { [self]
-            (data, response, error) in
-            
-            if error != nil {
-                print("http error")
-                return
+                    default:
+                        break
+                    }
             }
-            
-            guard let data = data else {
-                print("data is nil")
-                return
-            }
-
-            let decoder = JSONDecoder()
-            do{
-                let json = try decoder.decode(CocktailListJson.self, from: data)
-                
-                var cocktailListTemp: [String:[CocktailInfo]] = [:]
-                for category in json.data{
-                    cocktailListTemp[category.value] = category.cocktailList
-                }
-                
-                self.cocktailList = cocktailListTemp
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                
-            }catch{
-                print("json 파싱 오류")
-            }
-
-        }.resume()
     }
+
     
     private func setSegmentedControl(){
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)], for: .selected)
+        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: 246/255, green: 121/255, blue: 115/255, alpha: 1.0)], for: .selected)
         segmentedControl.backgroundColor = UIColor.clear
         segmentedControl.setBackgroundImage(UIImage.init(), for: .normal, barMetrics: .default)
         segmentedControl.setBackgroundImage(UIImage(named: "segmentedControlResource"), for: .selected, barMetrics: .default)
