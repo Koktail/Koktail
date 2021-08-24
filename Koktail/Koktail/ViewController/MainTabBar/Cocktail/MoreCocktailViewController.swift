@@ -48,7 +48,10 @@ extension MoreCocktailViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "moreCocktailTableViewCell", for: indexPath) as! MoreCocktailTableViewCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "moreCocktailTableViewCell",
+            for: indexPath
+        ) as! MoreCocktailTableViewCell
         
         cell.setTableViewCell(cocktails[indexPath.row])
         

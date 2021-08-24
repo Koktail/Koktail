@@ -72,9 +72,15 @@ extension CategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         return previews.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "previewCollectionViewCell", for: indexPath) as! PreviewCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "previewCollectionViewCell",
+            for: indexPath
+        ) as! PreviewCollectionViewCell
         
         cell.setCollectionViewCell(previews[indexPath.row])
         

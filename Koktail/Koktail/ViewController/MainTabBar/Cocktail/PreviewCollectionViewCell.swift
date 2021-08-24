@@ -29,7 +29,7 @@ class PreviewCollectionViewCell: UICollectionViewCell {
         self.view.layer.shadowRadius = 2
     }
     
-    public func setCollectionViewCell(_ cocktailInfo: CocktailInfo){
+    public func setCollectionViewCell(_ cocktailInfo: CocktailInfo) {
         
         self.cocktailNameLabel.text = cocktailInfo.name
         
@@ -51,7 +51,7 @@ class PreviewCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func setImgView(_ imgURL : String) {
+    private func setImgView(_ imgURL: String) {
         self.imageView.image = UIImage.init()
         guard let url = URL(string: imgURL) else {
             return
@@ -59,11 +59,8 @@ class PreviewCollectionViewCell: UICollectionViewCell {
         
         DispatchQueue.global().async {
             let data: Data?
-            do{
-                data = try? Data(contentsOf: url)
-            } catch {
-                return
-            }
+            data = try? Data(contentsOf: url)
+            
             DispatchQueue.main.async {
                 self.imageView.image = UIImage(data: data!)
             }

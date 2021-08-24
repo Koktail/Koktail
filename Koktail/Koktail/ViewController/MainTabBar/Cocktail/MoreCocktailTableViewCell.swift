@@ -47,18 +47,18 @@ class MoreCocktailTableViewCell: UITableViewCell {
         }
     }
     
-    private func setImgView(_ imgURL : String){
+    private func setImgView(_ imgURL: String) {
         guard let url = URL(string: imgURL) else {
             return
         }
         
-        do{
+        do {
             let data = try Data(contentsOf: url)
             
             DispatchQueue.main.async {
                 self.imgView.image = UIImage(data: data)
             }
-        }catch{
+        } catch {
             return
         }
     }
