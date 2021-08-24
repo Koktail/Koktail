@@ -30,11 +30,6 @@ class PreviewCollectionViewCell: UICollectionViewCell {
     }
     
     public func setCollectionViewCell(_ cocktailInfo: CocktailInfo){
-        if let imgURL = cocktailInfo.image{
-            setImgView(imgURL)
-        }else{
-            self.imageView.image = UIImage(named: "cocktail")
-        }
         
         self.cocktailNameLabel.text = cocktailInfo.name
         
@@ -48,21 +43,31 @@ class PreviewCollectionViewCell: UICollectionViewCell {
         default:
             break
         }
+        
+        if let imgURL = cocktailInfo.image {
+            setImgView(imgURL)
+        } else {
+            self.imageView.image = UIImage(named: "cocktail")
+        }
     }
     
-    private func setImgView(_ imgURL : String){
+    private func setImgView(_ imgURL : String) {
+        self.imageView.image = UIImage.init()
         guard let url = URL(string: imgURL) else {
             return
         }
         
-        do{
-            let data = try Data(contentsOf: url)
-            
-            DispatchQueue.main.async {
-                self.imageView.image = UIImage(data: data)
+        DispatchQueue.global().async {
+            let data: Data?
+            do{
+                data = try? Data(contentsOf: url)
+            } catch {
+                return
             }
-        }catch{
-            return
+            DispatchQueue.main.async {
+                self.imageView.image = UIImage(data: data!)
+            }
         }
+        
     }
 }

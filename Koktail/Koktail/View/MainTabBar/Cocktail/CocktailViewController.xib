@@ -22,14 +22,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kBE-dy-zQQ">
-                    <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                    <rect key="frame" x="0.0" y="130" width="414" height="732"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNn-Nv-STQ">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNn-Nv-STQ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                     <subviews>
                         <segmentedControl autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pva-fH-pGv">
-                            <rect key="frame" x="0.0" y="60" width="414" height="41"/>
+                            <rect key="frame" x="0.0" y="90" width="414" height="41"/>
                             <color key="backgroundColor" red="0.96470588239999999" green="0.47450980390000003" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="q5Y-gm-q4K"/>
@@ -45,13 +45,22 @@
                                 <action selector="changeSegmentAction:" destination="-1" eventType="valueChanged" id="xw2-38-JVb"/>
                             </connections>
                         </segmentedControl>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="칵테일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bM-st-B1M">
+                            <rect key="frame" x="40" y="60" width="334" height="20"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.96470588239999999" green="0.47450980390000003" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.96470588235294119" green="0.47450980392156861" blue="0.45098039215686275" alpha="0.8008882705479452" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="Pva-fH-pGv" firstAttribute="leading" secondItem="CNn-Nv-STQ" secondAttribute="leading" id="8EM-Tn-7pC"/>
-                        <constraint firstAttribute="height" constant="100" id="Mcq-84-m4w"/>
                         <constraint firstAttribute="bottom" secondItem="Pva-fH-pGv" secondAttribute="bottom" id="NiE-NV-Kht"/>
+                        <constraint firstItem="6bM-st-B1M" firstAttribute="leading" secondItem="CNn-Nv-STQ" secondAttribute="leading" constant="40" id="Pg8-na-Vuw"/>
+                        <constraint firstItem="6bM-st-B1M" firstAttribute="top" secondItem="CNn-Nv-STQ" secondAttribute="top" constant="60" id="RS4-VQ-SY9"/>
                         <constraint firstAttribute="trailing" secondItem="Pva-fH-pGv" secondAttribute="trailing" id="VLU-dC-ruY"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="130" id="bG2-s1-DXf"/>
+                        <constraint firstAttribute="height" constant="130" id="iew-hW-M6a"/>
+                        <constraint firstAttribute="trailing" secondItem="6bM-st-B1M" secondAttribute="trailing" constant="40" id="mt7-op-WBX"/>
                     </constraints>
                 </view>
             </subviews>
