@@ -18,10 +18,11 @@ class HomeViewController: UIViewController {
     let semaphore = DispatchSemaphore(value: 0)
     var todayCocktailName: String?
     var todayCocktailId: Int?
-    var todayCocktailAlcohol :String?
+    var todayCocktailAlcohol: String?
     
     @IBOutlet weak var recommendBtn: UIButton!
     @IBOutlet weak var todayCocktail: UIImageView!
+    @IBOutlet weak var todayCocktailLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Override Method
@@ -40,10 +41,6 @@ class HomeViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.collectionView.reloadData()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         setRightNavigationButton()
@@ -58,7 +55,7 @@ class HomeViewController: UIViewController {
             target: self,
             action: #selector(barButtonTap(sender:))
         )
-        settingButtonItem.tintColor = UIColor.black
+        settingButtonItem.tintColor = UIColor.white
         navigationItem.rightBarButtonItem = settingButtonItem
     }
     
@@ -86,6 +83,8 @@ class HomeViewController: UIViewController {
                         let json = JSON(value)
                         self.todayCocktailId = json["data"]["todayCocktail"]["cocktailId"].int
                         self.todayCocktailName = json["data"]["todayCocktail"]["name"].string
+                        self.todayCocktailLabel.text =
+                            json["data"]["todayCocktail"]["name"].string
                         self.todayCocktailAlcohol = json["data"]["todayCocktail"]["alcohol"].string
                         if let todayImage = json["data"]["todayCocktail"]["image"].string {
                             OperationQueue().addOperation {
@@ -160,7 +159,6 @@ class HomeViewController: UIViewController {
         self.todayCocktail.isUserInteractionEnabled = true
         let event = UITapGestureRecognizer(target: self, action: #selector(self.touchToPickPhoto))
         self.todayCocktail.addGestureRecognizer(event)
-        
     }
     
     @objc func touchToPickPhoto() {

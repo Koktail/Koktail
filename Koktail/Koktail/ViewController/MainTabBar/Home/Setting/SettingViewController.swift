@@ -28,7 +28,7 @@ class SettingViewController: UIViewController {
     // MARK: - Set Navigation
     private func setNavigation() {
         guard let navigation = self.navigationController else { return }
-        navigation.navigationBar.tintColor = .black
+        navigation.navigationBar.tintColor = .white
         navigation.interactivePopGestureRecognizer?.delegate = nil
         navigationItem.title = "환경설정"
     }
