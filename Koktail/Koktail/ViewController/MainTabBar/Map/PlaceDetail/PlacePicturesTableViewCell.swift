@@ -38,7 +38,10 @@ extension PlacePicturesTableViewCell: UICollectionViewDelegate, UICollectionView
         return 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         return UICollectionViewCell()
     }
 }

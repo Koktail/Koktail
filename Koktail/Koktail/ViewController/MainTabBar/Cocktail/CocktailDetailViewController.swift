@@ -47,7 +47,7 @@ class CocktailDetailViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
-    func getCocktailDetail(){
+    func getCocktailDetail() {
         
         let url = "http://3.36.149.10:55670/api/cocktail/get/\( cocktailInfo!.cocktailId)"
         
@@ -55,7 +55,11 @@ class CocktailDetailViewController: UIViewController {
                    method: .get,
                    parameters: nil,
                    encoding: URLEncoding.default,
-                   headers: ["Content-Type": "application/json",  "Accept": "application/json", "Authorization": UserDefaultsManager.token])
+                   headers: [
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": UserDefaultsManager.token
+                   ])
                 .responseJSON {(response) in
                     
                     switch response.result {
@@ -166,14 +170,15 @@ class CocktailDetailViewController: UIViewController {
         
         AF.request(url,
                    method: .post,
-                   parameters: params,
+                   parameters: params as Parameters,
                    encoding: URLEncoding.default,
-                   headers: ["Content-Type": "application/json",  "Accept": "application/json", "Authorization": UserDefaultsManager.token])
-                .responseJSON {
-                    (response) in
-                    
-                    NotificationCenter.default.post(name: .updateFavoriteCocktail, object: nil)
-
+                   headers: [
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": UserDefaultsManager.token
+                   ])
+            .responseJSON { _ in
+                NotificationCenter.default.post(name: .updateFavoriteCocktail, object: nil)
             }
     }
 }

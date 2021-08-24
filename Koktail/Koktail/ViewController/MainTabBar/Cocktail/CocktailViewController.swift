@@ -11,7 +11,7 @@ import Alamofire
 class CocktailViewController: UIViewController {
     
     // MARK: - Properties
-    private var cocktailList:[String:[CocktailInfo]] = [:]
+    private var cocktailList: [String: [CocktailInfo]] = [:]
     
     // MARK: - Outlets
     @IBOutlet weak var topSubView: UIView!
@@ -57,7 +57,7 @@ class CocktailViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
-    func getCocktailList(type: String){
+    func getCocktailList(type: String) {
         
         let url = "http://3.36.149.10:55670/api/cocktail/list?type=" + type
         
@@ -65,10 +65,8 @@ class CocktailViewController: UIViewController {
                    method: .get,
                    parameters: nil,
                    encoding: URLEncoding.default,
-                   headers: ["Content-Type":"application/json", "Accept":"application/json"])
-                .responseJSON {
-                    (response) in
-                    
+                   headers: ["Content-Type": "application/json", "Accept": "application/json"])
+                .responseJSON { (response) in
                     switch response.result {
                     case .success:
                         guard let result = response.data else {
@@ -79,9 +77,8 @@ class CocktailViewController: UIViewController {
                             let decoder = JSONDecoder()
                             let json = try decoder.decode(CocktailListJson.self, from: result)
                             
-                            
-                            var cocktailCategoryList: [String:[CocktailInfo]] = [:]
-                            for category in json.data{
+                            var cocktailCategoryList: [String: [CocktailInfo]] = [:]
+                            for category in json.data {
                                 cocktailCategoryList[category.value] = category.cocktailList
                             }
                             self.cocktailList = cocktailCategoryList
@@ -100,14 +97,30 @@ class CocktailViewController: UIViewController {
             }
     }
 
-    
-    private func setSegmentedControl(){
+    private func setSegmentedControl() {
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: 246/255, green: 121/255, blue: 115/255, alpha: 1.0)], for: .selected)
+        segmentedControl.setTitleTextAttributes(
+            [.foregroundColor: UIColor(
+                red: 246/255,
+                green: 121/255,
+                blue: 115/255,
+                alpha: 1.0
+            )],
+            for: .selected
+        )
         segmentedControl.backgroundColor = UIColor.clear
         segmentedControl.setBackgroundImage(UIImage.init(), for: .normal, barMetrics: .default)
-        segmentedControl.setBackgroundImage(UIImage(named: "segmentedControlResource"), for: .selected, barMetrics: .default)
-        segmentedControl.setDividerImage(UIImage.init(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        segmentedControl.setBackgroundImage(
+            UIImage(named: "segmentedControlResource"),
+            for: .selected,
+            barMetrics: .default
+        )
+        segmentedControl.setDividerImage(
+            UIImage.init(),
+            forLeftSegmentState: .normal,
+            rightSegmentState: .normal,
+            barMetrics: .default
+        )
         segmentedControl.addShadow(offset: CGSize(width: 0, height: 0), color: .clear, opacity: 0.0, radius: 0)
     }
 }

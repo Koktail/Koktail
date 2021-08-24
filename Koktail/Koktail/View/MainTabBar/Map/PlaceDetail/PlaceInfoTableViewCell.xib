@@ -53,7 +53,7 @@
                             <constraint firstAttribute="height" constant="30" id="oDv-Mb-kbR"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="사이트" translatesAutoresizingMaskIntoConstraints="NO" id="8SJ-S4-bzJ">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="사이트" translatesAutoresizingMaskIntoConstraints="NO" id="8SJ-S4-bzJ">
                         <rect key="frame" x="53" y="54.5" width="251" height="41"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -62,7 +62,6 @@
                         <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
                     </textView>
                 </subviews>
                 <constraints>
