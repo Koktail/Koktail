@@ -18,7 +18,7 @@ target 'Koktail' do
   pod 'FloatRatingView'
   pod 'Kingfisher'
   pod 'RealmSwift' 
-
+  pod 'SwiftEventBus'
   # Pods for Koktail
   pod 'SkyFloatingLabelTextField', '~> 3.0'
  

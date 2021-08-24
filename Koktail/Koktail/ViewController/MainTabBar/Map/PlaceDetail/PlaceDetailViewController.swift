@@ -22,8 +22,8 @@ class PlaceDetailViewController: UIViewController {
         $0.clipsToBounds = true
     }
     
-    let maxDimmedAlpha: CGFloat = 0.6
-    lazy var dimmedView = UIView().then {
+    private let maxDimmedAlpha: CGFloat = 0.4
+    private lazy var dimmedView = UIView().then {
         $0.backgroundColor = .black
         $0.alpha = maxDimmedAlpha
     }
@@ -73,6 +73,7 @@ class PlaceDetailViewController: UIViewController {
         placeDetailTable.dataSource = self
         placeDetailTable.separatorColor = UIColor.clear
         placeDetailTable.separatorStyle = .none
+        placeDetailTable.allowsSelection = false
         
         placeDetailTable.register(
             UINib(nibName: PlaceTitleTableViewCell.identifier, bundle: nil),
@@ -234,31 +235,31 @@ extension PlaceDetailViewController {
     private func setupConstraints() {
         view.addSubview(dimmedView)
         view.addSubview(containerView)
-        dimmedView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
         containerView.addSubview(placeDetailTable)
-        placeDetailTable.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            // set dimmedView edges to superview
-            dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
-            dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            // set container static constraint (trailing & leading)
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            // content stackView
-            placeDetailTable.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
-            placeDetailTable.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
-            placeDetailTable.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            placeDetailTable.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20)
-        ])
-
+        dimmedView.snp.makeConstraints {
+            $0.top.equalTo(view.snp.top)
+            $0.bottom.equalTo(view.snp.bottom)
+            $0.leading.equalTo(view.snp.leading)
+            $0.trailing.equalTo(view.snp.trailing)
+        }
+        
+        containerView.snp.makeConstraints {
+            $0.leading.equalTo(view.snp.leading)
+            $0.trailing.equalTo(view.snp.trailing)
+        }
+        
+        placeDetailTable.snp.makeConstraints {
+            $0.top.equalTo(containerView.snp.top).offset(32)
+            $0.bottom.equalTo(containerView.snp.bottom).offset(-20)
+            $0.leading.equalTo(containerView.snp.leading).offset(20)
+            $0.trailing.equalTo(containerView.snp.trailing).offset(-20)
+        }
+        
         containerViewHeightConstraint = containerView.heightAnchor.constraint(
             equalToConstant: defaultHeight
         )
+        
         containerViewBottomConstraint = containerView.bottomAnchor.constraint(
             equalTo: view.bottomAnchor,
             constant: defaultHeight
@@ -280,7 +281,7 @@ extension PlaceDetailViewController {
     
     // MARK: Present and dismiss animation
     private func animatePresentContainer() {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.25) {
             self.containerViewBottomConstraint?.constant = 0
             self.view.layoutIfNeeded()
         }
@@ -306,7 +307,7 @@ extension PlaceDetailViewController {
     }
     
     private func animateContainerHeight(_ height: CGFloat) {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.2) {
             self.containerViewHeightConstraint?.constant = height
             self.view.layoutIfNeeded()
         }

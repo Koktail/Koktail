@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftEventBus
 
 class FavoriteStoreViewController: UIViewController {
     
@@ -29,8 +30,20 @@ class FavoriteStoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpEventBus()
         setTableView()
         loadRealm()
+    }
+    
+    // MARK: - set EventBus
+    private func setUpEventBus() {
+        SwiftEventBus.onBackgroundThread(self, name: "changeStoreList") { _ in
+            SwiftEventBus.postToMainThread("update")
+        }
+
+        SwiftEventBus.onMainThread(self, name: "update") { _ in
+            self.pullToRefresh()
+        }
     }
     
     // MARK: - Set Table View
@@ -46,7 +59,7 @@ class FavoriteStoreViewController: UIViewController {
         storeTableView.delegate = self
         storeTableView.dataSource = self
         storeTableView.tableFooterView = UIView()
-        storeTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        storeTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 30, right: 0)
         
         storeTableView.register(
             UINib(nibName: FavoriteStoreTableViewCell.identifier, bundle: nil),
