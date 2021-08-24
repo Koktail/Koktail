@@ -59,7 +59,7 @@ class FavoriteStoreViewController: UIViewController {
         storeTableView.delegate = self
         storeTableView.dataSource = self
         storeTableView.tableFooterView = UIView()
-        storeTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        storeTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 30, right: 0)
         
         storeTableView.register(
             UINib(nibName: FavoriteStoreTableViewCell.identifier, bundle: nil),
