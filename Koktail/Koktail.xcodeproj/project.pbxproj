@@ -86,6 +86,8 @@
 		9FAB592E269DC11D0077CD59 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */; };
 		9FB2455026A9A19900F6EA07 /* GetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */; };
 		9FB2455126A9A19900F6EA07 /* GetEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */; };
+		9FBCD1F926D4D17E0026674E /* FavoriteCocktailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBCD1F826D4D17E0026674E /* FavoriteCocktailViewModel.swift */; };
+		9FBCD1FB26D4DE840026674E /* CocktailNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBCD1FA26D4DE840026674E /* CocktailNetworkingManager.swift */; };
 		9FEC93E026CE545500B49533 /* Extension+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEC93DF26CE545500B49533 /* Extension+Notification.swift */; };
 		9FF00DD926C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF00DD726C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.swift */; };
 		9FF00DDA26C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF00DD826C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.xib */; };
@@ -203,6 +205,8 @@
 		9FAB592C269DC11D0077CD59 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		9FB2454E26A9A19900F6EA07 /* GetEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmailViewController.swift; sourceTree = "<group>"; };
 		9FB2454F26A9A19900F6EA07 /* GetEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetEmailViewController.xib; sourceTree = "<group>"; };
+		9FBCD1F826D4D17E0026674E /* FavoriteCocktailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCocktailViewModel.swift; sourceTree = "<group>"; };
+		9FBCD1FA26D4DE840026674E /* CocktailNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailNetworkingManager.swift; sourceTree = "<group>"; };
 		9FEC93DF26CE545500B49533 /* Extension+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Notification.swift"; sourceTree = "<group>"; };
 		9FF00DD726C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavoriteCocktailCollectionViewCell.swift; sourceTree = "<group>"; };
 		9FF00DD826C69F5500A798DB /* EmptyFavoriteCocktailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyFavoriteCocktailCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -377,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				02A9371926A510A900ADA4CF /* NetworkingManager.swift */,
+				9FBCD1FA26D4DE840026674E /* CocktailNetworkingManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 			children = (
 				02A9374C26A51CD500ADA4CF /* SearchPlaceViewModel.swift */,
 				02DD859726ADA2E6002A8105 /* PlaceDetailViewModel.swift */,
+				9FBCD1F826D4D17E0026674E /* FavoriteCocktailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -913,6 +919,7 @@
 				02CBB8E226BE7B7100208CDC /* FavoriteStoreTableViewCell.swift in Sources */,
 				9FF7294426C039FE002CFFC8 /* DeleteAccountTableViewCell.swift in Sources */,
 				026397292693277100D57975 /* UtilFunction.swift in Sources */,
+				9FBCD1FB26D4DE840026674E /* CocktailNetworkingManager.swift in Sources */,
 				02E43C3226870574009B15CD /* LoginViewController.swift in Sources */,
 				C489C4F326C2564800E95760 /* CocktailListDataModel.swift in Sources */,
 				9FAB5924269D88570077CD59 /* LoginPageViewController.swift in Sources */,
@@ -949,6 +956,7 @@
 				C489C4F926C2570000E95760 /* CocktailLikeDataModel.swift in Sources */,
 				0250C4C9269053D60076A273 /* VersionTableViewCell.swift in Sources */,
 				D6908F6B26A33022004240AC /* SelectDryViewController.swift in Sources */,
+				9FBCD1F926D4D17E0026674E /* FavoriteCocktailViewModel.swift in Sources */,
 				02FEF4ED26AFDDFD0013F78D /* PlaceDetailViewController.swift in Sources */,
 				D6908F7426A33318004240AC /* HeaderTableViewCell.swift in Sources */,
 				0250C589269062E30076A273 /* FavoriteCocktailViewController.swift in Sources */,

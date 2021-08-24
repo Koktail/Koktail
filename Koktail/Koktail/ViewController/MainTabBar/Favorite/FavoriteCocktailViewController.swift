@@ -7,21 +7,29 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class FavoriteCocktailViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var cocktailCollectionView: UICollectionView!
-    public var cocktails: [Cocktail] = []
+    
+    // data
+    private var cocktails: [Cocktail] = []
+    private var favoriteCocktailViewModel = FavoriteCocktailViewModel()
     
     // manage view
     private var isFirstViewLoaded: Bool = true
     private let indicator: UIRefreshControl = UIRefreshControl()
     public var navigation: UINavigationController?
     
+    // RxSwift
+    private var disposeBag = DisposeBag()
+    
     // MARK: - Actions
     @objc private func loadCocktails() {
-        getFavoriteCocktail()
+        // getFavoriteCocktail()
+        netFavoriteCocktailData()
     }
     
     // MARK: - Override Method
@@ -29,8 +37,11 @@ class FavoriteCocktailViewController: UIViewController {
         super.viewDidLoad()
         
         setNotificationObserver()
-        getFavoriteCocktail()
+        // getFavoriteCocktail()
         setCollectionView()
+        
+        bindNetworkingState()
+        netFavoriteCocktailData()
     }
     
     // MARK: - Set Collection View
@@ -77,7 +88,32 @@ class FavoriteCocktailViewController: UIViewController {
     }
         
     // MARK: - Networking
-    func getFavoriteCocktail() {
+    private func netFavoriteCocktailData() {
+        favoriteCocktailViewModel.request()
+    }
+    
+    private func bindNetworkingState() {
+        favoriteCocktailViewModel.state.success
+            .bind { favoriteCocktailResponse in
+                self.indicator.endRefreshing()
+                self.consumeSuccess(favoriteCocktailResponse)
+        }.disposed(by: disposeBag)
+        
+        favoriteCocktailViewModel.state.fail
+            .bind { _ in
+                self.indicator.endRefreshing()
+                print("ERROR: favorite cocktail cannot be loaded")
+        }.disposed(by: disposeBag)
+    }
+    
+    private func consumeSuccess(_ result: FavoriteCocktailAPIResponse) {
+        self.cocktails = result.favoriteCocktailList
+        self.cocktailCollectionView.reloadData()
+        
+        self.isFirstViewLoaded = false
+    }
+    
+    /*func getFavoriteCocktail() {
         guard let url = URL(string: "http://3.36.149.10:55670/api/cocktail/like") else {
             return
         }
@@ -116,7 +152,7 @@ class FavoriteCocktailViewController: UIViewController {
                 }
             }
         }.resume()
-    }
+    } */
 }
 
 // MARK: - Collection View
@@ -157,9 +193,8 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate,
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: EmptyFavoriteCocktailCollectionViewCell.identifier,
                     for: indexPath)
-                    as? EmptyFavoriteCocktailCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+                    as? EmptyFavoriteCocktailCollectionViewCell
+            else { return UICollectionViewCell() }
 
             cell.makeCell()
             return cell
@@ -178,6 +213,7 @@ extension FavoriteCocktailViewController: UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(self.cocktails)
         let cocktailDetailViewController = CocktailDetailViewController()
         let cocktailInformation: CocktailInfo = CocktailInfo(cocktailId: self.cocktails[indexPath.row].id,
                                                              image: self.cocktails[indexPath.row].image,
