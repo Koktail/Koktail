@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CocktailDetailViewController: UIViewController {
     
@@ -46,76 +47,70 @@ class CocktailDetailViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
-    private func getCocktailDetail() {
-        guard let url = URL(string:  "http://3.36.149.10:55670/api/cocktail/get/" + String(cocktailInfo!.cocktailId)) else {
-            print("url 변환 오류")
-            return
-        }
+    func getCocktailDetail(){
         
-        var request = URLRequest.init(url: url)
-        request.httpMethod = "GET"
-        request.addValue(UserDefaultsManager.token,
-                            forHTTPHeaderField: "Authorization")
-
-        URLSession.shared.dataTask(with: request) { [self]
-            (data, response, error) in
-            
-            if error != nil {
-                print(error)
-                return
-            }
-            
-            guard let data = data else {
-                print("data is nil")
-                return
-            }
-
-            let decoder = JSONDecoder()
-            do {
-                
-                let json = try decoder.decode(CocktailDetailJson.self, from: data)
-//                print(json)
-                
-                DispatchQueue.main.async {
-                    self.isLiked = json.data!.isLiked
-                    setNavigationButton()
+        let url = "http://3.36.149.10:55670/api/cocktail/get/\( cocktailInfo!.cocktailId)"
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["Content-Type": "application/json",  "Accept": "application/json", "Authorization": UserDefaultsManager.token])
+                .responseJSON {(response) in
                     
-                    if let imgURL = json.data?.image{
-                        setImgView(imgURL)
+                    switch response.result {
+                    case .success:
+                        guard let result = response.data else {
+                            return
+                        }
+                        
+                        do {
+                            let decoder = JSONDecoder()
+                            let json = try decoder.decode(CocktailDetailJson.self, from: result)
+                            
+                            DispatchQueue.main.async {
+                                self.isLiked = json.data!.isLiked
+                                self.setNavigationButton()
+                                
+                                if let imgURL = json.data?.image {
+                                    self.setImgView(imgURL)
+                                }
+                                
+                                self.descriptionLabel.text = json.data?.description
+                                self.alcoholDegreeLabel.text = json.data?.alcohol
+                                self.baseLabel.text = json.data?.base
+                                self.TagLabel.text = "#파티"
+                                
+                                self.setSliderValue(slider: self.sweetSlider, value: json.data!.sweet)
+                                self.setSliderValue(slider: self.sourSlider, value: json.data!.sour)
+                                self.setSliderValue(slider: self.bitterSlider, value: json.data!.bitter)
+                                self.setSliderValue(slider: self.drySlider, value: json.data!.dry)
+                                
+                                self.ingredientLabel.text = json.data?.material
+                                self.recipeLabel.text = json.data?.recipeList.joined(separator: "\n\n")
+                            }
+                        } catch {
+                            print("json 파싱 오류")
+                        }
+
+                    default:
+                        break
                     }
-                    
-                    self.descriptionLabel.text = json.data?.description
-                    self.alcoholDegreeLabel.text = json.data?.alcohol
-                    self.baseLabel.text = json.data?.base
-                    self.TagLabel.text = "#파티"
-                    
-                    setSliderValue(slider: sweetSlider, value: json.data!.sweet)
-                    setSliderValue(slider: sourSlider, value: json.data!.sour)
-                    setSliderValue(slider: bitterSlider, value: json.data!.bitter)
-                    setSliderValue(slider: drySlider, value: json.data!.dry)
-                    
-                    self.ingredientLabel.text = json.data?.material
-                    self.recipeLabel.text = json.data?.recipeList.joined(separator: "\n\n")
-                }
-            } catch {
-                print("json 파싱 오류")
             }
-
-        }.resume()
     }
     
-    private func setImgView(_ imgURL : String){
+    private func setImgView(_ imgURL: String) {
         guard let url = URL(string: imgURL) else {
             return
         }
         
-        do{
+        do {
             let data = try Data(contentsOf: url)
             
             DispatchQueue.main.async {
                 self.imageView.image = UIImage(data: data)
             }
-        }catch{
+        } catch {
             return
         }
     }
@@ -164,41 +159,18 @@ class CocktailDetailViewController: UIViewController {
     }
     
     private func postCocktailLike() {
-        guard let url = URL(string:  "http://3.36.149.10:55670/api/cocktail/like/" + String(cocktailInfo!.cocktailId)) else {
-            print("url 변환 오류")
-            return
-        }
         
-        let param = cocktailInfo?.name.data(using: .utf8)
+        let url = "http://3.36.149.10:55670/api/cocktail/like/\(cocktailInfo!.cocktailId)"
         
-        var request = URLRequest.init(url: url)
-        request.httpMethod = "POST"
-        request.addValue(UserDefaultsManager.token,
-                            forHTTPHeaderField: "Authorization")
-        request.httpBody = param
+        let params = ["name": cocktailInfo?.name.data(using: .utf8)]
         
-        URLSession.shared.dataTask(with: request) { [self]
-            (data, response, error) in
-            
-            if error != nil {
-                print(error)
-                return
+        AF.request(url,
+                   method: .post,
+                   parameters: params,
+                   encoding: URLEncoding.default,
+                   headers: ["Content-Type": "application/json",  "Accept": "application/json", "Authorization": UserDefaultsManager.token])
+                .responseJSON {
+                    (response) in
             }
-            
-            guard let data = data else {
-                print("data is nil")
-                return
-            }
-
-            let decoder = JSONDecoder()
-            do {
-                let json = try decoder.decode(CocktailLikeJson.self, from: data)
-//                print(json)
-                
-            } catch {
-                print("json 파싱 오류")
-            }
-
-        }.resume()
     }
 }
