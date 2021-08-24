@@ -36,6 +36,10 @@ class FavoriteViewController: UIViewController {
         items.append(storeView)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setNavigationBar()
+    }
+    
     // MARK: - Set Navigation
     private func setNavigationBar() {
         self.navigationItem.title = "찜목록"

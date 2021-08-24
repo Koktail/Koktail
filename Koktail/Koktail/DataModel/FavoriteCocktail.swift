@@ -5,28 +5,34 @@
 //  Created by 정연희 on 2021/08/03.
 //
 
-import Foundation
+import SwiftyJSON
 
-struct FavoriteCocktailAPIResponse: Codable {
+struct FavoriteCocktailAPIResponse {
     let code: Int
     let message: String
-    var favoriteCocktailList: [Cocktail]
+    var favoriteCocktailList = [Cocktail]()
     
-    enum CodingKeys: String, CodingKey {
-        case favoriteCocktailList = "data"
-        case code, message
+    init(_ json: JSON) {
+        code = json["code"].intValue
+        message = json["message"].stringValue
+        
+        if let array = json["data"].array {
+            favoriteCocktailList = array.map { Cocktail($0) }
+        }
     }
 }
 
-struct Cocktail: Codable {
+struct Cocktail {
     let id: UInt64
     var image: String?
     let name: String
     let alcohol: String
     
-    enum CodingKeys: String, CodingKey {
-        case id = "cocktailId"
-        case image, name, alcohol
+    init(_ json: JSON) {
+        id = json["cocktailId"].uInt64Value
+        image = json["image"].stringValue
+        name = json["name"].stringValue
+        alcohol = json["alcohol"].stringValue
     }
     
     var fullAlcohol: String {
