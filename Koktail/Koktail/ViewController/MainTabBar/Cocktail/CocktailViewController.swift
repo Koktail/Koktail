@@ -102,7 +102,7 @@ class CocktailViewController: UIViewController {
     
     private func setSegmentedControl(){
         segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: 245/255, green: 98/255, blue: 90/255, alpha: 1.0)], for: .selected)
+        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(red: 246/255, green: 121/255, blue: 115/255, alpha: 1.0)], for: .selected)
         segmentedControl.backgroundColor = UIColor.clear
         segmentedControl.setBackgroundImage(UIImage.init(), for: .normal, barMetrics: .default)
         segmentedControl.setBackgroundImage(UIImage(named: "segmentedControlResource"), for: .selected, barMetrics: .default)
