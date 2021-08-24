@@ -171,6 +171,9 @@ class CocktailDetailViewController: UIViewController {
                    headers: ["Content-Type": "application/json",  "Accept": "application/json", "Authorization": UserDefaultsManager.token])
                 .responseJSON {
                     (response) in
+                    
+                    NotificationCenter.default.post(name: .updateFavoriteCocktail, object: nil)
+
             }
     }
 }
