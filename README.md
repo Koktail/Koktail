@@ -22,7 +22,7 @@ https://perfect-purchase-57a.notion.site/API-d512a4a6daf0428f90e393a17c03e1aa
 - SwiftLint를 사용한 코딩 컨벤션
 - Figma, 카카오 오븐을 활용한 디자인
 - Slack을 활용하여 Github 연동 및 Notion을 활용한 테스크 관리
-- Firebase Auth를 사용한 회원가입과 회원탈퇴 맟 로그인과 로그아웃 구현
+- Firebase Auth를 사용한 회원가입과 회원탈퇴 및 로그인과 로그아웃 구현
 - 카카오와 애플 소셜 로그인 구현
 - Table View, Collection View를 사용한 화면 구현
 - API 명세서 작성 및 groom 서버를 사용하여 통신
